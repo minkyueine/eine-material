@@ -148,6 +148,31 @@
 
         #headerUser { align-items: center; gap: 0.75rem; }
 
+        /* ── 필터/내비게이션 바 ── */
+        .filter-bar { position: sticky; top: 3.75rem; z-index: 90; background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 0.625rem 1.5rem; display: flex; align-items: center; gap: 0.75rem; margin: -2.5rem -1.5rem 2rem; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
+        .filter-tabs { display: flex; gap: 0.35rem; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; flex: 1; min-width: 0; }
+        .filter-tabs::-webkit-scrollbar { display: none; }
+        .filter-tab { padding: 0.4rem 0.875rem; border-radius: 100px; font-size: 0.78rem; font-weight: 700; color: var(--s500); background: var(--s50); border: 1.5px solid var(--s200); white-space: nowrap; transition: all 0.15s; cursor: pointer; flex-shrink: 0; }
+        .filter-tab:hover { border-color: var(--s400); color: var(--s700); }
+        .filter-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+        .filter-search { position: relative; flex-shrink: 0; }
+        .filter-search input { padding: 0.4rem 0.75rem 0.4rem 1.9rem; border: 1.5px solid var(--s200); border-radius: 100px; font-size: 0.78rem; font-family: inherit; outline: none; width: 150px; background: var(--s50); transition: border-color 0.2s, width 0.25s; }
+        .filter-search input:focus { border-color: var(--red); width: 190px; background: #fff; }
+        .filter-search-icon { position: absolute; left: 0.625rem; top: 50%; transform: translateY(-50%); font-size: 0.75rem; color: var(--s400); pointer-events: none; }
+        .no-results { text-align: center; padding: 3rem 1rem; color: var(--s400); font-size: 0.9rem; display: none; }
+        .no-results__icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+
+        /* ── 접기/펼치기 토글 ── */
+        .book-card__toggle { display: none; width: 100%; padding: 0.55rem; text-align: center; font-size: 0.78rem; font-weight: 600; color: var(--s400); background: var(--s50); border: 1px solid var(--s100); border-radius: 0.5rem; cursor: pointer; transition: all 0.15s; margin-bottom: 0.5rem; }
+        .book-card__toggle:hover { color: var(--s600); background: var(--s100); }
+        .book-card__toggle .arrow { transition: transform 0.2s; display: inline-block; }
+        .book-card.is-open .book-card__toggle .arrow { transform: rotate(180deg); }
+
+        /* ── 위로 가기 버튼 ── */
+        .back-to-top { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 2.75rem; height: 2.75rem; background: var(--navy); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; box-shadow: 0 4px 16px rgba(30,58,138,0.3); cursor: pointer; z-index: 200; transition: transform 0.2s, opacity 0.3s; opacity: 0; pointer-events: none; }
+        .back-to-top.visible { opacity: 1; pointer-events: auto; }
+        .back-to-top:hover { transform: scale(1.1); }
+
         /* ── 태블릿 (768px 이하) ── */
         @media (max-width: 768px) {
             .header { padding: 0 1rem; }
@@ -164,6 +189,17 @@
             .admin-modal { max-width: 90vw; padding: 1.5rem 1.25rem; }
             .form-row { grid-template-columns: 1fr; }
             .acct-list { max-height: 180px; }
+
+            /* 필터바 */
+            .filter-bar { margin: -2rem -1rem 1.5rem; padding: 0.5rem 1rem; flex-direction: column; align-items: stretch; gap: 0.5rem; top: 3.75rem; }
+            .filter-search input { width: 100%; }
+
+            /* 접기/펼치기 활성화 */
+            .book-card__toggle { display: block; }
+            .book-card .lesson-table { display: none; }
+            .book-card .book-card__divider { display: none; }
+            .book-card.is-open .lesson-table { display: table; }
+            .book-card.is-open .book-card__divider { display: block; }
         }
 
         /* ── 모바일 (480px 이하) ── */
@@ -215,13 +251,21 @@
 
             .demo-btns { gap: 0.375rem; }
             .demo-btn { padding: 0.4rem 0.875rem; font-size: 0.75rem; }
+
+            /* 필터바 모바일 */
+            .filter-bar { margin: -1.5rem -0.75rem 1.25rem; padding: 0.5rem 0.75rem; top: 3.25rem; }
+            .filter-tab { padding: 0.35rem 0.75rem; font-size: 0.72rem; }
+            .filter-search input { font-size: 0.75rem; padding: 0.38rem 0.625rem 0.38rem 1.7rem; }
+            .filter-search-icon { font-size: 0.65rem; left: 0.55rem; }
+            .back-to-top { bottom: 1rem; right: 1rem; width: 2.5rem; height: 2.5rem; font-size: 1rem; }
         }
 
         /* ── 터치 디바이스 최적화 ── */
         @media (hover: none) and (pointer: coarse) {
             .lesson-btn { min-height: 2.2rem; }
-            .btn-sm, .btn-primary, .btn-admin, .demo-btn { min-height: 2.5rem; }
+            .btn-sm, .btn-primary, .btn-admin, .demo-btn, .filter-tab { min-height: 2.2rem; }
             .acct-row__del { width: 2rem; height: 2rem; font-size: 0.85rem; }
+            .book-card__toggle { min-height: 2.5rem; font-size: 0.82rem; }
         }
     </style>
 </head>
@@ -289,8 +333,24 @@
         </button>
     </div>
 
+    <!-- 필터/내비게이션 바 -->
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-tabs" id="filterTabs"></div>
+        <div class="filter-search">
+            <span class="filter-search-icon">🔍</span>
+            <input type="text" id="bookSearch" placeholder="교재 검색..." oninput="searchBooks(this.value)">
+        </div>
+    </div>
+
     <div id="seriesContainer"></div>
+    <div class="no-results" id="noResults">
+        <div class="no-results__icon">📭</div>
+        <p>검색 결과가 없습니다</p>
+    </div>
 </main>
+
+<!-- 위로 가기 버튼 -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- 계정 관리 모달 -->
 <div id="adminModal" class="modal-overlay" onclick="closeAdminModal(event)">
@@ -431,12 +491,12 @@
     // ── 렌더링 ────────────────────────────────────────────
     function renderSeries() {
         const container = document.getElementById('seriesContainer');
-        container.innerHTML = SERIES.map(s => {
+        container.innerHTML = SERIES.map((s, idx) => {
             const readyCount = s.books.filter(b => b.ready).length;
             const bgColor = s.color + '18';
             const textColor = s.color;
             return `
-            <div class="series-group">
+            <div class="series-group" data-series="${idx}">
                 <div class="series-header">
                     <span class="series-pill" style="background:${bgColor};color:${textColor};">
                         <span class="series-pill-dot" style="background:${textColor};"></span>
@@ -449,12 +509,13 @@
                 </div>
             </div>`;
         }).join('');
+        renderFilterTabs();
     }
 
     function bookCard(b, color) {
         if (!b.ready) {
             return `
-            <div class="book-card book-card--coming">
+            <div class="book-card book-card--coming" data-title="${b.title.toLowerCase()}">
                 <div class="book-card__cover" style="background:linear-gradient(145deg,${color}15,${color}28);">
                     <span>${b.emoji}</span>
                     <span class="coming-badge">준비중</span>
@@ -481,13 +542,16 @@
         }).join('');
 
         return `
-        <div class="book-card">
+        <div class="book-card" data-title="${b.title.toLowerCase()}">
             <div class="book-card__cover" style="background:linear-gradient(145deg,${color}20,${color}40);">
                 <span>${b.emoji}</span>
             </div>
             <div class="book-card__body">
                 <p class="book-card__title">${b.title}</p>
                 <p class="book-card__meta">${b.weeks * LESSONS_PER_WEEK}레슨 · ${b.weeks}주 과정</p>
+                <button class="book-card__toggle" onclick="toggleLessons(this)">
+                    레슨 보기 <span class="arrow">▼</span>
+                </button>
                 <div class="book-card__divider"></div>
                 <table class="lesson-table"><tbody>${rows}</tbody></table>
             </div>
@@ -638,6 +702,72 @@
         if (e && e.target !== document.getElementById('loginModal')) return;
         document.getElementById('loginModal').classList.remove('is-open');
     }
+
+    // ── 필터 탭 ─────────────────────────────────────────
+    function renderFilterTabs() {
+        const tabs = document.getElementById('filterTabs');
+        if (!tabs) return;
+        tabs.innerHTML = `<button class="filter-tab active" onclick="filterSeries('all', this)">전체</button>` +
+            SERIES.map((s, i) =>
+                `<button class="filter-tab" onclick="filterSeries('${i}', this)">${s.name}</button>`
+            ).join('');
+    }
+
+    function filterSeries(idx, btn) {
+        // 탭 활성화
+        document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+        btn.classList.add('active');
+        // 시리즈 필터
+        document.querySelectorAll('.series-group').forEach(g => {
+            g.style.display = (idx === 'all' || g.dataset.series === String(idx)) ? '' : 'none';
+        });
+        // 검색 초기화
+        document.getElementById('bookSearch').value = '';
+        document.querySelectorAll('.book-card').forEach(c => c.style.display = '');
+        document.getElementById('noResults').style.display = 'none';
+    }
+
+    // ── 교재 검색 ───────────────────────────────────────
+    function searchBooks(query) {
+        const q = query.toLowerCase().trim();
+        // 검색 시 시리즈 필터를 "전체"로 초기화
+        document.querySelectorAll('.filter-tab').forEach((t, i) => {
+            t.classList.toggle('active', i === 0);
+        });
+        document.querySelectorAll('.series-group').forEach(g => g.style.display = '');
+
+        if (!q) {
+            document.querySelectorAll('.book-card').forEach(c => c.style.display = '');
+            document.getElementById('noResults').style.display = 'none';
+            return;
+        }
+
+        let found = 0;
+        document.querySelectorAll('.book-card').forEach(card => {
+            const match = card.dataset.title && card.dataset.title.includes(q);
+            card.style.display = match ? '' : 'none';
+            if (match) found++;
+        });
+        // 빈 시리즈 그룹 숨기기
+        document.querySelectorAll('.series-group').forEach(g => {
+            const visible = [...g.querySelectorAll('.book-card')].some(c => c.style.display !== 'none');
+            g.style.display = visible ? '' : 'none';
+        });
+        document.getElementById('noResults').style.display = found === 0 ? 'block' : 'none';
+    }
+
+    // ── 레슨 접기/펼치기 ────────────────────────────────
+    function toggleLessons(btn) {
+        const card = btn.closest('.book-card');
+        card.classList.toggle('is-open');
+        btn.querySelector('.arrow').textContent = card.classList.contains('is-open') ? '▲' : '▼';
+    }
+
+    // ── 위로 가기 버튼 ──────────────────────────────────
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('backToTop');
+        if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
 </script>
 </body>
 </html>
