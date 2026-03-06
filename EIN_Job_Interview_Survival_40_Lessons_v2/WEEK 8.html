@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아인잉글리쉬 EIN Job Interview Survival - Week 8</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-emerald: #059669;
+            --bg-light-blue: #eff6ff;
+            --text-gray: #4b5563;
+            --translation-gray: #9ca3af;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            background-color: white;
+            width: 210mm;
+            min-height: 297mm;
+            height: auto;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+            padding-bottom: 35mm;
+        }
+
+        .header-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-navy), var(--secondary-emerald));
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-left: 4px solid var(--secondary-emerald);
+            padding-left: 12px;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .translation {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--translation-gray);
+            font-weight: 400;
+            margin-top: 2px;
+            line-height: 1.2;
+        }
+
+        .key-box {
+            background-color: var(--bg-light-blue);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dialogue-bubble {
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            max-width: 90%;
+            font-size: 0.95rem;
+        }
+
+        .tutor-bubble {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-navy);
+            margin-right: auto;
+        }
+
+        .student-bubble {
+            background-color: #ecfdf5;
+            border-right: 4px solid var(--secondary-emerald);
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .roleplay-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .roleplay-table td {
+            padding: 15px;
+            border: 1px solid #dbeafe;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        @media print {
+            body { background-color: white; }
+            .page { margin: 0; box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LESSON 36: Mock Interview 1 -->
+    <div class="page" id="lesson36-p1">
+        <div class="header-line"></div>
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 8 : LESSON 36</span>
+                <h2 class="text-3xl font-bold text-blue-900">Mock Interview 1: Introduction and Fit <span class="translation">모의 면접 1: 자기소개와 적합성</span></h2>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600 italic">Today's Goal <span class="translation">오늘의 목표</span></p>
+                <p class="text-xs text-gray-500">Practice opening questions and company fit.<br>자기소개, 배경 및 회사 적합성에 관한 기초 질문 연습하기</p>
+            </div>
+        </div>
+
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>Which opening interview question feels easiest for you? <span class="translation">면접 시작 질문 중 어떤 것이 가장 쉽게 느껴지나요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What helps you sound natural in a mock interview? <span class="translation">모의 면접에서 어떻게 하면 자연스럽게 말할 수 있을까요?</span></div>
+            </li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="space-y-4">
+            <div class="key-box">
+                <p class="text-blue-900 font-bold mb-3 text-sm border-b border-blue-200 pb-1">Core Expressions <span class="text-xs font-normal">(필수 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• Thank you for meeting with me today. <span class="translation">오늘 저를 만나 주셔서 감사합니다.</span></li>
+                    <li>• I have a background in [Field]. <span class="translation">저는 [분야]에 대한 경력/배경을 가지고 있습니다.</span></li>
+                    <li>• I believe I would be a good fit because... <span class="translation">제가 적임자라고 믿는 이유는 ~입니다.</span></li>
+                    <li>• I'm excited to learn more about the role. <span class="translation">이 직무에 대해 더 자세히 알게 되어 기대됩니다.</span></li>
+                </ul>
+            </div>
+            <div class="key-box border-l-4 border-emerald-500">
+                <p class="text-emerald-700 font-bold mb-3 text-sm border-b border-emerald-100 pb-1">Upgrade Your English <span class="text-xs font-normal">(심화 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• I'm excited about the chance to contribute. <span class="translation">기여할 수 있는 기회를 갖게 되어 설렙니다.</span></li>
+                    <li>• My experience has prepared me well for this role. <span class="translation">저의 경험은 이 직무를 위해 저를 충분히 준비시켰습니다.</span></li>
+                    <li>• Thank you for your time and consideration. <span class="translation">귀한 시간 내주시고 고려해 주셔서 감사합니다.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 36: PAGE 2 -->
+    <div class="page" id="lesson36-p2">
+        <div class="header-line"></div>
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="space-y-4 bg-gray-50 p-6 rounded-xl">
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> Could you introduce yourself briefly? <span class="translation">간단하게 자기소개해 주시겠어요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> Sure. I have a background in retail and customer service. <span class="translation">네. 소매업과 고객 서비스 분야의 경력을 가지고 있습니다.</span>
+            </div>
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> Why are you interested in this company? <span class="translation">왜 우리 회사에 관심을 갖게 되었나요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> I'm interested because your company values strong service and teamwork. <span class="translation">귀사가 강력한 서비스와 팀워크를 중시하기 때문에 관심이 생겼습니다.</span>
+            </div>
+        </div>
+
+        <div class="section-title">Role-play <span class="translation">상황극 연습</span></div>
+        <table class="roleplay-table text-sm">
+            <tr class="bg-blue-900 text-white font-bold">
+                <td class="w-1/3">Tutor's Question</td>
+                <td>Student's Answer Hint</td>
+            </tr>
+            <tr>
+                <td class="font-medium">"Could you introduce yourself briefly?"</td>
+                <td>My name is... I have a background in... and I'm looking for...</td>
+            </tr>
+            <tr>
+                <td class="font-medium">"Why would you be a good fit?"</td>
+                <td>I believe I'm a good fit because I am reliable and [Trait]...</td>
+            </tr>
+        </table>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 37: Experience and Skills -->
+    <div class="page" id="lesson37">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 8 : LESSON 37</span>
+        <h2 class="text-3xl font-bold text-blue-900">Mock Interview 2: Experience and Skills <span class="translation">모의 면접 2: 경력과 기술</span></h2>
+        
+        <div class="section-title">Goal: Experience Flow <span class="translation">경력 중심 답변 흐름</span></div>
+        <div class="key-box">
+            <ul class="space-y-4 text-sm">
+                <li>• I worked as a [Role] at [Company]. <span class="translation">저는 [회사]에서 [직무]로 근무했습니다.</span></li>
+                <li>• One of my strengths is [Strength]. <span class="translation">저의 강점 중 하나는 [강점]입니다.</span></li>
+                <li>• One key achievement was [Achievement]. <span class="translation">주요 성과 중 하나는 [성과]였습니다.</span></li>
+                <li>• I can apply those skills in this role. <span class="translation">저는 그 기술들을 이 직무에 적용할 수 있습니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-gray-50 rounded-xl space-y-4">
+            <p class="text-sm"><b>Tutor:</b> Tell me about your previous experience. <br><span class="translation text-xs">이전 경력에 대해 말씀해 주세요.</span></p>
+            <p class="text-sm"><b>Student:</b> I worked as a store assistant for two years. One of my strengths is communication, especially with customers. I helped increase repeat customers by providing friendly service. <br><span class="translation text-xs">매장 어시스턴트로 2년 동안 근무했습니다. 저의 강점 중 하나는 소통 능력, 특히 고객과의 소통입니다. 친절한 서비스를 제공하여 단골 고객을 늘리는 데 기여했습니다.</span></p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 38: Difficult Questions -->
+    <div class="page" id="lesson38">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 8 : LESSON 38</span>
+        <h2 class="text-3xl font-bold text-blue-900">Mock Interview 3: Difficult Questions <span class="translation">모의 면접 3: 까다로운 질문</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box border-l-4 border-emerald-500">
+            <ul class="space-y-4 text-sm font-medium">
+                <li>• One of my weaknesses is [Weakness]. <span class="translation">저의 약점 중 하나는 [약점]입니다.</span></li>
+                <li>• I learned a lot from that situation. <span class="translation">그 상황을 통해 많은 것을 배웠습니다.</span></li>
+                <li>• I stay calm and focus on solutions. <span class="translation">저는 침착함을 유지하며 해결책에 집중합니다.</span></li>
+                <li>• I'm open to discussion about salary. <span class="translation">연봉에 대해서는 논의의 여지가 있습니다.</span></li>
+                <li>• I try to answer honestly and professionally. <span class="translation">솔직하고 전문적으로 답변하려고 노력합니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Role-play <span class="translation">상황극 연습</span></div>
+        <table class="roleplay-table text-sm">
+            <tr class="bg-blue-900 text-white font-bold">
+                <td class="w-1/3">Question Topic</td>
+                <td>Student's Response Strategy</td>
+            </tr>
+            <tr>
+                <td class="font-medium">Weakness (약점)</td>
+                <td>State a real weakness + How you are improving it.</td>
+            </tr>
+            <tr>
+                <td class="font-medium">Conflict (갈등)</td>
+                <td>Listen carefully + Discuss calmly + Solve problem.</td>
+            </tr>
+            <tr>
+                <td class="font-medium">Salary (연봉)</td>
+                <td>Based on experience + Flexible depending on package.</td>
+            </tr>
+        </table>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 39: Thank-you Email -->
+    <div class="page" id="lesson39">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 8 : LESSON 39</span>
+        <h2 class="text-3xl font-bold text-blue-900">Thank-you Email and Follow-up <span class="translation">감사 이메일 및 사후 관리</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box">
+            <ul class="space-y-3 text-sm">
+                <li>• Thank you for the interview opportunity. <span class="translation">면접 기회를 주셔서 감사합니다.</span></li>
+                <li>• I enjoyed learning more about the role. <span class="translation">직무에 대해 더 자세히 알게 되어 유익했습니다.</span></li>
+                <li>• I remain very interested in the position. <span class="translation">저는 여전히 이 자리에 큰 관심을 가지고 있습니다.</span></li>
+                <li>• I look forward to hearing from you. <span class="translation">소식을 기다리고 있겠습니다.</span></li>
+                <li class="pt-2 border-t border-blue-200">• I appreciated our conversation about [Topic]. <span class="translation">[주제]에 대한 우리의 대화가 매우 좋았습니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Guided Practice: Email Structure <span class="translation">이메일 구조 연습</span></div>
+        <div class="p-6 bg-gray-50 border border-gray-200 rounded-xl font-mono text-xs text-gray-600">
+            <p>Dear [Interviewer Name],</p>
+            <p class="mt-4">Thank you for _______________________ today.</p>
+            <p>I especially enjoyed _______________________.</p>
+            <p>I remain very interested in _______________________.</p>
+            <p class="mt-4">Best regards,</p>
+            <p>[Your Name]</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 40: Final Simulation -->
+    <div class="page" id="lesson40">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 8 : LESSON 40</span>
+        <h2 class="text-3xl font-bold text-blue-900">Final Interview Simulation <span class="translation">최종 인터뷰 시뮬레이션</span></h2>
+        
+        <div class="section-title">Final Goal <span class="translation">최종 관문</span></div>
+        <p class="text-sm text-gray-700 italic mb-6">Use everything you've learned to complete a full 15-minute mock interview.<br>지난 8주간 배운 모든 것을 활용하여 15분간의 전 과정 모의 면접을 완료하세요.</p>
+
+        <div class="key-box border-2 border-emerald-500 bg-emerald-50">
+            <p class="font-bold text-emerald-900 text-sm mb-3">Checklist for Success <span class="text-xs font-normal">(성공을 위한 체크리스트)</span></p>
+            <ul class="space-y-2 text-sm text-emerald-800">
+                <li>[ ] Clear and professional introduction (명확하고 전문적인 자기소개)</li>
+                <li>[ ] Specific examples for achievements (성과에 대한 구체적인 사례)</li>
+                <li>[ ] Positive framing of weaknesses (약점의 긍정적인 프레이밍)</li>
+                <li>[ ] Confident body language and tone (자신감 있는 보디랭귀지와 어조)</li>
+                <li>[ ] Professional questions for the interviewer (면접관을 향한 전문적인 역질문)</li>
+            </ul>
+        </div>
+
+        <div class="section-title">Homework: Final Reflection <span class="translation">마지막 과제: 최종 회고</span></div>
+        <div class="p-6 border border-blue-200 rounded-xl space-y-4">
+            <p class="text-xs font-medium text-blue-900">1. What improved the most during this course? (가장 개선된 점은?)</p>
+            <div class="h-10 border-b border-gray-100"></div>
+            <p class="text-xs font-medium text-blue-900">2. What is your next speaking goal? (다음 말하기 목표는?)</p>
+            <div class="h-10 border-b border-gray-100"></div>
+        </div>
+
+        <div class="mt-auto text-center py-10">
+            <h3 class="text-2xl font-bold text-blue-900">CONGRATULATIONS!</h3>
+            <p class="text-sm text-gray-500">You have completed the EIN Job Interview Survival Course.<br>코스를 성공적으로 마친 것을 축하드립니다!</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

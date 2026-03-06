@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교재방 — 아인잉글리쉬</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --red: #EC6856; --red-dark: #D85C4A;
+            --navy: #1e3a8a;
+            --s800: #1e293b; --s700: #334155; --s600: #475569;
+            --s500: #64748b; --s400: #94a3b8; --s300: #cbd5e1;
+            --s200: #e2e8f0; --s100: #f1f5f9; --s50: #f8fafc;
+        }
+        body { font-family: 'Pretendard Variable','Pretendard',-apple-system,sans-serif; color: var(--s800); background: #eef2f9; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+        a { text-decoration: none; color: inherit; }
+        button { background: none; border: none; cursor: pointer; font: inherit; }
+
+        /* ── 헤더 ── */
+        .header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); padding: 0 1.75rem; height: 3.75rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 1px 0 rgba(0,0,0,0.04); }
+        .header__logo { display: flex; align-items: center; gap: 0.65rem; }
+        .logo-icon { width: 2.1rem; height: 2.1rem; background: linear-gradient(135deg, #f07060, #d84a3a); border-radius: 0.55rem; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 0.68rem; font-weight: 900; letter-spacing: -0.02em; box-shadow: 0 2px 8px rgba(236,104,86,0.4); }
+        .logo-text { font-size: 1rem; font-weight: 700; color: var(--s800); letter-spacing: -0.02em; }
+        .header__right { display: flex; align-items: center; gap: 0.75rem; }
+        .header__user { font-size: 0.85rem; font-weight: 600; color: var(--s600); }
+        .btn-sm { padding: 0.45rem 1rem; border-radius: 100px; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+        .btn-sm--outline { border: 1.5px solid var(--s200); color: var(--s600); background: #fff; }
+        .btn-sm--outline:hover { border-color: var(--red); color: var(--red); background: #fff8f7; }
+
+        /* ── 히어로 ── */
+        .hero { background: linear-gradient(160deg, #0c1d5e 0%, #1e3a8a 55%, #172e72 100%); padding: 3.5rem 1.5rem 5rem; text-align: center; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 15% 60%, rgba(236,104,86,0.2) 0%, transparent 55%), radial-gradient(ellipse at 85% 20%, rgba(96,165,250,0.15) 0%, transparent 50%); pointer-events: none; }
+        .hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 3.5rem; background: #eef2f9; clip-path: ellipse(58% 100% at 50% 100%); }
+        .hero__eyebrow { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.75); border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; padding: 0.3rem 0.875rem; font-size: 0.78rem; font-weight: 600; margin-bottom: 1rem; position: relative; letter-spacing: 0.03em; }
+        .hero__title { font-size: clamp(1.9rem, 5vw, 2.8rem); font-weight: 900; color: #fff; margin-bottom: 0.6rem; position: relative; letter-spacing: -0.03em; line-height: 1.1; }
+        .hero__desc { color: rgba(255,255,255,0.55); font-size: 0.95rem; position: relative; margin-bottom: 2.25rem; }
+        .hero__stats { display: inline-flex; gap: 0; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 1.125rem; overflow: hidden; position: relative; }
+        .hero__stat { padding: 0.75rem 1.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.1); }
+        .hero__stat:last-child { border-right: none; }
+        .hero__stat-num { font-size: 1.4rem; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -0.03em; }
+        .hero__stat-label { font-size: 0.65rem; color: rgba(255,255,255,0.45); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.25rem; }
+
+        /* ── 로그인 게이트 ── */
+        .login-gate { display: none; align-items: center; justify-content: center; min-height: 52vh; padding: 2rem 1rem; }
+        .login-gate__box { background: #fff; border-radius: 1.75rem; padding: 3rem 2.5rem; text-align: center; max-width: 400px; width: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.03), 0 20px 60px rgba(0,0,0,0.07); border: 1px solid rgba(0,0,0,0.04); }
+        .login-gate__icon { font-size: 3rem; margin-bottom: 1rem; }
+        .login-gate__title { font-size: 1.2rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+        .login-gate__desc { font-size: 0.9rem; color: var(--s500); line-height: 1.6; margin-bottom: 2rem; }
+        .btn-primary { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.8rem 1.75rem; background: var(--red); color: #fff; border-radius: 100px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.18s; box-shadow: 0 4px 16px rgba(236,104,86,0.35); }
+        .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); box-shadow: 0 6px 22px rgba(236,104,86,0.45); }
+        .btn-primary svg { width: 1rem; height: 1rem; }
+
+        /* ── 메인 ── */
+        .main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 6rem; }
+
+        /* ── 유저 바 ── */
+        .user-bar { display: flex; align-items: center; gap: 1rem; background: #fff; border-radius: 1.25rem; padding: 1rem 1.5rem; margin-bottom: 2.25rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 20px rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.04); }
+        .user-avatar { width: 2.75rem; height: 2.75rem; background: linear-gradient(135deg, #e8f0ff, #d4e2ff); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+        .user-info { flex: 1; }
+        .user-name { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; }
+        .user-role { font-size: 0.75rem; color: var(--s500); margin-top: 0.1rem; }
+        .user-tag { background: var(--s100); color: var(--s600); font-size: 0.72rem; font-weight: 600; padding: 0.3rem 0.75rem; border-radius: 100px; letter-spacing: 0.01em; white-space: nowrap; }
+
+        /* ── 시리즈 헤더 ── */
+        .series-group { margin-bottom: 3rem; }
+        .series-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 2px solid var(--s100); }
+        .series-pill { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.38rem 0.875rem 0.38rem 0.6rem; border-radius: 100px; font-size: 0.85rem; font-weight: 800; letter-spacing: -0.01em; }
+        .series-pill-dot { width: 0.55rem; height: 0.55rem; border-radius: 50%; flex-shrink: 0; }
+        .series-count { font-size: 0.75rem; font-weight: 600; color: var(--s400); margin-left: auto; }
+
+        /* ── 교재 그리드 ── */
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.25rem; }
+
+        /* ── 교재 카드 ── */
+        .book-card { background: #fff; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05); transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s; border: 1px solid rgba(0,0,0,0.04); }
+        .book-card:hover { transform: translateY(-5px); box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 14px 44px rgba(0,0,0,0.1); }
+        .book-card--coming { opacity: 0.58; cursor: default; }
+        .book-card--coming:hover { transform: none; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05); }
+        .book-card__cover { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
+        .book-card__cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1) 100%); pointer-events: none; }
+        .coming-badge { position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.22); backdrop-filter: blur(4px); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 100px; letter-spacing: 0.04em; }
+        .book-card__body { padding: 1rem 1.125rem 1.25rem; }
+        .book-card__title { font-size: 0.925rem; font-weight: 700; color: var(--s800); margin-bottom: 0.2rem; line-height: 1.35; letter-spacing: -0.01em; }
+        .book-card__meta { font-size: 0.72rem; color: var(--s400); margin-bottom: 0.875rem; font-weight: 500; }
+        .book-card__divider { height: 1px; background: var(--s100); margin-bottom: 0.875rem; }
+
+        /* ── 레슨 테이블 ── */
+        .lesson-table { width: 100%; border-collapse: collapse; }
+        .lesson-table td { padding: 0.28rem 0; vertical-align: middle; }
+        .lesson-table td:first-child { font-size: 0.62rem; font-weight: 800; color: var(--s400); white-space: nowrap; padding-right: 0.625rem; width: 2.6rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .lesson-btns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.2rem; }
+        .lesson-btn { padding: 0.28rem 0; border-radius: 0.375rem; font-size: 0.68rem; font-weight: 700; border: 1.5px solid var(--s200); color: var(--s500); cursor: pointer; transition: all 0.12s ease; text-decoration: none; display: block; text-align: center; letter-spacing: -0.01em; background: var(--s50); }
+        .lesson-btn:hover { border-color: transparent; transform: scale(1.06); }
+
+        /* ── 로그인 모달 ── */
+        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(6px); z-index: 600; align-items: center; justify-content: center; padding: 1rem; }
+        .modal-overlay.is-open { display: flex; }
+        .modal-box { background: #fff; border-radius: 1.75rem; padding: 2.5rem 2rem; width: 100%; max-width: 380px; position: relative; box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 32px 80px rgba(0,0,0,0.2); animation: popIn 0.22s cubic-bezier(.34,1.56,.64,1); }
+        @keyframes popIn { from { transform: scale(0.94) translateY(8px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+        .modal-close-btn { position: absolute; top: 1rem; right: 1rem; width: 2rem; height: 2rem; background: var(--s100); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
+        .modal-close-btn:hover { background: var(--s200); }
+        .modal-close-btn svg { width: 1rem; height: 1rem; }
+        .modal-logo { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+        .modal-title { font-size: 1.3rem; font-weight: 800; text-align: center; margin-bottom: 0.3rem; letter-spacing: -0.03em; }
+        .modal-desc { font-size: 0.875rem; color: var(--s500); text-align: center; margin-bottom: 1.5rem; }
+        .modal-form { display: flex; flex-direction: column; gap: 0.875rem; }
+        .form-field { display: flex; flex-direction: column; gap: 0.35rem; }
+        .form-field label { font-size: 0.8rem; font-weight: 700; color: var(--s700); }
+        .form-field input { padding: 0.75rem 1rem; border: 1.5px solid var(--s200); border-radius: 0.875rem; font-size: 0.9rem; font-family: inherit; outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: var(--s50); }
+        .form-field input:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(236,104,86,0.12); background: #fff; }
+        .form-error { font-size: 0.8rem; color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; border-radius: 0.625rem; padding: 0.5rem 0.875rem; }
+        .btn-full { width: 100%; justify-content: center; }
+        .modal-demo { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--s100); }
+        .modal-demo__label { font-size: 0.72rem; font-weight: 700; color: var(--s400); text-align: center; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.625rem; }
+        .demo-btns { display: flex; gap: 0.5rem; justify-content: center; }
+        .demo-btn { padding: 0.45rem 1rem; border: 1.5px solid var(--s200); border-radius: 100px; font-size: 0.78rem; font-weight: 600; color: var(--s600); cursor: pointer; transition: all 0.15s; background: #fff; }
+        .demo-btn:hover { border-color: var(--red); color: var(--red); background: #fff8f7; }
+
+        /* ── 계정 관리 모달 ── */
+        .admin-modal { max-width: 500px; padding: 2rem 1.75rem; }
+        .admin-modal .modal-title { text-align: left; margin-bottom: 0; font-size: 1.1rem; }
+        .acct-section-title { font-size: 0.7rem; font-weight: 800; color: var(--s400); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.625rem; }
+        .acct-list { display: flex; flex-direction: column; gap: 0.4rem; max-height: 220px; overflow-y: auto; margin-bottom: 0.25rem; }
+        .acct-list::-webkit-scrollbar { width: 4px; }
+        .acct-list::-webkit-scrollbar-track { background: transparent; }
+        .acct-list::-webkit-scrollbar-thumb { background: var(--s200); border-radius: 2px; }
+        .acct-row { display: flex; align-items: center; gap: 0.625rem; padding: 0.5rem 0.75rem; background: var(--s50); border-radius: 0.75rem; border: 1px solid var(--s100); }
+        .acct-row__avatar { font-size: 1.15rem; width: 1.75rem; text-align: center; flex-shrink: 0; }
+        .acct-row__info { flex: 1; min-width: 0; }
+        .acct-row__id { font-size: 0.82rem; font-weight: 700; color: var(--s800); }
+        .acct-row__meta { font-size: 0.7rem; color: var(--s400); margin-top: 0.05rem; }
+        .acct-row__role { font-size: 0.65rem; font-weight: 700; padding: 0.18rem 0.5rem; border-radius: 100px; white-space: nowrap; flex-shrink: 0; }
+        .acct-row__del { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: #fef2f2; color: #ef4444; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; cursor: pointer; transition: all 0.15s; flex-shrink: 0; border: none; }
+        .acct-row__del:hover { background: #ef4444; color: #fff; }
+        .acct-divider { height: 1px; background: var(--s100); margin: 1.125rem 0; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.625rem; }
+        .form-select { padding: 0.75rem 1rem; border: 1.5px solid var(--s200); border-radius: 0.875rem; font-size: 0.9rem; font-family: inherit; outline: none; transition: border-color 0.2s, box-shadow 0.2s; background: var(--s50); color: var(--s800); cursor: pointer; width: 100%; }
+        .form-select:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(236,104,86,0.12); background: #fff; }
+        .btn-admin { padding: 0.35rem 0.875rem; border-radius: 100px; font-size: 0.78rem; font-weight: 700; border: 1.5px solid var(--s200); color: var(--s600); cursor: pointer; transition: all 0.15s; display: inline-flex; align-items: center; gap: 0.35rem; background: #fff; }
+        .btn-admin:hover { border-color: var(--navy); color: var(--navy); background: #f0f4ff; }
+        .btn-admin svg { width: 0.875rem; height: 0.875rem; }
+        .form-success { font-size: 0.8rem; color: #15803d; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 0.625rem; padding: 0.5rem 0.875rem; }
+
+        #headerUser { align-items: center; gap: 0.75rem; }
+
+        @media (max-width: 600px) {
+            .book-grid { grid-template-columns: 1fr 1fr; }
+            .hero { padding: 2.5rem 1.25rem 4rem; }
+            .hero__stats { width: 100%; }
+            .hero__stat { flex: 1; padding: 0.625rem 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header__logo">
+        <div class="logo-icon">EIN</div>
+        <span class="logo-text">아인잉글리쉬 교재방</span>
+    </div>
+    <div class="header__right">
+        <div id="headerAuth">
+            <button class="btn-sm btn-sm--outline" onclick="openLoginModal()">로그인</button>
+        </div>
+        <div id="headerUser" style="display:none;">
+            <span class="header__user" id="headerUserName"></span>
+            <button class="btn-sm btn-sm--outline" onclick="logout()">로그아웃</button>
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero__eyebrow">📚 EIN English Library</div>
+    <h1 class="hero__title">아인잉글리쉬 교재방</h1>
+    <p class="hero__desc">수업 교재를 열고, 영어 표현을 들으며 수업하세요.</p>
+    <div class="hero__stats">
+        <div class="hero__stat">
+            <div class="hero__stat-num">10</div>
+            <div class="hero__stat-label">교재</div>
+        </div>
+        <div class="hero__stat">
+            <div class="hero__stat-num">3</div>
+            <div class="hero__stat-label">시리즈</div>
+        </div>
+        <div class="hero__stat">
+            <div class="hero__stat-num">200+</div>
+            <div class="hero__stat-label">레슨</div>
+        </div>
+    </div>
+</section>
+
+<!-- 로그인 게이트 -->
+<div id="loginGate" class="login-gate">
+    <div class="login-gate__box">
+        <div class="login-gate__icon">🔒</div>
+        <h3 class="login-gate__title">교재방은 회원 전용입니다</h3>
+        <p class="login-gate__desc">아인잉글리쉬 계정으로 로그인하면<br>모든 교재를 이용하실 수 있습니다.</p>
+        <button class="btn-primary" onclick="openLoginModal()">
+            <i data-lucide="log-in"></i> 로그인하기
+        </button>
+    </div>
+</div>
+
+<!-- 메인 -->
+<main id="main" class="main" style="display:none;">
+    <div class="user-bar">
+        <div class="user-avatar" id="userAvatar"></div>
+        <div class="user-info">
+            <p class="user-name" id="userName"></p>
+            <p class="user-role" id="userRole"></p>
+        </div>
+        <span class="user-tag">교재방 이용중</span>
+        <button id="adminBtn" class="btn-admin" onclick="openAdminModal()" style="display:none;">
+            <i data-lucide="users"></i> 계정 관리
+        </button>
+    </div>
+
+    <div id="seriesContainer"></div>
+</main>
+
+<!-- 계정 관리 모달 -->
+<div id="adminModal" class="modal-overlay" onclick="closeAdminModal(event)">
+    <div class="modal-box admin-modal">
+        <button class="modal-close-btn" onclick="closeAdminModal()"><i data-lucide="x"></i></button>
+        <h3 class="modal-title">계정 관리</h3>
+        <p style="font-size:0.78rem;color:var(--s400);margin:0.2rem 0 1.25rem;">아인잉글리쉬 교재방 회원 계정</p>
+
+        <p class="acct-section-title">전체 계정</p>
+        <div id="acctList" class="acct-list"></div>
+
+        <div class="acct-divider"></div>
+
+        <p class="acct-section-title">새 계정 추가</p>
+        <form id="addAcctForm" class="modal-form" onsubmit="event.preventDefault(); addAccount(event)" style="gap:0.625rem;">
+            <div class="form-row">
+                <div class="form-field">
+                    <label>아이디</label>
+                    <input type="text" id="newId" placeholder="예: teacher02" autocomplete="off">
+                </div>
+                <div class="form-field">
+                    <label>비밀번호</label>
+                    <input type="password" id="newPw" placeholder="6자 이상" autocomplete="off">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label>이름</label>
+                    <input type="text" id="newName" placeholder="예: 홍길동 강사" autocomplete="off">
+                </div>
+                <div class="form-field">
+                    <label>역할</label>
+                    <select id="newRole" class="form-select">
+                        <option value="수강생">수강생</option>
+                        <option value="강사">강사</option>
+                        <option value="관리자">관리자</option>
+                    </select>
+                </div>
+            </div>
+            <p id="addAcctMsg" style="display:none;" class="form-error"></p>
+            <button type="submit" class="btn-primary btn-full" style="margin-top:0.25rem;">
+                <i data-lucide="user-plus"></i> 계정 추가
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- 로그인 모달 -->
+<div id="loginModal" class="modal-overlay" onclick="closeLoginModal(event)">
+    <div class="modal-box">
+        <button class="modal-close-btn" onclick="closeLoginModal()"><i data-lucide="x"></i></button>
+        <div class="modal-logo"><div class="logo-icon">EIN</div></div>
+        <h3 class="modal-title">교재방 로그인</h3>
+        <p class="modal-desc">아인잉글리쉬 계정으로 로그인하세요</p>
+        <form class="modal-form" onsubmit="event.preventDefault(); doLogin(event)">
+            <div class="form-field">
+                <label>아이디</label>
+                <input type="text" id="loginId" placeholder="아이디 또는 이메일" autocomplete="username">
+            </div>
+            <div class="form-field">
+                <label>비밀번호</label>
+                <input type="password" id="loginPw" placeholder="비밀번호" autocomplete="current-password">
+            </div>
+            <p class="form-error" id="loginError" style="display:none;"></p>
+            <button type="submit" class="btn-primary btn-full">
+                <i data-lucide="log-in"></i> 로그인
+            </button>
+        </form>
+        <div class="modal-demo">
+            <p class="modal-demo__label">🧪 데모 계정</p>
+            <div class="demo-btns">
+                <button class="demo-btn" onclick="fillDemo('teacher')">강사</button>
+                <button class="demo-btn" onclick="fillDemo('student')">학생</button>
+                <button class="demo-btn" onclick="fillDemo('admin')">관리자</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ── 교재 데이터 ──────────────────────────────────────
+    const LESSONS_PER_WEEK = 5;
+
+    const SERIES = [
+        {
+            name: 'Starter Series',
+            color: '#22c55e',
+            books: [
+                { title: 'Basic Conversation Starter 1', emoji: '📘', weeks: 8, folder: null, ready: false },
+                { title: 'Basic Conversation Starter 2', emoji: '📗', weeks: 8, folder: null, ready: false },
+                { title: 'Basic Conversation Starter 3', emoji: '📙', weeks: 8, folder: null, ready: false },
+            ]
+        },
+        {
+            name: 'Survival Series',
+            color: '#3b82f6',
+            books: [
+                { title: 'Travel Survival English',     emoji: '✈️', weeks: 8, folder: 'EIN_Travel_Survival_English_Final',              ready: true },
+                { title: 'Working Holiday Survival',    emoji: '💼', weeks: 8, folder: 'EIN_Working_Holiday_Survival_Final',              ready: true },
+                { title: 'Job Interview Survival',      emoji: '🎯', weeks: 8, folder: 'EIN_Job_Interview_Survival_40_Lessons_v2',        ready: true },
+                { title: 'Workplace Survival English',  emoji: '🏢', weeks: 8, folder: 'EIN_Workplace_Survival_English_40_Lessons_Full',  ready: true },
+                { title: 'Daily Conversation Survival', emoji: '💬', weeks: 8, folder: 'EIN_Daily_Conversation_Survival_Full_Workbook',   ready: true },
+            ]
+        },
+        {
+            name: 'Conversation Series',
+            color: '#8b5cf6',
+            books: [
+                { title: 'Opinion English', emoji: '💭', weeks: 8, folder: null, ready: false },
+                { title: 'Debate English',  emoji: '🗣️', weeks: 8, folder: null, ready: false },
+            ]
+        },
+    ];
+
+    const ROLE_COLORS = {
+        '강사':   { bg: '#eff6ff', text: '#1d4ed8' },
+        '수강생': { bg: '#f0fdf4', text: '#15803d' },
+        '관리자': { bg: '#fff7ed', text: '#c2410c' },
+    };
+    const ROLE_AVATARS = { '강사': '👩‍🏫', '수강생': '👦', '관리자': '🛠' };
+
+    let currentUser = null;
+
+    // ── 초기화 ────────────────────────────────────────────
+    window.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+        const saved = localStorage.getItem('einUser');
+        if (saved) {
+            currentUser = JSON.parse(saved);
+            updateAuthUI();
+            showMain();
+        } else {
+            document.getElementById('loginGate').style.display = 'flex';
+        }
+        renderSeries();
+    });
+
+    // ── 렌더링 ────────────────────────────────────────────
+    function renderSeries() {
+        const container = document.getElementById('seriesContainer');
+        container.innerHTML = SERIES.map(s => {
+            const readyCount = s.books.filter(b => b.ready).length;
+            const bgColor = s.color + '18';
+            const textColor = s.color;
+            return `
+            <div class="series-group">
+                <div class="series-header">
+                    <span class="series-pill" style="background:${bgColor};color:${textColor};">
+                        <span class="series-pill-dot" style="background:${textColor};"></span>
+                        ${s.name}
+                    </span>
+                    <span class="series-count">${s.books.length}권${readyCount > 0 ? ` · ${readyCount}권 수강 가능` : ''}</span>
+                </div>
+                <div class="book-grid">
+                    ${s.books.map(b => bookCard(b, s.color)).join('')}
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    function bookCard(b, color) {
+        if (!b.ready) {
+            return `
+            <div class="book-card book-card--coming">
+                <div class="book-card__cover" style="background:linear-gradient(145deg,${color}15,${color}28);">
+                    <span>${b.emoji}</span>
+                    <span class="coming-badge">준비중</span>
+                </div>
+                <div class="book-card__body">
+                    <p class="book-card__title">${b.title}</p>
+                    <p class="book-card__meta">곧 업로드 예정입니다</p>
+                </div>
+            </div>`;
+        }
+
+        const rows = Array.from({length: b.weeks}, (_, i) => {
+            const w = i + 1;
+            const baseLesson = i * LESSONS_PER_WEEK;
+            const lessonBtns = Array.from({length: LESSONS_PER_WEEK}, (_, j) => {
+                const lessonInWeek = j + 1;
+                const lessonNum = baseLesson + lessonInWeek;
+                const url = `./${b.folder}/WEEK ${w}.html#lesson-${lessonInWeek}`;
+                return `<a href="${url}" target="_blank" class="lesson-btn"
+                    onmouseover="this.style.background='${color}';this.style.borderColor='${color}';this.style.color='#fff'"
+                    onmouseout="this.style.background='';this.style.borderColor='';this.style.color=''">L${lessonNum}</a>`;
+            }).join('');
+            return `<tr><td>W${w}</td><td><div class="lesson-btns">${lessonBtns}</div></td></tr>`;
+        }).join('');
+
+        return `
+        <div class="book-card">
+            <div class="book-card__cover" style="background:linear-gradient(145deg,${color}20,${color}40);">
+                <span>${b.emoji}</span>
+            </div>
+            <div class="book-card__body">
+                <p class="book-card__title">${b.title}</p>
+                <p class="book-card__meta">${b.weeks * LESSONS_PER_WEEK}레슨 · ${b.weeks}주 과정</p>
+                <div class="book-card__divider"></div>
+                <table class="lesson-table"><tbody>${rows}</tbody></table>
+            </div>
+        </div>`;
+    }
+
+    // ── 로그인 (Supabase) ─────────────────────────────────
+    async function doLogin(e) {
+        e.preventDefault();
+        const id = document.getElementById('loginId').value.trim();
+        const pw = document.getElementById('loginPw').value;
+        const err = document.getElementById('loginError');
+
+        try {
+            const match = await sbLogin(id, pw);
+            if (!match) {
+                err.textContent = '아이디 또는 비밀번호가 올바르지 않습니다.';
+                err.style.display = 'block';
+                return;
+            }
+            err.style.display = 'none';
+            currentUser = match;
+            localStorage.setItem('einUser', JSON.stringify(currentUser));
+            closeLoginModal();
+            updateAuthUI();
+            showMain();
+        } catch (e) {
+            err.textContent = '서버 연결 실패. 잠시 후 다시 시도해주세요.';
+            err.style.display = 'block';
+        }
+    }
+
+    function logout() {
+        currentUser = null;
+        localStorage.removeItem('einUser');
+        document.getElementById('loginGate').style.display = 'flex';
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('headerAuth').style.display = 'flex';
+        document.getElementById('headerUser').style.display = 'none';
+    }
+
+    function fillDemo(role) {
+        const demos = {
+            teacher: { id: 'teacher01', pw: 'demo1234' },
+            student: { id: 'student01', pw: 'demo1234' },
+            admin:   { id: 'admin01',   pw: 'demo1234' },
+        };
+        const d = demos[role];
+        document.getElementById('loginId').value = d.id;
+        document.getElementById('loginPw').value = d.pw;
+    }
+
+    function updateAuthUI() {
+        document.getElementById('headerAuth').style.display = 'none';
+        document.getElementById('headerUser').style.display = 'flex';
+        document.getElementById('headerUserName').textContent = currentUser.name;
+        document.getElementById('userName').textContent = currentUser.name;
+        document.getElementById('userRole').textContent = currentUser.role;
+        document.getElementById('userAvatar').textContent = currentUser.avatar;
+        document.getElementById('adminBtn').style.display =
+            currentUser.role === '관리자' ? 'inline-flex' : 'none';
+    }
+
+    // ── 계정 관리 (Supabase) ──────────────────────────────
+    async function openAdminModal() {
+        await renderAccountList();
+        document.getElementById('adminModal').classList.add('is-open');
+        lucide.createIcons();
+    }
+    function closeAdminModal(e) {
+        if (e && e.target !== document.getElementById('adminModal')) return;
+        document.getElementById('adminModal').classList.remove('is-open');
+    }
+
+    async function renderAccountList() {
+        const list = document.getElementById('acctList');
+        const accounts = await sbGetAllAccounts();
+        list.innerHTML = accounts.map(a => {
+            const rc = ROLE_COLORS[a.role] || { bg: '#f1f5f9', text: '#475569' };
+            return `
+            <div class="acct-row">
+                <div class="acct-row__avatar">${a.avatar}</div>
+                <div class="acct-row__info">
+                    <div class="acct-row__id">${a.id}
+                        <span style="font-weight:500;color:var(--s400);font-size:0.72rem;">· ${a.name}</span>
+                    </div>
+                    <div class="acct-row__meta">PW: ${'●'.repeat(Math.min(a.pw.length,8))}</div>
+                </div>
+                <span class="acct-row__role" style="background:${rc.bg};color:${rc.text};">${a.role}</span>
+                ${a.isDefault
+                    ? `<div style="width:1.6rem;flex-shrink:0;"></div>`
+                    : `<button class="acct-row__del" onclick="deleteAccount('${a.id}')" title="삭제">✕</button>`}
+            </div>`;
+        }).join('');
+    }
+
+    async function addAccount(e) {
+        e.preventDefault();
+        const id   = document.getElementById('newId').value.trim();
+        const pw   = document.getElementById('newPw').value;
+        const name = document.getElementById('newName').value.trim();
+        const role = document.getElementById('newRole').value;
+        const msg  = document.getElementById('addAcctMsg');
+
+        const showMsg = (text, ok) => {
+            msg.textContent = text;
+            msg.className = ok ? 'form-success' : 'form-error';
+            msg.style.display = 'block';
+            if (ok) setTimeout(() => { msg.style.display = 'none'; }, 2500);
+        };
+
+        if (!id || !pw || !name) return showMsg('모든 항목을 입력해주세요.', false);
+        if (id.length < 4)       return showMsg('아이디는 4자 이상이어야 합니다.', false);
+        if (pw.length < 6)       return showMsg('비밀번호는 6자 이상이어야 합니다.', false);
+
+        try {
+            if (await sbCheckExists(id)) return showMsg('이미 사용 중인 아이디입니다.', false);
+            await sbAddAccount(id, pw, name, role, ROLE_AVATARS[role] || '👤');
+            document.getElementById('addAcctForm').reset();
+            await renderAccountList();
+            lucide.createIcons();
+            showMsg(`✓ "${name}" 계정이 추가되었습니다.`, true);
+        } catch (err) {
+            showMsg('계정 추가 실패: ' + err.message, false);
+        }
+    }
+
+    async function deleteAccount(id) {
+        if (!confirm(`"${id}" 계정을 삭제하시겠습니까?`)) return;
+        try {
+            await sbDeleteAccount(id);
+            await renderAccountList();
+        } catch (err) {
+            alert('삭제 실패: ' + err.message);
+        }
+    }
+
+    function showMain() {
+        document.getElementById('loginGate').style.display = 'none';
+        document.getElementById('main').style.display = 'block';
+    }
+
+    function openLoginModal() {
+        document.getElementById('loginModal').classList.add('is-open');
+        lucide.createIcons();
+    }
+    function closeLoginModal(e) {
+        if (e && e.target !== document.getElementById('loginModal')) return;
+        document.getElementById('loginModal').classList.remove('is-open');
+    }
+</script>
+</body>
+</html>

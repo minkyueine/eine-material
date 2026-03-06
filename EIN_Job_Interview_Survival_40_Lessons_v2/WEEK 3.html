@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아인잉글리쉬 EIN Job Interview Survival - Week 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-emerald: #059669;
+            --bg-light-blue: #eff6ff;
+            --text-gray: #4b5563;
+            --translation-gray: #9ca3af;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            background-color: white;
+            width: 210mm;
+            min-height: 297mm;
+            height: auto;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+            padding-bottom: 30mm;
+        }
+
+        .header-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-navy), var(--secondary-emerald));
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-left: 4px solid var(--secondary-emerald);
+            padding-left: 12px;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .translation {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--translation-gray);
+            font-weight: 400;
+            margin-top: 2px;
+            line-height: 1.2;
+        }
+
+        .key-box {
+            background-color: var(--bg-light-blue);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dialogue-bubble {
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            max-width: 90%;
+            font-size: 0.95rem;
+        }
+
+        .tutor-bubble {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-navy);
+            margin-right: auto;
+        }
+
+        .student-bubble {
+            background-color: #ecfdf5;
+            border-right: 4px solid var(--secondary-emerald);
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .roleplay-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .roleplay-table td {
+            padding: 15px;
+            border: 1px solid #dbeafe;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        @media print {
+            body { background-color: white; }
+            .page { margin: 0; box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LESSON 11: PAGE 1 -->
+    <div class="page" id="lesson11-p1">
+        <div class="header-line"></div>
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 3 : LESSON 11</span>
+                <h2 class="text-3xl font-bold text-blue-900">Talking About Strengths <span class="translation">나의 강점 설명하기</span></h2>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600 italic">Today's Goal <span class="translation">오늘의 목표</span></p>
+                <p class="text-xs text-gray-500">Describe strengths and support them with examples.<br>나의 강점을 설명하고 구체적인 사례로 뒷받침하기</p>
+            </div>
+        </div>
+
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What are your top strengths at work? <span class="translation">업무에서 당신의 가장 큰 강점은 무엇인가요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>Which strength is most useful in interviews? <span class="translation">면접에서 가장 유용한 강점은 무엇일까요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What makes a strength sound believable? <span class="translation">강점을 신뢰성 있게 들리게 하는 요소는 무엇인가요?</span></div>
+            </li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="space-y-4">
+            <div class="key-box">
+                <p class="text-blue-900 font-bold mb-3 text-sm border-b border-blue-200 pb-1">Core Expressions <span class="text-xs font-normal">(필수 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• One of my strengths is [Strength]. <span class="translation">저의 강점 중 하나는 [강점]입니다.</span></li>
+                    <li>• I'm good at [Skill/Task]. <span class="translation">저는 [기술/업무]에 능숙합니다.</span></li>
+                    <li>• This helps me [Action/Benefit]. <span class="translation">이것은 제가 [행동/이점]을 하는 데 도움이 됩니다.</span></li>
+                    <li>• For example, I once... <span class="translation">예를 들어, 제가 한 번은 ~했습니다.</span></li>
+                </ul>
+            </div>
+            <div class="key-box border-l-4 border-emerald-500">
+                <p class="text-emerald-700 font-bold mb-3 text-sm border-b border-emerald-100 pb-1">Upgrade Your English <span class="text-xs font-normal">(심화 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• People often describe me as [Adjective]. <span class="translation">사람들은 종종 저를 [형용사]하다고 묘사합니다.</span></li>
+                    <li>• This strength is especially useful because... <span class="translation">이 강점은 특히 ~하기 때문에 유용합니다.</span></li>
+                    <li>• My coworkers often compliment my... <span class="translation">동료들은 자주 저의 ~를 칭찬합니다.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 11: PAGE 2 -->
+    <div class="page" id="lesson11-p2">
+        <div class="header-line"></div>
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="space-y-4 bg-gray-50 p-6 rounded-xl">
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> What is one of your strengths? <span class="translation">당신의 강점 중 하나는 무엇인가요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> One of my strengths is communication. <span class="translation">저의 강점 중 하나는 소통 능력입니다.</span>
+            </div>
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> Why is that important? <span class="translation">그것이 왜 중요한가요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> It helps me work well with customers and coworkers. <span class="translation">그것은 제가 고객 및 동료들과 원활하게 협력하는 데 도움을 줍니다.</span>
+            </div>
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> Can you give me an example? <span class="translation">사례를 들어주실 수 있나요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> In my last job, I handled customer complaints calmly and clearly. <span class="translation">지난 직장에서 저는 고객의 불만 사항을 차분하고 명확하게 처리했습니다.</span>
+            </div>
+        </div>
+
+        <div class="section-title">Guided Practice <span class="translation">문장 완성 연습</span></div>
+        <div class="space-y-4 p-6 border border-emerald-200 rounded-xl">
+            <p class="text-sm font-medium mb-2">Complete the sentences about your top strength:</p>
+            <div class="flex flex-col space-y-4">
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">1.</span> One of my strengths is <span class="text-emerald-600">__________</span>.
+                </div>
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">2.</span> This helps me <span class="text-emerald-600">__________</span>.
+                </div>
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">3.</span> For example, I once <span class="text-emerald-600">__________</span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 12: Work Style -->
+    <div class="page" id="lesson12">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 3 : LESSON 12</span>
+        <h2 class="text-3xl font-bold text-blue-900">Work Style and Personality <span class="translation">업무 스타일과 성격</span></h2>
+        
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700 text-sm">
+            <li>• How would your coworkers describe your work style? <span class="translation">동료들이 당신의 업무 스타일을 어떻게 묘사할까요?</span></li>
+            <li>• Do you work better alone or with a team? <span class="translation">혼자 일하는 것이 낫나요, 팀과 일하는 것이 낫나요?</span></li>
+            <li>• How do you usually act under pressure? <span class="translation">압박감 속에서 보통 어떻게 행동하나요?</span></li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box">
+            <ul class="space-y-3 text-sm">
+                <li>• I'm organized and reliable. <span class="translation">저는 체계적이고 신뢰할 수 있는 사람입니다.</span></li>
+                <li>• I work well under pressure. <span class="translation">저는 압박감 속에서도 일을 잘 처리합니다.</span></li>
+                <li>• I'm comfortable working independently. <span class="translation">저는 독립적으로 일하는 데 익숙합니다.</span></li>
+                <li>• I stay flexible when plans change. <span class="translation">계획이 바뀌어도 유연함을 유지합니다.</span></li>
+                <li>• I like clear goals and priorities. <span class="translation">저는 명확한 목표와 우선순위를 선호합니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Role-play <span class="translation">상황극 연습</span></div>
+        <table class="roleplay-table text-sm">
+            <tr class="bg-blue-900 text-white font-bold">
+                <td class="w-1/3">Tutor's Question</td>
+                <td>Student's Answer Hint</td>
+            </tr>
+            <tr>
+                <td class="font-medium">"How would you describe your work style?"</td>
+                <td>"I'm organized, reliable, and calm under pressure."</td>
+            </tr>
+            <tr>
+                <td class="font-medium">"Do you prefer working alone or with a team?"</td>
+                <td>"I can do both, but I also enjoy working with a team."</td>
+            </tr>
+        </table>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 13: Teamwork -->
+    <div class="page" id="lesson13">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 3 : LESSON 13</span>
+        <h2 class="text-3xl font-bold text-blue-900">Teamwork <span class="translation">팀워크</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box bg-emerald-50 border border-emerald-100">
+            <ul class="space-y-4 text-sm">
+                <li>• I work well with others. <span class="translation">저는 타인과 협력하여 일을 잘 합니다.</span></li>
+                <li>• I listen carefully to my teammates. <span class="translation">팀원들의 의견을 경청합니다.</span></li>
+                <li>• We achieved [Result] together. <span class="translation">우리는 함께 [결과]를 달성했습니다.</span></li>
+                <li>• I help solve problems as a team. <span class="translation">팀으로서 문제를 해결하는 데 도움을 줍니다.</span></li>
+                <li>• I give and receive feedback politely. <span class="translation">예의 바르게 피드백을 주고받습니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-gray-50 rounded-xl space-y-3">
+            <p class="text-sm"><b>Tutor:</b> Tell me about your teamwork skills. <br><span class="translation text-xs">당신의 팀워크 능력에 대해 말씀해 주세요.</span></p>
+            <p class="text-sm"><b>Student:</b> I work well with others and try to communicate clearly. In my last job, our team worked together to prepare for a busy event. <br><span class="translation text-xs">저는 다른 사람들과 잘 협력하고 명확하게 소통하려고 노력합니다. 지난 직장에서 우리 팀은 바쁜 행사를 준비하기 위해 함께 노력했습니다.</span></p>
+        </div>
+
+        <div class="section-title">Talk More <span class="translation">심화 대화</span></div>
+        <p class="text-sm text-gray-700 italic mb-4">Do you prefer leading, supporting, or organizing in a team? Why?<br>팀에서 리드하는 역할, 지원하는 역할, 조직하는 역할 중 무엇을 선호하나요? 그 이유는요?</p>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 14: Problem Solving -->
+    <div class="page" id="lesson14">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 3 : LESSON 14</span>
+        <h2 class="text-3xl font-bold text-blue-900">Problem Solving <span class="translation">문제 해결 능력</span></h2>
+        
+        <div class="section-title">Goal: Step-by-Step Answer <span class="translation">단계별 답변 구성하기</span></div>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="key-box">
+                <p class="text-xs font-bold text-blue-900 mb-3 uppercase">Problem Solving Flow <span class="text-[10px] font-normal lowercase">(해결 흐름)</span></p>
+                <div class="space-y-3">
+                    <div class="flex items-start">
+                        <span class="bg-blue-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] mr-2 shrink-0">1</span>
+                        <p class="text-sm"><b>Identify:</b> First, I try to understand the issue. <span class="translation">먼저 문제를 이해하려고 노력합니다.</span></p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-blue-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] mr-2 shrink-0">2</span>
+                        <p class="text-sm"><b>Action:</b> Then, I look for a practical solution. <span class="translation">그 다음, 현실적인 해결책을 찾습니다.</span></p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="bg-blue-900 text-white w-5 h-5 rounded-full flex items-center justify-center text-[10px] mr-2 shrink-0">3</span>
+                        <p class="text-sm"><b>Resolve:</b> In the end, I make sure it is solved. <span class="translation">마지막으로, 문제가 해결되었는지 확인합니다.</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-blue-50 border border-blue-100 rounded-xl">
+            <p class="text-sm mb-2">"When there is a problem, I stay calm. I gather information and check details. I also ask for help when needed."</p>
+            <p class="text-xs text-blue-700 italic">"문제가 발생하면 침착함을 유지합니다. 정보를 수집하고 세부 사항을 확인하며, 필요할 때는 도움을 요청하기도 합니다."</p>
+        </div>
+
+        <div class="mt-8 bg-yellow-50 p-4 rounded border-l-4 border-yellow-400">
+            <p class="text-xs font-bold text-yellow-800 italic">TUTOR TIP!</p>
+            <p class="text-xs text-yellow-700">Interviewers want to see your logic. Don't just say you fixed it—explain HOW you did it.<br>면접관은 당신의 논리를 보고 싶어 합니다. 그냥 해결했다고만 하지 말고 '어떻게' 했는지 설명하세요.</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 15: Leadership -->
+    <div class="page" id="lesson15">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 3 : LESSON 15</span>
+        <h2 class="text-3xl font-bold text-blue-900">Leadership and Initiative <span class="translation">리더십과 주도성</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box">
+            <ul class="space-y-3 text-sm">
+                <li>• I take initiative when needed. <span class="translation">저는 필요할 때 주도적으로 나섭니다.</span></li>
+                <li>• I try to set a good example. <span class="translation">저는 좋은 본보기가 되려고 노력합니다.</span></li>
+                <li>• I like helping new team members. <span class="translation">저는 새로운 팀원들을 돕는 것을 좋아합니다.</span></li>
+                <li>• I step in when I see a problem. <span class="translation">문제를 발견하면 개입하여 해결을 돕습니다.</span></li>
+                <li>• I encourage my team to do their best. <span class="translation">팀원들이 최선을 다하도록 격려합니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-gray-50 rounded-xl">
+            <p class="text-sm"><b>Tutor:</b> Have you taken initiative before? <span class="translation">주도적으로 행동해 본 적이 있나요?</span></p>
+            <p class="text-sm mt-2"><b>Student:</b> Yes. In my last job, I organized tasks when we were short-staffed. It helped the team stay focused and finish on time. <span class="translation">네. 지난 직장에서 인력이 부족할 때 업무를 정리하여 맡았습니다. 덕분에 팀이 집중력을 유지하고 제시간에 업무를 끝낼 수 있었습니다.</span></p>
+        </div>
+
+        <div class="section-title">Homework <span class="translation">숙제</span></div>
+        <div class="p-6 border-2 border-emerald-500 rounded-xl bg-emerald-50">
+            <p class="font-bold text-emerald-900 mb-2">Write 4 sentences about a time you took initiative or guided others.</p>
+            <p class="text-xs text-emerald-700 mb-6">당신이 주도적으로 행동했거나 타인을 가이드했던 경험을 4문장으로 작성해 보세요.</p>
+            <div class="space-y-4">
+                <div class="h-8 border-b border-emerald-200"></div>
+                <div class="h-8 border-b border-emerald-200"></div>
+                <div class="h-8 border-b border-emerald-200"></div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

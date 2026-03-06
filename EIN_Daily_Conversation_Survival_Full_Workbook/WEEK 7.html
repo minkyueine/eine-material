@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN Daily Conversation Survival - Week 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ein-navy: #1e3a8a;
+            --ein-emerald: #059669;
+            --ein-lightblue: #eff6ff;
+        }
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #1f2937;
+        }
+        /* A4 Page Styling */
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            height: auto;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            padding: 20mm;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            break-after: page;
+            page-break-after: always;
+        }
+        @media print {
+            body { background-color: white; margin: 0; }
+            .a4-page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                min-height: 297mm;
+                padding: 15mm 20mm;
+            }
+        }
+        
+        /* Typography & Colors */
+        .text-navy { color: var(--ein-navy); }
+        .text-emerald { color: var(--ein-emerald); }
+        .bg-navy { background-color: var(--ein-navy); }
+        .bg-emerald { background-color: var(--ein-emerald); }
+        .bg-lightblue { background-color: var(--ein-lightblue); }
+        .border-emerald { border-color: var(--ein-emerald); }
+        .border-navy { border-color: var(--ein-navy); }
+        
+        /* Bilingual Translation Style */
+        .kr-trans {
+            color: #6b7280;
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-top: 2px;
+            margin-bottom: 12px;
+            display: block;
+            line-height: 1.4;
+        }
+        
+        /* Content Blocks */
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: var(--ein-navy);
+            margin-bottom: 0.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--ein-emerald);
+            padding-left: 10px;
+        }
+        .question-list {
+            list-style-type: decimal;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .question-list li {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        .page-footer {
+            margin-top: auto;
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.75rem;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= LESSON 31 : PAGE 1 ================= -->
+    <div class="a4-page">
+        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
+            Week 7 - Technology and Society
+        </div>
+        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 31 - Smartphones
+            <span class="kr-trans text-lg mt-1">레슨 31 - 스마트폰</span>
+        </h1>
+
+        <!-- Goal & Photo Prompt -->
+        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
+            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
+            <p class="font-medium text-gray-800">Discuss smartphone usage, screen time, and how mobile devices impact daily communication.</p>
+            <span class="kr-trans">스마트폰 사용, 화면 시청 시간, 모바일 기기가 일상적인 의사소통에 미치는 영향에 대해 토론합니다.</span>
+            
+            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
+            <p class="text-gray-800 italic">"A person walking down the street while looking down at their glowing smartphone screen."</p>
+            <span class="kr-trans">"빛나는 스마트폰 화면을 내려다보며 길을 걷고 있는 사람의 모습입니다."</span>
+        </div>
+
+        <!-- Warm-up -->
+        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
+        <ol class="question-list">
+            <li>Do you use your smartphone a lot?
+                <span class="kr-trans">스마트폰을 많이 사용하나요?</span>
+            </li>
+            <li>What apps do you use most often?
+                <span class="kr-trans">가장 자주 사용하는 앱은 무엇인가요?</span>
+            </li>
+            <li>Do you check your phone right after waking up?
+                <span class="kr-trans">아침에 일어나자마자 휴대전화를 확인하나요?</span>
+            </li>
+            <li>Have you ever tried a digital detox?
+                <span class="kr-trans">디지털 디톡스(스마트폰 멀리하기)를 시도해 본 적이 있나요?</span>
+            </li>
+        </ol>
+
+        <!-- Observation Questions -->
+        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
+        <ol class="question-list">
+            <li>What do you notice first in the picture?
+                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
+            </li>
+            <li>How many people can you see, and what are they doing?
+                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
+            </li>
+            <li>What objects or details stand out to you?
+                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
+            </li>
+            <li>What looks most important in this scene?
+                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 31 : PAGE 2 ================= -->
+    <div class="a4-page">
+        <!-- Description Questions -->
+        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
+        <ol class="question-list">
+            <li>Where do you think this scene is taking place?
+                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
+            </li>
+            <li>What kind of atmosphere does this place have?
+                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
+            </li>
+            <li>What time of day do you think it is?
+                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
+            </li>
+            <li>How would you describe the mood of the people in the picture?
+                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
+            </li>
+        </ol>
+
+        <!-- Personal Questions -->
+        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
+        <ol class="question-list">
+            <li>How many hours a day do you spend on your phone?
+                <span class="kr-trans">하루에 몇 시간 정도 휴대전화를 사용하나요?</span>
+            </li>
+            <li>Do you feel anxious when you don't have your phone?
+                <span class="kr-trans">휴대전화가 없을 때 불안함을 느끼나요?</span>
+            </li>
+            <li>What do you mainly use your phone for besides calling?
+                <span class="kr-trans">전화 통화 외에 주로 어떤 용도로 휴대전화를 사용하나요?</span>
+            </li>
+            <li>Do you prefer calling or texting?
+                <span class="kr-trans">전화 통화와 문자 메시지 중 어느 것을 더 선호하나요?</span>
+            </li>
+            <li>How do you stop yourself from using your phone too much?
+                <span class="kr-trans">휴대전화를 너무 많이 사용하지 않도록 스스로를 어떻게 자제하나요?</span>
+            </li>
+        </ol>
+
+        <!-- Opinion Questions -->
+        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
+        <ol class="question-list">
+            <li>Why are people so addicted to their smartphones?
+                <span class="kr-trans">사람들은 왜 그렇게 스마트폰에 중독되는 것일까요?</span>
+            </li>
+            <li>Do smartphones make people more connected or more isolated?
+                <span class="kr-trans">스마트폰이 사람들을 더 연결해 주나요, 아니면 더 고립시키나요?</span>
+            </li>
+            <li>Should children be allowed to have smartphones?
+                <span class="kr-trans">아이들이 스마트폰을 가지도록 허용해야 할까요?</span>
+            </li>
+            <li>How will smartphones change in the future?
+                <span class="kr-trans">미래에는 스마트폰이 어떻게 변할까요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 31 : PAGE 3 ================= -->
+    <div class="a4-page">
+        <!-- Hypothesis & Conflict -->
+        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
+        
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
+            <p class="font-medium text-gray-800">Your friend is constantly checking their phone while you are trying to have a serious conversation over dinner.</p>
+            <span class="kr-trans">친구가 당신과 저녁을 먹으며 진지한 대화를 나누는 도중에도 계속해서 스마트폰을 확인합니다.</span>
+            
+            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
+            <ol class="list-decimal pl-5 text-gray-800 font-medium">
+                <li>How would you feel?
+                    <span class="kr-trans">기분이 어떨까요?</span>
+                </li>
+                <li>Would you say something or ignore it?
+                    <span class="kr-trans">무언가 말을 하겠습니까, 아니면 무시하겠습니까?</span>
+                </li>
+                <li>How would you politely ask them to put the phone away?
+                    <span class="kr-trans">어떻게 정중하게 휴대전화를 치워달라고 부탁하겠습니까?</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Role-play -->
+        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
+            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
+            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Do you think you use your phone too much?<br><span class="kr-trans mb-0">스마트폰을 너무 많이 사용한다고 생각하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Yes, I probably spend too much time on social media.<br><span class="kr-trans mb-0">네, 아마 소셜 미디어에 너무 많은 시간을 보내는 것 같아요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">What do you do when you want to reduce screen time?<br><span class="kr-trans mb-0">화면 시청 시간을 줄이고 싶을 때 어떻게 하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">I try to leave my phone in another room.<br><span class="kr-trans mb-0">휴대전화를 다른 방에 두려고 노력해요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Does it work?<br><span class="kr-trans mb-0">효과가 있나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Sometimes, but it is really hard to break the habit.<br><span class="kr-trans mb-0">가끔은요, 하지만 습관을 고치는 것은 정말 어렵네요.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Talk More & Homework -->
+        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
+        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
+            <li>What is the most useful feature of a smartphone?<br><span class="kr-trans">스마트폰의 가장 유용한 기능은 무엇인가요?</span></li>
+            <li>Can you imagine living without a smartphone for a week?<br><span class="kr-trans">일주일 동안 스마트폰 없이 사는 것을 상상할 수 있나요?</span></li>
+        </ul>
+
+        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
+            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
+            <p class="font-medium text-gray-800">Write 4-5 sentences about your smartphone habits and how you want to change them.</p>
+            <span class="kr-trans mb-0">자신의 스마트폰 사용 습관과 그것을 어떻게 바꾸고 싶은지 4-5문장으로 써보세요.</span>
+        </div>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 32 : PAGE 1 ================= -->
+    <div class="a4-page">
+        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
+            Week 7 - Technology and Society
+        </div>
+        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 32 - AI in Daily Life
+            <span class="kr-trans text-lg mt-1">레슨 32 - 일상 속 인공지능</span>
+        </h1>
+
+        <!-- Goal & Photo Prompt -->
+        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
+            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
+            <p class="font-medium text-gray-800">Talk about artificial intelligence, smart devices, and the future of technology in society.</p>
+            <span class="kr-trans">인공지능, 스마트 기기, 그리고 사회에서 기술의 미래에 대해 이야기합니다.</span>
+            
+            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
+            <p class="text-gray-800 italic">"A person interacting with a smart home voice assistant speaker in a modern living room."</p>
+            <span class="kr-trans">"현대적인 거실에서 스마트 홈 음성 인식 스피커와 상호작용하는 사람의 모습입니다."</span>
+        </div>
+
+        <!-- Warm-up -->
+        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
+        <ol class="question-list">
+            <li>Have you ever used an AI voice assistant?
+                <span class="kr-trans">AI 음성 비서를 사용해 본 적이 있나요?</span>
+            </li>
+            <li>Do you have any smart devices in your home?
+                <span class="kr-trans">집에 스마트 기기가 있나요?</span>
+            </li>
+            <li>What do you think about AI technology?
+                <span class="kr-trans">AI 기술에 대해 어떻게 생각하나요?</span>
+            </li>
+            <li>Does AI make life easier?
+                <span class="kr-trans">AI가 삶을 더 편하게 만들어 주나요?</span>
+            </li>
+        </ol>
+
+        <!-- Observation Questions -->
+        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
+        <ol class="question-list">
+            <li>What do you notice first in the picture?
+                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
+            </li>
+            <li>How many people can you see, and what are they doing?
+                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
+            </li>
+            <li>What objects or details stand out to you?
+                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
+            </li>
+            <li>What looks most important in this scene?
+                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 32 : PAGE 2 ================= -->
+    <div class="a4-page">
+        <!-- Description Questions -->
+        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
+        <ol class="question-list">
+            <li>Where do you think this scene is taking place?
+                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
+            </li>
+            <li>What kind of atmosphere does this place have?
+                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
+            </li>
+            <li>What time of day do you think it is?
+                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
+            </li>
+            <li>How would you describe the mood of the people in the picture?
+                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
+            </li>
+        </ol>
+
+        <!-- Personal Questions -->
+        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
+        <ol class="question-list">
+            <li>How often do you use AI tools like ChatGPT or translation apps?
+                <span class="kr-trans">ChatGPT나 번역 앱과 같은 AI 도구를 얼마나 자주 사용하나요?</span>
+            </li>
+            <li>What task would you like AI to do for you?
+                <span class="kr-trans">AI가 대신해 주었으면 하는 일은 무엇인가요?</span>
+            </li>
+            <li>Do you trust AI to give you accurate information?
+                <span class="kr-trans">AI가 정확한 정보를 제공한다고 신뢰하나요?</span>
+            </li>
+            <li>Have you ever felt frustrated with an automated system?
+                <span class="kr-trans">자동화된 시스템에 답답함을 느낀 적이 있나요?</span>
+            </li>
+            <li>What is the most impressive technology you use daily?
+                <span class="kr-trans">매일 사용하는 기술 중 가장 인상적인 것은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <!-- Opinion Questions -->
+        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
+        <ol class="question-list">
+            <li>Why is AI developing so quickly?
+                <span class="kr-trans">왜 AI는 이렇게 빨리 발전하고 있을까요?</span>
+            </li>
+            <li>Will AI eventually replace human jobs?
+                <span class="kr-trans">결국 AI가 인간의 일자리를 대체하게 될까요?</span>
+            </li>
+            <li>What are the dangers of relying too much on AI?
+                <span class="kr-trans">AI에 너무 많이 의존하는 것의 위험성은 무엇일까요?</span>
+            </li>
+            <li>How can we use AI safely in the future?
+                <span class="kr-trans">미래에 AI를 어떻게 안전하게 사용할 수 있을까요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 32 : PAGE 3 ================= -->
+    <div class="a4-page">
+        <!-- Hypothesis & Conflict -->
+        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
+        
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
+            <p class="font-medium text-gray-800">You need urgent customer service, but you can only speak to an AI chatbot that doesn't understand your problem.</p>
+            <span class="kr-trans">긴급한 고객 서비스가 필요하지만, 당신의 문제를 이해하지 못하는 AI 챗봇과만 대화할 수 있습니다.</span>
+            
+            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
+            <ol class="list-decimal pl-5 text-gray-800 font-medium">
+                <li>What would you do first?
+                    <span class="kr-trans">가장 먼저 무엇을 하겠습니까?</span>
+                </li>
+                <li>How do you stay calm in this situation?
+                    <span class="kr-trans">이 상황에서 어떻게 평정심을 유지하겠습니까?</span>
+                </li>
+                <li>How can companies improve AI customer service?
+                    <span class="kr-trans">기업들은 AI 고객 서비스를 어떻게 개선할 수 있을까요?</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Role-play -->
+        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
+            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
+            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Do you use AI in your daily life?<br><span class="kr-trans mb-0">일상생활에서 AI를 사용하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Yes, I use it for translations and finding information.<br><span class="kr-trans mb-0">네, 번역이나 정보 검색에 사용해요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Are you worried about AI taking over jobs?<br><span class="kr-trans mb-0">AI가 사람의 일자리를 대체할까 봐 걱정되나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">A little bit, but I think it will create new jobs too.<br><span class="kr-trans mb-0">조금요, 하지만 새로운 일자리도 만들어낼 거라고 생각해요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">What is the biggest advantage of AI?<br><span class="kr-trans mb-0">AI의 가장 큰 장점은 무엇인가요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">It can save us a lot of time and effort.<br><span class="kr-trans mb-0">우리에게 많은 시간과 노력을 절약해 줄 수 있어요.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Talk More & Homework -->
+        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
+        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
+            <li>Would you trust a self-driving car?<br><span class="kr-trans">자율주행 자동차를 신뢰할 수 있나요?</span></li>
+            <li>How will schools change because of AI?<br><span class="kr-trans">AI로 인해 학교는 어떻게 변하게 될까요?</span></li>
+        </ul>
+
+        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
+            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
+            <p class="font-medium text-gray-800">Write 4-5 sentences about an AI tool or smart device you find useful.</p>
+            <span class="kr-trans mb-0">당신이 유용하다고 생각하는 AI 도구나 스마트 기기에 대해 4-5문장으로 써보세요.</span>
+        </div>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 33 : PAGE 1 ================= -->
+    <div class="a4-page">
+        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
+            Week 7 - Technology and Society
+        </div>
+        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 33 - Online Shopping
+            <span class="kr-trans text-lg mt-1">레슨 33 - 온라인 쇼핑</span>
+        </h1>
+
+        <!-- Goal & Photo Prompt -->
+        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
+            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
+            <p class="font-medium text-gray-800">Discuss e-commerce habits, comparing online and offline shopping, and consumer behavior.</p>
+            <span class="kr-trans">전자상거래 습관, 온/오프라인 쇼핑 비교, 소비자의 행동에 대해 토론합니다.</span>
+            
+            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
+            <p class="text-gray-800 italic">"A person sitting on a sofa with a credit card in hand, looking at a laptop screen filled with shopping items."</p>
+            <span class="kr-trans">"손에 신용카드를 들고 쇼핑 품목으로 가득 찬 노트북 화면을 바라보며 소파에 앉아 있는 사람의 모습입니다."</span>
+        </div>
+
+        <!-- Warm-up -->
+        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
+        <ol class="question-list">
+            <li>Do you shop online often?
+                <span class="kr-trans">온라인 쇼핑을 자주 하나요?</span>
+            </li>
+            <li>What do you usually buy online?
+                <span class="kr-trans">주로 무엇을 온라인으로 사나요?</span>
+            </li>
+            <li>Do you prefer online shopping or going to a real store?
+                <span class="kr-trans">온라인 쇼핑과 실제 매장에 가는 것 중 어느 것을 더 선호하나요?</span>
+            </li>
+            <li>Do you read reviews before buying?
+                <span class="kr-trans">구매하기 전에 리뷰를 읽어보나요?</span>
+            </li>
+        </ol>
+
+        <!-- Observation Questions -->
+        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
+        <ol class="question-list">
+            <li>What do you notice first in the picture?
+                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
+            </li>
+            <li>How many people can you see, and what are they doing?
+                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
+            </li>
+            <li>What objects or details stand out to you?
+                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
+            </li>
+            <li>What looks most important in this scene?
+                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 33 : PAGE 2 ================= -->
+    <div class="a4-page">
+        <!-- Description Questions -->
+        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
+        <ol class="question-list">
+            <li>Where do you think this scene is taking place?
+                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
+            </li>
+            <li>What kind of atmosphere does this place have?
+                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
+            </li>
+            <li>What time of day do you think it is?
+                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
+            </li>
+            <li>How would you describe the mood of the people in the picture?
+                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
+            </li>
+        </ol>
+
+        <!-- Personal Questions -->
+        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
+        <ol class="question-list">
+            <li>What was the last thing you bought online?
+                <span class="kr-trans">가장 최근에 온라인으로 산 물건은 무엇인가요?</span>
+            </li>
+            <li>Have you ever regretted an online purchase?
+                <span class="kr-trans">온라인 구매를 후회해 본 적이 있나요?</span>
+            </li>
+            <li>Do you wait for sales before buying something?
+                <span class="kr-trans">무언가를 사기 전에 세일 기간을 기다리나요?</span>
+            </li>
+            <li>How often do you return items you bought online?
+                <span class="kr-trans">온라인으로 구매한 물건을 얼마나 자주 반품하나요?</span>
+            </li>
+            <li>Do you enjoy grocery shopping online?
+                <span class="kr-trans">온라인으로 장(식료품)을 보는 것을 즐기나요?</span>
+            </li>
+        </ol>
+
+        <!-- Opinion Questions -->
+        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
+        <ol class="question-list">
+            <li>Why has online shopping become so popular?
+                <span class="kr-trans">왜 온라인 쇼핑이 그렇게 인기를 얻게 되었을까요?</span>
+            </li>
+            <li>What are the disadvantages of shopping online?
+                <span class="kr-trans">온라인 쇼핑의 단점은 무엇인가요?</span>
+            </li>
+            <li>Will traditional stores disappear in the future?
+                <span class="kr-trans">미래에는 전통적인 상점들이 사라지게 될까요?</span>
+            </li>
+            <li>How do online reviews influence our choices?
+                <span class="kr-trans">온라인 리뷰가 우리의 선택에 어떤 영향을 미치나요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 33 : PAGE 3 ================= -->
+    <div class="a4-page">
+        <!-- Hypothesis & Conflict -->
+        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
+        
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
+            <p class="font-medium text-gray-800">You ordered a gift for a friend's birthday online, but it arrives late and the item is damaged.</p>
+            <span class="kr-trans">친구의 생일 선물을 온라인으로 주문했는데, 늦게 도착한 데다 물건이 파손되어 있습니다.</span>
+            
+            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
+            <ol class="list-decimal pl-5 text-gray-800 font-medium">
+                <li>What would you do first?
+                    <span class="kr-trans">가장 먼저 무엇을 하겠습니까?</span>
+                </li>
+                <li>How would you handle the situation with the seller?
+                    <span class="kr-trans">판매자와의 상황을 어떻게 처리하겠습니까?</span>
+                </li>
+                <li>What would you tell your friend?
+                    <span class="kr-trans">친구에게 뭐라고 말하겠습니까?</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Role-play -->
+        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
+            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
+            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Do you prefer shopping online or in stores?<br><span class="kr-trans mb-0">온라인 쇼핑과 오프라인 매장 중 어디를 더 선호하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">I prefer online shopping because it's much more convenient.<br><span class="kr-trans mb-0">훨씬 더 편리하기 때문에 온라인 쇼핑을 선호해요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">But you can't try things on. Isn't that a problem?<br><span class="kr-trans mb-0">하지만 입어볼 수 없잖아요. 그건 문제가 되지 않나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Yes, so I only buy from stores with free returns.<br><span class="kr-trans mb-0">네, 그래서 무료 반품이 되는 상점에서만 구매해요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Have you ever been scammed online?<br><span class="kr-trans mb-0">온라인에서 사기를 당한 적이 있나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">No, I always read the reviews carefully before buying.<br><span class="kr-trans mb-0">아니요, 구매하기 전에 항상 리뷰를 주의 깊게 읽어봅니다.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Talk More & Homework -->
+        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
+        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
+            <li>What is the best purchase you've made recently?<br><span class="kr-trans">최근에 한 최고의 구매는 무엇인가요?</span></li>
+            <li>Do you think people buy things they don't need because of easy online shopping?<br><span class="kr-trans">쉬운 온라인 쇼핑 때문에 사람들이 필요 없는 물건을 산다고 생각하나요?</span></li>
+        </ul>
+
+        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
+            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
+            <p class="font-medium text-gray-800">Write 4-5 sentences about your favorite online shopping experience.</p>
+            <span class="kr-trans mb-0">가장 좋았던 온라인 쇼핑 경험에 대해 4-5문장으로 써보세요.</span>
+        </div>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 34 : PAGE 1 ================= -->
+    <div class="a4-page">
+        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
+            Week 7 - Technology and Society
+        </div>
+        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 34 - Digital Life
+            <span class="kr-trans text-lg mt-1">레슨 34 - 디지털 라이프</span>
+        </h1>
+
+        <!-- Goal & Photo Prompt -->
+        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
+            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
+            <p class="font-medium text-gray-800">Talk about managing digital clutter, online presence, and finding a balance in the digital world.</p>
+            <span class="kr-trans">디지털 정보 정리, 온라인 상의 존재감, 디지털 세계에서의 균형 찾기에 대해 이야기합니다.</span>
+            
+            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
+            <p class="text-gray-800 italic">"A cluttered laptop screen showing multiple open tabs, notifications, and unread emails."</p>
+            <span class="kr-trans">"여러 개의 열린 탭, 알림, 읽지 않은 이메일이 보이는 복잡한 노트북 화면입니다."</span>
+        </div>
+
+        <!-- Warm-up -->
+        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
+        <ol class="question-list">
+            <li>How many unread emails do you have right now?
+                <span class="kr-trans">지금 읽지 않은 이메일이 몇 개나 있나요?</span>
+            </li>
+            <li>Do you organize your digital files?
+                <span class="kr-trans">디지털 파일들을 잘 정리하는 편인가요?</span>
+            </li>
+            <li>Is your phone storage usually full?
+                <span class="kr-trans">당신의 휴대전화 용량은 주로 꽉 차 있나요?</span>
+            </li>
+            <li>Do you feel stressed by notifications?
+                <span class="kr-trans">알림 때문에 스트레스를 받나요?</span>
+            </li>
+        </ol>
+
+        <!-- Observation Questions -->
+        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
+        <ol class="question-list">
+            <li>What do you notice first in the picture?
+                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
+            </li>
+            <li>How many people can you see, and what are they doing?
+                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
+            </li>
+            <li>What objects or details stand out to you?
+                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
+            </li>
+            <li>What looks most important in this scene?
+                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 34 : PAGE 2 ================= -->
+    <div class="a4-page">
+        <!-- Description Questions -->
+        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
+        <ol class="question-list">
+            <li>Where do you think this scene is taking place?
+                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
+            </li>
+            <li>What kind of atmosphere does this place have?
+                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
+            </li>
+            <li>What time of day do you think it is?
+                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
+            </li>
+            <li>How would you describe the mood of the people in the picture?
+                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
+            </li>
+        </ol>
+
+        <!-- Personal Questions -->
+        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
+        <ol class="question-list">
+            <li>How often do you clear out old photos or apps?
+                <span class="kr-trans">오래된 사진이나 앱을 얼마나 자주 정리하나요?</span>
+            </li>
+            <li>Do you use cloud storage to save your files?
+                <span class="kr-trans">파일을 저장하기 위해 클라우드 스토리지를 사용하나요?</span>
+            </li>
+            <li>How many streaming subscriptions do you have?
+                <span class="kr-trans">몇 개의 스트리밍 서비스를 구독하고 있나요?</span>
+            </li>
+            <li>Do you turn off your phone notifications when working?
+                <span class="kr-trans">일할 때 휴대전화 알림을 끄나요?</span>
+            </li>
+            <li>What app takes up the most space on your phone?
+                <span class="kr-trans">휴대전화에서 가장 많은 용량을 차지하는 앱은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <!-- Opinion Questions -->
+        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
+        <ol class="question-list">
+            <li>Why do people hoard digital files and photos?
+                <span class="kr-trans">사람들은 왜 디지털 파일과 사진을 쟁여둘까요(저장만 해둘까요)?</span>
+            </li>
+            <li>Does digital clutter cause mental stress?
+                <span class="kr-trans">정리되지 않은 디지털 정보들이 정신적인 스트레스를 유발할까요?</span>
+            </li>
+            <li>Should we have 'device-free' times every day?
+                <span class="kr-trans">매일 '기기 없는(스마트폰 등을 안 쓰는)' 시간을 가져야 할까요?</span>
+            </li>
+            <li>How does the internet affect our attention span?
+                <span class="kr-trans">인터넷은 우리의 집중력(주의 지속 시간)에 어떤 영향을 미치나요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 34 : PAGE 3 ================= -->
+    <div class="a4-page">
+        <!-- Hypothesis & Conflict -->
+        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
+        
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
+            <p class="font-medium text-gray-800">You promised your family a 'no-screens' evening, but your boss emails you about an important update.</p>
+            <span class="kr-trans">가족들과 '화면 없는' 저녁을 보내기로 약속했는데, 직장 상사로부터 중요한 업데이트에 대한 이메일이 옵니다.</span>
+            
+            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
+            <ol class="list-decimal pl-5 text-gray-800 font-medium">
+                <li>What would you do?
+                    <span class="kr-trans">당신은 어떻게 하겠습니까?</span>
+                </li>
+                <li>How would you explain it to your family?
+                    <span class="kr-trans">가족에게 어떻게 설명하겠습니까?</span>
+                </li>
+                <li>How do you balance being responsible at work and keeping a promise?
+                    <span class="kr-trans">직장에서의 책임감과 약속을 지키는 것 사이의 균형을 어떻게 맞추겠습니까?</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Role-play -->
+        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
+            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
+            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Do you get a lot of notifications every day?<br><span class="kr-trans mb-0">매일 많은 알림을 받나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Yes, my phone is always buzzing with messages and emails.<br><span class="kr-trans mb-0">네, 제 휴대전화는 항상 메시지와 이메일로 울립니다.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Does it distract you from your work?<br><span class="kr-trans mb-0">그것이 당신의 업무를 방해하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Sometimes. I try to turn on 'Do Not Disturb' mode when I need to focus.<br><span class="kr-trans mb-0">가끔요. 집중해야 할 때는 '방해 금지' 모드를 켜려고 노력합니다.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">How do you organize your digital life?<br><span class="kr-trans mb-0">디지털 생활을 어떻게 정리하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">I delete old files and photos once a month.<br><span class="kr-trans mb-0">한 달에 한 번씩 오래된 파일과 사진을 삭제해요.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Talk More & Homework -->
+        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
+        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
+            <li>What is one rule you follow to manage your screen time?<br><span class="kr-trans">화면 시청 시간을 관리하기 위해 지키는 규칙 하나는 무엇인가요?</span></li>
+            <li>How do you feel when you go offline for a day?<br><span class="kr-trans">하루 동안 오프라인 상태(인터넷 접속 끊기)로 지내면 기분이 어떤가요?</span></li>
+        </ul>
+
+        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
+            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
+            <p class="font-medium text-gray-800">Write 4-5 sentences about how you manage your digital files or screen time.</p>
+            <span class="kr-trans mb-0">디지털 파일이나 화면 시청 시간을 어떻게 관리하는지 4-5문장으로 써보세요.</span>
+        </div>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 35 : PAGE 1 ================= -->
+    <div class="a4-page">
+        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
+            Week 7 - Technology and Society
+        </div>
+        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 35 - Privacy and Security
+            <span class="kr-trans text-lg mt-1">레슨 35 - 프라이버시와 보안</span>
+        </h1>
+
+        <!-- Goal & Photo Prompt -->
+        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
+            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
+            <p class="font-medium text-gray-800">Discuss internet privacy, cybersecurity habits, and protecting personal information online.</p>
+            <span class="kr-trans">인터넷 프라이버시, 사이버 보안 습관, 온라인에서 개인 정보 보호에 대해 토론합니다.</span>
+            
+            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
+            <p class="text-gray-800 italic">"A person typing a password into a laptop, with a padlock icon on the screen indicating security."</p>
+            <span class="kr-trans">"화면에 보안을 나타내는 자물쇠 아이콘이 있고, 노트북에 비밀번호를 입력하는 사람의 모습입니다."</span>
+        </div>
+
+        <!-- Warm-up -->
+        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
+        <ol class="question-list">
+            <li>Do you worry about your privacy online?
+                <span class="kr-trans">온라인 프라이버시에 대해 걱정하나요?</span>
+            </li>
+            <li>Do you use the same password for everything?
+                <span class="kr-trans">모든 것에 같은 비밀번호를 사용하나요?</span>
+            </li>
+            <li>Have you ever lost your personal data?
+                <span class="kr-trans">개인 데이터를 잃어버린(유실된) 적이 있나요?</span>
+            </li>
+            <li>Do you share a lot of personal information on social media?
+                <span class="kr-trans">소셜 미디어에 개인 정보를 많이 공유하나요?</span>
+            </li>
+        </ol>
+
+        <!-- Observation Questions -->
+        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
+        <ol class="question-list">
+            <li>What do you notice first in the picture?
+                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
+            </li>
+            <li>How many people can you see, and what are they doing?
+                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
+            </li>
+            <li>What objects or details stand out to you?
+                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
+            </li>
+            <li>What looks most important in this scene?
+                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 35 : PAGE 2 ================= -->
+    <div class="a4-page">
+        <!-- Description Questions -->
+        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
+        <ol class="question-list">
+            <li>Where do you think this scene is taking place?
+                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
+            </li>
+            <li>What kind of atmosphere does this place have?
+                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
+            </li>
+            <li>What time of day do you think it is?
+                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
+            </li>
+            <li>How would you describe the mood of the people in the picture?
+                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
+            </li>
+        </ol>
+
+        <!-- Personal Questions -->
+        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
+        <ol class="question-list">
+            <li>How often do you change your passwords?
+                <span class="kr-trans">비밀번호를 얼마나 자주 변경하나요?</span>
+            </li>
+            <li>Do you use public Wi-Fi?
+                <span class="kr-trans">공용 Wi-Fi를 사용하나요?</span>
+            </li>
+            <li>Have you ever received a phishing email or text message?
+                <span class="kr-trans">피싱 이메일이나 문자 메시지를 받아본 적이 있나요?</span>
+            </li>
+            <li>Do you read the terms and conditions before clicking 'agree'?
+                <span class="kr-trans">'동의'를 클릭하기 전에 이용 약관을 읽어보나요?</span>
+            </li>
+            <li>What steps do you take to protect your accounts?
+                <span class="kr-trans">계정을 보호하기 위해 어떤 조치를 취하나요?</span>
+            </li>
+        </ol>
+
+        <!-- Opinion Questions -->
+        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
+        <ol class="question-list">
+            <li>Why is online privacy becoming a bigger issue?
+                <span class="kr-trans">왜 온라인 프라이버시가 점점 더 큰 문제가 되고 있을까요?</span>
+            </li>
+            <li>Do tech companies know too much about us?
+                <span class="kr-trans">거대 기술 기업들이 우리에 대해 너무 많이 알고 있을까요?</span>
+            </li>
+            <li>Who is responsible for online security: the user or the company?
+                <span class="kr-trans">온라인 보안의 책임은 누구에게 있나요: 사용자일까요, 기업일까요?</span>
+            </li>
+            <li>Will cash disappear completely because of digital payments?
+                <span class="kr-trans">디지털 결제 때문에 현금이 완전히 사라지게 될까요?</span>
+            </li>
+        </ol>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+    <!-- ================= LESSON 35 : PAGE 3 ================= -->
+    <div class="a4-page">
+        <!-- Hypothesis & Conflict -->
+        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
+        
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
+            <p class="font-medium text-gray-800">You receive a suspicious link from a close friend's account asking for money urgently.</p>
+            <span class="kr-trans">친한 친구의 계정으로부터 급하게 돈을 요구하는 수상한 링크를 받았습니다.</span>
+            
+            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
+            <ol class="list-decimal pl-5 text-gray-800 font-medium">
+                <li>What would you do first?
+                    <span class="kr-trans">가장 먼저 무엇을 하겠습니까?</span>
+                </li>
+                <li>How would you verify if it is really your friend?
+                    <span class="kr-trans">정말 당신의 친구인지 어떻게 확인하겠습니까?</span>
+                </li>
+                <li>What should you do if your friend's account was actually hacked?
+                    <span class="kr-trans">친구의 계정이 실제로 해킹당했다면 어떻게 해야 할까요?</span>
+                </li>
+            </ol>
+        </div>
+
+        <!-- Role-play -->
+        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
+            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
+            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                <tbody>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Do you worry about hackers or online scams?<br><span class="kr-trans mb-0">해커나 온라인 사기에 대해 걱정하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Yes, I am very careful about what links I click on.<br><span class="kr-trans mb-0">네, 어떤 링크를 클릭할지 매우 조심하는 편입니다.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">How do you protect your personal information?<br><span class="kr-trans mb-0">개인 정보를 어떻게 보호하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">I use strong passwords and two-factor authentication.<br><span class="kr-trans mb-0">강력한 비밀번호와 2단계 인증을 사용해요.</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
+                        <td class="py-3 px-4">Do you think companies protect our data well?<br><span class="kr-trans mb-0">기업들이 우리의 데이터를 잘 보호한다고 생각하나요?</span></td>
+                    </tr>
+                    <tr class="border-b border-gray-100">
+                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
+                        <td class="py-3 px-4">Not always. Data leaks happen quite often these days.<br><span class="kr-trans mb-0">항상 그렇지는 않아요. 요즘 데이터 유출이 꽤 자주 발생하잖아요.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Talk More & Homework -->
+        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
+        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
+            <li>Would you give up your privacy for more convenience?<br><span class="kr-trans">더 큰 편리함을 위해 프라이버시를 포기할 의향이 있나요?</span></li>
+            <li>How do you teach older people to be safe online?<br><span class="kr-trans">어르신들에게 온라인에서 안전해지는 방법을 어떻게 가르쳐주나요?</span></li>
+        </ul>
+
+        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
+            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
+            <p class="font-medium text-gray-800">Write 4-5 sentences about how you protect your privacy and security online.</p>
+            <span class="kr-trans mb-0">온라인에서 자신의 프라이버시와 보안을 어떻게 보호하는지 4-5문장으로 써보세요.</span>
+        </div>
+
+        <div class="page-footer">
+            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+        </div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아인잉글리쉬 EIN Job Interview Survival - Week 5</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-emerald: #059669;
+            --bg-light-blue: #eff6ff;
+            --text-gray: #4b5563;
+            --translation-gray: #9ca3af;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            background-color: white;
+            width: 210mm;
+            min-height: 297mm;
+            height: auto;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+            padding-bottom: 35mm;
+        }
+
+        .header-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-navy), var(--secondary-emerald));
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-left: 4px solid var(--secondary-emerald);
+            padding-left: 12px;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .translation {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--translation-gray);
+            font-weight: 400;
+            margin-top: 2px;
+            line-height: 1.2;
+        }
+
+        .key-box {
+            background-color: var(--bg-light-blue);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dialogue-bubble {
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            max-width: 90%;
+            font-size: 0.95rem;
+        }
+
+        .tutor-bubble {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-navy);
+            margin-right: auto;
+        }
+
+        .student-bubble {
+            background-color: #ecfdf5;
+            border-right: 4px solid var(--secondary-emerald);
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .roleplay-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .roleplay-table td {
+            padding: 15px;
+            border: 1px solid #dbeafe;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        @media print {
+            body { background-color: white; }
+            .page { margin: 0; box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LESSON 21: PAGE 1 -->
+    <div class="page" id="lesson21-p1">
+        <div class="header-line"></div>
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 5 : LESSON 21</span>
+                <h2 class="text-3xl font-bold text-blue-900">Why This Company <span class="translation">왜 이 회사인가요?</span></h2>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600 italic">Today's Goal <span class="translation">오늘의 목표</span></p>
+                <p class="text-xs text-gray-500">Explain interest in a company with clear reasons.<br>명확하고 설득력 있는 이유로 특정 회사에 대한 지원 동기 설명하기</p>
+            </div>
+        </div>
+
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What makes a company attractive to you? <span class="translation">당신에게 매력적인 회사의 조건은 무엇인가요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>Do you usually research a company before interviews? <span class="translation">보통 면접 전에 회사에 대해 조사를 하시나요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>Why is a specific answer better than a general answer? <span class="translation">왜 일반적인 답변보다 구체적인 답변이 더 좋을까요?</span></div>
+            </li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="space-y-4">
+            <div class="key-box">
+                <p class="text-blue-900 font-bold mb-3 text-sm border-b border-blue-200 pb-1">Core Expressions <span class="text-xs font-normal">(필수 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• I'm interested in this company because [Reason]. <span class="translation">저는 [이유] 때문에 이 회사에 관심이 있습니다.</span></li>
+                    <li>• I like your company's [Values/Service]. <span class="translation">저는 귀사의 [가치/서비스]를 좋아합니다.</span></li>
+                    <li>• I researched your company and learned that... <span class="translation">귀사에 대해 조사하면서 ~라는 점을 알게 되었습니다.</span></li>
+                    <li>• I believe I can contribute here. <span class="translation">제가 이곳에서 기여할 수 있다고 믿습니다.</span></li>
+                </ul>
+            </div>
+            <div class="key-box border-l-4 border-emerald-500">
+                <p class="text-emerald-700 font-bold mb-3 text-sm border-b border-emerald-100 pb-1">Upgrade Your English <span class="text-xs font-normal">(심화 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• Your company stands out to me because... <span class="translation">귀사는 ~한 점 때문에 저에게 특히 돋보였습니다.</span></li>
+                    <li>• I feel your values match my own. <span class="translation">귀사의 가치관이 저의 가치관과 일치한다고 느낍니다.</span></li>
+                    <li>• I want to grow with your company long-term. <span class="translation">장기적으로 귀사와 함께 성장하고 싶습니다.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-6 bg-yellow-50 p-4 rounded border-l-4 border-yellow-400">
+            <p class="text-xs font-bold text-yellow-800 italic uppercase">Tutor Tip!</p>
+            <p class="text-[11px] text-yellow-700">Mention a specific project, value, or reputation of the company to show you really did your research.<br>회사의 구체적인 프로젝트, 가치관 또는 평판을 언급하여 진심으로 조사했음을 보여주세요.</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 21: PAGE 2 -->
+    <div class="page" id="lesson21-p2">
+        <div class="header-line"></div>
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="space-y-4 bg-gray-50 p-6 rounded-xl">
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> Why do you want to work for this company? <span class="translation">왜 우리 회사에서 일하고 싶나요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> I'm interested in this company because of its strong customer focus. <span class="translation">귀사의 강력한 고객 중심 경영 때문에 관심이 생겼습니다.</span>
+            </div>
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> What do you like about the company specifically? <span class="translation">구체적으로 회사의 어떤 점이 마음에 드나요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> I like the way your team values service and quality. It matches the way I like to work. <span class="translation">귀사의 팀이 서비스와 품질을 중시하는 방식이 마음에 듭니다. 그것은 제가 일하고 싶어 하는 방식과 일치합니다.</span>
+            </div>
+        </div>
+
+        <div class="section-title">Guided Practice <span class="translation">문장 완성 연습</span></div>
+        <div class="space-y-4 p-6 border border-emerald-200 rounded-xl">
+            <div class="space-y-6">
+                <div>
+                    <p class="text-xs font-bold text-blue-900 mb-1">1. Interest & Reason (관심 분야와 이유)</p>
+                    <p class="text-sm border-b border-gray-300 py-1">I'm interested in this company because _______________________.</p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-blue-900 mb-1">2. Research Insight (조사 내용)</p>
+                    <p class="text-sm border-b border-gray-300 py-1">I researched your company and found _______________________.</p>
+                </div>
+                <div>
+                    <p class="text-xs font-bold text-blue-900 mb-1">3. Expected Contribution (기여 방안)</p>
+                    <p class="text-sm border-b border-gray-300 py-1">I believe I can contribute by _______________________.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 22: PAGE 1 -->
+    <div class="page" id="lesson22-p1">
+        <div class="header-line"></div>
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 5 : LESSON 22</span>
+                <h2 class="text-3xl font-bold text-blue-900">Why This Role <span class="translation">왜 이 직무인가요?</span></h2>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600 italic">Today's Goal <span class="translation">오늘의 목표</span></p>
+                <p class="text-xs text-gray-500">Connect the role to your interests and strengths.<br>해당 직무가 본인의 관심사 및 강점과 어떻게 일치하는지 연결하기</p>
+            </div>
+        </div>
+
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700 text-sm">
+            <li>• What kind of role do you enjoy most? <span class="translation">당신은 어떤 종류의 직무를 가장 좋아하나요?</span></li>
+            <li>• Why is it important to connect your skills to the role? <span class="translation">왜 당신의 기술을 직무와 연결하는 것이 중요할까요?</span></li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box">
+            <ul class="space-y-4 text-sm">
+                <li>• This role fits my skills in [Skill]. <span class="translation">이 직무는 저의 [기술] 역량과 잘 맞습니다.</span></li>
+                <li>• I enjoy work that involves [Task/Responsibility]. <span class="translation">저는 [업무/책임]과 관련된 일을 즐깁니다.</span></li>
+                <li>• I'm motivated by [Motivation]. <span class="translation">저는 [동기부여 요소]에 의해 동기를 얻습니다.</span></li>
+                <li>• This role would allow me to grow in... <span class="translation">이 직무는 제가 ~ 분야에서 성장할 수 있게 해줄 것입니다.</span></li>
+                <li>• I'm ready to take on new responsibilities. <span class="translation">저는 새로운 책임을 맡을 준비가 되어 있습니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Role-play <span class="translation">상황극 연습</span></div>
+        <table class="roleplay-table text-sm">
+            <tr class="bg-blue-900 text-white font-bold">
+                <td class="w-1/3">Tutor's Question</td>
+                <td>Student's Answer Hint</td>
+            </tr>
+            <tr>
+                <td class="font-medium italic">"Why are you interested in this role?"</td>
+                <td>"I'm interested because it fits my communication skills and I enjoy helping people."</td>
+            </tr>
+            <tr>
+                <td class="font-medium italic">"Why is it a good match?"</td>
+                <td>"I think this position is a good match because I like fast-paced, customer-facing work."</td>
+            </tr>
+        </table>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 23: Career Goals -->
+    <div class="page" id="lesson23">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 5 : LESSON 23</span>
+        <h2 class="text-3xl font-bold text-blue-900">Career Goals <span class="translation">커리어 목표</span></h2>
+        
+        <div class="section-title">Goal: Short-term & Long-term <span class="translation">단기 및 장기 목표 설정</span></div>
+        <div class="key-box">
+            <ul class="space-y-4 text-sm">
+                <li>• <b>Short-term:</b> In the short term, I want to [Goal]. <span class="translation">단기적으로는, ~을 하고 싶습니다.</span></li>
+                <li>• <b>Long-term:</b> In the long term, I hope to [Goal]. <span class="translation">장기적으로는, ~을 하기를 희망합니다.</span></li>
+                <li>• I want to keep improving my [Skill]. <span class="translation">저는 저의 [기술]을 계속 향상시키고 싶습니다.</span></li>
+                <li>• My next goal is to [Action]. <span class="translation">저의 다음 목표는 ~하는 것입니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-gray-50 rounded-xl space-y-3">
+            <p class="text-sm"><b>Tutor:</b> What are your short-term career goals? <span class="translation text-xs">당신의 단기적인 커리어 목표는 무엇인가요?</span></p>
+            <p class="text-sm"><b>Student:</b> In the short term, I want to improve my customer service and communication skills. <span class="translation text-xs">단기적으로는 고객 서비스와 소통 능력을 향상시키고 싶습니다.</span></p>
+            <p class="text-sm"><b>Tutor:</b> What about your long-term goals? <span class="translation text-xs">장기적인 목표는요?</span></p>
+            <p class="text-sm"><b>Student:</b> In the long term, I hope to move into a role with more responsibility. <span class="translation text-xs">장기적으로는 더 많은 책임을 맡는 직무로 이동하고 싶습니다.</span></p>
+        </div>
+
+        <div class="mt-8 bg-blue-50 p-4 rounded border-l-4 border-blue-400">
+            <p class="text-xs font-bold text-blue-800 uppercase mb-1">Talk More</p>
+            Do you like making long-term plans, or staying flexible? Why?<br>당신은 장기 계획을 세우는 것을 좋아하나요, 아니면 유연함을 유지하는 것을 좋아하나요? 그 이유는요?
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 24: Work Values -->
+    <div class="page" id="lesson24">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 5 : LESSON 24</span>
+        <h2 class="text-3xl font-bold text-blue-900">Work Values <span class="translation">업무 가치관</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box border-l-4 border-emerald-500">
+            <ul class="space-y-4 text-sm font-medium">
+                <li>• I value teamwork and clear communication. <span class="translation">저는 팀워크와 명확한 소통을 가치 있게 여깁니다.</span></li>
+                <li>• I value responsibility and trust. <span class="translation">저는 책임감과 신뢰를 중요하게 생각합니다.</span></li>
+                <li>• I want to work in a place that supports growth. <span class="translation">저는 성장을 지원하는 곳에서 일하고 싶습니다.</span></li>
+                <li>• I value fairness and respect. <span class="translation">저는 공정함과 존중을 중시합니다.</span></li>
+                <li>• My values help me stay motivated. <span class="translation">저의 가치관은 제가 동기를 유지하도록 도와줍니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-blue-50 border border-blue-100 rounded-xl space-y-4">
+            <p class="text-sm italic">"I value clear communication and teamwork because they help teams avoid mistakes and work more smoothly. I prefer a respectful environment where people support each other."</p>
+            <p class="text-xs text-blue-700">"저는 명확한 소통과 팀워크를 중요하게 생각하는데, 이는 팀이 실수를 피하고 더 원활하게 일하도록 돕기 때문입니다. 저는 사람들이 서로를 지원하는 존중하는 환경을 선호합니다."</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 25: Company Culture and Fit -->
+    <div class="page" id="lesson25">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 5 : LESSON 25</span>
+        <h2 class="text-3xl font-bold text-blue-900">Company Culture and Fit <span class="translation">기업 문화와 적합성</span></h2>
+        
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <p class="text-sm text-gray-700 mb-4 italic">What kind of company culture suits you best? <span class="translation text-xs">어떤 종류의 기업 문화가 당신에게 가장 잘 맞나요?</span></p>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box">
+            <ul class="space-y-3 text-sm">
+                <li>• I work best in a [Environment] environment. <span class="translation">저는 [환경]인 환경에서 가장 일을 잘합니다.</span></li>
+                <li>• I enjoy working with people who [Action]. <span class="translation">저는 [행동]하는 사람들과 일하는 것을 즐깁니다.</span></li>
+                <li>• I'm comfortable with feedback. <span class="translation">저는 피드백을 받는 것이 편안합니다.</span></li>
+                <li>• I think I would fit well because... <span class="translation">저는 ~한 점 때문에 제가 잘 맞을 것이라고 생각합니다.</span></li>
+                <li class="pt-2 border-t border-blue-200 font-medium">• I adapt well to different teams and expectations. <span class="translation">저는 다양한 팀과 기대치에 잘 적응합니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Homework <span class="translation">숙제</span></div>
+        <div class="p-6 border-2 border-emerald-500 rounded-xl bg-emerald-50">
+            <p class="font-bold text-emerald-900 mb-2">Write 4 sentences about the company culture where you do your best work.</p>
+            <p class="text-xs text-emerald-700 mb-6">당신이 최고의 성과를 낼 수 있는 기업 문화에 대해 4문장으로 작성해 보세요.</p>
+            <div class="space-y-4">
+                <div class="h-8 border-b border-emerald-200"></div>
+                <div class="h-8 border-b border-emerald-200"></div>
+                <div class="h-8 border-b border-emerald-200"></div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

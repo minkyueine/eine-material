@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN Working Holiday Survival - Week 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ein-navy: #1e3a8a;
+            --ein-emerald: #059669;
+            --ein-light-blue: #e0f2fe; /* 연하고 화사한 파란색 */
+            --ein-gray: #6b7280;
+        }
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            width: 210mm;
+            min-height: 1123px; /* A4 min-height */
+            height: auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+            /* 하단 잘림 방지를 위해 padding-bottom을 30mm로 여유있게 확보 */
+            padding: 20mm 15mm 30mm 15mm; 
+            box-sizing: border-box;
+            page-break-after: always;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 11px;
+            color: var(--ein-gray);
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .kor-trans {
+            color: var(--ein-gray);
+            font-size: 0.9rem; /* 한국어 해석 폰트 크기 확대 유지 */
+            font-weight: 400;
+            margin-top: 2px;
+            display: block;
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.4;
+        }
+        h1, h2, h3, h4, .title-font {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        }
+        .section-title {
+            color: var(--ein-navy);
+            border-bottom: 2px solid var(--ein-navy);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .badge {
+            background-color: var(--ein-emerald);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .dialogue-box {
+            background-color: #f9fafb;
+            border-left: 4px solid var(--ein-emerald);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1rem;
+        }
+        .rp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .rp-table th, .rp-table td {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+        .rp-table th {
+            background-color: var(--ein-navy);
+            color: white;
+            font-weight: 600;
+            width: 15%;
+            text-align: center;
+        }
+        .rp-table td {
+            background-color: var(--ein-light-blue); /* 연한 파란색 유지 */
+        }
+        
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .page { box-shadow: none; margin: 0; padding-bottom: 30mm; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         LESSON 11 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 11 - Resume Drop-in: "Is the manager available?"</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 11 - 이력서 직접 제출: "매니저님 계신가요?"</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Drop off your resume politely and handle quick questions.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">정중하게 이력서를 제출하고 간단한 질문들에 대처하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever visited a store in person to hand in a resume?
+                <span class="kor-trans">이력서를 내기 위해 매장에 직접 방문해 본 적이 있나요?</span>
+            </li>
+            <li>What do you think is the proper dress code for a resume drop-in?
+                <span class="kor-trans">이력서를 제출하러 갈 때 적절한 복장은 무엇이라고 생각하나요?</span>
+            </li>
+            <li>What interview question do you find hardest?
+                <span class="kor-trans">면접 질문 중 가장 어렵게 느껴지는 것은 무엇인가요?</span>
+            </li>
+            <li>How do you usually prepare before something important?
+                <span class="kor-trans">중요한 일을 앞두고 보통 어떻게 준비하시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Hi, are you guys currently hiring? <span class="kor-trans">안녕하세요, 현재 채용 중이신가요?</span></li>
+                <li>Is the manager available at the moment? <span class="kor-trans">지금 매니저님 계신가요(시간 되시나요)?</span></li>
+                <li>I'd like to drop off my resume. <span class="kor-trans">제 이력서를 내고 싶습니다.</span></li>
+                <li>When would be a good time to come back? <span class="kor-trans">언제 다시 방문하는 것이 좋을까요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I understand you're busy. I'll leave my resume here.
+                    <span class="kor-trans">바쁘신 것 이해합니다. 이력서를 여기에 두고 가겠습니다.</span>
+                </li>
+                <li>Could I leave my resume with you, please?
+                    <span class="kor-trans">저... 이력서를 당신에게 맡겨도 될까요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Availability and attitude are often just as important as experience in entry-level jobs.
+                    <span class="kor-trans">진입 장벽이 낮은 일자리에서는 근무 가능 시간과 태도가 종종 경력만큼이나 중요합니다.</span>
+                </li>
+                <li>A calm, friendly tone makes interview answers sound stronger.
+                    <span class="kor-trans">차분하고 친근한 어조는 면접 답변을 더 강력하게 만들어줍니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 11 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hi, are you guys currently hiring?</p>
+                    <span class="kor-trans">안녕하세요, 현재 채용 중이신가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Hi. Yes, I'm looking for a job. *(Note: Typically B says "Yes, we are." Here B introduces their intention.)*</p>
+                    <span class="kor-trans">안녕하세요. 네, 일자리를 찾고 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>The manager isn't here right now. What position are you applying for?</p>
+                    <span class="kor-trans">매니저님이 지금 안 계십니다. 어떤 직무에 지원하시나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>A barista or all-rounder role.</p>
+                    <span class="kor-trans">바리스타나 올라운더 직무입니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Okay. You can leave your resume here.</p>
+                    <span class="kor-trans">알겠습니다. 이력서를 여기에 두고 가시면 됩니다.</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Thank you. When would be a good time to come back?</p>
+                    <span class="kor-trans">감사합니다. 언제 다시 방문하는 것이 좋을까요?</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this question with your own details: <span class="font-semibold border-b border-gray-300">Hi, are you guys currently hiring?</span>
+                <span class="kor-trans">자신의 상황에 맞게 질문을 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question with your own details: <span class="font-semibold border-b border-gray-300">Is the manager available at the moment?</span>
+                <span class="kor-trans">자신의 상황에 맞게 질문을 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'd like to drop off my resume.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question with your own details: <span class="font-semibold border-b border-gray-300">When would be a good time to come back?</span>
+                <span class="kor-trans">자신의 상황에 맞게 질문을 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 11 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are practicing a real-life working holiday situation related to resume drop-in: "is the manager available?".</p>
+        <span class="kor-trans mb-4">상황: 매장에 방문해 "매니저님 계신가요?"라고 묻고 이력서를 제출하는 실전 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Are you currently hiring?<br><span class="kor-trans text-xs">현재 채용 중이신가요? (직원 역할)</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'd like to drop off my resume.<br><span class="kor-trans text-xs">제 이력서를 내고 싶습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Is the manager available at the moment?<br><span class="kor-trans text-xs">지금 매니저님 계신가요? (학생이 해야 할 질문을 튜터가 먼저 던져 힌트를 줌)</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>If possible, yes.<br><span class="kor-trans text-xs">가능하다면 뵙고 싶습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What position are you applying for?<br><span class="kor-trans text-xs">어떤 직무에 지원하시나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>A _______ role.<br><span class="kor-trans text-xs">_______ 직무입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>When would be a good time to come back?<br><span class="kor-trans text-xs">언제 다시 방문하는 것이 좋을까요? (튜터가 힌트 제공)</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Would tomorrow afternoon work?<br><span class="kor-trans text-xs">내일 오후가 괜찮을까요?</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Do you feel comfortable handing in a resume in person? Why?
+                <span class="kor-trans">이력서를 직접 방문해서 제출하는 것이 편하신가요? 이유는요?</span>
+            </li>
+            <li>What outfit would you wear for a resume drop-in?
+                <span class="kor-trans">이력서를 제출하러 갈 때 어떤 복장을 입을 건가요?</span>
+            </li>
+            <li>How would you introduce yourself in one sentence?
+                <span class="kor-trans">한 문장으로 자신을 어떻게 소개할 건가요?</span>
+            </li>
+            <li>What would you say if the manager is not there?
+                <span class="kor-trans">매니저가 자리에 없다면 뭐라고 말하시겠습니까?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write a 3-4 sentence pitch to introduce yourself and hand over your resume. Submission: [Korean intention] + [English draft].</p>
+            <span class="kor-trans">자신을 소개하고 이력서를 건네는 3~4문장의 짧은 피치(인사말)를 작성하세요. 제출: [한국어 의도] + [영어 초안].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 12 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 12 - "Tell me about yourself": 1-Minute Pitch</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 12 - "자기소개 해주세요": 1분 자기소개</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Deliver a 1-minute pitch using Past-Present-Future.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">과거-현재-미래 구조를 사용하여 1분 자기소개(피치) 하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>When an interviewer says "Tell me about yourself," what should you include? (Name -> Experience -> Strengths -> Motivation)
+                <span class="kor-trans">면접관이 "자기소개를 해주세요"라고 할 때, 어떤 내용을 포함해야 할까요? (이름 -> 경력 -> 강점 -> 지원 동기)</span>
+            </li>
+            <li>What interview question do you find hardest?
+                <span class="kor-trans">면접 질문 중 가장 어렵게 느껴지는 것은 무엇인가요?</span>
+            </li>
+            <li>How do you usually prepare before something important?
+                <span class="kor-trans">중요한 일을 앞두고 보통 어떻게 준비하시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Past: I have worked as a _______ for _______. <span class="kor-trans">과거: 저는 _______ 로서 _______ 동안 일했습니다.</span></li>
+                <li>Present: I'm a fast learner and I enjoy working with people. <span class="kor-trans">현재: 저는 습득력이 빠르며 사람들과 함께 일하는 것을 즐깁니다.</span></li>
+                <li>Present: I'm used to working in a fast-paced environment. <span class="kor-trans">현재: 저는 진행 속도가 빠른 환경에서 일하는 것에 익숙합니다.</span></li>
+                <li>Future: I applied for this position because I want to contribute to your team. <span class="kor-trans">미래: 저는 귀하의 팀에 기여하고 싶어서 이 직무에 지원했습니다.</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I enjoy working in a team and staying organized.
+                    <span class="kor-trans">저는 팀에서 일하는 것과 체계적으로 일하는 것을 즐깁니다.</span>
+                </li>
+                <li>I'm confident I can learn quickly and support the team right away.
+                    <span class="kor-trans">빨리 배우고 팀을 즉각적으로 지원할 자신이 있습니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Availability and attitude are often just as important as experience in entry-level jobs.
+                    <span class="kor-trans">진입 장벽이 낮은 일자리에서는 근무 가능 시간과 태도가 종종 경력만큼이나 중요합니다.</span>
+                </li>
+                <li>A calm, friendly tone makes interview answers sound stronger.
+                    <span class="kor-trans">차분하고 친근한 어조는 면접 답변을 더 강력하게 만들어줍니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 12 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Tell me about yourself.</p>
+                    <span class="kor-trans">자기소개를 해주시겠어요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Hi, I'm _______. I have _______ years of experience in _______.</p>
+                    <span class="kor-trans">안녕하세요, 저는 _______ 입니다. 저는 _______ 분야에서 _______ 년의 경력이 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>What are your strengths?</p>
+                    <span class="kor-trans">본인의 강점은 무엇인가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'm a fast learner, and I stay calm under pressure.</p>
+                    <span class="kor-trans">저는 습득력이 빠르고, 압박감 속에서도 차분함을 유지합니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Why did you apply for this role?</p>
+                    <span class="kor-trans">이 직무에 왜 지원하셨나요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'd love to contribute to your team and learn more in this environment.</p>
+                    <span class="kor-trans">귀하의 팀에 기여하고 이 환경에서 더 많은 것을 배우고 싶습니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Complete the sentence with your own information: <span class="font-semibold border-b border-gray-300">Past: I have worked as a _______ for _______.</span>
+                <span class="kor-trans">자신의 정보를 넣어 문장을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Present: I'm a fast learner and I enjoy working with people.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Present: I'm used to working in a fast-paced environment.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Future: I applied for this position because I want to contribute to your team.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 12 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are practicing a real-life working holiday situation related to "tell me about yourself": 1-minute pitch.</p>
+        <span class="kor-trans mb-4">상황: "자기소개를 해보세요"라는 질문에 대비하여 1분 자기소개를 실전처럼 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Can you tell me about yourself?<br><span class="kor-trans text-xs">자기소개를 해주시겠어요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Sure. I have worked as a _______ for _______.<br><span class="kor-trans text-xs">네. 저는 _______ 로서 _______ 동안 일했습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What is one of your strengths?<br><span class="kor-trans text-xs">당신의 강점 중 하나는 무엇인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'm a fast learner and I work well under pressure.<br><span class="kor-trans text-xs">저는 습득력이 빠르고 압박감 속에서도 일을 잘 해냅니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Why did you apply for this role?<br><span class="kor-trans text-xs">이 직무에 지원한 이유는 무엇인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I want to contribute to your team.<br><span class="kor-trans text-xs">귀하의 팀에 기여하고 싶습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Can you give a short example?<br><span class="kor-trans text-xs">짧은 예를 들어주시겠어요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes. In my last job, I _______.<br><span class="kor-trans text-xs">네. 제 이전 직장에서, 저는 _______ 했습니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is your best first-impression habit: smile, posture, or voice?
+                <span class="kor-trans">첫인상을 남길 때 가장 좋은 습관은 무엇인가요: 미소, 자세, 아니면 목소리?</span>
+            </li>
+            <li>What part of your pitch feels hardest?
+                <span class="kor-trans">자기소개에서 어떤 부분이 가장 어렵게 느껴지나요?</span>
+            </li>
+            <li>What is one story you can share to show your strength?
+                <span class="kor-trans">자신의 강점을 보여주기 위해 공유할 수 있는 에피소드 하나는 무엇인가요?</span>
+            </li>
+            <li>How do you want to sound: friendly, confident, or calm?
+                <span class="kor-trans">어떻게 보이고 싶나요: 친근한, 자신감 넘치는, 아니면 차분한 느낌?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write your 1-minute self-introduction using Past/Present/Future. Format: 3 bullet points. Submission: [Korean meaning] + [English draft].</p>
+            <span class="kor-trans">과거/현재/미래 구조를 사용하여 1분 자기소개를 작성하세요. 형식: 글머리 기호 3개. 제출: [한국어 의미] + [영어 초안].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 13 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 13 - Common Interview Questions 1: Visa & Motivation</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 13 - 흔한 면접 질문 1: 비자 및 지원 동기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Answer visa and availability questions confidently.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">비자 및 근무 가능 시간에 관한 질문에 자신 있게 대답하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is an employer's biggest concern when hiring a working holiday maker? (visa end date + how long you will stay)
+                <span class="kor-trans">워홀러를 채용할 때 고용주의 가장 큰 고민은 무엇일까요? (비자 만료일 + 체류 기간)</span>
+            </li>
+            <li>What interview question do you find hardest?
+                <span class="kor-trans">면접 질문 중 가장 어렵게 느껴지는 것은 무엇인가요?</span>
+            </li>
+            <li>How do you usually prepare before something important?
+                <span class="kor-trans">중요한 일을 앞두고 보통 어떻게 준비하시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'm on a Working Holiday Visa, valid until _______. <span class="kor-trans">저는 워킹홀리데이 비자로 있으며, _______ 까지 유효합니다.</span></li>
+                <li>I have no restrictions on my working hours. <span class="kor-trans">저는 근무 시간에 제한이 없습니다.</span></li>
+                <li>I'm available to work full-time, including weekends. <span class="kor-trans">주말을 포함하여 풀타임 근무가 가능합니다.</span></li>
+                <li>I plan to stay in this city for at least _______ months. <span class="kor-trans">저는 이 도시에 최소 _______ 개월 동안 머물 계획입니다.</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'm flexible with early mornings and weekends.
+                    <span class="kor-trans">저는 이른 아침과 주말 근무에 유연합니다.</span>
+                </li>
+                <li>I'm planning to stay in this city for at least 6 months.
+                    <span class="kor-trans">이 도시에서 최소 6개월 이상 머물 계획입니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Say "Working Holiday Visa" and your end date (Month/Year). Mention your minimum stay clearly (e.g., 6 months).
+                    <span class="kor-trans">"Working Holiday Visa"와 만료일(월/년)을 말하세요. 최소 체류 기간(예: 6개월)도 명확히 언급하세요.</span>
+                </li>
+                <li>Availability and attitude are often just as important as experience in entry-level jobs.
+                    <span class="kor-trans">진입 장벽이 낮은 일자리에서는 근무 가능 시간과 태도가 종종 경력만큼이나 중요합니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 13 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>What visa are you on?</p>
+                    <span class="kor-trans">어떤 비자를 가지고 계신가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'm on a Working Holiday Visa, valid until _______.</p>
+                    <span class="kor-trans">저는 워킹홀리데이 비자로 있으며, _______ 까지 유효합니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>What is your availability?</p>
+                    <span class="kor-trans">근무 가능 시간이 어떻게 되시나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'm available full-time, including weekends.</p>
+                    <span class="kor-trans">저는 주말을 포함하여 풀타임으로 근무할 수 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>How long are you planning to stay in this city?</p>
+                    <span class="kor-trans">이 도시에는 얼마나 머물 계획인가요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I plan to stay here for at least six months.</p>
+                    <span class="kor-trans">저는 이곳에 최소 6개월 동안 머물 계획입니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Complete the sentence with your own information: <span class="font-semibold border-b border-gray-300">I'm on a Working Holiday Visa, valid until _______.</span>
+                <span class="kor-trans">자신의 정보를 넣어 문장을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I have no restrictions on my working hours.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'm available to work full-time, including weekends.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Complete the sentence with your own information: <span class="font-semibold border-b border-gray-300">I plan to stay in this city for at least _______ months.</span>
+                <span class="kor-trans">자신의 정보를 넣어 문장을 완성해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 13 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are practicing a real-life working holiday situation related to common interview questions 1: visa & motivation.</p>
+        <span class="kor-trans mb-4">상황: 비자 및 지원 동기와 관련된 흔한 면접 질문에 대비하는 실전 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>What visa are you on?<br><span class="kor-trans text-xs">어떤 비자를 가지고 계신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'm on a Working Holiday Visa, valid until _______.<br><span class="kor-trans text-xs">저는 워킹홀리데이 비자로 있으며, _______ 까지 유효합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What is your availability like?<br><span class="kor-trans text-xs">근무 가능 일정이 어떻게 되시나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'm available full-time, including weekends.<br><span class="kor-trans text-xs">저는 주말을 포함해 풀타임 근무가 가능합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>How long will you stay in this city?<br><span class="kor-trans text-xs">이 도시에는 얼마나 머물 예정인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I plan to stay for at least _______ months.<br><span class="kor-trans text-xs">최소 _______ 개월 동안 머물 계획입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Are early mornings okay for you?<br><span class="kor-trans text-xs">이른 아침 근무도 괜찮으신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes, they are.<br><span class="kor-trans text-xs">네, 괜찮습니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is your visa end date and minimum stay plan?
+                <span class="kor-trans">당신의 비자 만료일과 최소 체류 계획은 어떻게 되나요?</span>
+            </li>
+            <li>What availability can you offer: weekends, early mornings, or both?
+                <span class="kor-trans">어떤 근무 가능 시간을 제공할 수 있나요: 주말, 이른 아침, 아니면 둘 다?</span>
+            </li>
+            <li>Why do employers worry about working holiday visas?
+                <span class="kor-trans">고용주들이 워킹홀리데이 비자를 걱정하는 이유는 무엇일까요?</span>
+            </li>
+            <li>How can you reassure an employer quickly?
+                <span class="kor-trans">어떻게 하면 고용주를 빠르게 안심시킬 수 있을까요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write a 3-sentence answer: "Why do you want to work at our store?" Submission: [Korean intention] + [English draft].</p>
+            <span class="kor-trans">"왜 우리 매장에서 일하고 싶나요?"에 대한 3문장 답변을 작성하세요. 제출: [한국어 의도] + [영어 초안].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 14 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 14 - Common Interview Questions 2: Behavioral Questions (STAR)</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 14 - 흔한 면접 질문 2: 상황 행동 질문 (STAR 기법)</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Tell a short problem-solving story using STAR.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">STAR 기법을 사용하여 짧은 문제 해결 경험 이야기하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever dealt with an angry customer or conflict at work? How did you resolve it?
+                <span class="kor-trans">화난 고객이나 직장에서의 갈등을 다뤄본 적이 있나요? 어떻게 해결했나요?</span>
+            </li>
+            <li>What interview question do you find hardest?
+                <span class="kor-trans">면접 질문 중 가장 어렵게 느껴지는 것은 무엇인가요?</span>
+            </li>
+            <li>How do you usually prepare before something important?
+                <span class="kor-trans">중요한 일을 앞두고 보통 어떻게 준비하시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>There was a time when _______. <span class="kor-trans">_______ 했던 적이 있습니다.</span></li>
+                <li>I listened carefully to their complaint. <span class="kor-trans">저는 그들의 불만 사항을 주의 깊게 들었습니다.</span></li>
+                <li>I apologized sincerely and offered a solution. <span class="kor-trans">진심으로 사과하고 해결책을 제시했습니다.</span></li>
+                <li>I stayed calm under pressure. <span class="kor-trans">저는 압박감 속에서도 차분함을 유지했습니다.</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>In the end, the issue was resolved and the customer calmed down.
+                    <span class="kor-trans">결국 문제는 해결되었고, 고객은 진정되었습니다.</span>
+                </li>
+                <li>I followed the store policy and informed my manager if needed.
+                    <span class="kor-trans">저는 매장 규정을 따랐고 필요할 경우 매니저에게 알렸습니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Availability and attitude are often just as important as experience in entry-level jobs.
+                    <span class="kor-trans">진입 장벽이 낮은 일자리에서는 근무 가능 시간과 태도가 종종 경력만큼이나 중요합니다.</span>
+                </li>
+                <li>A calm, friendly tone makes interview answers sound stronger.
+                    <span class="kor-trans">차분하고 친근한 어조는 면접 답변을 더 강력하게 만들어줍니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 14 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Tell me about a time you handled a difficult customer.</p>
+                    <span class="kor-trans">까다로운 고객을 응대했던 경험에 대해 말해주세요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>There was a time when a customer complained about the wrong order.</p>
+                    <span class="kor-trans">잘못된 주문으로 고객이 항의했던 적이 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>What did you do?</p>
+                    <span class="kor-trans">어떻게 대처하셨나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I apologized, listened carefully, and replaced it immediately.</p>
+                    <span class="kor-trans">저는 사과하고, 주의 깊게 경청한 뒤, 즉시 음식을 교환해 주었습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>What was the result?</p>
+                    <span class="kor-trans">결과는 어땠나요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>The customer calmed down and thanked me for fixing it quickly.</p>
+                    <span class="kor-trans">고객은 진정하였고, 빠르게 해결해 주어 고맙다고 했습니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Complete the sentence with your own information: <span class="font-semibold border-b border-gray-300">There was a time when _______.</span>
+                <span class="kor-trans">자신의 정보를 넣어 문장을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I listened carefully to their complaint.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I apologized sincerely and offered a solution.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I stayed calm under pressure.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 14 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are practicing a real-life working holiday situation related to common interview questions 2: behavioral questions (star).</p>
+        <span class="kor-trans mb-4">상황: 상황 행동 면접 질문(STAR 기법)에 답변하는 실전 워킹홀리데이 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Can you tell me about a difficult customer?<br><span class="kor-trans text-xs">까다로운 고객을 응대했던 적에 대해 말해주시겠어요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>There was a time when _______.<br><span class="kor-trans text-xs">_______ 했던 적이 있습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What did you do?<br><span class="kor-trans text-xs">어떻게 대처하셨나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I listened carefully and offered a solution.<br><span class="kor-trans text-xs">저는 주의 깊게 경청하고 해결책을 제시했습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What was the result?<br><span class="kor-trans text-xs">결과는 어땠나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>The issue was resolved and the customer calmed down.<br><span class="kor-trans text-xs">문제는 해결되었고 고객은 진정했습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What did you learn from that?<br><span class="kor-trans text-xs">그 경험을 통해 무엇을 배웠나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I learned to stay calm under pressure.<br><span class="kor-trans text-xs">저는 압박감 속에서도 차분함을 유지하는 법을 배웠습니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever handled a difficult customer? What happened?
+                <span class="kor-trans">까다로운 고객을 다뤄본 적이 있나요? 무슨 일이 있었나요?</span>
+            </li>
+            <li>What do you do when you feel stressed at work?
+                <span class="kor-trans">직장에서 스트레스를 받을 때 어떻게 하시나요?</span>
+            </li>
+            <li>What is one work mistake you learned from?
+                <span class="kor-trans">배움을 얻었던 업무상의 실수 하나는 무엇인가요?</span>
+            </li>
+            <li>How do you stay calm during conflict?
+                <span class="kor-trans">갈등 상황에서 어떻게 차분함을 유지하시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write a true story using STAR (max 4 sentences). Submission: [Korean] + [English draft].</p>
+            <span class="kor-trans">STAR 기법을 사용하여 본인의 실제 이야기를 작성하세요 (최대 4문장). 제출: [한국어] + [영어 초안].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 15 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 15 - LIVE Mock Interview (Full Role-play)</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 15 - 실전 모의 면접 (전체 롤플레이)</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Complete a full mock interview from greeting to closing.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">인사부터 마무리까지 전체 모의 면접 완료하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Take a deep breath. Check your camera, lighting, and smile.
+                <span class="kor-trans">심호흡을 하세요. 카메라, 조명, 그리고 미소를 점검하세요.</span>
+            </li>
+            <li>What interview question do you find hardest?
+                <span class="kor-trans">면접 질문 중 가장 어렵게 느껴지는 것은 무엇인가요?</span>
+            </li>
+            <li>How do you usually prepare before something important?
+                <span class="kor-trans">중요한 일을 앞두고 보통 어떻게 준비하시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Hi, thanks for having me. <span class="kor-trans">안녕하세요, 면접 기회를 주셔서 감사합니다(초대해 주셔서 감사합니다).</span></li>
+                <li>Could you tell me about yourself? (Answer with your pitch.) <span class="kor-trans">자기소개를 해주시겠어요? (본인의 1분 피치로 답변하세요.)</span></li>
+                <li>What is your availability like? <span class="kor-trans">근무 가능 시간이 어떻게 되시나요?</span></li>
+                <li>Do you have any questions for me? <span class="kor-trans">저에게 질문 있으신가요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>What is the team culture like here?
+                    <span class="kor-trans">이곳의 팀 문화는 어떤가요?</span>
+                </li>
+                <li>When can I expect to hear back from you?
+                    <span class="kor-trans">결과는 언제쯤 알 수 있을까요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Availability and attitude are often just as important as experience in entry-level jobs.
+                    <span class="kor-trans">진입 장벽이 낮은 일자리에서는 근무 가능 시간과 태도가 종종 경력만큼이나 중요합니다.</span>
+                </li>
+                <li>A calm, friendly tone makes interview answers sound stronger.
+                    <span class="kor-trans">차분하고 친근한 어조는 면접 답변을 더 강력하게 만들어줍니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 15 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hi, thanks for coming in today.</p>
+                    <span class="kor-trans">안녕하세요, 오늘 와주셔서 감사합니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Hi, thanks for having me.</p>
+                    <span class="kor-trans">안녕하세요, 초대해 주셔서 감사합니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Tell me about yourself.</p>
+                    <span class="kor-trans">자기소개를 해주시겠어요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>(Deliver your 1-minute pitch.)</p>
+                    <span class="kor-trans">(준비한 1분 자기소개를 합니다.)</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>What is your availability like?</p>
+                    <span class="kor-trans">근무 가능 시간이 어떻게 되시나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'm available full-time, including weekends, and I can start immediately.</p>
+                    <span class="kor-trans">주말을 포함해 풀타임 근무가 가능하며, 즉시 시작할 수 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Do you have any questions for me?</p>
+                    <span class="kor-trans">저에게 질문 있으신가요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Yes. What is the team culture like here?</p>
+                    <span class="kor-trans">네, 이곳의 팀 문화는 어떤가요?</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Hi, thanks for having me.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question with your own details: <span class="font-semibold border-b border-gray-300">Could you tell me about yourself? (Answer with your pitch.)</span>
+                <span class="kor-trans">자신의 상황에 맞게 질문을 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question with your own details: <span class="font-semibold border-b border-gray-300">What is your availability like?</span>
+                <span class="kor-trans">자신의 상황에 맞게 질문을 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question with your own details: <span class="font-semibold border-b border-gray-300">Do you have any questions for me?</span>
+                <span class="kor-trans">자신의 상황에 맞게 질문을 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 15 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 3 - Interview Skills</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are practicing a real-life working holiday situation related to live mock interview (full role-play).</p>
+        <span class="kor-trans mb-4">상황: 실전처럼 처음부터 끝까지 모의 면접을 진행하는 롤플레이를 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Thanks for coming in today. How are you?<br><span class="kor-trans text-xs">오늘 와주셔서 감사합니다. 잘 지내셨나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'm good, thanks for having me.<br><span class="kor-trans text-xs">잘 지냅니다, 면접 기회를 주셔서 감사합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Can you tell me about yourself?<br><span class="kor-trans text-xs">자기소개를 해주시겠어요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Sure. I have worked as a _______ for _______.<br><span class="kor-trans text-xs">네. 저는 _______ 로서 _______ 동안 일했습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What is your availability like?<br><span class="kor-trans text-xs">근무 가능 시간이 어떻게 되시나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'm available _______.<br><span class="kor-trans text-xs">저는 _______ 에 근무 가능합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Do you have any questions for me?<br><span class="kor-trans text-xs">저에게 질문 있으신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes. What is the team culture like here?<br><span class="kor-trans text-xs">네. 이곳의 팀 문화는 어떤가요?</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Which interview question scares you most? Why?
+                <span class="kor-trans">어떤 면접 질문이 가장 두려운가요? 그 이유는요?</span>
+            </li>
+            <li>What is one question you want to practice again?
+                <span class="kor-trans">다시 연습해보고 싶은 질문 하나는 무엇인가요?</span>
+            </li>
+            <li>How do you want to improve before your real interview?
+                <span class="kor-trans">실제 면접 전에 어떤 부분을 개선하고 싶나요?</span>
+            </li>
+            <li>What question would you ask the interviewer?
+                <span class="kor-trans">당신이라면 면접관에게 어떤 질문을 하시겠습니까?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Choose the hardest question from today. Write: [The Question] + [Your Revised Answer Draft] + [Korean meaning].</p>
+            <span class="kor-trans">오늘 가장 어려웠던 질문을 하나 고르세요. 작성: [해당 질문] + [수정된 답변 초안] + [한국어 의미].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

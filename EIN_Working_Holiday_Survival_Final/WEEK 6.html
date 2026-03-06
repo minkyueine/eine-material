@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN Working Holiday Survival - Week 6</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ein-navy: #1e3a8a;
+            --ein-emerald: #059669;
+            --ein-light-blue: #e0f2fe; /* 연하고 화사한 파란색 */
+            --ein-gray: #6b7280;
+        }
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            width: 210mm;
+            min-height: 1123px; /* A4 min-height */
+            height: auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+            /* 하단 잘림 방지를 위해 padding-bottom을 30mm로 여유있게 확보 */
+            padding: 20mm 15mm 30mm 15mm; 
+            box-sizing: border-box;
+            page-break-after: always;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 11px;
+            color: var(--ein-gray);
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .kor-trans {
+            color: var(--ein-gray);
+            font-size: 0.9rem; /* 한국어 해석 폰트 크기 확대 유지 */
+            font-weight: 400;
+            margin-top: 2px;
+            display: block;
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.4;
+        }
+        h1, h2, h3, h4, .title-font {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        }
+        .section-title {
+            color: var(--ein-navy);
+            border-bottom: 2px solid var(--ein-navy);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .badge {
+            background-color: var(--ein-emerald);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .dialogue-box {
+            background-color: #f9fafb;
+            border-left: 4px solid var(--ein-emerald);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1rem;
+        }
+        .rp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .rp-table th, .rp-table td {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+        .rp-table th {
+            background-color: var(--ein-navy);
+            color: white;
+            font-weight: 600;
+            width: 15%;
+            text-align: center;
+        }
+        .rp-table td {
+            background-color: var(--ein-light-blue); /* 연한 파란색 유지 */
+        }
+        
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .page { box-shadow: none; margin: 0; padding-bottom: 30mm; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         LESSON 26 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 26 - Booking an Inspection</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 26 - 방 인스펙션(뷰잉) 예약하기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Send a message to a landlord/flatmate to arrange a room viewing.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">집주인/플랫메이트에게 방을 보러 가기 위한 메시지를 보내기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Where do you usually look for a room online? (Facebook groups, Flatmates.com.au, etc.)
+                <span class="kor-trans">온라인에서 방을 찾을 때 주로 어디를 이용하나요? (페이스북 그룹, 플랫메이츠 등)</span>
+            </li>
+            <li>What is the most important thing for you in a house: price, location, or clean bathroom?
+                <span class="kor-trans">집을 구할 때 가장 중요한 것은 무엇인가요: 가격, 위치, 혹은 깨끗한 화장실?</span>
+            </li>
+            <li>Have you ever messaged a stranger to rent a room?
+                <span class="kor-trans">방을 빌리기 위해 모르는 사람에게 메시지를 보내본 적이 있나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Hi, is the room still available? <span class="kor-trans">안녕하세요, 이 방 아직 빈 방인가요?</span></li>
+                <li>I'm interested in renting the single room. <span class="kor-trans">싱글룸을 빌리는 데 관심이 있습니다.</span></li>
+                <li>I'd like to arrange an inspection. <span class="kor-trans">방을 보러 가는 것(인스펙션)을 일정 잡고 싶습니다.</span></li>
+                <li>What time works best for you? <span class="kor-trans">몇 시가 가장 좋으신가요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Does the rent include all bills like electricity and Wi-Fi?
+                    <span class="kor-trans">방세에 전기세와 와이파이 같은 모든 공과금이 포함되어 있나요?</span>
+                </li>
+                <li>I work full-time, so I can visit after 6 PM.
+                    <span class="kor-trans">저는 풀타임으로 일하고 있어서 오후 6시 이후에 방문할 수 있습니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>An "inspection" or "viewing" is when you visit the house to check the room and meet the flatmates.
+                    <span class="kor-trans">"인스펙션" 혹은 "뷰잉"은 집을 방문해 방을 확인하고 플랫메이트들을 만나는 것을 말합니다.</span>
+                </li>
+                <li>Good rooms go fast! Be polite but quick when messaging a landlord.
+                    <span class="kor-trans">좋은 방은 빨리 나갑니다! 집주인에게 메시지를 보낼 때는 정중하면서도 빠르게 연락하세요.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 26 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hi, I saw your ad on Facebook. Is the room still available?</p>
+                    <span class="kor-trans">안녕하세요, 페이스북에서 광고를 보았습니다. 방 아직 남아 있나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Hi there! Yes, it's still available. When would you like to move in?</p>
+                    <span class="kor-trans">안녕하세요! 네, 아직 있습니다. 언제 입주하고 싶으신가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>I'm looking to move in next weekend. I'd like to arrange an inspection.</p>
+                    <span class="kor-trans">다음 주말에 입주할 계획입니다. 방을 한 번 보러 가고 싶어요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Sure. Are you free tomorrow afternoon?</p>
+                    <span class="kor-trans">좋습니다. 내일 오후에 시간 되시나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Yes, I work until 4 PM. What time works best for you?</p>
+                    <span class="kor-trans">네, 제가 오후 4시까지 일합니다. 몇 시가 가장 좋으신가요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Let's say 5:30 PM. Here is the address.</p>
+                    <span class="kor-trans">오후 5시 30분으로 하죠. 주소는 여기입니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Hi, is the room still available?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'm interested in renting the single room.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'd like to arrange an inspection.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">What time works best for you?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 26 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You found a good room online. You call or message the landlord to book an inspection.</p>
+        <span class="kor-trans mb-4">상황: 온라인에서 괜찮은 방을 찾았습니다. 집주인에게 전화나 메시지로 인스펙션을 예약합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Hello, this is David. How can I help you?<br><span class="kor-trans text-xs">안녕하세요, 데이비드입니다. 어떻게 도와드릴까요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Hi, I saw your ad. Is the room still available?<br><span class="kor-trans text-xs">안녕하세요, 광고를 봤는데요. 방 아직 빈 방인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes, it is. Are you looking to move in soon?<br><span class="kor-trans text-xs">네, 맞습니다. 곧 입주하실 계획이신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes. I'd like to arrange an inspection.<br><span class="kor-trans text-xs">네. 방을 한 번 보러 가고 싶습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Great. I have time tomorrow morning or evening. Which is better?<br><span class="kor-trans text-xs">좋습니다. 내일 오전이나 저녁에 시간이 되는데, 언제가 좋으신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Evening is better. What time works best for you?<br><span class="kor-trans text-xs">저녁이 낫습니다. 몇 시가 가장 좋으신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Does 6 PM work for you?<br><span class="kor-trans text-xs">오후 6시 괜찮으신가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes, that's perfect. See you then.<br><span class="kor-trans text-xs">네, 완벽합니다. 그때 뵙겠습니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What makes you say "no" to a room when you see pictures online?
+                <span class="kor-trans">온라인에서 사진을 봤을 때, 어떤 점 때문에 그 방을 거절하게 되나요?</span>
+            </li>
+            <li>Do you prefer living close to the city center or in a quiet suburb?
+                <span class="kor-trans">시내 중심가에 사는 것과 조용한 외곽에 사는 것 중 무엇을 선호하나요?</span>
+            </li>
+            <li>What is the first question you would ask a landlord?
+                <span class="kor-trans">집주인에게 가장 먼저 묻고 싶은 질문은 무엇인가요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write a short text message (3 sentences) asking if a room is available and requesting an inspection. Submission: [Korean] + [English].</p>
+            <span class="kor-trans">방이 비어있는지 묻고 인스펙션을 요청하는 짧은 문자 메시지(3문장)를 작성하세요. 제출: [한국어] + [영어].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 27 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 27 - During the Inspection</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 27 - 인스펙션 진행하기 (방 확인할 때)</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Ask essential questions about house rules and facilities.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">집의 규칙과 시설에 대한 필수적인 질문하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What do you usually check when you visit a room in person? (Water pressure, sunlight, cleanliness)
+                <span class="kor-trans">방을 직접 보러 갈 때 주로 무엇을 확인하나요? (수압, 채광, 청결도 등)</span>
+            </li>
+            <li>Why is it important to ask about flatmates?
+                <span class="kor-trans">플랫메이트(같이 사는 사람들)에 대해 묻는 것이 왜 중요한가요?</span>
+            </li>
+            <li>Would you share a bedroom with another person to save rent?
+                <span class="kor-trans">월세를 아끼기 위해 다른 사람과 방을 같이 쓸 의향이 있나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>How many people live in this house? <span class="kor-trans">이 집에는 몇 명이 살고 있나요?</span></li>
+                <li>Is the bathroom shared or private? <span class="kor-trans">화장실은 공용인가요, 아니면 개인용인가요?</span></li>
+                <li>Is there a minimum stay requirement? <span class="kor-trans">최소 거주 기간 요건이 있나요?</span></li>
+                <li>Does the room come fully furnished? <span class="kor-trans">방에 가구가 모두 갖춰져(풀옵션) 있나요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Are there any house rules about visitors or parties?
+                    <span class="kor-trans">방문객이나 파티에 관한 집 규칙이 있나요?</span>
+                </li>
+                <li>Is there a cleaning roster for the common areas?
+                    <span class="kor-trans">공용 공간에 대한 청소 당번표가 있나요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>A "minimum stay" means you must live there for a certain amount of time (e.g., 3 months) or you lose your bond.
+                    <span class="kor-trans">"Minimum stay"란 일정 기간(예: 3개월) 동안 거주해야 하며, 그렇지 않으면 보증금을 잃게 된다는 뜻입니다.</span>
+                </li>
+                <li>Always check if "bills are included" in the weekly rent to avoid surprise costs.
+                    <span class="kor-trans">예상치 못한 비용을 피하려면 주세(weekly rent)에 "공과금이 포함(bills included)"되어 있는지 항상 확인하세요.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 27 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>So, this is the single room. It gets a lot of morning sunlight.</p>
+                    <span class="kor-trans">자, 여기가 싱글룸입니다. 아침 햇살이 아주 잘 들어요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>It looks nice. Does the room come fully furnished?</p>
+                    <span class="kor-trans">좋아 보이네요. 방은 풀옵션(가구 완비)인가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Yes, the bed, desk, and wardrobe are included.</p>
+                    <span class="kor-trans">네, 침대, 책상, 옷장이 포함되어 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Great. By the way, how many people live in this house?</p>
+                    <span class="kor-trans">좋네요. 그런데, 이 집에는 총 몇 명이 사나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>There are three of us right now. You would share the bathroom with two others.</p>
+                    <span class="kor-trans">지금은 저희 세 명이 살고 있어요. 화장실은 다른 두 명과 함께 쓰게 됩니다.</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Okay, that's fine. Is there a minimum stay requirement?</p>
+                    <span class="kor-trans">네, 괜찮습니다. 최소 거주 기간이 있나요?</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">How many people live in this house?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Is the bathroom shared or private?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Is there a minimum stay requirement?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Does the room come fully furnished?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 27 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are inspecting a room. Ask the landlord questions to make sure the house is a good fit.</p>
+        <span class="kor-trans mb-4">상황: 방을 둘러보는 중입니다. 집주인에게 질문하여 당신에게 잘 맞는 집인지 확인하는 연습을 합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>So, take a look around. Do you like the room?<br><span class="kor-trans text-xs">자, 한번 둘러보세요. 방이 마음에 드시나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes, it's nice. Does the room come fully furnished?<br><span class="kor-trans text-xs">네, 좋네요. 방에 가구가 다 갖춰져 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes, what you see is what you get.<br><span class="kor-trans text-xs">네, 보시는 그대로입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>How many people live in this house?<br><span class="kor-trans text-xs">이 집에는 총 몇 명이 살고 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Just me and one other flatmate. You'll share the bathroom with him.<br><span class="kor-trans text-xs">저랑 다른 플랫메이트 한 명이요. 화장실은 그 친구와 함께 쓰면 됩니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Okay. Is there a minimum stay requirement?<br><span class="kor-trans text-xs">알겠습니다. 최소 거주 기간이 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes, we prefer someone who can stay for at least 3 months.<br><span class="kor-trans text-xs">네, 최소 3개월은 머물 수 있는 분을 선호합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>That works for me. Are bills included?<br><span class="kor-trans text-xs">저에게 잘 맞네요. 공과금은 포함되어 있나요?</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is an absolute "deal-breaker" for you in a share house? (e.g., dirty kitchen, loud parties)
+                <span class="kor-trans">쉐어하우스에서 절대 타협할 수 없는 조건(deal-breaker)은 무엇인가요? (예: 더러운 주방, 시끄러운 파티 등)</span>
+            </li>
+            <li>Would you rather live with locals or people from your home country? Why?
+                <span class="kor-trans">현지인들과 사는 것과 고향 사람들과 사는 것 중 어느 것을 선호하나요? 그 이유는요?</span>
+            </li>
+            <li>Why is it important to ask about house rules before moving in?
+                <span class="kor-trans">입주하기 전에 집 규칙에 대해 묻는 것이 왜 중요할까요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write 3 questions you would absolutely ask during a room inspection. Submission: [Korean] + [English].</p>
+            <span class="kor-trans">방을 보러 갔을 때 반드시 물어볼 질문 3가지를 작성하세요. 제출: [한국어] + [영어].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 28 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 28 - Signing a Lease & Bond</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 28 - 계약하기 및 보증금(Bond) 지불</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Agree to take a room and discuss the bond and notice period.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">방을 계약하기로 동의하고 보증금과 이사 전 통보 기간에 대해 논의하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is a "Bond" (deposit) and why do landlords ask for it?
+                <span class="kor-trans">"Bond(보증금)"란 무엇이며 집주인들이 이를 요구하는 이유는 무엇일까요?</span>
+            </li>
+            <li>How much is a typical bond in your working holiday country? (Usually 2-4 weeks' rent)
+                <span class="kor-trans">워홀 국가에서 일반적인 보증금은 얼마 정도인가요? (보통 2~4주 치 방세)</span>
+            </li>
+            <li>Why should you always get a receipt when you pay cash for rent/bond?
+                <span class="kor-trans">월세나 보증금을 현금으로 낼 때 항상 영수증을 받아야 하는 이유는 무엇인가요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I really like the room. I would like to take it. <span class="kor-trans">방이 정말 마음에 듭니다. 이 방으로 계약하고 싶어요.</span></li>
+                <li>How much is the bond? <span class="kor-trans">보증금은 얼마인가요?</span></li>
+                <li>When can I move in? <span class="kor-trans">언제 이사(입주)할 수 있나요?</span></li>
+                <li>How much notice do I need to give before moving out? <span class="kor-trans">이사 나가기 며칠/몇 주 전에 미리 알려줘야 하나요(노티스 기간)?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Could you provide a written receipt for the bond?
+                    <span class="kor-trans">보증금에 대한 서면 영수증을 써주실 수 있나요?</span>
+                </li>
+                <li>Is there a formal lease agreement I need to sign?
+                    <span class="kor-trans">제가 서명해야 할 공식 임대 계약서가 있나요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>"Notice period" (usually 2 weeks) means you must tell the landlord 2 weeks before you leave, or they will keep your bond.
+                    <span class="kor-trans">"노티스(Notice) 기간"은 보통 2주이며, 떠나기 2주 전에 집주인에게 알려야 보증금을 온전히 돌려받을 수 있다는 뜻입니다.</span>
+                </li>
+                <li>Never pay the bond without seeing the house inside and getting a receipt.
+                    <span class="kor-trans">집 내부를 보지 않고 보증금을 보내거나, 영수증 없이 돈을 지불하지 마세요.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 28 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>I really like the room. I would like to take it.</p>
+                    <span class="kor-trans">방이 정말 마음에 듭니다. 이 방으로 할게요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Great! The rent is $250 a week, paid every two weeks.</p>
+                    <span class="kor-trans">좋습니다! 방세는 주당 250달러이고, 2주마다 내시면 됩니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Understood. How much is the bond?</p>
+                    <span class="kor-trans">알겠습니다. 보증금은 얼마인가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>The bond is two weeks' rent, so it's $500.</p>
+                    <span class="kor-trans">보증금은 2주 치 방세이므로 500달러입니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Okay. And how much notice do I need to give before moving out?</p>
+                    <span class="kor-trans">네. 그리고 이사 나가기 전에 노티스(알림)는 얼마 전에 주어야 하나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>You need to give a two-week notice.</p>
+                    <span class="kor-trans">2주 전에 알려주셔야 합니다.</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Sounds fair. When can I move in?</p>
+                    <span class="kor-trans">합리적이네요. 언제 입주할 수 있나요?</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I really like the room. I would like to take it.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">How much is the bond?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">When can I move in?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">How much notice do I need to give before moving out?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 28 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You want to rent the room. Discuss the bond and notice period with the landlord.</p>
+        <span class="kor-trans mb-4">상황: 방을 계약하고 싶습니다. 집주인과 보증금 및 노티스 기간에 대해 논의하는 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>So, what do you think of the room?<br><span class="kor-trans text-xs">그래서, 방이 마음에 드시나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I really like the room. I would like to take it.<br><span class="kor-trans text-xs">방이 정말 마음에 듭니다. 이 방으로 계약할게요.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Excellent! You'll need to pay the bond first.<br><span class="kor-trans text-xs">잘됐네요! 먼저 보증금을 지불하셔야 합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>How much is the bond?<br><span class="kor-trans text-xs">보증금은 얼마인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>It's $600. And please remember the notice policy.<br><span class="kor-trans text-xs">600달러입니다. 그리고 노티스 규정을 기억해 주세요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>How much notice do I need to give before moving out?<br><span class="kor-trans text-xs">이사 가기 전에 얼마 전에 미리 알려줘야 하나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>You need to let me know two weeks in advance.<br><span class="kor-trans text-xs">2주 전에는 미리 알려주셔야 합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Understood. Could you provide a receipt for the bond?<br><span class="kor-trans text-xs">알겠습니다. 보증금 영수증을 써주실 수 있나요?</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever signed a contract in a foreign language? Was it scary?
+                <span class="kor-trans">외국어로 된 계약서에 서명해 본 적이 있나요? 무섭지 않았나요?</span>
+            </li>
+            <li>Why do you think the "two-week notice" rule exists?
+                <span class="kor-trans">"2주 노티스" 규정이 왜 존재한다고 생각하시나요?</span>
+            </li>
+            <li>What should you do if the landlord refuses to return your bond?
+                <span class="kor-trans">만약 집주인이 보증금을 돌려주지 않는다면 어떻게 대처해야 할까요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write 3 sentences asking to take the room and requesting a bond receipt. Submission: [Korean] + [English].</p>
+            <span class="kor-trans">방을 계약하겠다는 의사를 밝히고 보증금 영수증을 요구하는 3문장을 작성하세요. 제출: [한국어] + [영어].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 29 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 29 - Chatting with Flatmates</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 29 - 플랫메이트(룸메이트)와 소통하기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Introduce yourself to new housemates and ask about house rules politely.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">새로운 하우스메이트에게 자신을 소개하고 집의 규칙에 대해 정중히 묻기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever lived with roommates? What was the hardest part?
+                <span class="kor-trans">룸메이트와 함께 살아본 적이 있나요? 가장 힘들었던 점은 무엇이었나요?</span>
+            </li>
+            <li>What is the most common reason flatmates argue? (e.g., cleaning, noise, food)
+                <span class="kor-trans">플랫메이트들이 싸우는 가장 흔한 이유는 무엇일까요? (예: 청소, 소음, 음식)</span>
+            </li>
+            <li>How can you break the ice with a new flatmate from a different country?
+                <span class="kor-trans">다른 나라에서 온 새로운 플랫메이트와 어떻게 어색함을 깰 수 있을까요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Hi, I'm _______! I'm moving into the single room today. <span class="kor-trans">안녕하세요, 저는 _______ 입니다! 오늘 싱글룸으로 이사 온 사람이에요.</span></li>
+                <li>Nice to meet you. Have you lived here long? <span class="kor-trans">만나서 반갑습니다. 여기서 오래 사셨나요?</span></li>
+                <li>What are the rules for taking out the trash? <span class="kor-trans">쓰레기 버리는 규칙이 어떻게 되나요?</span></li>
+                <li>Please let me know if I'm too loud at night. <span class="kor-trans">밤에 제가 너무 시끄러우면 편하게 말씀해 주세요.</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Do we take turns buying common supplies like toilet paper?
+                    <span class="kor-trans">휴지 같은 공용 물품은 돌아가면서 사나요?</span>
+                </li>
+                <li>Let's take turns cleaning the bathroom.
+                    <span class="kor-trans">화장실 청소는 돌아가면서 합시다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>In a share house, communication is key. Don't leave passive-aggressive sticky notes! Just talk to them warmly.
+                    <span class="kor-trans">쉐어하우스에서는 소통이 핵심입니다. 불만을 담은 포스트잇을 남기지 말고, 직접 따뜻하게 이야기하세요.</span>
+                </li>
+                <li>A simple "How was your day?" in the kitchen goes a long way in making good friends.
+                    <span class="kor-trans">주방에서 만날 때 "오늘 하루 어땠어?"라는 간단한 인사말이 좋은 친구를 만드는 데 큰 도움이 됩니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 29 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hi, I'm Minho! I'm moving into the single room today.</p>
+                    <span class="kor-trans">안녕하세요, 저는 민호입니다! 오늘 싱글룸으로 이사 온 사람이에요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Oh, hi Minho! I'm Jack. Nice to meet you. Welcome to the house.</p>
+                    <span class="kor-trans">오, 안녕 민호! 난 잭이야. 만나서 반가워. 우리 집에 온 걸 환영해.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Nice to meet you too. Have you lived here long?</p>
+                    <span class="kor-trans">나도 반가워. 여기서 오래 살았어?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>About a year now. It's a pretty chill house.</p>
+                    <span class="kor-trans">한 1년 정도 됐어. 꽤 여유로운 분위기의 집이야.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Good to know. By the way, what are the rules for taking out the trash?</p>
+                    <span class="kor-trans">잘됐네. 참, 쓰레기 버리는 규칙은 어떻게 돼?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>We usually take turns. It's my turn this week, so you can just use the bin.</p>
+                    <span class="kor-trans">보통 돌아가면서 버려. 이번 주는 내 차례니까 넌 그냥 쓰레기통 쓰면 돼.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Complete the sentence with your own information: <span class="font-semibold border-b border-gray-300">Hi, I'm _______! I'm moving into the single room today.</span>
+                <span class="kor-trans">자신의 정보를 넣어 문장을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Nice to meet you. Have you lived here long?</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">What are the rules for taking out the trash?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Please let me know if I'm too loud at night.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 29 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You just moved into a share house and you meet your new flatmate in the kitchen.</p>
+        <span class="kor-trans mb-4">상황: 쉐어하우스에 방금 이사 왔고, 주방에서 새로운 플랫메이트를 만납니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Hi! You must be the new flatmate. I'm Sarah.<br><span class="kor-trans text-xs">안녕하세요! 새로 온 플랫메이트시군요. 전 사라입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Hi, I'm _______! I'm moving into the single room today.<br><span class="kor-trans text-xs">안녕하세요, 저는 _______ 입니다! 오늘 싱글룸으로 이사 왔어요.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Nice to meet you. Let me know if you need anything.<br><span class="kor-trans text-xs">만나서 반가워요. 필요한 게 있으면 알려주세요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Thanks. Have you lived here long?<br><span class="kor-trans text-xs">고맙습니다. 여기서 오래 사셨나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>About two years. It's a nice place.<br><span class="kor-trans text-xs">한 2년 됐어요. 살기 좋은 곳이에요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>That's great. What are the rules for taking out the trash?<br><span class="kor-trans text-xs">잘됐네요. 쓰레기 버리는 규칙은 어떻게 되나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>We usually take turns every week.<br><span class="kor-trans text-xs">보통 매주 돌아가면서 버려요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Got it. Please let me know if I'm too loud at night.<br><span class="kor-trans text-xs">알겠습니다. 밤에 제가 너무 시끄러우면 언제든 말씀해 주세요.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is the best way to become friends with flatmates?
+                <span class="kor-trans">플랫메이트와 친구가 되는 가장 좋은 방법은 무엇일까요?</span>
+            </li>
+            <li>How would you handle a flatmate who never washes their dishes?
+                <span class="kor-trans">설거지를 절대 하지 않는 플랫메이트가 있다면 어떻게 대처하시겠습니까?</span>
+            </li>
+            <li>Do you prefer to socialize with flatmates or stay in your room?
+                <span class="kor-trans">당신은 플랫메이트들과 어울리는 것을 좋아하나요, 아니면 방에 혼자 있는 것을 선호하나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write 3 polite house rules you would want to set if you were the house owner. Submission: [Korean] + [English].</p>
+            <span class="kor-trans">만약 당신이 집주인이라면 정하고 싶은 정중한 집 규칙 3가지를 작성해 오세요. 제출: [한국어] + [영어].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 30 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 30 - Reporting Maintenance Issues</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 30 - 집수리 및 문제 보고하기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Report a broken appliance or house issue to the landlord clearly.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">고장 난 가전제품이나 집의 문제를 집주인에게 명확하게 보고하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What would you do if the washing machine in your share house broke?
+                <span class="kor-trans">쉐어하우스의 세탁기가 고장 난다면 어떻게 하시겠습니까?</span>
+            </li>
+            <li>Have you ever had to call a plumber or electrician?
+                <span class="kor-trans">배관공이나 전기공을 불러본 적이 있나요?</span>
+            </li>
+            <li>Why is it important to report damage as soon as it happens?
+                <span class="kor-trans">피해가 발생하자마자 바로 보고하는 것이 왜 중요할까요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'm messaging to let you know that the washing machine is not working. <span class="kor-trans">세탁기가 작동하지 않는다는 것을 알려드리려고 메시지 남깁니다.</span></li>
+                <li>The toilet is clogged. / The sink is leaking. <span class="kor-trans">변기가 막혔습니다. / 싱크대에서 물이 샙니다.</span></li>
+                <li>Could you please send someone to fix it? <span class="kor-trans">사람을 보내서 수리해 주실 수 있나요?</span></li>
+                <li>Please let me know when they are coming. <span class="kor-trans">그들이 언제 오는지 알려주세요.</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I just noticed this today. It was like this when I moved in.
+                    <span class="kor-trans">오늘 방금 발견했습니다. 제가 이사 올 때부터 이랬습니다.</span>
+                </li>
+                <li>Is there a temporary fix I can do right now?
+                    <span class="kor-trans">제가 당장 임시로 조치할 수 있는 방법이 있을까요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Landlords are legally required to fix essential appliances, but they need time. Be patient but follow up!
+                    <span class="kor-trans">집주인은 필수 가전제품을 고쳐줄 법적 의무가 있지만, 시간이 필요합니다. 인내심을 갖되 진행 상황을 계속 확인하세요!</span>
+                </li>
+                <li>Always send pictures of the broken item to the landlord. Written records are important.
+                    <span class="kor-trans">고장 난 물건의 사진을 항상 집주인에게 보내세요. 서면 기록을 남기는 것이 중요합니다.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 30 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hi David. I'm messaging to let you know that the shower head is leaking.</p>
+                    <span class="kor-trans">안녕하세요 데이비드. 샤워기 헤드에서 물이 새고 있어서 메시지 드립니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Oh, sorry to hear that. Is it leaking a lot?</p>
+                    <span class="kor-trans">아, 안됐네요. 물이 많이 새나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Yes, it's dripping constantly. Could you please send someone to fix it?</p>
+                    <span class="kor-trans">네, 끊임없이 물방울이 떨어집니다. 사람을 보내서 고쳐주실 수 있나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I will call a plumber today. They might come tomorrow morning.</p>
+                    <span class="kor-trans">오늘 배관공을 부르겠습니다. 아마 내일 아침에 올 거예요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Thank you. Please let me know when they are coming.</p>
+                    <span class="kor-trans">감사합니다. 그들이 언제 오는지 알려주세요.</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-navy)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Will do. Thanks for letting me know.</p>
+                    <span class="kor-trans">그럴게요. 알려줘서 고맙습니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'm messaging to let you know that the washing machine is not working.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">The toilet is clogged. / The sink is leaking.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Could you please send someone to fix it?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Please let me know when they are coming.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 30 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 6 - Housing</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: The fridge in your share house stopped working. Call the landlord to report it.</p>
+        <span class="kor-trans mb-4">상황: 쉐어하우스의 냉장고가 고장 났습니다. 집주인에게 전화해서 문제를 보고하는 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Hi, this is David. What's up?<br><span class="kor-trans text-xs">안녕, 데이비드입니다. 무슨 일인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Hi David. I'm calling to let you know that the fridge is not working.<br><span class="kor-trans text-xs">안녕하세요 데이비드. 냉장고가 작동하지 않아서 알려드리려고 전화했습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Oh no. Is it completely dead?<br><span class="kor-trans text-xs">저런. 완전히 안 켜지나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes, it's completely dead. Could you please send someone to fix it?<br><span class="kor-trans text-xs">네, 아예 꺼졌습니다. 사람을 보내서 고쳐주실 수 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>I'll call a repairman today. Is anyone home this afternoon?<br><span class="kor-trans text-xs">오늘 수리기사를 부르겠습니다. 오늘 오후에 집에 누구 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes, I'll be home. Please let me know when they are coming.<br><span class="kor-trans text-xs">네, 제가 집에 있을 겁니다. 기사님이 언제 오시는지 알려주세요.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>I will text you the time later.<br><span class="kor-trans text-xs">나중에 시간을 문자로 알려줄게요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Thank you. See you later.<br><span class="kor-trans text-xs">감사합니다. 나중에 뵙겠습니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is the worst thing that could break in a house? (e.g., toilet, fridge, Wi-Fi)
+                <span class="kor-trans">집에서 고장 났을 때 가장 최악인 것은 무엇인가요? (예: 변기, 냉장고, 와이파이)</span>
+            </li>
+            <li>Should you try to fix things yourself before calling the landlord?
+                <span class="kor-trans">집주인에게 전화하기 전에 스스로 물건을 고쳐보려고 노력해야 할까요?</span>
+            </li>
+            <li>How can you politely remind your landlord if they forget to fix it?
+                <span class="kor-trans">집주인이 고쳐주는 것을 잊어버렸을 때, 어떻게 정중하게 다시 상기시킬 수 있을까요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">👨‍🏫 Tutor Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>Start with calm, clear repetition of the core expressions before moving into speaking.</li>
+                <li>Use the model dialogue as a pattern, then switch to student-specific answers.</li>
+                <li>Keep the role-play practical and realistic for a 1:1 online class.</li>
+                <li>Use Talk More to help the student connect the lesson to real life and free talking.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Write a text message (3 sentences) reporting a clogged toilet and asking for a plumber. Submission: [Korean] + [English draft].</p>
+            <span class="kor-trans">변기가 막혔다고 보고하고 배관공을 요청하는 3문장짜리 문자 메시지를 작성하세요. 제출: [한국어] + [영어 초안].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

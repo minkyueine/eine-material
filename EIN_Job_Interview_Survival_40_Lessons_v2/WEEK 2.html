@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아인잉글리쉬 EIN Job Interview Survival - Week 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-navy: #1e3a8a;
+            --secondary-emerald: #059669;
+            --bg-light-blue: #eff6ff;
+            --text-gray: #4b5563;
+            --translation-gray: #9ca3af;
+        }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            background-color: white;
+            width: 210mm;
+            min-height: 297mm;
+            height: auto;
+            margin: 20px auto;
+            padding: 20mm;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+            padding-bottom: 30mm;
+        }
+
+        .header-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-navy), var(--secondary-emerald));
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            color: var(--primary-navy);
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-left: 4px solid var(--secondary-emerald);
+            padding-left: 12px;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .translation {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--translation-gray);
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .key-box {
+            background-color: var(--bg-light-blue);
+            border-radius: 8px;
+            padding: 18px;
+            margin-bottom: 15px;
+        }
+
+        .dialogue-bubble {
+            padding: 12px 18px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            max-width: 90%;
+            font-size: 0.95rem;
+        }
+
+        .tutor-bubble {
+            background-color: #f8fafc;
+            border-left: 4px solid var(--primary-navy);
+            margin-right: auto;
+        }
+
+        .student-bubble {
+            background-color: #ecfdf5;
+            border-right: 4px solid var(--secondary-emerald);
+            margin-left: auto;
+            text-align: right;
+        }
+
+        .roleplay-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: #f0f7ff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .roleplay-table td {
+            padding: 15px;
+            border: 1px solid #dbeafe;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        @media print {
+            body { background-color: white; }
+            .page { margin: 0; box-shadow: none; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LESSON 6: PAGE 1 -->
+    <div class="page" id="lesson6-p1">
+        <div class="header-line"></div>
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 2 : LESSON 6</span>
+                <h2 class="text-3xl font-bold text-blue-900">Talking About Past Jobs <span class="translation">이전 직장 경험 이야기하기</span></h2>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600 italic">Today's Goal <span class="translation">오늘의 목표</span></p>
+                <p class="text-xs text-gray-500">Describe a past job with role, company, and duration.<br>이전 직책, 회사, 근무 기간을 명확하게 설명하기</p>
+            </div>
+        </div>
+
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What was your most recent job? <span class="translation">가장 최근에 했던 일은 무엇인가요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>How long did you work there? <span class="translation">그곳에서 얼마나 오래 일했나요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What was the best part of that job? <span class="translation">그 직업의 가장 좋았던 점은 무엇인가요?</span></div>
+            </li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="space-y-4">
+            <div class="key-box">
+                <p class="text-blue-900 font-bold mb-3 text-sm border-b border-blue-200 pb-1">Core Expressions <span class="text-xs font-normal">(필수 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• I worked as a [Position] at [Company]. <span class="translation">저는 [회사]에서 [직책]으로 일했습니다.</span></li>
+                    <li>• I worked there for [Time period]. <span class="translation">그곳에서 [기간] 동안 근무했습니다.</span></li>
+                    <li>• My main responsibilities included... <span class="translation">나의 주요 업무는 ~를 포함했습니다.</span></li>
+                    <li>• I learned a lot about... <span class="translation">저는 ~에 대해 많이 배웠습니다.</span></li>
+                </ul>
+            </div>
+            <div class="key-box border-l-4 border-emerald-500">
+                <p class="text-emerald-700 font-bold mb-3 text-sm border-b border-emerald-100 pb-1">Upgrade Your English <span class="text-xs font-normal">(심화 표현)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• It was a fast-paced environment. <span class="translation">그곳은 업무 진행이 매우 빠른 환경이었습니다.</span></li>
+                    <li>• That role helped me improve my [Skill] skills. <span class="translation">그 직무는 저의 [기술] 능력을 향상시키는 데 도움이 되었습니다.</span></li>
+                    <li>• I gained confidence in... <span class="translation">저는 ~에 대해 자신감을 얻었습니다.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 6: PAGE 2 -->
+    <div class="page" id="lesson6-p2">
+        <div class="header-line"></div>
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="space-y-4 bg-gray-50 p-6 rounded-xl">
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> Tell me about your last job. <span class="translation">지난 직장에 대해 말씀해 주세요.</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> I worked as a front desk assistant at a hotel for two years. <span class="translation">호텔에서 프런트 데스크 어시스턴트로 2년 동안 근무했습니다.</span>
+            </div>
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> What were your main responsibilities? <span class="translation">주요 업무는 무엇이었나요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> My main responsibilities included greeting guests, answering calls, and handling bookings. <span class="translation">주요 업무는 고객 응대, 전화 응대, 그리고 예약 관리를 포함했습니다.</span>
+            </div>
+            <div class="dialogue-bubble tutor-bubble">
+                <b>Tutor:</b> What did you learn from that job? <span class="translation">그 일을 통해 무엇을 배웠나요?</span>
+            </div>
+            <div class="dialogue-bubble student-bubble">
+                <b>Student:</b> I learned a lot about customer service and staying calm under pressure. <span class="translation">고객 서비스와 압박감 속에서 침착함을 유지하는 법에 대해 많이 배웠습니다.</span>
+            </div>
+        </div>
+
+        <div class="section-title">Guided Practice <span class="translation">문장 완성 연습</span></div>
+        <div class="space-y-4 p-6 border border-emerald-200 rounded-xl">
+            <p class="text-sm font-medium mb-2">Complete the sentences using your own experience:</p>
+            <div class="flex flex-col space-y-4">
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">1.</span> I worked as a <span class="text-emerald-600">__________</span> at <span class="text-emerald-600">__________</span>.
+                </div>
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">2.</span> I worked there for <span class="text-emerald-600">__________</span>.
+                </div>
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">3.</span> My main responsibilities included <span class="text-emerald-600">__________</span> and <span class="text-emerald-600">__________</span>.
+                </div>
+                <div class="border-b border-gray-300 pb-1">
+                    <span class="text-sm text-blue-900 font-bold">4.</span> I learned a lot about <span class="text-emerald-600">__________</span>.
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 7: PAGE 1 -->
+    <div class="page" id="lesson7-p1">
+        <div class="header-line"></div>
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 2 : LESSON 7</span>
+                <h2 class="text-3xl font-bold text-blue-900">Describing Responsibilities <span class="translation">업무 내용 상세히 설명하기</span></h2>
+            </div>
+            <div class="text-right">
+                <p class="text-sm font-bold text-emerald-600 italic">Today's Goal <span class="translation">오늘의 목표</span></p>
+                <p class="text-xs text-gray-500">Explain daily tasks using specific verbs.<br>구체적인 동사를 사용하여 일상 업무를 설명하기</p>
+            </div>
+        </div>
+
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <ul class="space-y-4 text-gray-700">
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>What tasks did you do every day in your last job? <span class="translation">이전 직장에서 매일 어떤 업무를 하셨나요?</span></div>
+            </li>
+            <li class="flex items-start">
+                <span class="text-emerald-500 mr-2">•</span>
+                <div>Which responsibility was the most important? <span class="translation">어떤 업무가 가장 중요했나요?</span></div>
+            </li>
+        </ul>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="key-box">
+                <ul class="space-y-3 text-sm">
+                    <li>• I was responsible for [Task]. <span class="translation">저는 [업무]를 담당했습니다.</span></li>
+                    <li>• I handled [Task] on a daily basis. <span class="translation">저는 매일 [업무]를 처리했습니다.</span></li>
+                    <li>• I worked closely with [Team/Person]. <span class="translation">저는 [팀/사람]과 긴밀하게 협력했습니다.</span></li>
+                    <li>• I reported to [Manager Title]. <span class="translation">저는 [상사 직함]에게 보고했습니다.</span></li>
+                    <li class="pt-2 border-t border-blue-200">• I made sure that [Goal] was completed on time. <span class="translation">저는 [목표]가 제시간에 완료되도록 확인했습니다.</span></li>
+                    <li>• I took initiative to... <span class="translation">저는 주도적으로 ~를 했습니다.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title">Role-play & Talk More <span class="translation">상황극 및 심화 대화</span></div>
+        <table class="roleplay-table text-sm">
+            <tr class="bg-blue-900 text-white font-bold">
+                <td class="w-1/3">Tutor's Question <span class="block text-[10px] font-normal">강사의 질문</span></td>
+                <td>Student's Answer Hint <span class="block text-[10px] font-normal">지원자 답변 힌트</span></td>
+            </tr>
+            <tr>
+                <td class="font-medium italic">"What were your daily responsibilities?"</td>
+                <td>I was responsible for... and I handled...</td>
+            </tr>
+            <tr>
+                <td class="font-medium italic">"Who did you work with?"</td>
+                <td>I worked closely with... and reported to...</td>
+            </tr>
+        </table>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 8: Achievement -->
+    <div class="page" id="lesson8">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 2 : LESSON 8</span>
+        <h2 class="text-3xl font-bold text-blue-900">Highlighting Achievements <span class="translation">주요 성과 강조하기</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box">
+            <ul class="space-y-4 text-sm">
+                <li>• One of my key achievements was... <span class="translation">저의 주요 성과 중 하나는 ~였습니다.</span></li>
+                <li>• I helped improve [Process/Metric] by [Percentage/Amount]. <span class="translation">저는 [수치]만큼 [과정/지표]를 개선하는 데 기여했습니다.</span></li>
+                <li>• I exceeded my target by... <span class="translation">저는 목표를 ~만큼 초과 달성했습니다.</span></li>
+                <li>• I received positive feedback for... <span class="translation">저는 ~에 대해 긍정적인 피드백을 받았습니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="space-y-4 bg-blue-50 p-6 rounded-xl border border-blue-100">
+            <p class="text-sm"><b>Tutor:</b> What is one achievement you are proud of?<br><span class="translation text-xs">자랑스럽게 생각하는 성과가 있나요?</span></p>
+            <p class="text-sm"><b>Student:</b> One of my key achievements was improving customer response time. I created a simple response template. Our response time improved by 30 percent.<br><span class="translation text-xs">고객 응대 시간을 개선한 것입니다. 간단한 응대 템플릿을 만들었고, 그 결과 응대 시간이 30% 개선되었습니다.</span></p>
+        </div>
+
+        <div class="mt-8 bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-400">
+            <p class="text-sm font-bold text-yellow-800">TUTOR TIP: Use Numbers!</p>
+            <p class="text-xs text-yellow-700 leading-relaxed">Using numbers (30%, 2 years, $5,000) makes your achievements sound more believable and impressive.<br>숫자를 사용하면 당신의 성과가 훨씬 더 신뢰감 있고 인상적으로 들립니다.</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 9: Career Change -->
+    <div class="page" id="lesson9">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 2 : LESSON 9</span>
+        <h2 class="text-3xl font-bold text-blue-900">Explaining Career Changes <span class="translation">경력 변화 설명하기</span></h2>
+        
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="grid grid-cols-1 gap-4">
+            <div class="key-box">
+                <p class="text-sm font-bold text-blue-900 mb-2 underline">Positive Reasons for Change <span class="text-xs font-normal">(긍정적인 변화의 이유)</span></p>
+                <ul class="space-y-3 text-sm">
+                    <li>• I wanted to grow in [New Field]. <span class="translation">저는 [새로운 분야]에서 성장하고 싶었습니다.</span></li>
+                    <li>• I was looking for new challenges. <span class="translation">저는 새로운 도전을 찾고 있었습니다.</span></li>
+                    <li>• My previous experience still helps me with... <span class="translation">나의 이전 경험은 여전히 ~에 도움이 됩니다.</span></li>
+                    <li>• My past experience gave me transferable skills. <span class="translation">나의 과거 경험은 다른 곳에서도 쓸 수 있는 기술을 주었습니다.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title">Model Dialogue <span class="translation">모델 대화문</span></div>
+        <div class="p-6 bg-gray-50 rounded-xl">
+            <p class="text-sm italic">"I decided to change fields because I wanted new challenges. My customer service background still helps me communicate well with people in this role."</p>
+            <p class="text-xs text-gray-400 mt-2">"새로운 도전을 원해서 분야를 바꾸기로 했습니다. 저의 고객 서비스 배경은 이 직무에서도 사람들과 원활하게 소통하는 데 도움이 됩니다."</p>
+        </div>
+
+        <div class="section-title">Talk More <span class="translation">심화 대화</span></div>
+        <ul class="space-y-4 text-sm text-gray-700">
+            <li>1. Do you think employers see career changes positively or negatively?<br><span class="translation">고용주들이 경력 변화를 긍정적으로 볼까요, 부정적으로 볼까요?</span></li>
+            <li>2. What 'transferable skills' (e.g., communication, teamwork) do you have?<br><span class="translation">당신이 가진 '범용 기술'(소통, 팀워크 등)은 무엇인가요?</span></li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- LESSON 10: Limited Experience -->
+    <div class="page" id="lesson10">
+        <div class="header-line"></div>
+        <span class="bg-blue-900 text-white px-3 py-1 text-xs rounded mb-2 inline-block font-bold tracking-widest">WEEK 2 : LESSON 10</span>
+        <h2 class="text-3xl font-bold text-blue-900">Handling Limited Experience <span class="translation">경험 부족에 대처하기</span></h2>
+        
+        <div class="section-title">Warm-up <span class="translation">워밍업 질문</span></div>
+        <p class="text-sm text-gray-600 mb-4 italic">How can you sound confident when you are still learning?<br>배우는 단계일 때 어떻게 자신감 있게 들릴 수 있을까요?</p>
+
+        <div class="section-title">Key Expressions <span class="translation">핵심 표현</span></div>
+        <div class="key-box bg-emerald-50 border border-emerald-100">
+            <ul class="space-y-4 text-sm">
+                <li>• I may not have direct experience, but I learn quickly. <span class="translation">직접적인 경험은 없을지 모르지만, 저는 배우는 속도가 빠릅니다.</span></li>
+                <li>• I'm motivated to learn on the job. <span class="translation">저는 현장에서 배우고자 하는 동기가 확실합니다.</span></li>
+                <li>• I'm open to feedback and coaching. <span class="translation">저는 피드백과 코칭에 열려 있습니다.</span></li>
+                <li>• I'm confident I can adapt quickly. <span class="translation">저는 빠르게 적응할 자신이 있습니다.</span></li>
+            </ul>
+        </div>
+
+        <div class="section-title">Homework <span class="translation">숙제</span></div>
+        <div class="p-6 border-2 border-dashed border-blue-300 rounded-xl">
+            <p class="font-bold text-blue-900 mb-4">Write 3-4 sentences explaining how your transferable skills can help in a new role.</p>
+            <p class="text-xs text-gray-500 mb-4">당신의 범용 기술이 새로운 직무에 어떻게 도움이 될 수 있는지 3~4문장으로 작성해 보세요.</p>
+            <div class="space-y-3">
+                <div class="h-6 border-b border-gray-200"></div>
+                <div class="h-6 border-b border-gray-200"></div>
+                <div class="h-6 border-b border-gray-200"></div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

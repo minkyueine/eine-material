@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN Working Holiday Survival - Week 7</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ein-navy: #1e3a8a;
+            --ein-emerald: #059669;
+            --ein-light-blue: #e0f2fe;
+            --ein-gray: #6b7280;
+        }
+        body {
+            background-color: #e5e7eb;
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            width: 210mm;
+            min-height: 1123px;
+            height: auto;
+            background: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+            padding: 20mm 15mm 30mm 15mm; 
+            box-sizing: border-box;
+            page-break-after: always;
+        }
+        .footer {
+            position: absolute;
+            bottom: 10mm;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 11px;
+            color: var(--ein-gray);
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .kor-trans {
+            color: var(--ein-gray);
+            font-size: 0.9rem;
+            font-weight: 400;
+            margin-top: 2px;
+            display: block;
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.4;
+        }
+        h1, h2, h3, h4, .title-font {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+        }
+        .section-title {
+            color: var(--ein-navy);
+            border-bottom: 2px solid var(--ein-navy);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            margin-top: 1.5rem;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+        .badge {
+            background-color: var(--ein-emerald);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+        .dialogue-box {
+            background-color: #f9fafb;
+            border-left: 4px solid var(--ein-emerald);
+            padding: 1rem;
+            border-radius: 0 0.5rem 0.5rem 0;
+            margin-top: 1rem;
+        }
+        .rp-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .rp-table th, .rp-table td {
+            border: 1px solid #d1d5db;
+            padding: 0.75rem;
+            vertical-align: top;
+        }
+        .rp-table th {
+            background-color: var(--ein-navy);
+            color: white;
+            font-weight: 600;
+            width: 15%;
+            text-align: center;
+        }
+        .rp-table td {
+            background-color: var(--ein-light-blue);
+        }
+        
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .page { box-shadow: none; margin: 0; padding-bottom: 30mm; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         LESSON 31 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 31 - Grocery Shopping: Finding Items</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 31 - 식료품 쇼핑: 물건 찾기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Ask for specific items and understand common supermarket questions.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">특정 물건의 위치를 묻고 슈퍼마켓에서 자주 듣는 질문들을 이해하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Where do you usually go for grocery shopping? (Coles, Woolworths, Aldi, etc.)
+                <span class="kor-trans">식료품 쇼핑을 하러 주로 어디에 가나요? (콜스, 울워스, 알디 등)</span>
+            </li>
+            <li>What is the most difficult thing when you shop in a foreign supermarket?
+                <span class="kor-trans">외국 슈퍼마켓에서 쇼핑할 때 가장 어려운 점은 무엇인가요?</span>
+            </li>
+            <li>Do you prefer using self-checkout or going to a cashier?
+                <span class="kor-trans">셀프 계산대와 유인 계산대 중 어느 것을 선호하나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Excuse me, where can I find the _______? <span class="kor-trans">실례합니다, _______ 은 어디에 있나요?</span></li>
+                <li>Is this on sale today? <span class="kor-trans">이거 오늘 할인 중인가요?</span></li>
+                <li>Do you have any more of this in the back? <span class="kor-trans">이 제품 재고가 창고에 더 있나요?</span></li>
+                <li>Can I have a paper bag, please? <span class="kor-trans">종이 봉투 하나 주시겠어요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Does this item have a limit on how many I can buy?
+                    <span class="kor-trans">이 품목은 구매 수량 제한이 있나요?</span>
+                </li>
+                <li>Where is the nearest self-checkout station?
+                    <span class="kor-trans">가장 가까운 셀프 계산대가 어디인가요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">💡 Country / Real-life Tip</h2>
+        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+            <ul class="list-disc pl-5 space-y-1 text-sm text-gray-700">
+                <li>In many countries, you have to pay for shopping bags. It's better to bring your own!
+                    <span class="kor-trans">많은 국가에서 쇼핑백 비용을 따로 받습니다. 개인 장바구니를 챙기는 것이 좋습니다!</span>
+                </li>
+                <li>Look for "Yellow Tags" or "Special" stickers for half-price deals.
+                    <span class="kor-trans">반값 할인을 원하신다면 "노란색 태그"나 "Special" 스티커를 찾으세요.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 31 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h2 class="section-title mt-2">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box mb-8">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Excuse me, where can I find the almond milk?</p>
+                    <span class="kor-trans">실례합니다, 아몬드 우유는 어디에 있나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>It's in aisle 4, next to the regular milk.</p>
+                    <span class="kor-trans">4번 통로에 있습니다. 일반 우유 바로 옆이에요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Thanks. Also, is this pasta sauce on sale today? The tag says 50% off.</p>
+                    <span class="kor-trans">고맙습니다. 그리고 이 파스타 소스 오늘 할인 하나요? 태그에 50% 할인이라고 적혀 있어서요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Yes, it's a weekly special. Anything else?</p>
+                    <span class="kor-trans">네, 주간 특별 할인 상품입니다. 더 필요하신 게 있나요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>No, that's all. Can I have a bag at the checkout?</p>
+                    <span class="kor-trans">아니요, 그게 다입니다. 계산할 때 봉투를 받을 수 있을까요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Sure, they are 20 cents each.</p>
+                    <span class="kor-trans">그럼요, 개당 20센트입니다.</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Complete the sentence: <span class="font-semibold border-b border-gray-300">Excuse me, where can I find the _______?</span>
+                <span class="kor-trans">빈칸에 사고 싶은 물건을 넣어 질문을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Is this on sale today?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Do you have any more of this in the back?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Can I have a paper bag, please?</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 31 - PAGE 3
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h2 class="section-title mt-2">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are in a supermarket and cannot find the eggs. Ask a staff member for help.</p>
+        <span class="kor-trans mb-4">상황: 슈퍼마켓에서 계란을 찾을 수가 없습니다. 직원에게 도움을 요청하세요.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Student</th>
+                <td>Excuse me, where can I find the eggs?<br><span class="kor-trans text-xs">실례합니다, 계란은 어디에 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>They are in the dairy section, aisle 2.<br><span class="kor-trans text-xs">2번 통로, 유제품 코너에 있습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I checked there, but the shelf was empty. Do you have any more in the back?<br><span class="kor-trans text-xs">거기 확인해봤는데 선반이 비어있었어요. 창고에 재고가 더 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Let me check for you... Yes, I'll bring a carton out right now.<br><span class="kor-trans text-xs">확인해볼게요... 네, 지금 바로 한 판 가져다 드릴게요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Great, thank you. And is this bread on sale?<br><span class="kor-trans text-xs">좋네요, 감사합니다. 그리고 이 빵 할인 중인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes, it's buy one get one free today.<br><span class="kor-trans text-xs">네, 오늘 1+1 행사 중입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Perfect! I'll take two then.<br><span class="kor-trans text-xs">완벽하네요! 그럼 두 개 가져갈게요.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What are three items you always buy when you go grocery shopping?
+                <span class="kor-trans">쇼핑하러 갈 때 항상 사는 물건 세 가지는 무엇인가요?</span>
+            </li>
+            <li>Do you usually check the price tags carefully?
+                <span class="kor-trans">보통 가격표를 꼼꼼하게 확인하시나요?</span>
+            </li>
+            <li>What do you do if you realize you bought a rotten item?
+                <span class="kor-trans">상한 물건을 샀다는 것을 알게 되면 어떻게 하시겠습니까?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Make a shopping list of 5 items in English. Write a question asking for the location of the hardest item to find. Submission: [List] + [Question].</p>
+            <span class="kor-trans">영어로 5가지 쇼핑 리스트를 만드세요. 그 중 가장 찾기 힘들 것 같은 물건의 위치를 묻는 질문을 작성하세요. 제출: [리스트] + [질문].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 32 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 32 - Post Office: Sending Packages</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 32 - 우체국: 택배 보내기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Send a parcel internationally and ask about delivery times and tracking.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">해외로 택배를 보내고 배송 시간 및 추적에 대해 질문하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever sent a package to another country? What was inside?
+                <span class="kor-trans">다른 나라로 택배를 보내본 적이 있나요? 내용물은 무엇이었나요?</span>
+            </li>
+            <li>What information do you need to write on a shipping label?
+                <span class="kor-trans">배송 라벨에 어떤 정보를 적어야 하나요?</span>
+            </li>
+            <li>Which is more important to you: speed or price?
+                <span class="kor-trans">배송 속도와 가격 중 당신에게 더 중요한 것은 무엇인가요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'd like to send this package to South Korea. <span class="kor-trans">이 택배를 한국으로 보내고 싶습니다.</span></li>
+                <li>How much is express shipping? <span class="kor-trans">특송(빠른 배송) 비용은 얼마인가요?</span></li>
+                <li>About how long will it take to arrive? <span class="kor-trans">도착하는 데 대략 얼마나 걸릴까요?</span></li>
+                <li>Does this include a tracking number? <span class="kor-trans">추적 번호가 포함되어 있나요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>What is the weight limit for this box?
+                    <span class="kor-trans">이 박스의 무게 제한이 어떻게 되나요?</span>
+                </li>
+                <li>Are there any prohibited items I should know about?
+                    <span class="kor-trans">제가 알아야 할 금지 품목이 있나요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Next, please. How can I help you?</p>
+                    <span class="kor-trans">다음 분 오세요. 어떻게 도와드릴까요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Hi, I'd like to send this package to South Korea, please.</p>
+                    <span class="kor-trans">안녕하세요, 이 택배를 한국으로 보내고 싶습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Sure. Put it on the scale. What's inside?</p>
+                    <span class="kor-trans">네. 저울 위에 올려주세요. 내용물이 무엇인가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Just some clothes and snacks. How much is express shipping?</p>
+                    <span class="kor-trans">그냥 옷이랑 과자 몇 개예요. 특송 비용은 얼마인가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Express is $85 and takes 5 days. Standard is $45 and takes 2 weeks.</p>
+                    <span class="kor-trans">특송은 85달러이고 5일 걸립니다. 일반 배송은 45달러이고 2주 소요됩니다.</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'll go with standard, thanks. Does it include tracking?</p>
+                    <span class="kor-trans">일반 배송으로 할게요, 감사합니다. 추적이 포함되어 있나요?</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 32 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        
+        <h2 class="section-title mt-2">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'd like to send this package to South Korea.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">How much is express shipping?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">About how long will it take to arrive?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Does this include a tracking number?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You want to send a box of souvenirs to your family. Talk to the post office clerk.</p>
+        <span class="kor-trans mb-4">상황: 가족에게 보낼 기념품 상자를 우체국에서 접수하는 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Hello! Would you like to send a letter or a parcel today?<br><span class="kor-trans text-xs">안녕하세요! 오늘 편지를 보내시나요, 택배를 보내시나요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>A parcel to _______, please.<br><span class="kor-trans text-xs">_______ 로 택배 하나 보낼게요.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Okay. What are the contents of the package?<br><span class="kor-trans text-xs">알겠습니다. 상자 내용물이 무엇인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>They are _______.<br><span class="kor-trans text-xs">_______ 입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Standard shipping is $_______ and Express is $_______. Which would you prefer?<br><span class="kor-trans text-xs">일반은 _______달러이고 특송은 _______달러입니다. 어떤 걸로 하시겠어요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'll take _______, please. Does it have tracking?<br><span class="kor-trans text-xs">_______ 로 해주세요. 추적이 되나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes, it does. Here is your receipt with the tracking number.<br><span class="kor-trans text-xs">네, 됩니다. 여기 추적 번호가 적힌 영수증입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Thank you very much.<br><span class="kor-trans text-xs">정말 감사합니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What would you like to send home from your working holiday?
+                <span class="kor-trans">워킹홀리데이 중에 고향으로 무엇을 보내고 싶나요?</span>
+            </li>
+            <li>Have you ever lost a package in the mail?
+                <span class="kor-trans">우편물이나 택배를 분실해본 적이 있나요?</span>
+            </li>
+            <li>Do you prefer writing physical letters or sending digital messages?
+                <span class="kor-trans">손편지를 쓰는 것을 좋아하나요, 아니면 디지털 메시지를 보내는 것을 좋아하나요?</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 33 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 33 - Public Transport: Cards & Topping Up</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 33 - 대중교통: 카드 구매 및 충전</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Buy a transport card and top it up with the right amount.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">교통 카드를 구매하고 원하는 금액만큼 충전하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>What is the name of the transport card in your city? (Opal, Myki, Go Card, etc.)
+                <span class="kor-trans">당신이 있는 도시의 교통 카드 이름은 무엇인가요? (오팔, 마이키, 고 카드 등)</span>
+            </li>
+            <li>How much do you usually spend on public transport per week?
+                <span class="kor-trans">일주일에 보통 대중교통 비용으로 얼마를 쓰나요?</span>
+            </li>
+            <li>Do you find public transport easy to use in your current city?
+                <span class="kor-trans">지금 있는 도시의 대중교통을 이용하기 편리하다고 생각하나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'd like to buy a transport card, please. <span class="kor-trans">교통 카드를 하나 사고 싶습니다.</span></li>
+                <li>Can I top up $20 on this card? <span class="kor-trans">이 카드에 20달러 충전할 수 있을까요?</span></li>
+                <li>Could you check my balance, please? <span class="kor-trans">잔액 좀 확인해 주실 수 있나요?</span></li>
+                <li>Can I use my credit card for this? <span class="kor-trans">신용카드로 결제 가능한가요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Is there a daily or weekly cap on fares?
+                    <span class="kor-trans">일일 또는 주간 요금 상한제(cap)가 있나요?</span>
+                </li>
+                <li>Does this card work on buses, trains, and ferries?
+                    <span class="kor-trans">이 카드로 버스, 기차, 페리 모두 이용 가능한가요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hi, how can I help you today?</p>
+                    <span class="kor-trans">안녕하세요, 무엇을 도와드릴까요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I'd like to buy a new Opal card, please.</p>
+                    <span class="kor-trans">새 오팔 카드를 하나 사고 싶습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Sure. The card is free, but you need to load at least $10 to start.</p>
+                    <span class="kor-trans">네. 카드는 무료이지만, 시작하시려면 최소 10달러는 충전하셔야 합니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Okay, can I top up $30 on it? And can I pay by card?</p>
+                    <span class="kor-trans">좋아요, 30달러 충전해 주시겠어요? 카드로 결제해도 될까요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Of course. Just tap your card here. Anything else?</p>
+                    <span class="kor-trans">물론이죠. 여기에 카드를 탭해주세요. 다른 필요하신 건요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>No, that's it. Thanks for your help!</p>
+                    <span class="kor-trans">아니요, 그게 다예요. 도와주셔서 감사합니다!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 33 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        
+        <h2 class="section-title mt-2">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'd like to buy a transport card, please.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Complete the sentence: <span class="font-semibold border-b border-gray-300">Can I top up $_______ on this card?</span>
+                <span class="kor-trans">원하는 금액을 넣어 문장을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Could you check my balance, please?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Can I use my credit card for this?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are at a train station convenience store. You need to buy a card and put money on it.</p>
+        <span class="kor-trans mb-4">상황: 기차역 편의점에 있습니다. 교통 카드를 사고 충전해야 하는 상황을 연습합니다.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Hi! What can I do for you?<br><span class="kor-trans text-xs">안녕하세요! 무엇을 도와드릴까요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I'd like to buy a _______ card, please.<br><span class="kor-trans text-xs">_______ 카드 하나 사고 싶습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Sure. How much would you like to put on it?<br><span class="kor-trans text-xs">네. 얼마를 충전하시겠어요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Can I top up $_______ on it?<br><span class="kor-trans text-xs">_______달러 충전 가능할까요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes. That will be $_______ in total. Cash or card?<br><span class="kor-trans text-xs">네. 총 _______달러입니다. 현금인가요, 카드인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Card, please. Also, can I use this on buses too?<br><span class="kor-trans text-xs">카드로 할게요. 그리고 이 카드로 버스도 탈 수 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Yes, it works on all public transport in this city.<br><span class="kor-trans text-xs">네, 이 도시의 모든 대중교통에서 사용 가능합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Perfect. Thank you!<br><span class="kor-trans text-xs">좋네요. 감사합니다!</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Do you prefer using a physical card or your phone for transport?
+                <span class="kor-trans">대중교통 이용 시 실물 카드와 휴대폰 중 어느 것을 사용하는 것을 선호하나요?</span>
+            </li>
+            <li>What happens if you forget to "tap off" when you get off a bus?
+                <span class="kor-trans">버스에서 내릴 때 "탭 오프(카드 찍기)"를 잊어버리면 어떤 일이 생기나요?</span>
+            </li>
+            <li>Have you ever taken a wrong train or bus? What did you do?
+                <span class="kor-trans">기차나 버스를 잘못 타본 적이 있나요? 어떻게 대처했나요?</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 34 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 34 - Asking for Directions</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 34 - 길 찾기 및 질문하기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Ask for directions politely and understand basic orientation phrases.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">정중하게 길을 묻고 기본적인 방향 관련 표현들을 이해하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Do you usually use Google Maps, or do you ask people for directions?
+                <span class="kor-trans">보통 구글 맵을 사용하나요, 아니면 사람들에게 길을 묻나요?</span>
+            </li>
+            <li>Have you ever been lost in a big city? How did you feel?
+                <span class="kor-trans">큰 도시에서 길을 잃어본 적이 있나요? 기분이 어땠나요?</span>
+            </li>
+            <li>What is the most famous landmark in your current city?
+                <span class="kor-trans">지금 있는 도시에서 가장 유명한 랜드마크는 무엇인가요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>Excuse me, I'm looking for the _______ station. <span class="kor-trans">실례합니다, _______ 역을 찾고 있습니다.</span></li>
+                <li>How do I get to the nearest library? <span class="kor-trans">가장 가까운 도서관에 어떻게 가나요?</span></li>
+                <li>Is it far from here? / Is it within walking distance? <span class="kor-trans">여기서 먼가요? / 걸어갈 수 있는 거리인가요?</span></li>
+                <li>Go straight and turn left at the traffic light. <span class="kor-trans">직진해서 신호등에서 왼쪽으로 도세요.</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>It's just around the corner, across from the park.
+                    <span class="kor-trans">모퉁이만 돌면 바로 있어요, 공원 맞은편에요.</span>
+                </li>
+                <li>Could you point me in the right direction?
+                    <span class="kor-trans">어느 방향으로 가야 하는지 가리켜 주실 수 있나요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Excuse me, I'm a bit lost. I'm looking for the Central Library.</p>
+                    <span class="kor-trans">실례합니다, 길을 좀 잃어서요. 중앙 도서관을 찾고 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Oh, you're quite close. Go straight for two blocks.</p>
+                    <span class="kor-trans">아, 아주 가까이 있어요. 두 블록 정도 직진하세요.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Okay, straight for two blocks. And then?</p>
+                    <span class="kor-trans">네, 두 블록 직진요. 그다음에는요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Turn left at the traffic lights. It's across from the post office.</p>
+                    <span class="kor-trans">신호등에서 왼쪽으로 도세요. 우체국 맞은편에 있습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Is it within walking distance?</p>
+                    <span class="kor-trans">걸어갈 수 있는 거리인가요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Yes, it's only about a 5-minute walk from here.</p>
+                    <span class="kor-trans">네, 여기서 걸어서 5분 정도밖에 안 걸려요.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 34 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        
+        <h2 class="section-title mt-2">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Complete the sentence: <span class="font-semibold border-b border-gray-300">Excuse me, I'm looking for the _______ station.</span>
+                <span class="kor-trans">빈칸에 장소 이름을 넣어 질문을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">How do I get to the nearest library?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Is it within walking distance?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">Turn left at the traffic light.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You are in the city center and you want to find the nearest pharmacy. Ask a passerby.</p>
+        <span class="kor-trans mb-4">상황: 시내 중심가에서 가장 가까운 약국을 찾고 있습니다. 지나가는 사람에게 길을 물어보세요.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Student</th>
+                <td>Excuse me, could you help me? I'm looking for a pharmacy.<br><span class="kor-trans text-xs">실례합니다, 좀 도와주시겠어요? 약국을 찾고 있습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Oh, there is a Chemist Warehouse nearby. Go straight until the corner.<br><span class="kor-trans text-xs">오, 근처에 케미스트 웨어하우스(약국)가 있어요. 모퉁이까지 직진하세요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Straight until the corner. And then what?<br><span class="kor-trans text-xs">모퉁이까지 직진요. 그다음은요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Turn right and you'll see it next to the supermarket.<br><span class="kor-trans text-xs">우회전하시면 슈퍼마켓 옆에 보일 거예요.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Is it far from here?<br><span class="kor-trans text-xs">여기서 먼가요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>No, it's just a 3-minute walk.<br><span class="kor-trans text-xs">아니요, 걸어서 3분 거리입니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Got it. Thank you so much for your help!<br><span class="kor-trans text-xs">알겠습니다. 도와주셔서 정말 감사합니다!</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever given directions to a tourist? Was it difficult?
+                <span class="kor-trans">관광객에게 길을 안내해준 적이 있나요? 어려웠나요?</span>
+            </li>
+            <li>What do you say if you don't know the answer when someone asks for directions?
+                <span class="kor-trans">누군가 길을 묻는데 답을 모를 때는 뭐라고 말해야 할까요?</span>
+            </li>
+            <li>Do you think it's better to use a paper map or a phone app? Why?
+                <span class="kor-trans">종이 지도와 휴대폰 앱 중 어느 것을 사용하는 것이 더 낫다고 생각하나요? 이유는요?</span>
+            </li>
+        </ul>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 35 - PAGE 1
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        <h1 class="text-2xl font-bold text-[var(--ein-navy)] mt-2">Lesson 35 - Making a Doctor's Appointment</h1>
+        <span class="kor-trans mb-6 text-sm">레슨 35 - 병원 예약하기</span>
+
+        <div class="bg-[var(--ein-emerald)] text-white p-4 rounded-lg mb-6 shadow-sm">
+            <h3 class="font-bold flex items-center gap-2">🎯 Today's Goal</h3>
+            <p class="text-sm mt-1 font-medium">Book a medical appointment and describe basic symptoms clearly.</p>
+            <span class="text-emerald-100 text-[0.85rem] font-['Noto_Sans_KR'] block mt-1">병원 예약을 하고 기본적인 증상을 명확하게 설명하기</span>
+        </div>
+
+        <h2 class="section-title">💬 Warm-up</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Have you ever visited a doctor in a foreign country? How was the experience?
+                <span class="kor-trans">외국에서 병원에 가본 적이 있나요? 경험이 어땠나요?</span>
+            </li>
+            <li>What should you bring when you visit a doctor? (ID, insurance card, etc.)
+                <span class="kor-trans">의사를 만나러 갈 때 무엇을 챙겨가야 하나요? (신분증, 보험카드 등)</span>
+            </li>
+            <li>Do you know how to say "fever" or "sore throat" in English?
+                <span class="kor-trans">"열"이나 "인후염(목 아픔)"을 영어로 어떻게 말하는지 아시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🔑 Key Expressions</h2>
+        <div class="mb-4">
+            <h4 class="font-bold text-[var(--ein-emerald)]">Core (Must-use) <span class="text-xs text-gray-500 font-normal">필수 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'd like to book an appointment with a doctor, please. <span class="kor-trans">의사 선생님 진료를 예약하고 싶습니다.</span></li>
+                <li>I've been having a bad headache and a fever. <span class="kor-trans">심한 두통과 열이 계속 나고 있습니다.</span></li>
+                <li>Is there any availability this afternoon? <span class="kor-trans">오늘 오후에 비어있는 시간이 있나요?</span></li>
+                <li>Do I need to bring my insurance card? <span class="kor-trans">보험 카드를 가져와야 하나요?</span></li>
+            </ul>
+        </div>
+        <div>
+            <h4 class="font-bold text-[var(--ein-navy)]">Upgrade (Optional) <span class="text-xs text-gray-500 font-normal">심화 표현</span></h4>
+            <ul class="list-disc pl-5 mt-2 space-y-2">
+                <li>I'm a new patient. Do I need to fill out any forms?
+                    <span class="kor-trans">처음 방문하는 환자입니다. 작성해야 할 서류가 있나요?</span>
+                </li>
+                <li>How much is the consultation fee for international students/visitors?
+                    <span class="kor-trans">유학생/방문객의 진찰비는 얼마인가요?</span>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="section-title">🗣️ Model Dialogue</h2>
+        <div class="dialogue-box">
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Hello, Medical Centre. How can I help you?</p>
+                    <span class="kor-trans">안녕하세요, 메디컬 센터입니다. 어떻게 도와드릴까요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Hi, I'd like to book an appointment with a doctor, please.</p>
+                    <span class="kor-trans">안녕하세요, 진료 예약을 하고 싶습니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>Sure. What seems to be the problem?</p>
+                    <span class="kor-trans">네. 어디가 불편하신가요?</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>I've been having a sore throat and a cough since yesterday.</p>
+                    <span class="kor-trans">어제부터 목이 아프고 기침이 납니다.</span>
+                </div>
+            </div>
+            <div class="flex mb-3">
+                <span class="font-bold text-[var(--ein-navy)] w-6">A:</span>
+                <div class="flex-1">
+                    <p>We have a spot at 2:30 PM today. Does that work for you?</p>
+                    <span class="kor-trans">오늘 오후 2시 30분에 시간이 있습니다. 괜찮으신가요?</span>
+                </div>
+            </div>
+            <div class="flex">
+                <span class="font-bold text-[var(--ein-emerald)] w-6">B:</span>
+                <div class="flex-1">
+                    <p>Yes, that's fine. See you then.</p>
+                    <span class="kor-trans">네, 좋습니다. 그때 뵐게요.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 35 - PAGE 2
+    =========================================== -->
+    <div class="page">
+        <span class="badge">Week 7 - Daily Life</span>
+        
+        <h2 class="section-title mt-2">✏️ Guided Practice</h2>
+        <ul class="space-y-4 mb-6">
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">1.</span> Say this sentence naturally: <span class="font-semibold border-b border-gray-300">I'd like to book an appointment with a doctor, please.</span>
+                <span class="kor-trans">이 문장을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">2.</span> Complete the sentence with your symptoms: <span class="font-semibold border-b border-gray-300">I've been having a _______ and a _______.</span>
+                <span class="kor-trans">자신의 증상을 넣어 문장을 완성해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">3.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Is there any availability this afternoon?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+            <li><span class="font-bold text-[var(--ein-navy)] mr-2">4.</span> Say this question naturally: <span class="font-semibold border-b border-gray-300">Do I need to bring my insurance card?</span>
+                <span class="kor-trans">이 질문을 자연스럽게 말해보세요.</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">🎭 Role-play (1:1)</h2>
+        <p class="text-sm font-medium mb-2 text-gray-700">Situation: You have a stomach ache and you need to see a doctor. Call the clinic.</p>
+        <span class="kor-trans mb-4">상황: 배가 아파서 병원에 가야 합니다. 클리닉에 전화해서 예약하세요.</span>
+        
+        <table class="rp-table">
+            <tr>
+                <th>Tutor</th>
+                <td>Medical Centre, how can I help you?<br><span class="kor-trans text-xs">메디컬 센터입니다, 어떻게 도와드릴까요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Hi, I'd like to book an appointment, please.<br><span class="kor-trans text-xs">안녕하세요, 예약을 좀 하고 싶습니다.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>What's the reason for your visit?<br><span class="kor-trans text-xs">방문하시는 이유가 무엇인가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>I have a bad stomach ache.<br><span class="kor-trans text-xs">배가 아주 많이 아파요.</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>I see. Are you a new patient here?<br><span class="kor-trans text-xs">알겠습니다. 처음 오시는 건가요?</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>Yes, I am. Do I need to bring anything?<br><span class="kor-trans text-xs">네, 맞습니다. 제가 챙겨갈 게 있나요?</span></td>
+            </tr>
+            <tr>
+                <th>Tutor</th>
+                <td>Just your ID and insurance card. We have a spot at 4 PM.<br><span class="kor-trans text-xs">신분증과 보험카드만 챙겨오세요. 오후 4시에 예약 가능합니다.</span></td>
+            </tr>
+            <tr>
+                <th>Student</th>
+                <td>4 PM works for me. Thank you.<br><span class="kor-trans text-xs">오후 4시 괜찮습니다. 감사합니다.</span></td>
+            </tr>
+        </table>
+
+        <h2 class="section-title">🎙️ Talk More</h2>
+        <ul class="list-disc pl-5 space-y-3 mb-6">
+            <li>Do you have travel insurance for your working holiday?
+                <span class="kor-trans">워킹홀리데이를 위해 여행자 보험에 가입하셨나요?</span>
+            </li>
+            <li>What is the most important word to know when you are sick?
+                <span class="kor-trans">아플 때 알아야 할 가장 중요한 단어는 무엇이라고 생각하나요?</span>
+            </li>
+            <li>How do you take care of yourself when you are sick alone in a foreign country?
+                <span class="kor-trans">외국에서 혼자 아플 때 어떻게 스스로를 돌보시나요?</span>
+            </li>
+        </ul>
+
+        <h2 class="section-title">📝 Homework</h2>
+        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+            <p class="font-medium text-gray-800">Learn 3 English words for common illnesses (e.g., flu, stomach bug, infection). Write a short message to your boss explaining you need to see a doctor. Submission: [3 Words] + [Message].</p>
+            <span class="kor-trans">흔한 질병을 나타내는 영어 단어 3개를 학습하세요. 그리고 상사에게 병원에 가야 한다고 설명하는 짧은 메시지를 작성하세요. 제출: [단어 3개] + [메시지].</span>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>
