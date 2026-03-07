@@ -74,11 +74,11 @@
         .series-count { font-size: 0.75rem; font-weight: 600; color: var(--s400); margin-left: auto; }
 
         /* ── 교재 그리드 ── */
-        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.25rem; }
+        .book-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
 
         /* ── 교재 카드 ── */
         .book-card { background: #fff; border-radius: 1.25rem; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05); transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s; border: 1px solid rgba(0,0,0,0.04); }
-        .book-card:hover { transform: translateY(-5px); box-shadow: 0 2px 4px rgba(0,0,0,0.04), 0 14px 44px rgba(0,0,0,0.1); }
+        .book-card:hover { transform: translateY(-4px); box-shadow: 0 4px 12px rgba(0,0,0,0.06), 0 12px 36px rgba(0,0,0,0.08); }
         .book-card--coming { opacity: 0.58; cursor: default; }
         .book-card--coming:hover { transform: none; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05); }
         .book-card__cover { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
@@ -91,11 +91,11 @@
 
         /* ── 레슨 테이블 ── */
         .lesson-table { width: 100%; border-collapse: collapse; }
-        .lesson-table td { padding: 0.28rem 0; vertical-align: middle; }
+        .lesson-table td { padding: 0.35rem 0; vertical-align: middle; }
         .lesson-table td:first-child { font-size: 0.62rem; font-weight: 800; color: var(--s400); white-space: nowrap; padding-right: 0.625rem; width: 2.6rem; text-transform: uppercase; letter-spacing: 0.05em; }
-        .lesson-btns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.2rem; }
-        .lesson-btn { padding: 0.28rem 0; border-radius: 0.375rem; font-size: 0.68rem; font-weight: 700; border: 1.5px solid var(--s200); color: var(--s500); cursor: pointer; transition: all 0.12s ease; text-decoration: none; display: block; text-align: center; letter-spacing: -0.01em; background: var(--s50); }
-        .lesson-btn:hover { border-color: transparent; transform: scale(1.06); }
+        .lesson-btns { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.3rem; }
+        .lesson-btn { padding: 0.35rem 0; border-radius: 0.5rem; font-size: 0.72rem; font-weight: 700; border: 1.5px solid var(--s200); color: var(--s600); cursor: pointer; transition: all 0.15s ease; text-decoration: none; display: flex; align-items: center; justify-content: center; letter-spacing: -0.01em; background: #fff; min-height: 2.1rem; }
+        .lesson-btn:hover { border-color: transparent; transform: scale(1.08); box-shadow: 0 2px 8px rgba(0,0,0,0.12); }
 
         /* ── 로그인 모달 ── */
         .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); backdrop-filter: blur(6px); z-index: 600; align-items: center; justify-content: center; padding: 1rem; }
@@ -206,15 +206,16 @@
             .book-card__title { font-size: 0.82rem; margin-bottom: 0.1rem; line-height: 1.3; }
             .book-card__meta { font-size: 0.65rem; margin-bottom: 0.35rem; }
 
-            /* 접기/펼치기 — 인라인 알약 스타일 */
+            /* 접기/펼치기 — 큰 터치 버튼 */
             .book-card__toggle {
-                display: inline-flex; width: auto;
-                padding: 0.22rem 0.6rem; font-size: 0.65rem; font-weight: 700;
-                border-radius: 100px; margin-bottom: 0;
-                align-items: center; gap: 0.2rem;
-                background: var(--s100); border: none; color: var(--s500);
+                display: flex; width: 100%;
+                padding: 0.5rem 0.875rem; font-size: 0.78rem; font-weight: 700;
+                border-radius: 0.625rem; margin-top: 0.125rem;
+                align-items: center; justify-content: center; gap: 0.35rem;
+                background: var(--s50); border: 1.5px solid var(--s200); color: var(--s600);
+                min-height: 2.25rem;
             }
-            .book-card__toggle:hover { background: var(--s200); color: var(--s700); }
+            .book-card__toggle:hover { background: var(--s100); border-color: var(--s300); color: var(--s700); }
 
             /* 레슨 테이블 숨기기/펼치기 */
             .book-card .lesson-table { display: none; }
@@ -299,7 +300,7 @@
             .book-card__body { padding: 0.5rem 0.7rem; }
             .book-card__title { font-size: 0.78rem; }
             .book-card__meta { font-size: 0.6rem; }
-            .book-card__toggle { font-size: 0.6rem; padding: 0.18rem 0.5rem; }
+            .book-card__toggle { font-size: 0.72rem; padding: 0.45rem 0.75rem; min-height: 2rem; }
 
             .admin-modal { max-width: 96vw; padding: 1rem 0.875rem; }
             .admin-modal .modal-title { font-size: 0.92rem; }
@@ -316,7 +317,7 @@
             .lesson-btn { min-height: 2rem; }
             .btn-sm, .btn-primary, .btn-admin, .demo-btn, .filter-tab { min-height: 2rem; }
             .acct-row__del { width: 1.85rem; height: 1.85rem; font-size: 0.8rem; }
-            .book-card__toggle { min-height: 1.75rem; }
+            .book-card__toggle { min-height: 2.5rem; }
         }
     </style>
 </head>

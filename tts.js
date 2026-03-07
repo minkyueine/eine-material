@@ -155,6 +155,49 @@
             font-size: 0.78rem;
             color: rgba(255,255,255,0.7);
         }
+
+        /* ── 레슨 페이지 모바일 반응형 ── */
+        @media screen and (max-width: 840px) {
+            body { background: #fff !important; }
+            .a4-page, .page {
+                width: 100% !important;
+                min-height: auto !important;
+                height: auto !important;
+                padding: 1.5rem 1.25rem !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                border-bottom: 2px solid #eee;
+                page-break-after: auto;
+            }
+            h1 { font-size: 1.5rem !important; }
+            h2 { font-size: 1.25rem !important; }
+            h3 { font-size: 1.05rem !important; }
+            .content-box { margin-bottom: 1.25rem; }
+            .role-play-box { padding: 0.875rem !important; border-radius: 8px !important; }
+            .korean-sub { font-size: 0.78rem; }
+            .footer { font-size: 0.6rem !important; padding-top: 0.75rem; }
+            table { font-size: 0.85rem; }
+            th, td { padding: 0.5rem 0.625rem !important; }
+            #tts-rate-wrap { bottom: 0.5rem; left: 0.5rem; padding: 0.3rem 0.5rem; font-size: 0.7rem; border-radius: 0.5rem; }
+            #tts-rate-input { width: 55px; }
+            #tts-control-bar { bottom: 0.5rem; right: 0.5rem; padding: 0.35rem 0.625rem; font-size: 0.72rem; }
+            #tts-back-bar { font-size: 0.75rem; padding: 0.5rem 0.875rem; gap: 0.5rem; }
+        }
+        @media screen and (max-width: 480px) {
+            .a4-page, .page {
+                padding: 1.125rem 0.875rem !important;
+            }
+            h1 { font-size: 1.25rem !important; }
+            .content-box { padding-left: 10px; }
+            .korean-sub { font-size: 0.72rem; }
+            .footer { font-size: 0.55rem !important; }
+            table { font-size: 0.78rem; }
+            th, td { padding: 0.375rem 0.5rem !important; }
+            #tts-rate-wrap { bottom: 0.4rem; left: 0.4rem; padding: 0.25rem 0.4rem; font-size: 0.65rem; }
+            #tts-rate-input { width: 48px; }
+            #tts-control-bar { bottom: 0.4rem; right: 0.4rem; font-size: 0.68rem; padding: 0.3rem 0.5rem; }
+            #tts-back-bar { font-size: 0.7rem; padding: 0.4rem 0.65rem; }
+        }
     `;
     document.head.appendChild(style);
 
@@ -217,7 +260,7 @@
             const m = text.match(/^(?:Week\s*\d+\s*\/\s*)?Lesson\s*0*(\d+)$/i);
             if (!m) return;
             const lessonNum = parseInt(m[1], 10);
-            const page = el.closest('.a4-page');
+            const page = el.closest('.a4-page') || el.closest('.page');
             if (page && !page.id) {
                 page.id = `lesson-${lessonNum}`;
             }
