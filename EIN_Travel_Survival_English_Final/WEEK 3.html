@@ -3,327 +3,922 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Travel Survival English - Week 3</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EIN English - Week 3 (Travel Survival English)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @page { size: A4; margin: 0; }
-        body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; background-color: #f3f4f6; margin: 0; padding: 0; }
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
         
-        .a4-page {
-            width: 210mm;
-            min-height: 296mm;
-            height: auto;
-            padding: 20mm;
-            margin: 10mm auto;
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
             position: relative;
             display: flex;
             flex-direction: column;
             page-break-after: always;
-            padding-bottom: 30mm;
         }
 
-        .navy-bg { background-color: #1e3a8a; }
-        .emerald-text { color: #059669; }
-        .emerald-bg { background-color: #059669; }
-        .light-blue-bg { background-color: #eff6ff; }
-        .korean-sub { font-size: 0.85rem; color: #6b7280; font-weight: 400; display: block; margin-top: 1px; }
-        
-        .content-box { border-left: 4px solid #1e3a8a; padding-left: 15px; margin-bottom: 25px; }
-        .footer { position: absolute; bottom: 10mm; left: 0; width: 100%; text-align: center; font-size: 0.75rem; color: #9ca3af; }
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
 
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
-        th { background-color: #f9fafb; color: #1e3a8a; }
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-        .role-play-box { background-color: #eff6ff; border-radius: 12px; padding: 20px; border: 1px solid #dbeafe; }
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
         
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        .card.country-tip { border-top: 4px solid #f59e0b; background: #fffbeb; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        ul.tip-list li::before { background: #f59e0b; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
         @media print {
-            body { background: none; }
-            .a4-page { margin: 0; box-shadow: none; border: none; }
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         LESSON 11: Hotel Reservation
+         COVER SLIDE
          ========================================== -->
-    
-    <!-- PAGE 1: Intro & Expressions -->
-    <div class="a4-page">
-        <div class="flex justify-between items-start mb-6">
-            <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold tracking-widest uppercase">Week 3 / Lesson 11</div>
-        </div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Hotel Reservation</h1>
-        <p class="text-gray-500 mb-8">호텔 예약하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Make a hotel reservation and ask about availability and price.</p>
-            <span class="korean-sub">호텔 예약을 하고 객실 유무, 가격, 조식 포함 여부에 대해 질문할 수 있습니다.</span>
-        </div>
-
-        <div class="mb-8">
-            <h3 class="text-xl font-bold text-blue-800 mb-4">Warm-up <small class="text-gray-400 font-normal">웜업</small></h3>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q1.</span>
-                    <div>
-                        Do you prefer hotels or Airbnbs?
-                        <span class="korean-sub">호텔과 에어비앤비 중 무엇을 선호하나요?</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q2.</span>
-                    <div>
-                        What is important to you when choosing a hotel?
-                        <span class="korean-sub">호텔을 선택할 때 무엇을 중요하게 생각하나요?</span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <div class="space-y-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-900">
-                    <span class="text-xs font-bold text-blue-600 uppercase">Core (Must-use) <small class="text-gray-400">필수</small></span>
-                    <ul class="mt-2 space-y-3">
-                        <li>• I'd like to book a room. <span class="korean-sub">방을 예약하고 싶습니다.</span></li>
-                        <li>• Do you have any rooms available? <span class="korean-sub">남는 방이 있나요?</span></li>
-                        <li>• How much is it per night? <span class="korean-sub">1박에 얼마인가요?</span></li>
-                    </ul>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-500">
-                    <span class="text-xs font-bold text-emerald-600 uppercase">Upgrade (Optional) <small class="text-gray-400">심화</small></span>
-                    <ul class="mt-2 space-y-3">
-                        <li>• Is breakfast included? <span class="korean-sub">조식이 포함되어 있나요?</span></li>
-                        <li>• Do you have free Wi-Fi? <span class="korean-sub">무료 와이파이가 있나요?</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-5 bg-yellow-50 rounded-xl border-l-4 border-yellow-400">
-            <p class="text-sm font-bold text-yellow-800">Country Tip <small class="text-gray-400">여행 팁</small></p>
-            <p class="text-sm mt-1">Some hotels require a credit card to guarantee the booking. If you arrive late, say: "I'll check in late."</p>
-            <span class="korean-sub italic">일부 호텔은 예약을 보증하기 위해 신용카드를 요구합니다. 늦게 도착한다면 미리 말해두세요.</span>
-        </div>
-        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- PAGE 2: Dialogue & Practice -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Model Dialogue <small class="text-gray-400 font-normal">대화문</small></h3>
-        <div class="space-y-4 mb-12">
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">STAFF</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">Good afternoon. How can I help you?</p>
-                    <span class="korean-sub">안녕하세요. 무엇을 도와드릴까요?</span>
-                </div>
-            </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">YOU</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">I'd like to book a room from May 10th to 12th.</p>
-                    <span class="korean-sub">5월 10일부터 12일까지 방을 예약하고 싶습니다.</span>
-                </div>
-            </div>
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">STAFF</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">Would you like breakfast included?</p>
-                    <span class="korean-sub">조식을 포함하시겠어요?</span>
-                </div>
-            </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">YOU</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">Yes, please. How much is it per night?</p>
-                    <span class="korean-sub">네, 부탁해요. 1박에 얼마인가요?</span>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Guided Practice <small class="text-gray-400 font-normal">문장 연습</small></h3>
-        <div class="space-y-4">
-            <div class="p-4 border border-gray-100 rounded-lg">
-                <p class="font-medium">1. "I'd like to book a room for ________ nights."</p>
-                <span class="korean-sub">숙박 일수를 넣어 문장을 완성해 보세요.</span>
-            </div>
-            <div class="p-4 border border-gray-100 rounded-lg">
-                <p class="font-medium">2. "Do you have any rooms available for ________?" (tonight / this weekend)</p>
-                <span class="korean-sub">특정 시점을 넣어 예약 가능 여부를 물어보세요.</span>
-            </div>
-        </div>
-        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- PAGE 3: Role-play & Talk More -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Role-play (1:1) <small class="text-gray-400 font-normal">역할극</small></h3>
-        <div class="role-play-box mb-8">
-            <p class="font-bold text-blue-800 mb-4 underline italic text-sm">Situation: You are booking a hotel room over the phone. <span class="text-gray-500 font-normal">(전화로 호텔 방을 예약하는 상황입니다.)</span></p>
-            <table class="bg-white rounded-lg overflow-hidden">
-                <tr class="bg-blue-50"><th class="w-1/4">Role</th><th>Dialogue</th></tr>
-                <tr><td class="font-bold text-blue-900">Tutor (Staff)</td><td>What dates do you need the room for?</td></tr>
-                <tr><td class="font-bold text-emerald-600">Student (You)</td><td class="italic text-gray-400">From [Start Date] to [End Date].</td></tr>
-                <tr><td class="font-bold text-blue-900">Tutor (Staff)</td><td>How many nights will you stay?</td></tr>
-                <tr><td class="font-bold text-emerald-600">Student (You)</td><td class="italic text-gray-400">I'll stay for [Number] nights.</td></tr>
-                <tr><td class="font-bold text-blue-900">Tutor (Staff)</td><td>Would you like breakfast included?</td></tr>
-                <tr><td class="font-bold text-emerald-600">Student (You)</td><td class="italic text-gray-400">Yes, please. / No, thanks.</td></tr>
-            </table>
-        </div>
-
-        <h3 class="text-2xl font-bold text-blue-900 mb-4">Talk More <small class="text-gray-400 font-normal">프리토킹</small></h3>
-        <div class="space-y-3 mb-8">
-            <p class="p-3 bg-gray-50 rounded-lg">• Do you read reviews before booking hotels? <span class="korean-sub">호텔을 예약하기 전에 리뷰를 읽어보나요?</span></p>
-            <p class="p-3 bg-gray-50 rounded-lg">• Would you rather pay more for comfort? <span class="korean-sub">편안함을 위해 비용을 더 지불하는 편인가요?</span></p>
-        </div>
-
-        <div class="p-4 border-2 border-dashed border-gray-200 rounded-xl mb-4">
-            <h4 class="font-bold text-blue-900">Homework <small class="text-gray-400">숙제</small></h4>
-            <p class="text-sm mt-1">Write 3-4 sentences about your dream hotel stay (dates, nights, facilities).</p>
-        </div>
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 3</div>
+        <h1>Hotel</h1>
+        <h2>Travel Survival English</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 11: Hotel Check-in<br>
+            Lesson 12: Requesting Room Amenities<br>
+            Lesson 13: Asking About Facilities<br>
+            Lesson 14: Handling Hotel Problems<br>
+            Lesson 15: Checking Out & Luggage Storage
+        </p>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
     <!-- ==========================================
-         LESSON 12: Hotel Check-in
+         LESSON 11: HOTEL CHECK-IN
          ========================================== -->
-    <div class="a4-page">
-        <div class="flex justify-between items-start mb-6">
-            <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold tracking-widest uppercase">Lesson 12</div>
+    <!-- L11 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 11</span>
+            <h1>Hotel Check-in <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(호텔 체크인)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-hotel"></i> 
+                <span>Today's Goal: Check into a hotel, confirm your reservation, and ask about basic details.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 호텔에 체크인하고 예약 확인 및 기본 정보 묻기)</span></span>
+            </div>
         </div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Hotel Check-in</h1>
-        <p class="text-gray-500 mb-8">호텔 체크인하기</p>
 
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Goal <small class="text-gray-400 font-normal">목표</small></h3>
-            <p class="mt-2 font-medium">Check in at a hotel and confirm your reservation.</p>
-            <span class="korean-sub">호텔에서 체크인을 하고 예약을 확인하며 체크아웃 시간을 물어볼 수 있습니다.</span>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Hotel Check-in">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler holding a passport and speaking to a receptionist at a hotel front desk.</p>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <ul class="space-y-3">
-                <li class="bg-white p-3 rounded shadow-sm">• I have a reservation under the name [Name]. <span class="korean-sub">[이름]으로 예약했습니다.</span></li>
-                <li class="bg-white p-3 rounded shadow-sm">• Could I see your passport, please? <span class="korean-sub">여권을 보여주시겠어요?</span></li>
-                <li class="bg-white p-3 rounded shadow-sm">• What time is check-out? <span class="korean-sub">체크아웃 시간이 언제인가요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you prefer staying in hotels, hostels, or Airbnbs?</p><p class="kor-text">(호텔, 호스텔, 에어비앤비 중 어디에 머무는 것을 선호하시나요?)</p></li>
+            <li><p class="eng-text">Have you ever had a problem during check-in?</p><p class="kor-text">(체크인할 때 문제가 생긴 적이 있나요?)</p></li>
+            <li><p class="eng-text">What do you usually need to show when checking in?</p><p class="kor-text">(체크인할 때 주로 무엇을 보여줘야 하나요?)</p></li>
+            <li><p class="eng-text">What kind of room do you usually book? (Double, Twin, Suite)</p><p class="kor-text">(주로 어떤 종류의 객실을 예약하시나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to check in, please.</span></p><p class="kor-text">(체크인하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I have a reservation under the name</span> ___.</p><p class="kor-text">(___라는 이름으로 예약했습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Here is my passport and booking confirmation.</span></p><p class="kor-text">(제 여권과 예약 확인서입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">What is my room number?</span></p><p class="kor-text">(제 방 번호는 몇 번인가요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could I get a wake-up call at 7 AM? <span class="kor-sub-text">(오전 7시에 모닝콜을 부탁드릴 수 있을까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Can I have two key cards? <span class="kor-sub-text">(객실 키 카드를 두 개 받을 수 있을까요?)</span></p></li>
             </ul>
         </div>
 
-        <div class="role-play-box mb-8">
-            <p class="font-bold mb-2">Role-play (Front Desk)</p>
-            <p class="text-sm mb-1">Tutor: What name is the reservation under?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: It's under the name [Your Name].</p>
-            <p class="text-sm mb-1">Tutor: Could I see your passport?</p>
-            <p class="text-sm font-bold emerald-text">Student: Sure. Here you go.</p>
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Hotels often ask for a credit card for a "deposit" (보증금) or "incidentals". Don't panic, it's refunded later.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">If you arrive early before check-in time, you can usually leave your luggage at the front desk.</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ==========================================
-         LESSON 13: Hotel Facilities
-         ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4">Lesson 13</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Hotel Facilities</h1>
-        <p class="text-gray-500 mb-8">호텔 부대시설 이용하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Goal <small class="text-gray-400 font-normal">목표</small></h3>
-            <p class="mt-2 font-medium">Ask about hotel facilities and opening hours.</p>
-            <span class="korean-sub">와이파이, 조식, 헬스장 등 부대시설의 위치와 이용 시간에 대해 질문할 수 있습니다.</span>
+    <!-- L11 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 11: Hotel Check-in - Practice & Role-play</h1>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="p-4 light-blue-bg rounded-lg">
-                <p class="font-bold mb-2 text-sm">Key Questions <small class="text-gray-400">주요 질문</small></p>
-                <ul class="text-xs space-y-3">
-                    <li>• Does the hotel have Wi-Fi? <span class="korean-sub">호텔에 와이파이가 있나요?</span></li>
-                    <li>• What time is breakfast? <span class="korean-sub">조식 시간은 언제인가요?</span></li>
-                    <li>• Where is the gym/pool? <span class="korean-sub">헬스장/수영장은 어디인가요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hi, I'd like to check in, please.<span class="kor-sub-text">(안녕하세요, 체크인하고 싶습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Welcome! Can I have your name, please?<span class="kor-sub-text">(환영합니다! 성함이 어떻게 되시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">I have a reservation under the name Minho Kim.<span class="kor-sub-text">(김민호라는 이름으로 예약했습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Thank you. Could I see your passport and a credit card for the deposit?<span class="kor-sub-text">(감사합니다. 여권과 보증금을 위한 신용카드를 보여주시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Sure. Here is my passport and card. Can I have two key cards?<span class="kor-sub-text">(네. 여권과 카드 여기 있습니다. 키 카드를 두 개 받을 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Of course. You are in room 412 on the 4th floor.<span class="kor-sub-text">(물론입니다. 고객님 객실은 4층 412호입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>I'd like to check in, please.</strong></li>
+            <li>Complete the sentence with your own name: <br><strong>I have a reservation under the name ________________ .</strong></li>
+            <li>Say this sentence naturally: <br><strong>Here is my passport.</strong></li>
+            <li>Say this question naturally: <br><strong>What is my room number?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 피곤한 비행을 마치고 호텔 프론트 데스크에서 체크인을 합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Good afternoon. How can I help you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Hi, I'd like to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What name is the reservation under?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I have a reservation under <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>May I have your passport, please?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Sure, <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Here is your key. Enjoy your stay!</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. By the way, can I have <span class="blank" style="min-width: 100px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L11 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 11: Hotel Check-in - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is the most important thing for you in a hotel room?<span class="kor-sub-text">(호텔 방에서 당신에게 가장 중요한 것은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you care about the view from your room?<span class="kor-sub-text">(방에서 보이는 전망(뷰)을 신경 쓰시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever paid a "deposit" at a hotel?<span class="kor-sub-text">(호텔에서 '보증금(deposit)'을 내본 적이 있나요?)</span></p></li>
                 </ul>
             </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-                <p class="font-bold mb-2 text-sm">Dialogue Snippet</p>
-                <p class="text-xs">A: Where is the gym?<br>B: It's on the second floor.<br>A: Is there a laundry service?<br>B: Yes, on the third floor.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Make sure the student says "under the name [Name]" correctly.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Explain what a "deposit" or "incidentals" charge is so they don't panic abroad.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Prompt them to ask for two key cards, as this is very common for couples.</p>
+                </div>
             </div>
         </div>
 
-        <div class="p-5 bg-yellow-50 rounded-xl">
-            <p class="text-xs font-bold text-yellow-800">Country Tip</p>
-            <p class="text-sm italic">Luggage storage is common before check-in or after check-out. Just ask: "Could I store my luggage here?"</p>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences you will use when checking into a hotel.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(호텔에 체크인할 때 사용할 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like to check in, please.<br>I have a reservation under Minho Kim.<br>Here is my passport and credit card.</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
+
     <!-- ==========================================
-         LESSON 14: Hotel Problems
+         LESSON 12: REQUESTING ROOM AMENITIES
          ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4">Lesson 14</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Hotel Problems</h1>
-        <p class="text-gray-500 mb-8">호텔 문제 해결 요청하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Goal <small class="text-gray-400 font-normal">목표</small></h3>
-            <p class="mt-2 font-medium">Explain a room problem clearly and request a solution.</p>
-            <span class="korean-sub">객실 문제를 명확하게 설명하고 정중하게 해결을 요청할 수 있습니다.</span>
-        </div>
-
-        <div class="space-y-4 mb-8">
-            <div class="p-4 border-l-4 border-red-500 bg-red-50">
-                <p class="font-bold text-red-800">Reporting Problems <small class="text-gray-400">문제 보고</small></p>
-                <p class="text-sm mt-1">• The Wi-Fi isn't working. <span class="korean-sub">와이파이가 안 돼요.</span></p>
-                <p class="text-sm mt-1">• There is no hot water. <span class="korean-sub">따뜻한 물이 안 나와요.</span></p>
-            </div>
-            <div class="p-4 border-l-4 border-emerald-500 bg-emerald-50">
-                <p class="font-bold text-emerald-800">Requesting Solutions <small class="text-gray-400">해결 요청</small></p>
-                <p class="text-sm mt-1">• Could you send someone to check it? <span class="korean-sub">확인할 사람을 좀 보내주시겠어요?</span></p>
-                <p class="text-sm mt-1">• Could I change rooms? <span class="korean-sub">방을 바꿀 수 있을까요?</span></p>
+    <!-- L12 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 12</span>
+            <h1>Requesting Room Amenities <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(객실 추가 물품 요청하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-bed"></i> 
+                <span>Today's Goal: Politely ask for extra items or services for your hotel room.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 호텔 방에 필요한 추가 물품이나 서비스를 정중하게 요청하기)</span></span>
             </div>
         </div>
 
-        <div class="role-play-box">
-            <p class="text-sm font-bold mb-2">Tutor: What seems to be the problem?</p>
-            <p class="text-sm font-bold emerald-text">Student: The heater isn't working. Could you fix it?</p>
-        </div>
-        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 15: Hotel Check-out
-         ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4">Lesson 15</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Hotel Check-out</h1>
-        <p class="text-gray-500 mb-8">호텔 체크아웃하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Goal <small class="text-gray-400 font-normal">목표</small></h3>
-            <p class="mt-2 font-medium">Check out, pay the bill, and ask for luggage storage.</p>
-            <span class="korean-sub">체크아웃을 하고 비용을 지불하며, 영수증이나 짐 보관을 요청할 수 있습니다.</span>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Room Amenities">
+            <p><i class="fa-solid fa-camera"></i> Photo: A neatly made hotel bed with fresh white towels stacked on it.</p>
         </div>
 
-        <div class="mb-8">
-            <h3 class="text-lg font-bold mb-4">Final Steps <small class="text-gray-400">마지막 단계</small></h3>
-            <ul class="space-y-3 text-sm">
-                <li class="p-3 bg-gray-50 rounded border-l-4 border-blue-900">I'd like to check out. <span class="korean-sub">체크아웃하고 싶습니다.</span></li>
-                <li class="p-3 bg-gray-50 rounded border-l-4 border-blue-900">Could I have the bill, please? <span class="korean-sub">계산서 좀 주시겠어요?</span></li>
-                <li class="p-3 bg-gray-50 rounded border-l-4 border-blue-900">Can I leave my luggage here for a few hours? <span class="korean-sub">짐을 몇 시간 동안 여기 맡길 수 있을까요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What do you usually run out of in a hotel room?</p><p class="kor-text">(호텔 방에서 주로 어떤 물건이 가장 먼저 떨어지나요?)</p></li>
+            <li><p class="eng-text">Have you ever called the front desk for more towels?</p><p class="kor-text">(프론트 데스크에 수건을 더 달라고 전화해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you drink the water or coffee provided in the room?</p><p class="kor-text">(객실에 비치된 생수나 커피를 마시나요?)</p></li>
+            <li><p class="eng-text">Are you comfortable calling room service in English?</p><p class="kor-text">(영어로 룸서비스에 전화하는 것이 편하신가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Could I get an extra</span> ___, <span class="highlight">please?</span></p><p class="kor-text">(여분의 ___를 받을 수 있을까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I need more</span> towels / water / hangers.</p><p class="kor-text">(수건/물/옷걸이가 더 필요합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can you bring it to room</span> 412?</p><p class="kor-text">(412호로 가져다주실 수 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Do you have a/an</span> ___ <span class="highlight">I could borrow?</span></p><p class="kor-text">(제가 빌릴 수 있는 ___가 있을까요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is there a charge for this? <span class="kor-sub-text">(이것에 대한 추가 요금이 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">We've run out of toilet paper. <span class="kor-sub-text">(화장지가 다 떨어졌습니다.)</span></p></li>
             </ul>
         </div>
 
-        <div class="mt-auto p-6 bg-blue-900 text-white rounded-2xl text-center">
-            <p class="text-2xl font-bold">Week 3 Complete!</p>
-            <p class="mt-2 opacity-80">You've mastered all essential hotel conversations.</p>
-            <div class="mt-4 text-xs italic text-blue-200">Next Week: Week 4 - Transportation (Trains, Buses & Tickets)</div>
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In many hotels, basic amenities (towels, water, pillows) are free to request.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">If you ask to borrow an iron or adapter, housekeeping usually brings it to your door.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L12 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 12: Requesting Amenities - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Front desk, how can I help you?<span class="kor-sub-text">(프론트 데스크입니다, 무엇을 도와드릴까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hi, this is room 412. I need more towels, please.<span class="kor-sub-text">(안녕하세요, 412호입니다. 수건이 더 필요해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Certainly. How many do you need?<span class="kor-sub-text">(알겠습니다. 몇 장이나 필요하신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Could I get two extra towels? And do you have an iron I could borrow?<span class="kor-sub-text">(여분 수건 두 장 주실 수 있나요? 그리고 빌릴 수 있는 다리미가 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Yes, we can send an iron and the towels up right away.<span class="kor-sub-text">(네, 다리미와 수건을 바로 올려보내 드리겠습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Thank you. Can you bring it to my room soon?<span class="kor-sub-text">(감사합니다. 제 방으로 금방 가져다주실 수 있나요?)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question with your own details: <br><strong>Could I get an extra _________ , please?</strong></li>
+            <li>Say this sentence with your own details: <br><strong>I need more _________ .</strong></li>
+            <li>Say this sentence with your room number: <br><strong>Can you bring it to room _________ ?</strong></li>
+            <li>Say this question with an item you need: <br><strong>Do you have a/an _________ I could borrow?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 방 안에서 프론트 데스크로 전화를 걸어 필요한 물건을 요청합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Front desk. How may I assist you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Hi, this is room <span class="blank" style="min-width: 100px;"></span>. Could I get <span class="blank" style="min-width: 100px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Of course. Do you need anything else?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I also need <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>We will bring them up shortly.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L12 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 12: Requesting Amenities - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you bring your own shampoo, or use the hotel's?<span class="kor-sub-text">(본인 샴푸를 챙겨가나요, 아니면 호텔 것을 사용하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever asked for an extra blanket or pillow?<span class="kor-sub-text">(여분의 담요나 베개를 요청해 본 적이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you tip the person who brings things to your room?<span class="kor-sub-text">(방으로 물건을 가져다주는 사람에게 팁을 주시나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice common vocabulary: extra towels, toilet paper, bottled water, hair dryer, iron.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Make sure the student says "This is room [Number]" when starting the phone call role-play.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences asking the front desk for two items you need.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(프론트 데스크에 당신이 필요한 물건 두 가지를 요청하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">Hi, this is room 305.<br>Could I get some extra towels, please?<br>Also, do you have an iron I could borrow?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 13: ASKING ABOUT FACILITIES
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 13</span>
+            <h1>Asking About Facilities <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(부대시설 문의하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-utensils"></i> 
+                <span>Today's Goal: Ask questions about hotel facilities like breakfast, the pool, and Wi-Fi.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 조식, 수영장, 와이파이 등 호텔 부대시설에 대해 묻기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Hotel Facilities">
+            <p><i class="fa-solid fa-camera"></i> Photo: A beautiful hotel breakfast buffet spread.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you usually eat breakfast at the hotel?</p><p class="kor-text">(호텔에서 주로 조식을 드시나요?)</p></li>
+            <li><p class="eng-text">What is your favorite hotel facility? (Pool, gym, spa?)</p><p class="kor-text">(가장 좋아하는 호텔 부대시설은 무엇인가요? 수영장, 헬스장, 스파?)</p></li>
+            <li><p class="eng-text">Is free Wi-Fi important to you when choosing a hotel?</p><p class="kor-text">(호텔을 고를 때 무료 와이파이가 중요한가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Where is the</span> breakfast room / pool / gym?</p><p class="kor-text">(조식당 / 수영장 / 헬스장은 어디에 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What time is breakfast served?</span></p><p class="kor-text">(조식은 몇 시에 제공되나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How do I access the Wi-Fi?</span></p><p class="kor-text">(와이파이는 어떻게 접속하나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">It is on the</span> ___ <span class="highlight">floor.</span></p><p class="kor-text">(___층에 있습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Do I need a reservation for the spa? <span class="kor-sub-text">(스파를 이용하려면 예약이 필요한가요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is the pool open late? <span class="kor-sub-text">(수영장은 늦게까지 여나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Breakfast times vary but usually end strictly around 10 AM. Don't be late!</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Some hotels require you to bring your room key card to enter the gym or pool.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L13 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 13: Asking About Facilities - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, what time is breakfast served?<span class="kor-sub-text">(실례합니다, 조식은 몇 시에 제공되나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Breakfast is served from 7 AM to 10 AM.<span class="kor-sub-text">(조식은 오전 7시부터 10시까지 제공됩니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Great. Where is the breakfast room?<span class="kor-sub-text">(좋네요. 조식당은 어디에 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">It is on the second floor.<span class="kor-sub-text">(2층에 있습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Also, how do I access the Wi-Fi in my room?<span class="kor-sub-text">(그리고 제 방에서 와이파이는 어떻게 접속하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">The network is "Hotel_Guest" and the password is your room number.<span class="kor-sub-text">(네트워크는 "Hotel_Guest"이고 비밀번호는 객실 번호입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question with your own details: <br><strong>Where is the ______________________ ?</strong></li>
+            <li>Say this sentence naturally: <br><strong>What time is breakfast served?</strong></li>
+            <li>Say this sentence naturally: <br><strong>How do I access the Wi-Fi?</strong></li>
+            <li>Say this question with your own details: <br><strong>Do I need a reservation for ______________________ ?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 호텔의 조식 시간, 수영장 위치, 와이파이에 대해 직원에게 문의합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How can I help you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Could you tell me what time <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>It's from 6 AM to 10 AM.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. And where is <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>It's on the first floor.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>One more thing. How do I <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L13 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 13: Asking About Facilities - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What do you usually eat for a hotel breakfast?<span class="kor-sub-text">(호텔 조식으로 주로 어떤 음식을 드시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you pack workout clothes when you travel?<span class="kor-sub-text">(여행할 때 운동복을 챙겨가시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Is a hotel pool important for your vacation?<span class="kor-sub-text">(휴가 때 호텔 수영장이 중요한가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Note the passive voice: 'What time is breakfast *served*?'</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Practice floor numbers using ordinal numbers (first floor, second floor, etc).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 questions you would ask the front desk about hotel facilities.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(호텔 부대시설에 관해 프론트 데스크에 할 질문 3가지를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">What time is breakfast served?<br>Where is the swimming pool?<br>How do I access the Wi-Fi?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 14: HANDLING HOTEL PROBLEMS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 14</span>
+            <h1>Handling Hotel Problems <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(객실 문제 해결하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-triangle-exclamation"></i> 
+                <span>Today's Goal: Explain a problem in your room and ask for a solution or a room change.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 방의 문제점을 설명하고 해결책이나 방 교체를 요구하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=800&q=80" alt="Hotel Problems">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler holding a phone, looking stressed inside a hotel room.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever had a dirty or noisy hotel room?</p><p class="kor-text">(더럽거나 시끄러운 호텔 방을 배정받은 적이 있나요?)</p></li>
+            <li><p class="eng-text">What do you do if the air conditioning doesn't work?</p><p class="kor-text">(에어컨이 작동하지 않으면 어떻게 하시나요?)</p></li>
+            <li><p class="eng-text">Are you comfortable complaining in a foreign language?</p><p class="kor-text">(외국어로 컴플레인(불만 제기)을 하는 것이 편하신가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">There is a problem with my room.</span></p><p class="kor-text">(제 방에 문제가 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">The</span> AC / Wi-Fi / TV <span class="highlight">is not working.</span></p><p class="kor-text">(에어컨 / 와이파이 / TV가 작동하지 않습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">The room is too noisy / dirty.</span></p><p class="kor-text">(방이 너무 시끄럽습니다 / 더럽습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could I change rooms, please?</span></p><p class="kor-text">(방을 바꿀 수 있을까요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could you send someone to check it? <span class="kor-sub-text">(사람을 보내서 확인해 주실 수 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">The hot water isn't coming out. <span class="kor-sub-text">(뜨거운 물이 나오지 않아요.)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Be polite but firm. Start with 'Excuse me, there is a problem...'</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">If they can't fix it quickly, they will usually offer you a new room.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L14 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 14: Handling Hotel Problems - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Front desk. How can I help you?<span class="kor-sub-text">(프론트 데스크입니다. 무엇을 도와드릴까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hi, I'm in room 502. There is a problem with my room.<span class="kor-sub-text">(안녕하세요, 502호입니다. 제 방에 문제가 좀 있어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">I'm sorry to hear that. What is the issue?<span class="kor-sub-text">(죄송합니다. 어떤 문제인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">The air conditioning is not working, and it's very hot.<span class="kor-sub-text">(에어컨이 작동하지 않아서 너무 덥습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">I apologize. I will send someone to check it right away.<span class="kor-sub-text">(사과드립니다. 바로 사람을 보내 확인하겠습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">If it can't be fixed, could I change rooms, please?<span class="kor-sub-text">(고칠 수 없다면, 방을 바꿀 수 있을까요?)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>There is a problem with my room.</strong></li>
+            <li>Say this sentence with your own details: <br><strong>The ______________________ is not working.</strong></li>
+            <li>Say this sentence with your own details: <br><strong>The room is too ______________________ .</strong></li>
+            <li>Say this question naturally: <br><strong>Could I change rooms, please?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 객실 내 문제를 발견하고 프론트에 전화로 해결을 요청합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Front desk. Is everything okay?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Actually, there is a <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Oh, I'm sorry. What is the problem?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>The <span class="blank" style="min-width: 100px;"></span> is not working.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>We will send someone to fix it.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>If it takes too long, could I <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L14 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 14: Handling Hotel Problems - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is the worst hotel experience you have ever had?<span class="kor-sub-text">(가장 최악이었던 호텔 경험은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Are you usually patient when things go wrong?<span class="kor-sub-text">(일이 잘못되었을 때 보통 인내심을 갖는 편인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What would you do if your room was next to a noisy party?<span class="kor-sub-text">(당신의 방이 시끄러운 파티 옆방이라면 어떻게 하시겠습니까?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• "Not working" is the most useful phrase for broken items (TV, AC, Wi-Fi).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Let the student practice complaining firmly but politely. "Could I change rooms?" is perfect.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences reporting a problem in your hotel room and asking to change rooms.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(호텔 방의 문제를 보고하고 방 교체를 요구하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">There is a problem with my room.<br>The Wi-Fi is not working.<br>Could I change rooms, please?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 15: CHECKING OUT & LUGGAGE STORAGE
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 15</span>
+            <h1>Checking Out & Luggage Storage <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(체크아웃 및 짐 보관)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-bell-concierge"></i> 
+                <span>Today's Goal: Check out of the hotel, pay the bill, and ask to store your luggage.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 호텔 체크아웃, 결제, 그리고 짐 보관 요청하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1541846461971-ce4a6311029c?auto=format&fit=crop&w=800&q=80" alt="Checking Out">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler leaving their bags with a hotel concierge.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What time is check-out usually?</p><p class="kor-text">(체크아웃 시간은 보통 몇 시인가요?)</p></li>
+            <li><p class="eng-text">Have you ever left your luggage at a hotel after checking out?</p><p class="kor-text">(체크아웃 후 호텔에 짐을 맡겨본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you usually ask the hotel to call a taxi for you?</p><p class="kor-text">(주로 호텔에 택시를 불러달라고 요청하시나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to check out, please.</span></p><p class="kor-text">(체크아웃하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Here is my key.</span></p><p class="kor-text">(제 객실 키 여기 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Everything was great.</span></p><p class="kor-text">(모든 것이 좋았습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can I leave my bags here?</span></p><p class="kor-text">(여기에 짐을 맡길 수 있을까요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could I get a receipt, please? <span class="kor-sub-text">(영수증을 받을 수 있을까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could you call a taxi for me? <span class="kor-sub-text">(택시를 불러주실 수 있나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Most hotels allow free luggage storage on the day of check-out.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">They will give you a 'baggage tag' – don't lose it to get your bags back!</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L15 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 15: Checking Out - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hi, I'd like to check out, please. Here is my key.<span class="kor-sub-text">(안녕하세요, 체크아웃 부탁드립니다. 여기 키 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Thank you. How was your stay?<span class="kor-sub-text">(감사합니다. 머무시는 동안 어떠셨나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Everything was great. Could I get a receipt, please?<span class="kor-sub-text">(모든 것이 좋았습니다. 영수증을 받을 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Here is your receipt. Do you need a taxi to the airport?<span class="kor-sub-text">(여기 영수증입니다. 공항 가는 택시가 필요하신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Not yet. Can I leave my bags here until 3 PM?<span class="kor-sub-text">(아직요. 오후 3시까지 여기에 짐을 맡길 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Of course. Here is your baggage tag.<span class="kor-sub-text">(물론이죠. 여기 수하물 태그(보관증)입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>I'd like to check out, please.</strong></li>
+            <li>Say this sentence naturally: <br><strong>Here is my key.</strong></li>
+            <li>Say this question with your own details: <br><strong>Can I leave my bags here until _______ ?</strong></li>
+            <li>Say this question naturally: <br><strong>Could you call a taxi for me?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 여행의 마지막 날입니다. 체크아웃을 하고 공항 가기 전까지 짐을 맡깁니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Are you checking out today?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I'd like to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How was your stay with us?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span>. It was great.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you need help with your luggage?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Actually, can I <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L15 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 15: Checking Out - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is the first thing you do when you get home from a trip?<span class="kor-sub-text">(여행에서 집에 돌아오면 가장 먼저 하는 일은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you leave tips for hotel housekeeping?<span class="kor-sub-text">(호텔 객실 청소 담당자에게 팁을 남기시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you manage your flight schedule on the last day?<span class="kor-sub-text">(여행 마지막 날 비행기 일정을 어떻게 관리하시나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Leaving luggage ('store my bags' or 'leave my bags') is a very common and essential travel skill.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Remind the student to say "Everything was great" even if it was just okay—it's standard politeness.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences you will use when checking out of a hotel.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(호텔에서 체크아웃할 때 사용할 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like to check out, please.<br>Could I get a receipt?<br>Can I leave my bags here until 2 PM?</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 3! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>

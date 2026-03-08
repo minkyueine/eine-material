@@ -3,355 +3,919 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Travel Survival English - Week 5</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EIN English - Week 5 (Travel Survival English)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @page { size: A4; margin: 0; }
-        body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; background-color: #f3f4f6; margin: 0; padding: 0; }
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
         
-        .a4-page {
-            width: 210mm;
-            min-height: 296mm;
-            height: auto;
-            padding: 20mm;
-            margin: 10mm auto;
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
             position: relative;
             display: flex;
             flex-direction: column;
             page-break-after: always;
-            padding-bottom: 30mm;
         }
 
-        .navy-bg { background-color: #1e3a8a; }
-        .emerald-text { color: #059669; }
-        .emerald-bg { background-color: #059669; }
-        .light-blue-bg { background-color: #eff6ff; }
-        .korean-sub { font-size: 0.85rem; color: #6b7280; font-weight: 400; display: block; margin-top: 1px; }
-        
-        .content-box { border-left: 4px solid #1e3a8a; padding-left: 15px; margin-bottom: 25px; }
-        .footer { position: absolute; bottom: 10mm; left: 0; width: 100%; text-align: center; font-size: 0.75rem; color: #9ca3af; }
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
 
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
-        th { background-color: #f9fafb; color: #1e3a8a; }
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-        .role-play-box { background-color: #eff6ff; border-radius: 12px; padding: 20px; border: 1px solid #dbeafe; }
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
         
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        .card.country-tip { border-top: 4px solid #f59e0b; background: #fffbeb; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        ul.tip-list li::before { background: #f59e0b; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
         @media print {
-            body { background: none; }
-            .a4-page { margin: 0; box-shadow: none; border: none; }
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         LESSON 21: Getting a Table
+         COVER SLIDE
          ========================================== -->
-    <!-- Page 1 -->
-    <div class="a4-page">
-        <div class="flex justify-between items-start mb-6">
-            <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold tracking-widest uppercase">Week 5 / Lesson 21</div>
-        </div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Getting a Table</h1>
-        <p class="text-gray-500 mb-8">좌석 잡기</p>
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 5</div>
+        <h1>Food & Restaurants</h1>
+        <h2>Travel Survival English</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 21: Reserving a Table<br>
+            Lesson 22: Ordering Food<br>
+            Lesson 23: Asking About the Menu<br>
+            Lesson 24: Dealing with Restaurant Problems<br>
+            Lesson 25: Asking for the Bill and Tipping
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Ask for a table, handle wait times, and request a specific seat.</p>
-            <span class="korean-sub">식당에서 자리를 요청하고, 대기 시간을 확인하며, 원하는 좌석을 요청할 수 있습니다.</span>
+    <!-- ==========================================
+         LESSON 21: RESERVING A TABLE
+         ========================================== -->
+    <!-- L21 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 21</span>
+            <h1>Reserving a Table <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(식당 예약하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-phone"></i> 
+                <span>Today's Goal: Make a restaurant reservation over the phone or in person.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 전화나 직접 방문하여 식당 예약하기)</span></span>
+            </div>
         </div>
 
-        <div class="mb-8">
-            <h3 class="text-xl font-bold text-blue-800 mb-4">Warm-up <small class="text-gray-400 font-normal">웜업</small></h3>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q.</span>
-                    <div>
-                        Do you prefer eating out or cooking at home?
-                        <span class="korean-sub">외식을 좋아하나요, 집에서 요리하는 것을 좋아하나요?</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q.</span>
-                    <div>
-                        Do you usually make restaurant reservations?
-                        <span class="korean-sub">보통 식당 예약을 미리 하나요?</span>
-                    </div>
-                </li>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Reserving a Table">
+            <p><i class="fa-solid fa-camera"></i> Photo: A nicely set dining table at an upscale restaurant.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you usually book restaurants in advance when traveling?</p><p class="kor-text">(여행할 때 주로 식당을 미리 예약하시나요?)</p></li>
+            <li><p class="eng-text">What is your favorite type of restaurant?</p><p class="kor-text">(당신이 가장 좋아하는 식당 종류는 무엇인가요?)</p></li>
+            <li><p class="eng-text">Have you ever waited a long time for a table?</p><p class="kor-text">(식당 자리를 위해 오래 기다려본 적이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to make a reservation for</span> ___.</p><p class="kor-text">(___명 예약을 하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Do you have a table for</span> ___ <span class="highlight">tonight?</span></p><p class="kor-text">(오늘 밤 ___명을 위한 자리가 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">The reservation is under the name</span> ___.</p><p class="kor-text">(예약자 이름은 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">How long is the wait?</span></p><p class="kor-text">(대기 시간은 얼마나 되나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Can we get a table by the window? <span class="kor-sub-text">(창가 자리로 부탁할 수 있을까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Do you have outside seating? <span class="kor-sub-text">(야외 좌석이 있나요?)</span></p></li>
             </ul>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <div class="space-y-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-900">
-                    <span class="text-xs font-bold text-blue-600 uppercase tracking-tight">Core (Must-use) <small class="text-gray-400">필수 표현</small></span>
-                    <ul class="mt-2 space-y-3">
-                        <li>• Table for two, please. <span class="korean-sub">두 명 자부 부탁드려요.</span></li>
-                        <li>• How long is the wait? <span class="korean-sub">얼마나 기다려야 하나요?</span></li>
-                        <li>• Could we sit by the window? <span class="korean-sub">창가 자리에 앉을 수 있을까요?</span></li>
-                    </ul>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-500">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-tight">Upgrade (Optional) <small class="text-gray-400">심화 표현</small></span>
-                    <ul class="mt-2 space-y-3">
-                        <li>• Can we sit outside? <span class="korean-sub">야외에 앉을 수 있을까요?</span></li>
-                        <li>• Could we see the menu while we wait? <span class="korean-sub">기다리는 동안 메뉴판을 볼 수 있을까요?</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-5 bg-yellow-50 rounded-xl border-l-4 border-yellow-400 mt-auto">
-            <p class="text-sm font-bold text-yellow-800">Country Tip <small class="text-gray-400">여행 팁</small></p>
-            <p class="text-sm mt-1 italic">Wait times are common during peak hours. In the US, 'to go' is common; in the UK/AU, 'takeaway' is more frequently used.</p>
-            <span class="korean-sub">피크 타임에는 대기 시간이 흔합니다. 미국에서는 'to go', 영국/호주에서는 'takeaway'라는 표현을 주로 사용합니다.</span>
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In popular tourist cities, booking dinner is highly recommended. Many places fill up fast!</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">When you arrive, wait at the entrance until the host says: "Right this way." (안내해 드리겠습니다.)</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- Page 2 -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Model Dialogue <small class="text-gray-400 font-normal">대화문</small></h3>
-        <div class="space-y-4 mb-12">
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">HOST</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">Hello! Do you have a reservation?</p>
-                    <span class="korean-sub">안녕하세요! 예약하셨나요?</span>
-                </div>
+    <!-- L21 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 21: Reserving a Table - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hello, I'd like to make a reservation for tomorrow evening.<span class="kor-sub-text">(안녕하세요, 내일 저녁으로 예약을 하고 싶습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Certainly. For how many people?<span class="kor-sub-text">(알겠습니다. 몇 분이신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">A table for four, please.<span class="kor-sub-text">(4명 자리 부탁드립니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">What time would you like to come?<span class="kor-sub-text">(몇 시에 오실 예정인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Around 7 PM. Can we get a table by the window?<span class="kor-sub-text">(저녁 7시쯤이요. 창가 자리로 예약할 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Yes, I can arrange that. What name is the reservation under?<span class="kor-sub-text">(네, 준비해 드리겠습니다. 예약자분 성함이 어떻게 되시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Under the name Lee. Thank you.<span class="kor-sub-text">(Lee(이)입니다. 감사합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence with your party size: <br><strong>I'd like to make a reservation for _______________ .</strong></li>
+            <li>Say this question with your time/date: <br><strong>Do you have a table for two at _______________ ?</strong></li>
+            <li>Say this sentence with your last name: <br><strong>The reservation is under the name _______________ .</strong></li>
+            <li>Say this question naturally: <br><strong>How long is the wait?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 인기 있는 레스토랑에 전화를 걸어 예약을 합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Good afternoon, Luigi's Restaurant.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Hi, I'd like to <span class="blank" style="min-width: 150px;"></span> for tonight.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>For how many people, and what time?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>A table for <span class="blank" style="min-width: 100px;"></span> at <span class="blank" style="min-width: 100px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Great. May I have your name?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>The reservation is under <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 21: Reserving a Table - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is the most expensive meal you have ever had on a trip?<span class="kor-sub-text">(여행 중 먹어본 가장 비싼 식사는 무엇이었나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Are you willing to wait 2 hours for a famous restaurant?<span class="kor-sub-text">(유명한 맛집을 위해 2시간을 기다릴 의향이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you use apps to find good restaurants?<span class="kor-sub-text">(좋은 식당을 찾을 때 앱을 주로 사용하시나요?)</span></p></li>
+                </ul>
             </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">YOU</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">No, we don't. Table for two, please.</p>
-                    <span class="korean-sub">아니요, 안 했습니다. 두 명 자리 부탁해요.</span>
-                </div>
-            </div>
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">HOST</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">The wait is about 15 minutes. Is that okay?</p>
-                    <span class="korean-sub">15분 정도 기다리셔야 합니다. 괜찮으신가요?</span>
-                </div>
-            </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">YOU</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">That's fine. Could we sit by the window?</p>
-                    <span class="korean-sub">네, 괜찮아요. 창가 자리에 앉을 수 있을까요?</span>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach the phrase "party of [number]" (e.g., "A table for a party of 4") as native-like vocabulary.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Make sure they pronounce 'reservation' properly. Don't let them say 'appointment' for dining!</p>
                 </div>
             </div>
         </div>
 
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Guided Practice <small class="text-gray-400 font-normal">문장 연습</small></h3>
-        <div class="space-y-4">
-            <div class="p-4 border border-gray-100 rounded-lg">
-                <p class="font-medium">1. Request a table for your party size:</p>
-                <p class="text-lg text-blue-700 font-bold">"Table for ___________, please."</p>
-                <span class="korean-sub">인원수를 넣어 자리를 요청하는 연습을 하세요. (three, four, etc.)</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences to book a table at a restaurant.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(식당 예약을 위해 사용할 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like to make a reservation for two.<br>Do you have a table tonight at 7 PM?<br>The reservation is under the name Kim.</p>
             </div>
-            <div class="p-4 border border-gray-100 rounded-lg">
-                <p class="font-medium">2. Ask about the wait time:</p>
-                <p class="text-lg text-blue-700 font-bold">"How long is the wait for a table?"</p>
-                <span class="korean-sub">자리가 날 때까지 얼마나 걸리는지 물어보세요.</span>
-            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- Page 3 -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Role-play (1:1) <small class="text-gray-400 font-normal">역할극</small></h3>
-        <div class="role-play-box mb-8">
-            <p class="font-bold text-blue-800 mb-4 underline italic text-sm">Situation: You are walking into a busy restaurant without a reservation. <span class="text-gray-500 font-normal">(예약 없이 붐비는 식당에 들어가는 상황입니다.)</span></p>
-            <table class="bg-white rounded-lg overflow-hidden text-sm">
-                <tr class="bg-blue-100 text-blue-900">
-                    <th class="w-1/4">Role</th>
-                    <th>Dialogue</th>
-                </tr>
-                <tr>
-                    <td class="font-bold text-blue-900">Tutor (Staff)</td>
-                    <td>Welcome! How many in your party?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-emerald-600">Student (You)</td>
-                    <td class="italic text-gray-400">Table for [Number], please.</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-blue-900">Tutor (Staff)</td>
-                    <td>Do you have a reservation?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-emerald-600">Student (You)</td>
-                    <td class="italic text-gray-400">No, we don't. How long is the wait?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-blue-900">Tutor (Staff)</td>
-                    <td>It's about 20 minutes. Would you like to wait?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-emerald-600">Student (You)</td>
-                    <td class="italic text-gray-400">Yes, please. Can we sit by the window?</td>
-                </tr>
-            </table>
-        </div>
-
-        <h3 class="text-2xl font-bold text-blue-900 mb-4">Talk More <small class="text-gray-400 font-normal">프리토킹</small></h3>
-        <div class="space-y-3 mb-8">
-            <p class="p-3 bg-gray-50 rounded-lg">• What type of restaurant atmosphere do you like? <span class="korean-sub">어떤 종류의 식당 분위기를 좋아하나요?</span></p>
-            <p class="p-3 bg-gray-50 rounded-lg">• Do you like to wait for good food? <span class="korean-sub">맛있는 음식을 위해 기다리는 것을 좋아하나요?</span></p>
-        </div>
-
-        <div class="p-4 border-2 border-dashed border-gray-200 rounded-xl">
-            <h4 class="font-bold text-blue-900">Homework <small class="text-gray-400">숙제</small></h4>
-            <p class="text-sm mt-1 italic text-gray-600">Write 3 sentences about your favorite restaurant (size of party, seating preference, wait time).</p>
-        </div>
-
-        <div class="mt-auto footer text-xs italic text-blue-800 font-semibold bg-blue-50 py-2 rounded">
-            Tutor Tip: Practice numbers (two, three, four) clearly. Encourage natural small talk while waiting.
-        </div>
-        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
 
     <!-- ==========================================
-         LESSON 22: Ordering Food
+         LESSON 22: ORDERING FOOD
          ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 22</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Ordering Food</h1>
-        <p class="text-gray-500 mb-8">음식 주문하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Order food and drinks clearly and ask for recommendations.</p>
-            <span class="korean-sub">음식과 음료를 명확하게 주문하고 추천 요리를 물어볼 수 있습니다.</span>
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 22</span>
+            <h1>Ordering Food <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(음식 주문하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-burger"></i> 
+                <span>Today's Goal: Order food and drinks confidently in a restaurant.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 식당에서 자신감 있게 음식과 음료 주문하기)</span></span>
+            </div>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <ul class="space-y-3">
-                <li class="bg-white p-3 rounded shadow-sm">• What do you recommend? <span class="korean-sub">무엇을 추천하시나요?</span></li>
-                <li class="bg-white p-3 rounded shadow-sm">• I'll have the [Dish Name]. <span class="korean-sub">[요리 이름]으로 할게요.</span></li>
-                <li class="bg-white p-3 rounded shadow-sm">• Could I get this to go? <span class="korean-sub">이거 포장해 주실 수 있나요?</span></li>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ordering Food">
+            <p><i class="fa-solid fa-camera"></i> Photo: A waiter holding a notepad, taking an order from a customer.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Are you ready to order quickly, or do you take your time?</p><p class="kor-text">(주문을 빨리 하는 편인가요, 아니면 천천히 메뉴를 보는 편인가요?)</p></li>
+            <li><p class="eng-text">What do you usually drink with meals?</p><p class="kor-text">(식사할 때 주로 어떤 음료를 마시나요?)</p></li>
+            <li><p class="eng-text">Have you ever not known what to order on a foreign menu?</p><p class="kor-text">(외국 메뉴판을 보고 뭘 주문해야 할지 몰랐던 적이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to order the</span> ___, <span class="highlight">please.</span></p><p class="kor-text">(___로 주문할게요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can I have</span> ___ <span class="highlight">for now?</span></p><p class="kor-text">(우선 ___ 좀 주실 수 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'll have the same.</span></p><p class="kor-text">(같은 걸로 할게요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">We need a few more minutes, please.</span></p><p class="kor-text">(시간이 조금 더 필요합니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could we get some extra napkins? <span class="kor-sub-text">(냅킨 좀 더 주실 수 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">What do you recommend? <span class="kor-sub-text">(무엇을 추천하시나요?)</span></p></li>
             </ul>
         </div>
 
-        <div class="role-play-box mb-8">
-            <p class="font-bold mb-2">Role-play (Ordering)</p>
-            <p class="text-sm mb-1">Tutor: Are you ready to order?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: Yes. What do you recommend?</p>
-            <p class="text-sm mb-1">Tutor: Our pasta is very popular.</p>
-            <p class="text-sm font-bold emerald-text">Student: Great. I'll have the pasta and a water, please.</p>
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">"I'll have..." or "I'd like..." is much more polite than "Give me...".</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In the US, servers check on you often ("Is everything tasting okay?"). Just smile and say "It's great!"</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ==========================================
-         LESSON 23: Dietary Requests
-         ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 23</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Dietary Requests</h1>
-        <p class="text-gray-500 mb-8">식단 요청 및 알레르기 알리기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Explain allergies or dietary needs and confirm ingredients.</p>
-            <span class="korean-sub">알레르기나 식단 요구 사항을 설명하고 재료를 확인할 수 있습니다.</span>
+    <!-- L22 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 22: Ordering Food - Practice & Role-play</h1>
         </div>
 
-        <div class="space-y-4 mb-8">
-            <div class="p-4 light-blue-bg border-l-4 border-blue-900">
-                <p class="text-sm font-bold">Important Phrases <small class="text-gray-400">중요 문구</small></p>
-                <ul class="text-sm mt-2 space-y-2">
-                    <li>• I'm allergic to peanuts. <span class="korean-sub">전 땅콩 알레르기가 있어요.</span></li>
-                    <li>• Does this contain meat? <span class="korean-sub">여기에 고기가 들어있나요?</span></li>
-                    <li>• Could you make it without onions? <span class="korean-sub">양파는 빼고 만들어 주실 수 있나요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Are you ready to order?<span class="kor-sub-text">(주문하시겠습니까?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Not yet. We need a few more minutes, please.<span class="kor-sub-text">(아직요. 시간이 조금 더 필요합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">(After 5 minutes) How about now? Can I get you started with some drinks?<span class="kor-sub-text">((5분 후) 이제 괜찮으신가요? 음료 먼저 준비해 드릴까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Yes. Can I have a glass of water for now?<span class="kor-sub-text">(네. 우선 물 한 잔 주시겠어요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Sure. And for your main course?<span class="kor-sub-text">(네. 메인 요리는 무엇으로 하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">I'd like to order the grilled steak, please.<span class="kor-sub-text">(그릴 스테이크로 주문할게요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Great choice. I'll bring that right out.<span class="kor-sub-text">(훌륭한 선택이십니다. 곧 준비해 드리겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence with your food choice: <br><strong>I'd like to order the _______________ , please.</strong></li>
+            <li>Say this question with a drink choice: <br><strong>Can I have _______________ for now?</strong></li>
+            <li>Say this sentence naturally: <br><strong>I'll have the same.</strong></li>
+            <li>Say this question naturally: <br><strong>What do you recommend?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 분위기 좋은 식당에서 웨이터에게 식사를 주문합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Are you ready to order?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I'd like to <span class="blank" style="min-width: 150px;"></span>, please.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Would you like anything to drink?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Can I have <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is there anything else I can get you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Could we get <span class="blank" style="min-width: 150px;"></span>, please?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L22 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 22: Ordering Food - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is your favorite international food?<span class="kor-sub-text">(가장 좋아하는 외국 음식은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like trying local food when traveling, or eating familiar food?<span class="kor-sub-text">(여행 시 현지 음식을 도전하는 편인가요, 아니면 익숙한 음식을 먹는 편인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you do if the menu is not in English?<span class="kor-sub-text">(메뉴가 영어로 적혀 있지 않을 땐 어떻게 하시나요?)</span></p></li>
                 </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Reiterate politeness: Never use "I want" in a restaurant setting. Always "I'd like" or "Can I have".</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• "For now" is a great natural phrase when just ordering drinks or appetizers first.</p>
+                </div>
             </div>
         </div>
 
-        <div class="role-play-box">
-            <p class="text-sm mb-1">Tutor: Do you have any allergies?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: Yes, I'm allergic to nuts. Does this contain any?</p>
-            <p class="text-sm mb-1">Tutor: Let me check with the kitchen.</p>
-            <p class="text-sm font-bold emerald-text">Student: Thank you. Could you make it without nuts, please?</p>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences ordering your favorite meal and drink.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신이 가장 좋아하는 식사와 음료를 주문하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like to order the pasta, please.<br>Can I have a Coke for now?<br>Could we get some extra napkins?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
+
     <!-- ==========================================
-         LESSON 24: Restaurant Problems
+         LESSON 23: ASKING ABOUT THE MENU
          ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 24</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Restaurant Problems</h1>
-        <p class="text-gray-500 mb-8">식당 문제 해결하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Complain politely about a wrong order or food issue.</p>
-            <span class="korean-sub">주문이 잘못되었거나 음식에 문제가 있을 때 정중하게 불만 사항을 말할 수 있습니다.</span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-            <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded">
-                <p class="font-bold text-red-800 text-sm">Common Issues <small class="text-gray-400">흔한 문제</small></p>
-                <ul class="text-xs space-y-2 mt-2">
-                    <li>• This isn't what I ordered. <span class="korean-sub">이건 제가 주문한 게 아니에요.</span></li>
-                    <li>• This food is cold. <span class="korean-sub">음식이 식었어요.</span></li>
-                </ul>
-            </div>
-            <div class="p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded">
-                <p class="font-bold text-emerald-800 text-sm">Requests <small class="text-gray-400">요청사항</small></p>
-                <ul class="text-xs space-y-2 mt-2">
-                    <li>• Could I get a replacement? <span class="korean-sub">새로 바꿔 주실 수 있나요?</span></li>
-                    <li>• Could you fix it, please? <span class="korean-sub">수정 좀 해주실 수 있나요?</span></li>
-                </ul>
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 23</span>
+            <h1>Asking About the Menu <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(메뉴 및 알레르기 문의하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-clipboard-question"></i> 
+                <span>Today's Goal: Ask about ingredients and make special requests for your diet.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 재료에 대해 묻고 식단에 맞춘 특별 요청하기)</span></span>
             </div>
         </div>
 
-        <div class="role-play-box">
-            <p class="text-sm mb-1">Tutor: What seems to be the problem?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: Excuse me, I think this isn't what I ordered.</p>
-            <p class="text-sm mb-1">Tutor: I'm so sorry. I'll replace it right away.</p>
-            <p class="text-sm font-bold emerald-text">Student: Thank you. I ordered the chicken salad.</p>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80" alt="Asking About Menu">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person pointing at a menu and asking the waiter a question.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you have any food allergies?</p><p class="kor-text">(음식 알레르기가 있나요?)</p></li>
+            <li><p class="eng-text">Are you a picky eater?</p><p class="kor-text">(음식을 가려 먹는(편식하는) 편인가요?)</p></li>
+            <li><p class="eng-text">Is there any ingredient you really hate? (e.g., cilantro, nuts)</p><p class="kor-text">(정말 싫어하는 재료가 있나요? 예: 고수, 견과류 등)</p></li>
+            <li><p class="eng-text">Have you ever asked a restaurant to change a dish for you?</p><p class="kor-text">(식당에 요리를 조금 변경해 달라고 요청해 본 적이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Does this dish have</span> ___ <span class="highlight">in it?</span></p><p class="kor-text">(이 요리에 ___가 들어가나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can you make it without</span> ___?</p><p class="kor-text">(___를 빼고 만들어 주실 수 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I am allergic to</span> ___.</p><p class="kor-text">(저는 ___ 알레르기가 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is this dish very spicy?</span></p><p class="kor-text">(이 요리 많이 맵나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Do you have any vegetarian options? <span class="kor-sub-text">(채식주의자를 위한 메뉴가 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could you put the dressing on the side? <span class="kor-sub-text">(드레싱은 따로 담아 주실 수 있나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Servers in Western countries are very accustomed to allergy and dietary requests, so don't be shy to ask.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">"Cilantro" is called "Coriander" in the UK and Australia.</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ==========================================
-         LESSON 25: Paying the Bill
-         ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 25</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Paying the Bill</h1>
-        <p class="text-gray-500 mb-8">계산하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Ask for the bill, split the bill, and pay politely.</p>
-            <span class="korean-sub">계산서를 요청하고, 나누어 계산하며, 정중하게 결제할 수 있습니다.</span>
+    <!-- L23 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 23: Asking About the Menu - Practice & Role-play</h1>
         </div>
 
-        <div class="p-6 light-blue-bg rounded-2xl mb-8">
-            <h4 class="font-bold text-blue-900 mb-4">Payment Expressions <small class="text-gray-400">결제 표현</small></h4>
-            <div class="space-y-3 text-sm">
-                <p>• Could we have the bill, please? <span class="korean-sub">계산서 좀 주시겠어요?</span></p>
-                <p>• Can we split the bill? <span class="korean-sub">따로 계산할 수 있을까요?</span></p>
-                <p>• Could I get a receipt, please? <span class="korean-sub">영수증 좀 주시겠어요?</span></p>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, does this salad have peanuts in it?<span class="kor-sub-text">(실례합니다, 이 샐러드에 땅콩이 들어가나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Yes, the dressing contains a little bit of peanut oil.<span class="kor-sub-text">(네, 드레싱에 땅콩기름이 조금 들어갑니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Oh, I am allergic to peanuts. Can you make it without the dressing?<span class="kor-sub-text">(아, 저는 땅콩 알레르기가 있어요. 드레싱을 빼고 만들어 주실 수 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Of course. We can use a lemon dressing instead. Would you like that?<span class="kor-sub-text">(물론입니다. 대신 레몬 드레싱을 사용할 수 있는데, 그렇게 해드릴까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Yes, that sounds perfect. Also, could you put the dressing on the side?<span class="kor-sub-text">(네, 완벽하네요. 그리고 드레싱은 따로 담아 주실 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">No problem at all.<span class="kor-sub-text">(전혀 문제없습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question with an ingredient: <br><strong>Does this dish have _______________ in it?</strong></li>
+            <li>Say this question with an ingredient: <br><strong>Can you make it without _______________ ?</strong></li>
+            <li>Complete the sentence: <br><strong>I am allergic to _______________ .</strong></li>
+            <li>Say this question naturally: <br><strong>Is this dish very spicy?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 특정 재료를 피해야 하는 상황에서 메뉴를 주문합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Are you ready to order?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes. Does this soup have <span class="blank" style="min-width: 150px;"></span> in it?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Yes, it is cooked with a little bit of that.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I am allergic to it. Can you make it without <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Sure, we can do that. Anything else?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Is this dish very <span class="blank" style="min-width: 100px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L23 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 23: Asking About the Menu - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What food do you absolutely hate eating?<span class="kor-sub-text">(절대 먹기 싫은 음식은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like spicy food? What is your limit?<span class="kor-sub-text">(매운 음식을 좋아하시나요? 어느 정도까지 드실 수 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever eaten something without knowing what it was?<span class="kor-sub-text">(뭔지도 모르고 음식을 먹어본 적이 있나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice common allergy words: peanuts, dairy, seafood, shellfish, gluten.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• "On the side" is an excellent and highly natural phrase for sauces or dressings.</p>
+                </div>
             </div>
         </div>
 
-        <div class="mt-auto p-6 bg-blue-900 text-white rounded-2xl text-center">
-            <p class="text-2xl font-bold uppercase tracking-wider">Week 5 Complete!</p>
-            <p class="mt-1 opacity-80 italic">You are now a pro at dining out!</p>
-            <div class="mt-4 text-xs text-blue-200">Next Week: Week 6 - Shopping (Buying & Trying on)</div>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences asking if a dish has a certain ingredient and requesting a change.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(요리에 특정 재료가 들어가는지 묻고 변경을 요청하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">Does this dish have cilantro in it?<br>I am allergic to cilantro.<br>Can you make it without cilantro, please?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 24: DEALING WITH RESTAURANT PROBLEMS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 24</span>
+            <h1>Restaurant Problems <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(식당에서 문제 해결하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-triangle-exclamation"></i> 
+                <span>Today's Goal: Politely explain if there is an issue with your order or food.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 주문이나 음식에 문제가 있을 때 정중하게 설명하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?auto=format&fit=crop&w=800&q=80" alt="Restaurant Problem">
+            <p><i class="fa-solid fa-camera"></i> Photo: A customer politely talking to a waiter about their plate of food.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever received the wrong food at a restaurant?</p><p class="kor-text">(식당에서 잘못된 음식을 받아본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Did you complain or just eat it?</p><p class="kor-text">(항의했나요, 아니면 그냥 먹었나요?)</p></li>
+            <li><p class="eng-text">What do you do if your food is too cold?</p><p class="kor-text">(음식이 너무 차갑게 나오면 어떻게 하시나요?)</p></li>
+            <li><p class="eng-text">Is it difficult for you to complain in English?</p><p class="kor-text">(영어로 불만을 제기하는 것이 어렵게 느껴지나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Excuse me, this is not what I ordered.</span></p><p class="kor-text">(실례합니다만, 이건 제가 주문한 게 아닙니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I ordered the</span> ___, <span class="highlight">not the</span> ___.</p><p class="kor-text">(저는 ___를 주문했고, ___가 아닙니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">My food is a little cold.</span></p><p class="kor-text">(음식이 조금 차갑습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could you check on our order?</span></p><p class="kor-text">(저희 주문 좀 확인해 주시겠어요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">This tastes a bit too salty. <span class="kor-sub-text">(이거 맛이 조금 너무 짠 것 같아요.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could we get a replacement? <span class="kor-sub-text">(다른 것으로 다시 받을 수 있을까요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Always start with "Excuse me" and a smile. Mistakes happen in busy restaurants!</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Waitstaff are usually very happy to replace the dish or heat it up for you.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L24 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 24: Restaurant Problems - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, could you come here for a second?<span class="kor-sub-text">(실례합니다, 잠시 이쪽으로 와주시겠어요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Yes, of course. Is everything okay?<span class="kor-sub-text">(네, 물론입니다. 다 괜찮으신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Actually, this is not what I ordered. I ordered the chicken, not the fish.<span class="kor-sub-text">(실은, 이건 제가 주문한 음식이 아닙니다. 저는 생선이 아니라 치킨을 주문했어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Oh, I am so sorry about that mix-up. I'll take this back right away.<span class="kor-sub-text">(아, 착오가 있었네요. 정말 죄송합니다. 당장 가져가겠습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Also, my friend's food is a little cold. Could you heat it up?<span class="kor-sub-text">(그리고 제 친구 음식은 조금 차갑네요. 데워주실 수 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Absolutely. I will fix that immediately and bring out the chicken.<span class="kor-sub-text">(물론입니다. 즉시 해결하고 치킨도 가져다드리겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>Excuse me, this is not what I ordered.</strong></li>
+            <li>Fill in the blanks: <br><strong>I ordered the _______________ , not the _______________ .</strong></li>
+            <li>Say this sentence naturally: <br><strong>My food is a little cold.</strong></li>
+            <li>Say this question naturally: <br><strong>Could you check on our order?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 다른 테이블의 음식이 나왔거나, 음식이 너무 늦게 나옵니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Here is your steak, sir/ma'am.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Excuse me, this is not <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>I'm so sorry! What did you order?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I ordered the <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>I will get that for you. Is the other dish okay?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Actually, this one is a little <span class="blank" style="min-width: 100px;"></span>. Could we get a replacement?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L24 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 24: Restaurant Problems - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Are you usually shy to complain in a restaurant?<span class="kor-sub-text">(식당에서 항의하는 것을 보통 부끄러워하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is the longest you have waited for food?<span class="kor-sub-text">(음식을 위해 기다려본 가장 긴 시간은 얼마인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">If the food is just okay, do you finish it or leave it?<span class="kor-sub-text">(음식이 그저 그렇다면 다 드시나요, 아니면 남기시나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice the exact intonation of "Excuse me..." (polite and friendly, not aggressive).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Teach "check on our order" when the food is taking way too long to arrive.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences telling the server you got the wrong food and the order is cold.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(서버에게 잘못된 음식이 나왔고 음식이 차갑다고 말하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">Excuse me, this is not what I ordered.<br>I ordered the pasta, not the salad.<br>Also, my food is a little cold.</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 25: ASKING FOR THE BILL AND TIPPING
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 25</span>
+            <h1>Asking for the Bill and Tipping <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(계산서 요청 및 팁 주기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-receipt"></i> 
+                <span>Today's Goal: Ask for the check, split the bill, and understand tipping culture.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 계산서를 요청하고 분할 결제를 하며 팁 문화 이해하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Paying the Bill">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person paying with a credit card at a restaurant table.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How do you usually pay for meals when traveling?</p><p class="kor-text">(여행할 때 식사비를 보통 어떻게 결제하시나요?)</p></li>
+            <li><p class="eng-text">Do people tip in your country?</p><p class="kor-text">(당신의 나라에서는 팁을 주는 문화가 있나요?)</p></li>
+            <li><p class="eng-text">Do you usually split the bill when eating with friends?</p><p class="kor-text">(친구들과 식사할 때 주로 더치페이(각자 계산)를 하시나요?)</p></li>
+            <li><p class="eng-text">Is it confusing to calculate tips abroad?</p><p class="kor-text">(해외에서 팁을 계산하는 것이 헷갈리나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Could we get the bill, please?</span></p><p class="kor-text">(계산서 좀 주시겠어요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can we pay separately?</span></p><p class="kor-text">(따로 결제할 수 있을까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is service included?</span></p><p class="kor-text">(서비스 요금이 포함되어 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can I pay by card?</span></p><p class="kor-text">(카드로 결제할 수 있나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Keep the change. <span class="kor-sub-text">(잔돈은 가지세요.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could I get a receipt? <span class="kor-sub-text">(영수증을 받을 수 있을까요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In the US and Canada, tipping 15-20% is standard. In Europe, it's often less or included in the bill.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In North America, you usually pay at the table. In Korea, you pay at the counter.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L25 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 25: Asking for the Bill - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, could we get the bill, please?<span class="kor-sub-text">(실례합니다, 계산서 좀 주시겠어요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Certainly. Here you go.<span class="kor-sub-text">(네, 알겠습니다. 여기 있습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Thank you. Is service included?<span class="kor-sub-text">(감사합니다. 서비스 요금이 포함되어 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">No, gratuity is not included in the bill.<span class="kor-sub-text">(아니요, 팁(봉사료)은 계산서에 포함되어 있지 않습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Okay. Can we pay separately?<span class="kor-sub-text">(알겠습니다. 따로 결제할 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Server</div><div class="text">Yes, I can split it in half for you.<span class="kor-sub-text">(네, 반으로 나누어 결제해 드릴 수 있습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question naturally: <br><strong>Could we get the bill, please?</strong></li>
+            <li>Say this question naturally: <br><strong>Can we pay separately?</strong></li>
+            <li>Say this question naturally: <br><strong>Is service included?</strong></li>
+            <li>Say this sentence when paying in cash: <br><strong>Keep the change.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 식사를 마치고 계산을 하려고 합니다. 팁 여부를 묻고 분할 결제를 요청합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Are you finished with your meal?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, could we get <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Here is your check.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. Is <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>No, it's not included. How will you pay?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Can we pay <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L25 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 25: Asking for the Bill - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What do you think about the tipping culture in the US?<span class="kor-sub-text">(미국의 팁 문화에 대해 어떻게 생각하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever forgotten to tip when traveling?<span class="kor-sub-text">(여행 중 팁을 주는 것을 잊어버린 적이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Who usually pays when you eat out with friends?<span class="kor-sub-text">(친구들과 외식할 때 보통 누가 계산하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Note: "Check" is common in the US, "Bill" is common in the UK/Aus.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Remind students that saying "Check, please!" and making a signing gesture in the air is universally understood.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences asking for the bill and asking to split it.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(계산서를 요청하고 더치페이(분할 결제)를 부탁하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">Could we get the bill, please?<br>Is service included?<br>Can we pay separately?</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 5! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>

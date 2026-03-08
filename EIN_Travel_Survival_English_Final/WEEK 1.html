@@ -3,404 +3,966 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Travel Survival English - Week 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EIN English - Week 1 (Travel Survival English)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @page { size: A4; margin: 0; }
-        body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; background-color: #f3f4f6; margin: 0; padding: 0; }
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
         
-        .a4-page {
-            width: 210mm;
-            min-height: 296mm; /* A4 height approx */
-            height: auto;
-            padding: 20mm;
-            margin: 10mm auto;
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
             position: relative;
             display: flex;
             flex-direction: column;
             page-break-after: always;
         }
 
-        .navy-bg { background-color: #1e3a8a; }
-        .emerald-text { color: #059669; }
-        .emerald-bg { background-color: #059669; }
-        .light-blue-bg { background-color: #eff6ff; }
-        .korean-sub { font-size: 0.85rem; color: #6b7280; font-weight: 400; display: block; margin-top: 1px; }
-        
-        .content-box { border-left: 4px solid #1e3a8a; padding-left: 15px; margin-bottom: 25px; }
-        .footer { position: relative; margin-top: auto; padding-top: 20px; text-align: center; font-size: 0.75rem; color: #9ca3af; }
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
 
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
-        th { background-color: #f9fafb; color: #1e3a8a; }
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-        .role-play-box { background-color: #eff6ff; border-radius: 12px; padding: 20px; border: 1px solid #dbeafe; }
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
         
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        .card.country-tip { border-top: 4px solid #f59e0b; background: #fffbeb; padding: 18px 25px;} /* Special style for Travel Tips */
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        ul.tip-list li::before { background: #f59e0b; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
         @media print {
-            body { background: none; }
-            .a4-page { margin: 0; box-shadow: none; border: none; }
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- PAGE 1: COVER -->
-    <div class="a4-page justify-center items-center text-center">
-        <div class="w-full">
-            <div class="emerald-text font-bold text-xl tracking-widest mb-4">EIN ENGLISH PREMIUM SERIES</div>
-            <h1 class="text-6xl font-extrabold text-blue-900 leading-tight mb-8">
-                Travel Survival<br>English
-            </h1>
-            <p class="text-2xl text-gray-600 mb-12">Expanded Speaking Practice Edition</p>
-            
-            <div class="navy-bg text-white py-6 px-12 rounded-full inline-block text-xl font-bold mb-12">
-                Week 1: Flight & Airport
-                <span class="block text-sm font-normal opacity-80">항공 및 공항 이용하기</span>
-            </div>
-
-            <div class="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-12">
-                <div class="p-4 border-r border-gray-200">
-                    <span class="block font-bold text-blue-900 text-lg">8 Weeks</span>
-                    <span class="text-sm text-gray-500">Duration</span>
-                </div>
-                <div class="p-4 border-r border-gray-200">
-                    <span class="block font-bold text-blue-900 text-lg">40 Lessons</span>
-                    <span class="text-sm text-gray-500">Total Content</span>
-                </div>
-                <div class="p-4">
-                    <span class="block font-bold text-blue-900 text-lg">A2-B1</span>
-                    <span class="text-sm text-gray-500">Target Level</span>
-                </div>
-            </div>
-        </div>
-        <div class="footer w-full">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 1</div>
+        <h1>Flight & Airport</h1>
+        <h2>Travel Survival English</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 1: Booking a Flight<br>
+            Lesson 2: Choosing Seats & Baggage<br>
+            Lesson 3: Airport Check-in<br>
+            Lesson 4: Airport Security<br>
+            Lesson 5: Boarding the Plane
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- PAGE 2: CURRICULUM -->
-    <div class="a4-page">
-        <h2 class="text-3xl font-bold text-blue-900 mb-8 flex items-center">
-            <span class="w-2 h-8 emerald-bg inline-block mr-3"></span>
-            Course Outline
-            <small class="ml-3 text-gray-400 font-normal">커리큘럼 (8주 과정)</small>
-        </h2>
-
-        <div class="grid grid-cols-1 gap-4">
-            <div class="light-blue-bg p-6 rounded-xl flex justify-between items-center border border-blue-100">
-                <div>
-                    <span class="font-bold text-blue-900">Week 1. Flight & Airport</span>
-                    <span class="korean-sub">비행 및 공항 이용</span>
-                </div>
-                <span class="text-xs font-bold px-3 py-1 emerald-bg text-white rounded-full">Current</span>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 2. Arrival</span>
-                    <span class="korean-sub">도착 및 입국</span>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 3. Hotel</span>
-                    <span class="korean-sub">호텔 예약 및 투숙</span>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 4. Transportation</span>
-                    <span class="korean-sub">교통수단 이용</span>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 5. Food & Restaurants</span>
-                    <span class="korean-sub">음식 및 식당 이용</span>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 6. Shopping</span>
-                    <span class="korean-sub">쇼핑하기</span>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 7. Social & Daily Conversation</span>
-                    <span class="korean-sub">소셜 및 일상 대화</span>
-                </div>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-xl flex justify-between items-center border border-gray-100">
-                <div>
-                    <span class="font-bold text-gray-700">Week 8. Travel Problems</span>
-                    <span class="korean-sub">여행 문제 해결</span>
-                </div>
+    <!-- ==========================================
+         LESSON 1: BOOKING A FLIGHT
+         ========================================== -->
+    <!-- L1 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 1</span>
+            <h1>Booking a Flight <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(항공편 예약하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-plane"></i> 
+                <span>Today's Goal: Ask about flights, prices, and seat options when booking a flight.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 항공편 예약 시 항공편, 가격, 좌석 옵션에 대해 묻기)</span></span>
             </div>
         </div>
 
-        <div class="mt-auto footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- LESSON 1 - PAGE 1 -->
-    <div class="a4-page">
-        <div class="flex justify-between items-start mb-6">
-            <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold uppercase tracking-widest">Week 1 / Lesson 1</div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Booking a Flight">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person looking at flight options online or a view of a plane.</p>
         </div>
 
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Booking a Flight</h1>
-        <p class="text-gray-500 mb-8">항공권 예약하기</p>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever booked a flight online?</p><p class="kor-text">(온라인으로 항공편을 예약해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Which country would you like to visit next?</p><p class="kor-text">(다음으로 어느 나라를 방문하고 싶으신가요?)</p></li>
+            <li><p class="eng-text">How often do you travel each year?</p><p class="kor-text">(매년 얼마나 자주 여행을 가시나요?)</p></li>
+            <li><p class="eng-text">What is the longest flight you have taken?</p><p class="kor-text">(지금까지 타본 가장 긴 비행은 몇 시간이었나요?)</p></li>
+        </ul>
 
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 학습 목표</small></h3>
-            <p class="mt-2">Ask about flights, prices, and seat options when booking a flight.</p>
-            <span class="korean-sub">항공권 예약 시 항공편, 가격, 좌석 옵션에 대해 질문할 수 있습니다.</span>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to book a flight to</span> ___.</p><p class="kor-text">(___로 가는 항공편을 예약하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">When would you like to travel?</span></p><p class="kor-text">(언제 여행하고 싶으신가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How much does the ticket cost?</span></p><p class="kor-text">(티켓 가격은 얼마인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is it a direct flight?</span></p><p class="kor-text">(직항편인가요?)</p></li>
+            </ul>
         </div>
-
-        <div class="mb-8">
-            <h3 class="text-xl font-bold text-blue-800 mb-4">Warm-up <small class="text-gray-400 font-normal">웜업 질문</small></h3>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q.</span>
-                    <div>
-                        Have you ever booked a flight online?
-                        <span class="korean-sub">온라인으로 항공권을 예약해 본 적이 있나요?</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q.</span>
-                    <div>
-                        Which country would you like to visit next?
-                        <span class="korean-sub">다음에 방문하고 싶은 나라는 어디인가요?</span>
-                    </div>
-                </li>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Are there any cheaper flights? <span class="kor-sub-text">(더 저렴한 항공편이 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Does the price include taxes and baggage? <span class="kor-sub-text">(이 가격에 세금과 수하물이 포함되어 있나요?)</span></p></li>
             </ul>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <span class="text-xs font-bold text-blue-600 uppercase">Core (Must-use) <small class="text-gray-400">필수 표현</small></span>
-                    <ul class="mt-2 space-y-2">
-                        <li>• I'd like to book a flight to [Destination]. <span class="korean-sub">[목적지]행 항공권을 예약하고 싶습니다.</span></li>
-                        <li>• How much does the ticket cost? <span class="korean-sub">티켓 가격이 얼마인가요?</span></li>
-                        <li>• Is it a direct flight? <span class="korean-sub">직항인가요?</span></li>
-                    </ul>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-500">
-                    <span class="text-xs font-bold text-emerald-600 uppercase">Upgrade (Optional) <small class="text-gray-400">심화 표현</small></span>
-                    <ul class="mt-2 space-y-2">
-                        <li>• Are there any cheaper flights? <span class="korean-sub">더 저렴한 항공편이 있나요?</span></li>
-                        <li>• Does the price include taxes and baggage? <span class="korean-sub">세금과 수하물 비용이 포함된 가격인가요?</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-6 bg-yellow-50 rounded-2xl border-l-4 border-yellow-400">
-            <h3 class="text-lg font-bold text-yellow-800 mb-2">Country Tip <small class="text-gray-400 font-normal">여행 팁</small></h3>
-            <p class="text-sm text-gray-700">Online booking is common, but calling is still useful for changes. Some airlines charge extra for checked baggage and seat selection - ask first!</p>
-            <span class="korean-sub mt-2 italic">온라인 예약이 일반적이지만 변경 시에는 전화가 유용합니다. 일부 항공사는 위탁 수하물과 좌석 선택에 추가 비용을 부과하므로 미리 확인하세요!</span>
-        </div>
-
-        <div class="mt-auto footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- LESSON 1 - PAGE 2 -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Model Dialogue <small class="text-gray-400 font-normal">모델 대화문</small></h3>
-        <div class="space-y-4 mb-12">
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0">A</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">Hello. How can I help you today?</p>
-                    <span class="korean-sub">안녕하세요. 오늘 무엇을 도와드릴까요?</span>
-                </div>
-            </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0">B</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">I'd like to book a flight to Sydney.</p>
-                    <span class="korean-sub">시드니행 항공권을 예약하고 싶습니다.</span>
-                </div>
-            </div>
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0">A</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">When would you like to travel?</p>
-                    <span class="korean-sub">언제 여행하시겠어요?</span>
-                </div>
-            </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0">B</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">Next Monday morning. I prefer an aisle seat.</p>
-                    <span class="korean-sub">다음 주 월요일 아침에요. 통로 좌석을 선호합니다.</span>
-                </div>
-            </div>
-        </div>
-
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Guided Practice <small class="text-gray-400 font-normal">문장 완성 연습</small></h3>
-        <div class="space-y-6">
-            <div class="p-4 border border-gray-200 rounded-xl">
-                <p class="font-medium">1. Complete with your own info:</p>
-                <p class="text-lg text-blue-700 mt-2 font-bold">"I'd like to book a flight to ___________."</p>
-                <span class="korean-sub">본인이 가고 싶은 목적지를 넣어 문장을 완성해보세요.</span>
-            </div>
-            <div class="p-4 border border-gray-200 rounded-xl">
-                <p class="font-medium">2. Ask about the price:</p>
-                <p class="text-lg text-blue-700 mt-2 font-bold">"How much does the ticket cost?"</p>
-                <span class="korean-sub">티켓 가격을 물어보는 문장을 자연스럽게 읽어보세요.</span>
-            </div>
-            <div class="p-4 border border-gray-200 rounded-xl">
-                <p class="font-medium">3. Ask about direct flights:</p>
-                <p class="text-lg text-blue-700 mt-2 font-bold">"Is it a direct flight or a stopover?"</p>
-                <span class="korean-sub">직항인지 경유인지 묻는 문장을 연습해보세요.</span>
-            </div>
-        </div>
-
-        <div class="mt-auto footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- LESSON 1 - PAGE 3 -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Role-play (1:1) <small class="text-gray-400 font-normal">역할극</small></h3>
-        <div class="role-play-box mb-8">
-            <p class="font-bold text-blue-800 mb-4 underline">Situation: You are speaking to a travel agent. <span class="text-sm font-normal text-gray-500 italic">(여행사 직원과 대화하는 상황입니다.)</span></p>
-            <table class="bg-white rounded-lg overflow-hidden">
-                <tr class="bg-blue-50">
-                    <th class="w-1/4">Role</th>
-                    <th>Dialogue</th>
-                </tr>
-                <tr>
-                    <td class="font-bold text-blue-900">Tutor (Staff)</td>
-                    <td>Where are you flying today?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-emerald-600">Student (You)</td>
-                    <td class="italic text-gray-400">I'm flying to [Destination].</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-blue-900">Tutor (Staff)</td>
-                    <td>When would you like to travel?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-emerald-600">Student (You)</td>
-                    <td class="italic text-gray-400">I'd like to travel on [Date/Time].</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-blue-900">Tutor (Staff)</td>
-                    <td>Do you prefer a window or an aisle seat?</td>
-                </tr>
-                <tr>
-                    <td class="font-bold text-emerald-600">Student (You)</td>
-                    <td class="italic text-gray-400">I prefer a/an [Window/Aisle] seat.</td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="mb-8">
-            <h3 class="text-2xl font-bold text-blue-900 mb-4">Talk More <small class="text-gray-400 font-normal">프리토킹</small></h3>
-            <div class="grid grid-cols-1 gap-3">
-                <div class="p-3 bg-gray-50 rounded-lg">• Do you enjoy traveling or do you prefer staying at home? <span class="korean-sub">여행을 즐기나요, 아니면 집에 있는 것을 선호하나요?</span></div>
-                <div class="p-3 bg-gray-50 rounded-lg">• What is your dream destination and why? <span class="korean-sub">당신의 꿈의 여행지는 어디이고 그 이유는 무엇인가요?</span></div>
-                <div class="p-3 bg-gray-50 rounded-lg">• Do you like planning trips in advance? <span class="korean-sub">여행을 미리 계획하는 것을 좋아하나요?</span></div>
-            </div>
-        </div>
-
-        <div class="p-4 border-2 border-dashed border-gray-300 rounded-xl mb-8">
-            <h4 class="font-bold text-gray-700 mb-2">Homework <small class="text-gray-400 font-normal">숙제</small></h4>
-            <p class="text-sm">Write 3-4 sentences about your travel plan (destination, date, seat preference).</p>
-            <div class="mt-2 h-20 bg-gray-50 w-full border border-gray-100 p-2 text-xs text-gray-400">Example: I'd like to travel to Sydney next month. I prefer a window seat...</div>
-        </div>
-
-        <div class="mt-auto footer text-xs italic text-blue-800 font-semibold bg-blue-50 py-2 rounded">
-            Tutor Tip: Help the student answer in full sentences. Focus on fluency first!
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Online booking is common, but calling is still useful for changes.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Some airlines charge extra for checked baggage and seat selection - ask first.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In the US/Canada, 'carry-on' is common. In the UK/AU, 'cabin bag' is also used.</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- Note: Content for Lessons 2-5 would follow the same structure. 
-         Due to technical limitations, I will continue with the structure for Lesson 2 in the same file. -->
-
-    <!-- LESSON 2 - PAGE 1 -->
-    <div class="a4-page">
-        <div class="flex justify-between items-start mb-6">
-            <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold uppercase tracking-widest">Week 1 / Lesson 2</div>
+    <!-- L1 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 1: Booking a Flight - Practice & Role-play</h1>
         </div>
 
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Choosing Seats & Baggage</h1>
-        <p class="text-gray-500 mb-8">좌석 및 수하물 선택하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 학습 목표</small></h3>
-            <p class="mt-2">Choose a seat and ask about baggage allowance and weight limits.</p>
-            <span class="korean-sub">좌석을 선택하고 수하물 허용 한도 및 무게 제한에 대해 질문할 수 있습니다.</span>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Hello. How can I help you today?<span class="kor-sub-text">(안녕하세요. 오늘 무엇을 도와드릴까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">I'd like to book a flight to Sydney.<span class="kor-sub-text">(시드니행 항공편을 예약하고 싶습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">When would you like to travel?<span class="kor-sub-text">(언제 여행할 계획이신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Next Monday morning.<span class="kor-sub-text">(다음 주 월요일 아침이요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Do you prefer a window seat or an aisle seat?<span class="kor-sub-text">(창가 좌석과 통로 좌석 중 어느 것을 선호하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">I prefer an aisle seat.<span class="kor-sub-text">(통로 좌석을 선호합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Do you have any checked baggage?<span class="kor-sub-text">(위탁 수하물이 있으신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Yes, I have one suitcase.<span class="kor-sub-text">(네, 여행 가방 하나가 있습니다.)</span></div></div>
         </div>
 
-        <div class="mb-8">
-            <h3 class="text-xl font-bold text-blue-800 mb-4">Warm-up <small class="text-gray-400 font-normal">웜업 질문</small></h3>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q.</span>
-                    <div>
-                        Do you prefer a window seat or an aisle seat?
-                        <span class="korean-sub">창가 좌석과 통로 좌석 중 어느 곳을 선호하시나요?</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q.</span>
-                    <div>
-                        How many bags do you usually bring on a trip?
-                        <span class="korean-sub">여행 갈 때 보통 몇 개의 가방을 가져가시나요?</span>
-                    </div>
-                </li>
-            </ul>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Complete the sentence with your own information: <br><strong>I'd like to book a flight to ______________________ .</strong></li>
+            <li>Say this question with your own details: <br><strong>When would you like to travel?</strong></li>
+            <li>Say this question with your own details: <br><strong>How much does the ticket cost?</strong></li>
+            <li>Say this question with your own details: <br><strong>Is it a direct flight?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 항공사 직원(또는 여행사)과 항공편을 예약하고 있습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Where are you flying today?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'm flying to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>When would you like to travel?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'd like to travel on <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you prefer a window seat or an aisle seat?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I prefer <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have any checked baggage?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I have <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L1 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 1: Booking a Flight - Wrap-up & Assignment</h1>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <div class="grid grid-cols-1 gap-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                    <span class="text-xs font-bold text-blue-600 uppercase">Core (Must-use) <small class="text-gray-400">필수 표현</small></span>
-                    <ul class="mt-2 space-y-2">
-                        <li>• How many bags can I check in? <span class="korean-sub">수하물을 몇 개까지 보낼 수 있나요?</span></li>
-                        <li>• What is the weight limit? <span class="korean-sub">무게 제한이 얼마인가요?</span></li>
-                        <li>• I prefer a [Window/Aisle] seat. <span class="korean-sub">저는 [창가/통로] 좌석을 선호합니다.</span></li>
-                    </ul>
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you enjoy traveling or do you prefer staying at home?<span class="kor-sub-text">(여행하는 것을 즐기시나요, 아니면 집에 있는 것을 선호하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is your dream destination and why?<span class="kor-sub-text">(당신의 꿈의 여행지는 어디이며 그 이유는 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like planning trips in advance?<span class="kor-sub-text">(여행을 미리 계획하는 것을 좋아하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes air travel comfortable for you?<span class="kor-sub-text">(비행기 여행을 편안하게 만들어주는 것은 무엇인가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Warm up first: help the student answer in full sentences (not single words).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Have the student repeat core expressions, then substitute destinations and dates.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• During role-play, stop only for major errors - focus on fluency first, accuracy second.</p>
                 </div>
             </div>
         </div>
 
-        <div class="p-6 bg-yellow-50 rounded-2xl border-l-4 border-yellow-400">
-            <h3 class="text-lg font-bold text-yellow-800 mb-2">Country Tip <small class="text-gray-400 font-normal">여행 팁</small></h3>
-            <p class="text-sm text-gray-700">Budget airlines may charge for checked bags. 'Baggage allowance' is a common term worldwide.</p>
-            <span class="korean-sub mt-2 italic">저가 항공사는 위탁 수하물에 요금을 부과할 수 있습니다. 'Baggage allowance(수하물 허용량)'은 전 세계적으로 흔히 쓰이는 용어입니다.</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences about your travel plan (destination, date, seat preference).</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 여행 계획(목적지, 날짜, 선호하는 좌석)에 대해 3~4문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like to travel to Sydney next month.<br>I prefer a window seat.<br>I will bring one suitcase.</p>
+            </div>
         </div>
-
-        <div class="mt-auto footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
-    
-    <!-- (Lessons 3, 4, 5 follow similar structure...) -->
-    <!-- For brevity in this generation, I will wrap up with Lesson 5's main pages -->
 
-    <div class="a4-page justify-center items-center text-center">
-        <h2 class="text-2xl font-bold text-blue-900 mb-4">End of Week 1 Practice</h2>
-        <p class="text-gray-600 mb-8">항공 및 공항편 학습을 완료하셨습니다.</p>
-        <div class="emerald-bg text-white p-6 rounded-2xl inline-block">
-            <p class="font-bold">Next Lesson: Week 2 - Arrival</p>
-            <span class="block text-sm opacity-80 mt-1">다음 주차: 입국 및 도착</span>
+
+    <!-- ==========================================
+         LESSON 2: CHOOSING SEATS & BAGGAGE
+         ========================================== -->
+    <!-- L2 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 2</span>
+            <h1>Choosing Seats & Baggage <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(좌석 및 수하물 선택하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-suitcase-rolling"></i> 
+                <span>Today's Goal: Choose a seat and ask about baggage allowance and weight limits.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 좌석을 선택하고 수하물 허용량 및 무게 제한에 대해 질문하기)</span></span>
+            </div>
         </div>
-        <div class="mt-12 text-left w-full max-w-md mx-auto p-6 border rounded-xl">
-            <h4 class="font-bold mb-3">Week 1 Review Checklist:</h4>
-            <label class="flex items-center gap-3 mb-2"><input type="checkbox"> Booking a Flight</label>
-            <label class="flex items-center gap-3 mb-2"><input type="checkbox"> Seats & Baggage</label>
-            <label class="flex items-center gap-3 mb-2"><input type="checkbox"> Airport Check-in</label>
-            <label class="flex items-center gap-3 mb-2"><input type="checkbox"> Airport Security</label>
-            <label class="flex items-center gap-3 mb-2"><input type="checkbox"> Boarding the Plane</label>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1544016768-982d1554f0b9?auto=format&fit=crop&w=800&q=80" alt="Choosing Seats and Baggage">
+            <p><i class="fa-solid fa-camera"></i> Photo: Luggage on a scale at an airport check-in counter.</p>
         </div>
-        <div class="mt-auto footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you prefer a window seat or an aisle seat?</p><p class="kor-text">(창가 좌석과 통로 좌석 중 어느 것을 선호하시나요?)</p></li>
+            <li><p class="eng-text">Do you usually travel with a lot of luggage?</p><p class="kor-text">(여행할 때 짐을 많이 챙기는 편인가요?)</p></li>
+            <li><p class="eng-text">How many bags do you usually bring on a trip?</p><p class="kor-text">(여행 갈 때 보통 가방을 몇 개 가져가나요?)</p></li>
+            <li><p class="eng-text">What do you always keep in your carry-on bag?</p><p class="kor-text">(기내 수하물 가방에 항상 챙기는 물건은 무엇인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I prefer a window seat.</span></p><p class="kor-text">(저는 창가 좌석을 선호합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I prefer an aisle seat.</span></p><p class="kor-text">(저는 통로 좌석을 선호합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">How many bags can I check in?</span></p><p class="kor-text">(위탁 수하물은 몇 개까지 가능한가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What is the weight limit?</span></p><p class="kor-text">(무게 제한은 얼마인가요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is carry-on luggage allowed? <span class="kor-sub-text">(기내 수하물이 허용되나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is there an extra fee for baggage? <span class="kor-sub-text">(수하물에 대한 추가 요금이 있나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Carry-on size rules can be strict - measure your bag if unsure.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Budget airlines may charge for checked bags (and sometimes carry-ons).</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">'Baggage allowance' is a common term worldwide.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L2 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 2: Choosing Seats & Baggage - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Would you prefer a window seat or an aisle seat?<span class="kor-sub-text">(창가 좌석을 원하시나요, 아니면 통로 좌석을 원하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">I prefer a window seat.<span class="kor-sub-text">(창가 좌석을 선호합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">How many bags are you checking in?<span class="kor-sub-text">(위탁 수하물은 몇 개인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Just one suitcase.<span class="kor-sub-text">(여행 가방 하나입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">The weight limit is 23 kilograms.<span class="kor-sub-text">(무게 제한은 23킬로그램입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Great. Thank you. Is carry-on luggage allowed?<span class="kor-sub-text">(좋습니다. 감사합니다. 기내 수하물도 허용되나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Yes, one small bag is allowed.<span class="kor-sub-text">(네, 작은 가방 하나가 허용됩니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>I prefer a window seat.</strong></li>
+            <li>Say this sentence naturally: <br><strong>I prefer an aisle seat.</strong></li>
+            <li>Say this question with your own details: <br><strong>How many bags can I check in?</strong></li>
+            <li>Say this question with your own details: <br><strong>What is the weight limit?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 비행 전 수하물을 부치고 좌석을 확인하고 있습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Which seat would you prefer?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I prefer a <span class="blank" style="min-width: 100px;"></span> seat.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How many bags are you checking in?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I have <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have any carry-on luggage?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I have <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is your suitcase under the weight limit?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, it is. / I'm not sure.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L2 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 2: Choosing Seats & Baggage - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you pack early or pack at the last minute?<span class="kor-sub-text">(일찍 짐을 싸는 편인가요, 아니면 마지막 순간에 싸는 편인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What are three things you always pack?<span class="kor-sub-text">(항상 챙기는 세 가지 물건은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you pack light or heavy?<span class="kor-sub-text">(짐을 가볍게 싸는 편인가요, 무겁게 싸는 편인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What item can you not travel without?<span class="kor-sub-text">(여행할 때 없어서는 안 될 물건은 무엇인가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Have the student practice numbers (1 bag, 2 bags, 23 kg, 30 kg).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Correct pronunciation of 'aisle' [ail] and 'baggage'.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• If the student hesitates, let them use prompts, then repeat without prompts.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences describing your luggage (how many bags + estimated weight + seat preference).</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 수하물과 선호하는 좌석에 대해 3~4문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I will bring one suitcase and one backpack.<br>My suitcase is about 20 kilograms.<br>I prefer an aisle seat.</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 3: AIRPORT CHECK-IN
+         ========================================== -->
+    <!-- L3 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 3</span>
+            <h1>Airport Check-in <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(공항 체크인)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-passport"></i> 
+                <span>Today's Goal: Check in at the airport and respond to basic questions from airline staff.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 공항에서 체크인하고 항공사 직원의 기본 질문에 대답하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Airport Check-in">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler handing over a passport at the check-in desk.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How early do you usually arrive at the airport?</p><p class="kor-text">(공항에 보통 얼마나 일찍 도착하시나요?)</p></li>
+            <li><p class="eng-text">Have you ever used a self check-in kiosk?</p><p class="kor-text">(셀프 체크인 키오스크를 이용해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you prefer self check-in or speaking to staff?</p><p class="kor-text">(셀프 체크인과 직원에게 말하는 것 중 어느 것을 선호하시나요?)</p></li>
+            <li><p class="eng-text">Have you ever had a baggage problem?</p><p class="kor-text">(수하물과 관련된 문제를 겪어본 적이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to check in for my flight.</span></p><p class="kor-text">(탑승 수속(체크인)을 하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Here is my passport.</span></p><p class="kor-text">(제 여권 여기 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">How many bags are you checking in?</span></p><p class="kor-text">(위탁 수하물은 몇 개인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Here is your boarding pass.</span></p><p class="kor-text">(탑승권 여기 있습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could I change my seat? <span class="kor-sub-text">(좌석을 변경할 수 있을까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">What time does boarding start? <span class="kor-sub-text">(탑승은 몇 시에 시작하나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Many airports offer self check-in kiosks, but staff can help if there is a problem.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">For some routes, you may need to show a visa or onward ticket at check-in.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In the US, you may be asked: 'Did you pack your bags yourself?'.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L3 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 3: Airport Check-in - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Good morning. May I see your passport?<span class="kor-sub-text">(좋은 아침입니다. 여권을 보여주시겠습니까?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Sure. Here it is.<span class="kor-sub-text">(네. 여기 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">How many bags are you checking in?<span class="kor-sub-text">(위탁 수하물은 몇 개 부치시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Just one suitcase.<span class="kor-sub-text">(여행 가방 하나입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Here is your boarding pass.<span class="kor-sub-text">(여기 탑승권입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Thank you. What time does boarding start?<span class="kor-sub-text">(감사합니다. 탑승은 몇 시에 시작하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Boarding starts at 10:30 a.m.<span class="kor-sub-text">(오전 10시 30분에 시작합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>I'd like to check in for my flight.</strong></li>
+            <li>Say this sentence naturally: <br><strong>Here is my passport.</strong></li>
+            <li>Say this question with your own details: <br><strong>How many bags are you checking in?</strong></li>
+            <li>Say this sentence naturally: <br><strong>Here is your boarding pass.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 공항 체크인 카운터에서 수속을 밟고 있습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>May I see your passport?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Sure. Here <span class="blank" style="min-width: 100px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How many bags are you checking in?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Just <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have any carry-on luggage?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I have <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have a seat preference?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I prefer <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L3 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 3: Airport Check-in - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer morning flights or night flights?<span class="kor-sub-text">(아침 비행기와 밤 비행기 중 어느 것을 선호하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you do while waiting at the airport?<span class="kor-sub-text">(공항에서 기다리는 동안 무엇을 하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you get nervous before flights?<span class="kor-sub-text">(비행 전에 긴장하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you usually buy or prepare before boarding?<span class="kor-sub-text">(탑승 전에 주로 무엇을 사거나 준비하시나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Role-play the check-in counter twice: once slowly, once at natural speed.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Have the student practice polite intonation: 'Could I…?' 'May I…?'</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• After role-play, ask one personal question to keep it conversational.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences about your flight (destination, bags, seat preference).</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 비행(목적지, 가방 수, 선호하는 좌석)에 대해 3~4문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'm flying to Sydney.<br>I have one suitcase and one backpack.<br>If possible, I'd like a window seat.</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 4: AIRPORT SECURITY
+         ========================================== -->
+    <!-- L4 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 4</span>
+            <h1>Airport Security <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(공항 보안 검색)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-shield-halved"></i> 
+                <span>Today's Goal: Understand security instructions and respond clearly at the airport.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 보안 검색대에서 지시 사항을 이해하고 명확하게 대답하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1587019158091-1a103c5dd17f?auto=format&fit=crop&w=800&q=80" alt="Airport Security">
+            <p><i class="fa-solid fa-camera"></i> Photo: Bags going through an x-ray scanner belt at airport security.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do airport security checks make you nervous?</p><p class="kor-text">(공항 보안 검색이 당신을 긴장하게 만드나요?)</p></li>
+            <li><p class="eng-text">What items do you usually carry in your carry-on bag?</p><p class="kor-text">(기내 수하물 가방에 주로 어떤 물건을 챙기나요?)</p></li>
+            <li><p class="eng-text">Have you ever been stopped at airport security?</p><p class="kor-text">(공항 보안 검색대에서 제지당한 적이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Please put your bag on the belt.</span></p><p class="kor-text">(가방을 벨트 위에 올려주세요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Take off your jacket.</span></p><p class="kor-text">(재킷을 벗어주세요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Do you have any liquids?</span></p><p class="kor-text">(액체류를 가지고 계신가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Walk through the scanner.</span></p><p class="kor-text">(스캐너를 통과해 주세요.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Do I need to remove my laptop? <span class="kor-sub-text">(노트북을 꺼내야 하나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is this allowed in my carry-on? <span class="kor-sub-text">(이것을 기내에 들고 타도 되나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Liquid rules are often 100 ml per container in many airports.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Some airports ask you to take laptops/tablets out of your bag.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In some countries, you may need to remove shoes or belts - follow the signs.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L4 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 4: Airport Security - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Officer</div><div class="text">Please put your bag on the belt.<span class="kor-sub-text">(가방을 벨트 위에 올려주세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Okay.<span class="kor-sub-text">(네.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Officer</div><div class="text">Do you have any liquids?<span class="kor-sub-text">(액체류가 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Just a small bottle of water.<span class="kor-sub-text">(작은 생수 한 병이요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Officer</div><div class="text">Please walk through the scanner.<span class="kor-sub-text">(스캐너를 통과해 주세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Sure.<span class="kor-sub-text">(네.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Officer</div><div class="text">Please remove your laptop from the bag.<span class="kor-sub-text">(가방에서 노트북을 꺼내주세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Okay. Here it is.<span class="kor-sub-text">(네. 여기 있습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence naturally: <br><strong>Please put your bag on the belt.</strong></li>
+            <li>Say this sentence naturally: <br><strong>Take off your jacket.</strong></li>
+            <li>Say this question with your own details: <br><strong>Do you have any liquids?</strong></li>
+            <li>Say this sentence naturally: <br><strong>Walk through the scanner.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 공항 보안 검색대를 통과하고 있습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have any liquids?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>No, I don't. / Yes, I have <span class="blank" style="min-width: 100px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Please remove your laptop from your bag.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Okay. Here <span class="blank" style="min-width: 100px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Please walk through the scanner.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Sure.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is there anything metal in your pockets?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>No, there isn't.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L4 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 4: Airport Security - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What do you usually carry in your bag every day?<span class="kor-sub-text">(평소 가방에 무엇을 가지고 다니나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer traveling with a backpack or suitcase?<span class="kor-sub-text">(배낭과 여행 가방(캐리어) 중 어느 것을 가지고 여행하는 것을 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is one item you can't live without?<span class="kor-sub-text">(당신에게 없어서는 안 될 물건 하나는 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What are you careful about when packing?<span class="kor-sub-text">(짐을 쌀 때 어떤 것을 조심하시나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice quick responses (Okay / Sure / No problem) for natural listening reactions.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Correct key words: liquids, scanner, laptop.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Keep the student speaking: ask 'What else is in your bag?'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences about your carry-on bag (electronics + liquids + personal items).</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 기내 수하물 가방(전자기기, 액체류, 개인 소지품)에 대해 3문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I usually carry my phone charger and a power bank.<br>I don't bring liquids.<br>I also carry my passport and wallet.</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 5: BOARDING THE PLANE
+         ========================================== -->
+    <!-- L5 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 5</span>
+            <h1>Boarding the Plane <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(비행기 탑승하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-ticket-airline"></i> 
+                <span>Today's Goal: Find your gate, confirm your flight, and board the plane smoothly.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 탑승구를 찾고 비행편을 확인하며 순조롭게 탑승하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Boarding the Plane">
+            <p><i class="fa-solid fa-camera"></i> Photo: Passengers walking through the gate or a view out the terminal window.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you like flying? Why or why not?</p><p class="kor-text">(비행하는 것을 좋아하시나요? 왜죠?)</p></li>
+            <li><p class="eng-text">What do you usually do during long flights?</p><p class="kor-text">(장거리 비행 중에는 주로 무엇을 하나요?)</p></li>
+            <li><p class="eng-text">Do you like window seats or aisle seats more?</p><p class="kor-text">(창가 좌석과 통로 좌석 중 어느 것을 더 좋아하시나요?)</p></li>
+            <li><p class="eng-text">What do you usually do after boarding a plane?</p><p class="kor-text">(비행기에 탑승한 후 주로 무엇을 하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Where is gate 15?</span></p><p class="kor-text">(15번 게이트는 어디에 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is this the correct gate for flight 204?</span></p><p class="kor-text">(여기가 204편 탑승구가 맞나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Boarding starts now.</span></p><p class="kor-text">(지금 탑승을 시작합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Please line up here.</span></p><p class="kor-text">(이곳에 줄을 서주세요.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could you help me find my seat? <span class="kor-sub-text">(제 자리 찾는 것 좀 도와주시겠어요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Where can I put my luggage? <span class="kor-sub-text">(제 짐을 어디에 놓을 수 있나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Many airlines board by groups (Group 1, 2, 3).</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Some airports announce boarding by row numbers or zones.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">If you miss boarding, go to the gate counter immediately.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L5 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 5: Boarding the Plane - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me. Where is gate 15?<span class="kor-sub-text">(실례합니다. 15번 게이트가 어디에 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">It's down the hall on the right.<span class="kor-sub-text">(복도를 따라가서 오른쪽에 있습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Is this the correct gate for flight 204?<span class="kor-sub-text">(여기가 204편 탑승구가 맞나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Yes. Boarding starts in 10 minutes.<span class="kor-sub-text">(네. 탑승은 10분 후에 시작합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Thank you.<span class="kor-sub-text">(감사합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">You're welcome. What is your seat number?<span class="kor-sub-text">(천만에요. 좌석 번호가 어떻게 되시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">My seat is 14A.<span class="kor-sub-text">(제 자리는 14A입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question with your own details: <br><strong>Where is gate 15?</strong></li>
+            <li>Say this question with your own details: <br><strong>Is this the correct gate for flight 204?</strong></li>
+            <li>Say this sentence naturally: <br><strong>Boarding starts now.</strong></li>
+            <li>Say this sentence naturally: <br><strong>Please line up here.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 탑승구(Gate)에 있으며 탑승할 준비를 하고 있습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is this the correct gate for your flight?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, it is. / I'm not sure.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is your seat number?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>My seat is <span class="blank" style="min-width: 100px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you need help with your bag?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>No, thanks. / Yes, please.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Are you ready to board now?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I am.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L5 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 5: Boarding the Plane - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer traveling alone or with friends?<span class="kor-sub-text">(혼자 여행하는 것과 친구들과 여행하는 것 중 무엇을 더 선호하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Where would you like to travel next year?<span class="kor-sub-text">(내년에는 어디로 여행 가고 싶으신가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is your best travel memory?<span class="kor-sub-text">(당신의 가장 좋았던 여행의 추억은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you sleep well on planes?<span class="kor-sub-text">(비행기에서 잠을 잘 자는 편인가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Have the student practice gate numbers and seat numbers (12, 15, 14A, 22C).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage natural questions: 'Do I line up here?' 'Has boarding started?'</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Congratulate the student on completing Week 1 of the Travel Survival Course!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences about your flight (destination, seat, activity).</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 비행(목적지, 좌석, 기내 활동)에 대해 3문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">My flight is going to Tokyo.<br>My seat is 14A.<br>I will watch a movie and sleep.</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 1! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
 <script src="../tts.js"></script>

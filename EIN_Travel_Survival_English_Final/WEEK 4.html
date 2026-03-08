@@ -3,335 +3,914 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Travel Survival English - Week 4</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>EIN English - Week 4 (Travel Survival English)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @page { size: A4; margin: 0; }
-        body { font-family: 'Poppins', 'Noto Sans KR', sans-serif; background-color: #f3f4f6; margin: 0; padding: 0; }
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
         
-        .a4-page {
-            width: 210mm;
-            min-height: 296mm;
-            height: auto;
-            padding: 20mm;
-            margin: 10mm auto;
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
             position: relative;
             display: flex;
             flex-direction: column;
             page-break-after: always;
-            padding-bottom: 30mm;
         }
 
-        .navy-bg { background-color: #1e3a8a; }
-        .emerald-text { color: #059669; }
-        .emerald-bg { background-color: #059669; }
-        .light-blue-bg { background-color: #eff6ff; }
-        .korean-sub { font-size: 0.85rem; color: #6b7280; font-weight: 400; display: block; margin-top: 1px; }
-        
-        .content-box { border-left: 4px solid #1e3a8a; padding-left: 15px; margin-bottom: 25px; }
-        .footer { position: absolute; bottom: 10mm; left: 0; width: 100%; text-align: center; font-size: 0.75rem; color: #9ca3af; }
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
 
-        table { width: 100%; border-collapse: collapse; }
-        th, td { border: 1px solid #e5e7eb; padding: 12px; text-align: left; }
-        th { background-color: #f9fafb; color: #1e3a8a; }
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
 
-        .role-play-box { background-color: #eff6ff; border-radius: 12px; padding: 20px; border: 1px solid #dbeafe; }
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
         
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        .card.country-tip { border-top: 4px solid #f59e0b; background: #fffbeb; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        ul.tip-list li::before { background: #f59e0b; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
         @media print {
-            body { background: none; }
-            .a4-page { margin: 0; box-shadow: none; border: none; }
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         LESSON 16: Taking the Bus
+         COVER SLIDE
          ========================================== -->
-    <div class="a4-page">
-        <div class="flex justify-between items-start mb-6">
-            <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold tracking-widest uppercase">Week 4 / Lesson 16</div>
-        </div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Taking the Bus</h1>
-        <p class="text-gray-500 mb-8">버스 이용하기</p>
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 4</div>
+        <h1>Transportation</h1>
+        <h2>Travel Survival English</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 16: Buying Train/Bus Tickets<br>
+            Lesson 17: Asking About Schedules<br>
+            Lesson 18: Renting a Car<br>
+            Lesson 19: Finding the Right Stop<br>
+            Lesson 20: Navigating the Subway
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Ask whether a bus goes to your destination and understand basic bus information.</p>
-            <span class="korean-sub">버스가 목적지로 가는지 확인하고 기본적인 버스 정보를 이해할 수 있습니다.</span>
+    <!-- ==========================================
+         LESSON 16: BUYING TRAIN/BUS TICKETS
+         ========================================== -->
+    <!-- L16 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 16</span>
+            <h1>Buying Tickets <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(기차/버스 표 구매하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-ticket"></i> 
+                <span>Today's Goal: Buy tickets for public transportation and ask about prices.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 대중교통 표를 구매하고 가격에 대해 묻기)</span></span>
+            </div>
         </div>
 
-        <div class="mb-8">
-            <h3 class="text-xl font-bold text-blue-800 mb-4">Warm-up <small class="text-gray-400 font-normal">웜업</small></h3>
-            <ul class="space-y-4">
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q1.</span>
-                    <div>
-                        Do you use buses often in your daily life?
-                        <span class="korean-sub">일상생활에서 버스를 자주 이용하나요?</span>
-                    </div>
-                </li>
-                <li class="flex items-start">
-                    <span class="emerald-text font-bold mr-2">Q2.</span>
-                    <div>
-                        Is the bus system easy to use in your city?
-                        <span class="korean-sub">당신이 사는 도시의 버스 시스템은 이용하기 쉬운가요?</span>
-                    </div>
-                </li>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Buying Tickets">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler holding a train ticket or looking at a ticketing machine.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you prefer taking the train or the bus when traveling?</p><p class="kor-text">(여행할 때 기차와 버스 중 어느 것을 선호하시나요?)</p></li>
+            <li><p class="eng-text">Have you ever bought a train ticket in a foreign country?</p><p class="kor-text">(외국에서 기차표를 사본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you usually buy tickets online or at the station?</p><p class="kor-text">(보통 표를 온라인으로 예매하나요, 아니면 역에서 사나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like a ticket to</span> ___, <span class="highlight">please.</span></p><p class="kor-text">(___로 가는 표 한 장 부탁합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Single or return?</span></p><p class="kor-text">(편도인가요, 왕복인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How much is it?</span></p><p class="kor-text">(얼마인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can I pay by card?</span></p><p class="kor-text">(카드로 결제할 수 있나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I'd like a window seat, if possible. <span class="kor-sub-text">(가능하다면 창가 좌석으로 부탁합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Are there any student discounts? <span class="kor-sub-text">(학생 할인이 있나요?)</span></p></li>
             </ul>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <div class="space-y-4">
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-900">
-                    <span class="text-xs font-bold text-blue-600 uppercase tracking-tight">Core (Must-use) <small class="text-gray-400">필수 표현</small></span>
-                    <ul class="mt-2 space-y-3">
-                        <li>• Does this bus go to [Destination]? <span class="korean-sub">이 버스가 [목적지]로 가나요?</span></li>
-                        <li>• Where is the bus stop? <span class="korean-sub">버스 정류장이 어디인가요?</span></li>
-                        <li>• Where should I get off? <span class="korean-sub">어디에서 내려야 하나요?</span></li>
-                    </ul>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-emerald-500">
-                    <span class="text-xs font-bold text-emerald-600 uppercase tracking-tight">Upgrade (Optional) <small class="text-gray-400">심화 표현</small></span>
-                    <ul class="mt-2 space-y-3">
-                        <li>• How often does the bus come? <span class="korean-sub">버스가 얼마나 자주 오나요?</span></li>
-                        <li>• Do I need to transfer? <span class="korean-sub">환승해야 하나요?</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="p-5 bg-yellow-50 rounded-xl border-l-4 border-yellow-400">
-            <p class="text-sm font-bold text-yellow-800">Country Tip <small class="text-gray-400">여행 팁</small></p>
-            <p class="text-sm mt-1 italic">Many cities use transport cards - tap when you get on (and sometimes off). Confirm direction using the final destination sign.</p>
-            <span class="korean-sub">많은 도시에서 교통카드를 사용하며, 탈 때(때로는 내릴 때도) 태그합니다. 전광판의 최종 목적지를 보고 방향을 확인하세요.</span>
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In the UK, they say "single" (편도) and "return" (왕복). In the US, they say "one-way" and "round-trip".</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Keep your ticket safe! Controllers often check tickets on the train.</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- PAGE 2: Dialogue & Practice -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Model Dialogue <small class="text-gray-400 font-normal">대화문</small></h3>
-        <div class="space-y-4 mb-12">
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">PASSENGER</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">Does this bus go to the city center?</p>
-                    <span class="korean-sub">이 버스가 시내로 가나요?</span>
-                </div>
+    <!-- L16 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 16: Buying Tickets - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hello. I'd like a ticket to London, please.<span class="kor-sub-text">(안녕하세요. 런던행 표 한 장 부탁합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Sure. Single or return?<span class="kor-sub-text">(네. 편도이신가요, 왕복이신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Return, please. Coming back on Sunday.<span class="kor-sub-text">(왕복이요. 일요일에 돌아옵니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Okay. That will be 45 pounds.<span class="kor-sub-text">(알겠습니다. 45파운드입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Can I pay by card?<span class="kor-sub-text">(카드로 결제할 수 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">Yes, of course. Please tap your card here.<span class="kor-sub-text">(네, 물론이죠. 여기에 카드를 대주세요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence with your destination: <br><strong>I'd like a ticket to _______________ , please.</strong></li>
+            <li>Answer the agent's question: <br><strong>(Single or return?) _______________ , please.</strong></li>
+            <li>Say this question naturally: <br><strong>How much is it?</strong></li>
+            <li>Say this question naturally: <br><strong>Can I pay by card?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 기차역 매표소에서 다른 도시로 가는 기차표를 구매합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Next, please. How can I help you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'd like a ticket to <span class="blank" style="min-width: 150px;"></span>, please.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>One-way or round-trip?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span>, please.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>That will be $30.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Can I pay by <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 16: Buying Tickets - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is your favorite memory of a train trip?<span class="kor-sub-text">(기차 여행 중 가장 좋아하는 추억은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you enjoy watching the scenery from the window?<span class="kor-sub-text">(창밖 풍경 보는 것을 즐기시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever bought the wrong ticket?<span class="kor-sub-text">(표를 잘못 사본 적이 있나요?)</span></p></li>
+                </ul>
             </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">DRIVER</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">Yes, it does. The fare is $2.50.</p>
-                    <span class="korean-sub">네, 갑니다. 요금은 2.50달러입니다.</span>
-                </div>
-            </div>
-            <div class="flex gap-4">
-                <div class="w-12 h-12 rounded-full navy-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">PASSENGER</div>
-                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none">
-                    <p class="font-semibold">Where should I get off?</p>
-                    <span class="korean-sub">어디에서 내려야 하죠?</span>
-                </div>
-            </div>
-            <div class="flex gap-4 flex-row-reverse">
-                <div class="w-12 h-12 rounded-full emerald-bg text-white flex items-center justify-center font-bold shrink-0 text-xs">DRIVER</div>
-                <div class="light-blue-bg p-4 rounded-2xl rounded-tr-none text-right">
-                    <p class="font-semibold">Get off at Central Station.</p>
-                    <span class="korean-sub">중앙역에서 내리시면 됩니다.</span>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Make sure the student understands the difference between Single/Return (UK) and One-way/Round-trip (US).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Practice the phrase "tap your card" (카드를 대다) as contactless payment is standard everywhere.</p>
                 </div>
             </div>
         </div>
 
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Guided Practice <small class="text-gray-400 font-normal">문장 연습</small></h3>
-        <div class="space-y-4">
-            <div class="p-4 border border-gray-100 rounded-lg">
-                <p class="font-medium">1. Ask if the bus goes to a specific museum:</p>
-                <p class="text-lg text-blue-700 font-bold">"Does this bus go to the British Museum?"</p>
-                <span class="korean-sub">버스가 박물관에 가는지 묻는 연습을 해보세요.</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences you will use when buying a train ticket.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(기차표를 살 때 사용할 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like a ticket to Paris.<br>Round-trip, please.<br>Can I pay by credit card?</p>
             </div>
-            <div class="p-4 border border-gray-100 rounded-lg">
-                <p class="font-medium">2. Ask where the bus stop is:</p>
-                <p class="text-lg text-blue-700 font-bold">"Where is the bus stop for line 42?"</p>
-                <span class="korean-sub">42번 버스 정류장이 어디인지 물어보세요.</span>
-            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- PAGE 3: Role-play & Homework -->
-    <div class="a4-page">
-        <h3 class="text-2xl font-bold text-blue-900 mb-6">Role-play (1:1) <small class="text-gray-400 font-normal">역할극</small></h3>
-        <div class="role-play-box mb-8">
-            <p class="font-bold text-blue-800 mb-4 underline italic text-sm">Situation: You are at a bus stop asking a local for information. <span class="text-gray-500 font-normal">(정류장에서 현지인에게 정보를 묻는 상황입니다.)</span></p>
-            <table class="bg-white rounded-lg overflow-hidden">
-                <tr class="bg-blue-50"><th class="w-1/4">Role</th><th>Dialogue</th></tr>
-                <tr><td class="font-bold text-blue-900">Tutor (Local)</td><td>Hi! Are you looking for a bus?</td></tr>
-                <tr><td class="font-bold text-emerald-600">Student (You)</td><td class="italic text-gray-400">Yes, does this bus go to [Destination]?</td></tr>
-                <tr><td class="font-bold text-blue-900">Tutor (Local)</td><td>Yes, but it comes every 20 minutes.</td></tr>
-                <tr><td class="font-bold text-emerald-600">Student (You)</td><td class="italic text-gray-400">How much is the fare?</td></tr>
-                <tr><td class="font-bold text-blue-900">Tutor (Local)</td><td>It's about $3. Do you know where to get off?</td></tr>
-                <tr><td class="font-bold text-emerald-600">Student (You)</td><td class="italic text-gray-400">No, where should I get off?</td></tr>
-            </table>
-        </div>
-
-        <h3 class="text-2xl font-bold text-blue-900 mb-4">Talk More <small class="text-gray-400 font-normal">프리토킹</small></h3>
-        <div class="space-y-3 mb-8">
-            <p class="p-3 bg-gray-50 rounded-lg">• Do you prefer public transportation or taxis when traveling? <span class="korean-sub">여행할 때 대중교통과 택시 중 무엇을 선호하나요?</span></p>
-            <p class="p-3 bg-gray-50 rounded-lg">• What is one thing you dislike about commuting? <span class="korean-sub">통근/통학할 때 싫어하는 점 한 가지는 무엇인가요?</span></p>
-        </div>
-
-        <div class="p-4 border-2 border-dashed border-gray-200 rounded-xl">
-            <h4 class="font-bold text-blue-900">Homework <small class="text-gray-400">숙제</small></h4>
-            <p class="text-sm mt-1 italic text-gray-600">Write 3 questions you might ask at a bus stop in a foreign country.</p>
-        </div>
-        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
 
     <!-- ==========================================
-         LESSON 17: Taking the Subway
+         LESSON 17: ASKING ABOUT SCHEDULES
          ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 17</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Taking the Subway</h1>
-        <p class="text-gray-500 mb-8">지하철 이용하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Ask about subway lines, platforms, and transfers.</p>
-            <span class="korean-sub">지하철 노선, 플랫폼, 환승에 대해 질문하고 이해할 수 있습니다.</span>
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 17</span>
+            <h1>Asking About Schedules <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(시간표 문의하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-clock"></i> 
+                <span>Today's Goal: Ask for departure and arrival times and check platform numbers.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 출발 및 도착 시간을 묻고 승강장 번호 확인하기)</span></span>
+            </div>
         </div>
 
-        <div class="mb-8 p-6 light-blue-bg rounded-2xl">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">Key Expressions <small class="text-gray-400 font-normal">핵심 표현</small></h3>
-            <ul class="space-y-3">
-                <li class="bg-white p-3 rounded shadow-sm">• Which line goes to the airport? <span class="korean-sub">어떤 노선이 공항으로 가나요?</span></li>
-                <li class="bg-white p-3 rounded shadow-sm">• Which platform should I take? <span class="korean-sub">어떤 플랫폼에서 타야 하나요?</span></li>
-                <li class="bg-white p-3 rounded shadow-sm">• Do I need to transfer? <span class="korean-sub">환승해야 하나요?</span></li>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1471506509930-33dbac4328cb?auto=format&fit=crop&w=800&q=80" alt="Train Schedule">
+            <p><i class="fa-solid fa-camera"></i> Photo: A large electronic timetable board at a busy train station.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you usually check train schedules in advance?</p><p class="kor-text">(주로 기차 시간표를 미리 확인하시나요?)</p></li>
+            <li><p class="eng-text">What happens if you miss your train?</p><p class="kor-text">(기차를 놓치면 어떻게 되나요?)</p></li>
+            <li><p class="eng-text">Are trains usually on time in your country?</p><p class="kor-text">(당신의 나라에서는 기차가 주로 제시간에 오나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">What time is the next train to</span> ___?</p><p class="kor-text">(다음 ___행 기차는 몇 시인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Which platform does it leave from?</span></p><p class="kor-text">(어느 승강장에서 출발하나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How long does the trip take?</span></p><p class="kor-text">(여행(이동) 시간은 얼마나 걸리나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What time does it arrive?</span></p><p class="kor-text">(몇 시에 도착하나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is the train delayed? <span class="kor-sub-text">(기차가 연착되었나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">How often do the buses run? <span class="kor-sub-text">(버스는 얼마나 자주 운행하나요?)</span></p></li>
             </ul>
         </div>
 
-        <div class="role-play-box mb-8">
-            <p class="font-bold mb-2">Role-play (Subway Station)</p>
-            <p class="text-sm mb-1">Tutor: Which station are you going to?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: I'm going to Central Park. Which line should I take?</p>
-            <p class="text-sm mb-1">Tutor: Take Line 2. Do you need to transfer?</p>
-            <p class="text-sm font-bold emerald-text">Student: Do I need to transfer? / No, it's direct.</p>
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In Europe, platform numbers are often announced only 10-15 minutes before departure.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Pay attention to 24-hour clocks (e.g., 15:00 instead of 3 PM) on timetables.</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ==========================================
-         LESSON 18: Buying Transport Tickets
-         ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 18</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Buying Transport Tickets</h1>
-        <p class="text-gray-500 mb-8">교통 티켓 구매하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Buy a ticket or day pass and ask how to top up a transport card.</p>
-            <span class="korean-sub">티켓이나 1일권을 구매하고 교통카드 충전 방법을 물어볼 수 있습니다.</span>
+    <!-- L17 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 17: Asking About Schedules - Practice & Role-play</h1>
         </div>
 
-        <div class="mb-8 space-y-4">
-            <div class="p-4 light-blue-bg rounded-lg border-l-4 border-blue-900">
-                <p class="font-bold text-sm">Ticket Types <small class="text-gray-400">티켓 종류</small></p>
-                <ul class="text-sm mt-1 space-y-1">
-                    <li>• One-way ticket <span class="korean-sub">편도 티켓</span></li>
-                    <li>• Round trip ticket <span class="korean-sub">왕복 티켓</span></li>
-                    <li>• Day pass <span class="korean-sub">1일권</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, what time is the next train to Paris?<span class="kor-sub-text">(실례합니다, 다음 파리행 기차는 몇 시인가요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">The next train leaves at 2:30 PM.<span class="kor-sub-text">(다음 기차는 오후 2시 30분에 출발합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Which platform does it leave from?<span class="kor-sub-text">(어느 승강장에서 출발하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">It leaves from platform 9.<span class="kor-sub-text">(9번 승강장에서 출발합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">How long does the trip take?<span class="kor-sub-text">(이동 시간은 얼마나 걸리나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Staff</div><div class="text">It takes about two hours. It arrives at 4:30 PM.<span class="kor-sub-text">(약 두 시간 걸립니다. 오후 4시 30분에 도착합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question with your destination: <br><strong>What time is the next train to _______________ ?</strong></li>
+            <li>Say this question naturally: <br><strong>Which platform does it leave from?</strong></li>
+            <li>Say this question naturally: <br><strong>How long does the trip take?</strong></li>
+            <li>Say this question naturally: <br><strong>What time does it arrive?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 안내 데스크에서 원하는 목적지행 기차의 정보를 확인합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Can I help you find a train?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, what time is the next train to <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>It leaves at 10:15 AM.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. Which platform <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Platform 4.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>And how long <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L17 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 17: Asking About Schedules - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Are you good at arriving on time?<span class="kor-sub-text">(시간 맞춰 도착하는 것을 잘하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is the most annoying thing about public transport?<span class="kor-sub-text">(대중교통에서 가장 짜증 나는 점은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer to plan every hour of your trip or be flexible?<span class="kor-sub-text">(여행의 매 시간을 계획하는 것과 유연하게 다니는 것 중 어느 것을 선호하시나요?)</span></p></li>
                 </ul>
             </div>
-            <div class="p-4 bg-gray-50 rounded-lg">
-                <p class="font-bold text-sm">Key Phrase <small class="text-gray-400">핵심 문구</small></p>
-                <p class="text-sm mt-1">"I need to top up my transport card." <span class="korean-sub">교통카드를 충전해야 해요.</span></p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice pronouncing "platform" correctly. It's a key word in train stations.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• "How long does it take?" is a universal structure. Have the student practice it often.</p>
+                </div>
             </div>
         </div>
 
-        <div class="role-play-box">
-            <p class="text-sm mb-1">Tutor: How can I help you?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: I'd like a day pass, please. Can I pay by card?</p>
-            <p class="text-sm mb-1">Tutor: Yes, you can. That's $8.</p>
-            <p class="text-sm font-bold emerald-text">Student: Where can I top up my card later?</p>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 questions to ask a train station staff member.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(기차역 직원에게 물어볼 질문 3가지를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">What time is the next train to Rome?<br>Which platform does it leave from?<br>How long does the trip take?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
+
     <!-- ==========================================
-         LESSON 19: Asking for Routes
+         LESSON 18: RENTING A CAR
          ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 19</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Asking for Routes</h1>
-        <p class="text-gray-500 mb-8">경로 묻기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Ask how to get somewhere and understand step-by-step directions.</p>
-            <span class="korean-sub">목적지까지 가는 방법을 묻고 단계별 안내를 이해할 수 있습니다.</span>
-        </div>
-
-        <div class="p-6 bg-gray-50 rounded-2xl mb-8">
-            <h4 class="font-bold text-blue-900 mb-4 italic">Sequence of Directions <small class="text-gray-400">안내 순서</small></h4>
-            <div class="space-y-2 text-sm">
-                <p>1. Take Line [Number] to [Station]. <span class="korean-sub">[번] 노선을 타고 [역]까지 가세요.</span></p>
-                <p>2. Get off at [Station]. <span class="korean-sub">[역]에서 내리세요.</span></p>
-                <p>3. It's about [Number] stops. <span class="korean-sub">약 [개] 정거장 거리입니다.</span></p>
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 18</span>
+            <h1>Renting a Car <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(렌터카 빌리기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-car"></i> 
+                <span>Today's Goal: Rent a car, ask about insurance, and confirm return policies.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 차를 렌트하고, 보험에 대해 묻고, 반납 규정 확인하기)</span></span>
             </div>
         </div>
 
-        <div class="role-play-box mb-8">
-            <p class="text-sm mb-1">Tutor: Where are you trying to get to?</p>
-            <p class="text-sm mb-1 font-bold emerald-text">Student: I'm trying to get to the museum. How do I get there?</p>
-            <p class="text-sm mb-1">Tutor: Take Line 1 to Central Station and walk for 10 minutes.</p>
-            <p class="text-sm font-bold emerald-text">Student: Which exit should I use?</p>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="Renting a Car">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person receiving car keys at a rental car counter.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you enjoy driving?</p><p class="kor-text">(운전하는 것을 즐기시나요?)</p></li>
+            <li><p class="eng-text">Have you ever rented a car during a trip?</p><p class="kor-text">(여행 중에 차를 렌트해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Is it easy or difficult to drive in a foreign country?</p><p class="kor-text">(외국에서 운전하는 것은 쉬운가요, 어려운가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to rent a car for</span> ___ <span class="highlight">days.</span></p><p class="kor-text">(___일 동안 차를 렌트하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Do I need an international driver's license?</span></p><p class="kor-text">(국제 운전면허증이 필요한가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is insurance included?</span></p><p class="kor-text">(보험이 포함되어 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Do I need to return it with a full tank of gas?</span></p><p class="kor-text">(기름을 가득 채워서 반납해야 하나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I prefer an automatic car. <span class="kor-sub-text">(오토(자동변속기) 차량을 선호합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Can I drop it off at the airport? <span class="kor-sub-text">(공항에 반납해도 될까요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In Europe, many rental cars are manual (stick shift). Ask for 'automatic' specifically.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Full coverage insurance is highly recommended when driving abroad.</p></li>
+            </ul>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
+    <!-- L18 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 18: Renting a Car - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Hi, I'd like to rent a car for three days.<span class="kor-sub-text">(안녕하세요, 3일 동안 차를 빌리고 싶습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Sure. Could I see your driver's license and credit card?<span class="kor-sub-text">(네. 운전면허증과 신용카드를 보여주시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Here they are. Is insurance included in the price?<span class="kor-sub-text">(여기 있습니다. 가격에 보험이 포함되어 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Basic insurance is included. Would you like full coverage?<span class="kor-sub-text">(기본 보험은 포함되어 있습니다. 종합 보험(풀 커버리지)을 원하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Yes, please. And do I need to return it with a full tank of gas?<span class="kor-sub-text">(네, 부탁합니다. 그리고 기름을 가득 채워서 반납해야 하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Agent</div><div class="text">Yes, please bring it back full.<span class="kor-sub-text">(네, 가득 채워서 가져와 주세요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this sentence with your own days: <br><strong>I'd like to rent a car for _______________ days.</strong></li>
+            <li>Say this question naturally: <br><strong>Do I need an international driver's license?</strong></li>
+            <li>Say this question naturally: <br><strong>Is insurance included?</strong></li>
+            <li>Say this question naturally: <br><strong>Do I need to return it with a full tank?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 렌터카 카운터에서 직원의 질문에 답하고 필요한 사항을 확인합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How many days do you need the car for?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'd like to rent it for <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you want to add full insurance?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, please. Is it <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Here are your keys. Enjoy!</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. Do I need to return it with <span class="blank" style="min-width: 100px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L18 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 18: Renting a Car - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What kind of car is your dream car?<span class="kor-sub-text">(당신의 드림카는 어떤 차인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer road trips or flying to a destination?<span class="kor-sub-text">(자동차 여행(로드트립)과 비행기를 타고 가는 것 중 어느 것을 선호하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Is parking difficult in your city?<span class="kor-sub-text">(당신이 사는 도시는 주차하기가 어려운가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Make sure the student understands "full tank of gas" (gas = gasoline/petrol).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• "Full coverage" is an important term for insurance when renting abroad.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences about renting a car (days, insurance, return policy).</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(렌터카 대여(기간, 보험, 반납 규정)와 관련된 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">I'd like to rent a car for five days.<br>Is insurance included?<br>Do I need to return it with a full tank of gas?</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
     <!-- ==========================================
-         LESSON 20: Transportation Problems
+         LESSON 19: FINDING THE RIGHT STOP
          ========================================== -->
-    <div class="a4-page">
-        <div class="navy-bg text-white px-4 py-1 rounded text-sm font-bold inline-block mb-4 uppercase">Lesson 20</div>
-        <h1 class="text-4xl font-bold text-blue-900 mb-2">Transportation Problems</h1>
-        <p class="text-gray-500 mb-8">교통 문제 해결하기</p>
-
-        <div class="content-box">
-            <h3 class="text-xl font-bold text-blue-900">Today's Goal <small class="text-gray-400 font-normal">오늘의 목표</small></h3>
-            <p class="mt-2 font-medium">Handle delays, missed connections, and payment problems politely.</p>
-            <span class="korean-sub">지연, 환승 실패, 결제 문제 등을 정중하게 해결할 수 있습니다.</span>
-        </div>
-
-        <div class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div class="p-4 bg-red-50 border-l-4 border-red-500 rounded">
-                <p class="font-bold text-red-800 text-sm">Problems <small class="text-gray-400">문제 상황</small></p>
-                <ul class="text-xs space-y-2 mt-1">
-                    <li>• My train is delayed. <span class="korean-sub">기차가 지연되었어요.</span></li>
-                    <li>• I missed my bus. <span class="korean-sub">버스를 놓쳤어요.</span></li>
-                    <li>• My card isn't working. <span class="korean-sub">카드가 작동하지 않아요.</span></li>
-                </ul>
-            </div>
-            <div class="p-4 bg-emerald-50 border-l-4 border-emerald-500 rounded">
-                <p class="font-bold text-emerald-800 text-sm">Solutions <small class="text-gray-400">해결책</small></p>
-                <ul class="text-xs space-y-2 mt-1">
-                    <li>• When is the next one? <span class="korean-sub">다음 차는 언제인가요?</span></li>
-                    <li>• Is there another route? <span class="korean-sub">다른 경로가 있나요?</span></li>
-                    <li>• Can I get a refund? <span class="korean-sub">환불받을 수 있을까요?</span></li>
-                </ul>
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 19</span>
+            <h1>Finding the Right Stop <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(올바른 정류장 찾기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-bus"></i> 
+                <span>Today's Goal: Confirm you are at the correct bus stop or train platform.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 당신이 올바른 버스 정류장이나 기차 플랫폼에 있는지 확인하기)</span></span>
             </div>
         </div>
 
-        <div class="mt-auto p-6 bg-blue-900 text-white rounded-2xl text-center">
-            <p class="text-2xl font-bold">Week 4 Complete!</p>
-            <p class="mt-1 opacity-80 italic">You've mastered city transportation!</p>
-            <div class="mt-4 text-xs text-blue-200">Next Week: Week 5 - Food & Restaurants (Dining Out)</div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Finding Stop">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler looking at a bus or train station sign.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever waited at the wrong bus stop?</p><p class="kor-text">(잘못된 버스 정류장에서 기다려본 적이 있나요?)</p></li>
+            <li><p class="eng-text">How do you make sure you are going the right way?</p><p class="kor-text">(올바른 방향으로 가고 있는지 어떻게 확인하시나요?)</p></li>
+            <li><p class="eng-text">Do you easily ask locals for help?</p><p class="kor-text">(현지인들에게 쉽게 도움을 요청하는 편인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Excuse me, does this bus go to</span> ___?</p><p class="kor-text">(실례합니다, 이 버스 ___로 가나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is this the right platform for</span> ___?</p><p class="kor-text">(여기가 ___로 가는 올바른 승강장이 맞나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Am I on the right train?</span></p><p class="kor-text">(제가 기차를 제대로 탄 건가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Please let me know when we get there.</span></p><p class="kor-text">(도착하면 좀 알려주세요.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">How many stops is it? <span class="kor-sub-text">(몇 정거장 남았나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is this seat taken? <span class="kor-sub-text">(이 자리 비어 있나요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Asking the driver "Does this go to...?" as you board is the best way to not get lost.</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">If you ask another passenger to tell you when to get off, they are usually very helpful.</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 19: Finding the Right Stop - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, does this bus go to the National Museum?<span class="kor-sub-text">(실례합니다, 이 버스 국립 박물관 가나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Driver</div><div class="text">Yes, it does. Hop on.<span class="kor-sub-text">(네, 갑니다. 타세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">How many stops is it?<span class="kor-sub-text">(몇 정거장이나 가야 하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Driver</div><div class="text">It's about five stops from here.<span class="kor-sub-text">(여기서 5정거장 정도 됩니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Could you please let me know when we get there?<span class="kor-sub-text">(도착하면 좀 알려주시겠어요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Driver</div><div class="text">Sure, I'll call it out.<span class="kor-sub-text">(네, 도착하면 안내해 드릴게요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question with your destination: <br><strong>Excuse me, does this bus go to _______________ ?</strong></li>
+            <li>Say this question with your destination: <br><strong>Is this the right platform for _______________ ?</strong></li>
+            <li>Say this question naturally: <br><strong>Am I on the right train?</strong></li>
+            <li>Say this sentence naturally: <br><strong>Please let me know when we get there.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신은 버스 정류장에서 자신이 타려는 버스가 맞는지 운전기사에게 확인합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Hi, where are you going?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Excuse me, does this bus <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Yes, it does.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Great. How many stops <span class="blank" style="min-width: 100px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>It's the 4th stop.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Could you please <span class="blank" style="min-width: 150px;"></span> when we get there?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 19: Finding the Right Stop - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What is the most confusing public transportation you have used?<span class="kor-sub-text">(이용해 본 대중교통 중 가장 헷갈렸던 것은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you listen to announcements or look at Google Maps on a bus?<span class="kor-sub-text">(버스에서 안내 방송을 듣나요, 아니면 구글 지도를 보나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you do to pass the time on a bus or train?<span class="kor-sub-text">(버스나 기차에서 시간을 보내기 위해 무엇을 하시나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice the phrase "Does this go to...?" - it is the most essential survival phrase for buses/trains.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• "Let me know when we get there" is very useful and sounds natural.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences to check if a bus goes to your destination.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(버스가 당신의 목적지로 가는지 확인하는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">Does this bus go to the airport?<br>How many stops is it?<br>Please let me know when we get there.</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 20: NAVIGATING THE SUBWAY
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 20</span>
+            <h1>Navigating the Subway <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(지하철 이용 및 환승하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-train-subway"></i> 
+                <span>Today's Goal: Ask for subway directions and know how to transfer lines.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 지하철 방향을 묻고 호선 환승하는 방법 알기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1518012676837-1422ab2b1446?auto=format&fit=crop&w=800&q=80" alt="Subway Station">
+            <p><i class="fa-solid fa-camera"></i> Photo: A busy subway station with colorful lines and maps on the wall.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Is the subway system easy to use in your city?</p><p class="kor-text">(당신이 사는 도시의 지하철은 이용하기 쉬운가요?)</p></li>
+            <li><p class="eng-text">Have you ever taken the subway in a foreign city like New York or London?</p><p class="kor-text">(뉴욕이나 런던 같은 외국 도시에서 지하철을 타본 적이 있나요?)</p></li>
+            <li><p class="eng-text">What do you do if you take the train in the wrong direction?</p><p class="kor-text">(기차를 반대 방향으로 탔다면 어떻게 하시나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Where is the nearest subway station?</span></p><p class="kor-text">(가장 가까운 지하철역이 어디에 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Which line do I need for</span> ___?</p><p class="kor-text">(___에 가려면 몇 호선을 타야 하나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Take the Red Line.</span></p><p class="kor-text">(레드 라인을 타세요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Where should I transfer?</span></p><p class="kor-text">(어디서 환승해야 하나요?)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">You need to transfer at Central Station. <span class="kor-sub-text">(센트럴역에서 환승하셔야 합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Which exit is for the museum? <span class="kor-sub-text">(박물관으로 가려면 몇 번 출구인가요?)</span></p></li>
+            </ul>
+        </div>
+
+        <div class="card country-tip">
+            <div class="card-header" style="color: #d97706;"><i class="fa-solid fa-lightbulb"></i> Real-life Travel Tip</div>
+            <ul class="bullet-list tip-list">
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">Subways have different names: Subway (NY), Underground/Tube (London), Metro (Paris).</p></li>
+                <li><p class="eng-text" style="font-size: 14.5px; font-weight: 500;">In many cities, subway lines are named by colors (Red Line) or letters/numbers (A Line, Line 1).</p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 20: Navigating the Subway - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Excuse me, where is the nearest subway station?<span class="kor-sub-text">(실례합니다, 가장 가까운 지하철역이 어디인가요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Local</div><div class="text">It's just around the corner.<span class="kor-sub-text">(바로 저 모퉁이 돌아서 있습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Thank you. Which line do I need for City Hall?<span class="kor-sub-text">(감사합니다. 시청에 가려면 몇 호선을 타야 하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Local</div><div class="text">You need to take the Blue Line.<span class="kor-sub-text">(블루 라인을 타셔야 합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">You</div><div class="text">Do I go direct, or where should I transfer?<span class="kor-sub-text">(바로 가나요, 아니면 어디서 환승해야 하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Local</div><div class="text">You need to transfer at Central Station to the Red Line.<span class="kor-sub-text">(센트럴역에서 레드 라인으로 환승하셔야 해요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Say this question naturally: <br><strong>Where is the nearest subway station?</strong></li>
+            <li>Say this question with your destination: <br><strong>Which line do I need for _______________ ?</strong></li>
+            <li>Say this sentence with a line color: <br><strong>Take the _______________ Line.</strong></li>
+            <li>Say this question naturally: <br><strong>Where should I transfer?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 지나가는 사람에게 지하철역 위치와 환승 정보를 묻습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Yes, how can I help you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Excuse me, where is <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>It's right over there.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. Which line do I need for <span class="blank" style="min-width: 150px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Take the Green Line.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Okay. Where should I <span class="blank" style="min-width: 100px;"></span>?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN TRAVEL SURVIVAL ENGLISH</span>
+            <h1>LESSON 20: Navigating the Subway - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you think subways are safer than buses?<span class="kor-sub-text">(지하철이 버스보다 안전하다고 생각하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you do if you miss your stop on the subway?<span class="kor-sub-text">(지하철에서 내릴 역을 지나쳤다면 어떻게 하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Why is it important to know the exit number in a subway station?<span class="kor-sub-text">(지하철역에서 출구 번호를 아는 것이 왜 중요한가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Emphasize the word "transfer" vs. "change". Transfer is much more common for subways/trains.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Congratulate the student on completing Week 4 (Transportation)!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences asking for subway directions and transfer information.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(지하철 방향과 환승 정보를 묻는 3문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example:</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">Where is the nearest subway station?<br>Which line do I need for the airport?<br>Where should I transfer?</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 4! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
         <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
