@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Week 4 (Basic Conversation Starter 3)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 4</div>
+        <h1>Technology</h1>
+        <h2>Basic Conversation Starter 3</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 16: Smartphones<br>
+            Lesson 17: Social Media<br>
+            Lesson 18: Online Learning<br>
+            Lesson 19: AI Tools<br>
+            Lesson 20: Digital Life
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 16: SMARTPHONES
+         ========================================== -->
+    <!-- L16 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 4 • LESSON 16</span>
+            <h1>Smartphones <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(스마트폰)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about smartphone habits and how phones affect daily life.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 스마트폰 사용 습관과 그것이 일상에 미치는 영향에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80" alt="Smartphones">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person using a smartphone on public transportation.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How often do you use your smartphone?</p><p class="kor-text">(스마트폰을 얼마나 자주 사용하시나요?)</p></li>
+            <li><p class="eng-text">What app do you use the most?</p><p class="kor-text">(어떤 앱을 가장 많이 사용하시나요?)</p></li>
+            <li><p class="eng-text">Could you live without your phone for one day?</p><p class="kor-text">(하루 동안 휴대폰 없이 살 수 있나요?)</p></li>
+            <li><p class="eng-text">Do you think people use phones too much?</p><p class="kor-text">(사람들이 스마트폰을 너무 많이 사용한다고 생각하시나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I use my phone for</span> ___.</p><p class="kor-text">(저는 ___을 위해 휴대폰을 사용합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I check it many times a day</span>.</p><p class="kor-text">(하루에도 여러 번 확인합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It helps me stay connected</span>.</p><p class="kor-text">(다른 사람들과 연락을 유지하는 데 도움이 됩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Sometimes it distracts me</span>.</p><p class="kor-text">(가끔은 제 집중을 방해하기도 합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I rely on it for</span> ___.</p><p class="kor-text">(저는 ___을 할 때 휴대폰에 의존합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I should probably use it less</span>.</p><p class="kor-text">(사용을 좀 줄여야 할 것 같아요.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">My phone is useful but addictive. <span class="kor-sub-text">(휴대폰은 유용하지만 중독성이 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I use it for both work and fun. <span class="kor-sub-text">(일과 재미 두 가지 목적으로 모두 사용합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Notifications interrupt my focus. <span class="kor-sub-text">(알림들이 제 집중을 방해합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 16: Smartphones - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">How do you use your smartphone every day?<span class="kor-sub-text">(매일 스마트폰을 어떻게 사용하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I use my phone for messages, music, and maps.<span class="kor-sub-text">(메시지, 음악, 지도를 보는 데 사용합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Is it always helpful?<span class="kor-sub-text">(항상 도움이 되나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">It is helpful, but sometimes it distracts me.<span class="kor-sub-text">(도움이 되지만, 가끔은 집중을 방해하기도 해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Could you live without it for a day?<span class="kor-sub-text">(하루 정도 휴대폰 없이 살 수 있을까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Maybe, but it would be difficult.<span class="kor-sub-text">(아마도요, 하지만 어려울 것 같아요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I use my phone for <strong>___________________________________ .</strong></li>
+            <li>I check it ___ times <strong>___________________________________ .</strong></li>
+            <li>It helps me <strong>___________________________________ .</strong></li>
+            <li>Sometimes it distracts me when <strong>___________________________________ .</strong></li>
+            <li>I rely on it for <strong>___________________________________ .</strong></li>
+            <li>I should use it less / more because <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신의 스마트폰 사용 습관에 대해 대화합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What app do you use the most?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I mostly use <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How does your phone help you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>It helps me <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one bad phone habit you have?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>My bad habit is <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 16: Smartphones - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Are smartphones making life better or worse?<span class="kor-sub-text">(스마트폰이 삶을 더 낫게 만들고 있나요, 아니면 더 나쁘게 만들고 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Should schools or workplaces limit phone use?<span class="kor-sub-text">(학교나 직장에서 휴대폰 사용을 제한해야 할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What would life be like without smartphones?<span class="kor-sub-text">(스마트폰이 없다면 삶이 어떨까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is one good rule for using phones?<span class="kor-sub-text">(휴대폰 사용에 관한 좋은 규칙 하나를 꼽자면 무엇일까요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage examples from real life: maps, calls, alarms, study apps, banking apps.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Help students express frequency (e.g., every hour, before bed).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about how you use your smartphone.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신이 스마트폰을 어떻게 사용하는지 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 17: SOCIAL MEDIA
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 4 • LESSON 17</span>
+            <h1>Social Media <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(소셜 미디어)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about social media habits and share simple opinions about online life.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 소셜 미디어 습관에 대해 이야기하고 온라인 생활에 대한 간단한 의견 나누기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80" alt="Social Media">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person scrolling through social media apps on a phone.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Which social media app do you use most?</p><p class="kor-text">(어떤 소셜 미디어 앱을 가장 많이 사용하시나요?)</p></li>
+            <li><p class="eng-text">Do you post often or mostly watch?</p><p class="kor-text">(게시물을 자주 올리는 편인가요, 아니면 주로 보기만 하나요?)</p></li>
+            <li><p class="eng-text">Do you follow news on social media?</p><p class="kor-text">(소셜 미디어를 통해 뉴스를 접하나요?)</p></li>
+            <li><p class="eng-text">Is social media relaxing or stressful for you?</p><p class="kor-text">(소셜 미디어가 당신에게는 휴식인가요, 스트레스인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I mostly use social media to</span> ___.</p><p class="kor-text">(저는 주로 ___하기 위해 소셜 미디어를 사용합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I spend</span> too much / not much <span class="highlight">time on it</span>.</p><p class="kor-text">(저는 거기에 시간을 너무 많이 / 별로 많이 쓰지 않습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It helps me stay updated</span>.</p><p class="kor-text">(최신 소식을 아는 데 도움이 됩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Sometimes it feels stressful</span>.</p><p class="kor-text">(가끔 스트레스로 느껴집니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I like following</span> ___.</p><p class="kor-text">(저는 ___ 계정을 팔로우하는 것을 좋아합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I try to use it carefully</span>.</p><p class="kor-text">(저는 조심해서 사용하려고 노력합니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Social media can be useful and harmful. <span class="kor-sub-text">(소셜 미디어는 유용할 수도, 해로울 수도 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I compare myself to others sometimes. <span class="kor-sub-text">(가끔 제 자신을 다른 사람들과 비교하게 됩니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">It is easy to lose time online. <span class="kor-sub-text">(온라인에서 시간을 뺏기기 쉽습니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L17 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 17: Social Media - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">How do you use social media?<span class="kor-sub-text">(소셜 미디어를 어떻게 사용하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I mostly use it to watch videos and keep in touch with friends.<span class="kor-sub-text">(주로 영상을 보거나 친구들과 연락하는 데 사용합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you think it is useful?<span class="kor-sub-text">(유용하다고 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, but sometimes it feels stressful.<span class="kor-sub-text">(네, 하지만 가끔은 스트레스를 받기도 해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why does it feel stressful?<span class="kor-sub-text">(왜 스트레스를 받나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because it is easy to compare myself to others.<span class="kor-sub-text">(나 자신을 다른 사람들과 쉽게 비교하게 되기 때문이에요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I mostly use social media to <strong>___________________________________ .</strong></li>
+            <li>I spend ___ time on it. <strong>___________________________________ .</strong></li>
+            <li>It helps me <strong>___________________________________ .</strong></li>
+            <li>Sometimes it feels <strong>___________________________________ .</strong></li>
+            <li>I like following <strong>___________________________________ .</strong></li>
+            <li>I try to use it carefully by <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신의 소셜 미디어 활용의 장단점에 대해 토론합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you usually do on social media?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I usually <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one good thing about it?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>It is good because <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one negative side?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Sometimes <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L17 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 17: Social Media - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Is social media changing the way people communicate?<span class="kor-sub-text">(소셜 미디어가 사람들의 소통 방식을 바꾸고 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Should people take breaks from social media?<span class="kor-sub-text">(사람들이 소셜 미디어를 쉬는 시간(디톡스)을 가져야 할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What content is most useful online?<span class="kor-sub-text">(온라인에서 가장 유용한 콘텐츠는 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do influencers have too much power?<span class="kor-sub-text">(인플루언서들이 너무 많은 권력을 가지고 있다고 생각하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Push the student to give one advantage and one disadvantage.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Vocabulary to introduce: scrolling, influencer, algorithm, detox.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your social media habits.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 소셜 미디어 습관에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 18: ONLINE LEARNING
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 4 • LESSON 18</span>
+            <h1>Online Learning <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(온라인 학습)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about studying online and compare it with face-to-face learning.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 온라인으로 공부하는 것에 대해 이야기하고 대면 학습과 비교해 보기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Online Learning">
+            <p><i class="fa-solid fa-camera"></i> Photo: A student studying with a laptop and headphones.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you studied online before?</p><p class="kor-text">(전에 온라인으로 공부해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you prefer online classes or classroom classes?</p><p class="kor-text">(온라인 수업과 교실(대면) 수업 중 어느 것을 선호하시나요?)</p></li>
+            <li><p class="eng-text">What is good about online learning?</p><p class="kor-text">(온라인 학습의 좋은 점은 무엇인가요?)</p></li>
+            <li><p class="eng-text">What is difficult about it?</p><p class="kor-text">(어려운 점은 무엇인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I have taken online classes before</span>.</p><p class="kor-text">(저는 예전에 온라인 수업을 들어본 적이 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Online learning is convenient because</span> ___.</p><p class="kor-text">(온라인 학습은 ___하기 때문에 편리합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It can be hard to focus</span>.</p><p class="kor-text">(집중하기 어려울 수 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I like / don't like studying from home</span>.</p><p class="kor-text">(저는 집에서 공부하는 것을 좋아합니다/좋아하지 않습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">A good teacher helps a lot</span>.</p><p class="kor-text">(좋은 선생님이 큰 도움이 됩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I learn better when</span> ___.</p><p class="kor-text">(저는 ___할 때 더 잘 배웁니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I miss face-to-face interaction. <span class="kor-sub-text">(직접 얼굴을 보고 소통하는 것이 그립습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Online learning saves travel time. <span class="kor-sub-text">(온라인 학습은 이동 시간을 절약해 줍니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">It requires self-discipline. <span class="kor-sub-text">(자기 규율(자제력)이 필요합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L18 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 18: Online Learning - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you like online learning?<span class="kor-sub-text">(온라인 학습을 좋아하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">It is convenient, but it can be hard to focus.<span class="kor-sub-text">(편리하긴 하지만, 집중하기 어려울 수 있어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is one advantage?<span class="kor-sub-text">(한 가지 장점은 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">It saves travel time.<span class="kor-sub-text">(이동 시간을 절약해 줘요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is one difficulty?<span class="kor-sub-text">(어려운 점은 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Sometimes I miss face-to-face interaction.<span class="kor-sub-text">(가끔 대면으로 소통하는 것이 그리울 때가 있어요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Online learning is <strong>___________________________________ .</strong></li>
+            <li>It is convenient because <strong>___________________________________ .</strong></li>
+            <li>A difficulty is <strong>___________________________________ .</strong></li>
+            <li>I like/don't like studying from home because <strong>___________________________________ .</strong></li>
+            <li>I learn better when <strong>___________________________________ .</strong></li>
+            <li>One thing teachers can do is <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 온라인 학습의 장단점과 본인의 취향에 대해 이야기합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one good thing about online learning?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>One good thing is <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one difficult thing?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>It is hard when <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Which do you prefer: online or face-to-face classes?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I prefer <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L18 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 18: Online Learning - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Will online learning stay important in the future?<span class="kor-sub-text">(미래에도 온라인 학습이 계속 중요할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes an online class successful?<span class="kor-sub-text">(무엇이 성공적인 온라인 수업을 만드나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do students need more self-discipline online?<span class="kor-sub-text">(온라인에서 학생들에게 더 많은 자기 규율(자제력)이 필요한가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How can online classes be more interesting?<span class="kor-sub-text">(온라인 수업을 어떻게 더 흥미롭게 만들 수 있을까요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage compare/contrast language: better than, easier than, more difficult than.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Connect the topic to their current English class experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences comparing online learning and classroom learning.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(온라인 학습과 교실(대면) 학습을 비교하는 글을 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 19: AI TOOLS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 4 • LESSON 19</span>
+            <h1>AI Tools <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(AI 도구들)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk simply about AI tools and how people use them in daily life.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: AI 도구에 대해 간단히 이야기하고 일상에서 어떻게 사용하는지 알아보기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80" alt="AI Tools">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person using a computer with AI or chatbot tools open.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever used AI tools?</p><p class="kor-text">(AI 도구를 사용해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">What do people use AI for?</p><p class="kor-text">(사람들은 주로 무엇을 위해 AI를 사용하나요?)</p></li>
+            <li><p class="eng-text">Do AI tools help students or workers more?</p><p class="kor-text">(AI 도구는 학생과 직장인 중 누구에게 더 도움이 될까요?)</p></li>
+            <li><p class="eng-text">Are you interested in technology?</p><p class="kor-text">(기술(Technology)에 관심이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">AI tools can help people</span> ___.</p><p class="kor-text">(AI 도구는 사람들이 ___하는 데 도움을 줄 수 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I use / don't use AI for</span> ___.</p><p class="kor-text">(저는 ___을 위해 AI를 사용합니다 / 사용하지 않습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It saves time</span>.</p><p class="kor-text">(시간을 절약해 줍니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It is useful for simple tasks</span>.</p><p class="kor-text">(단순한 업무에 유용합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">People should use it carefully</span>.</p><p class="kor-text">(사람들은 그것을 주의 깊게 사용해야 합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">AI cannot replace everything</span>.</p><p class="kor-text">(AI가 모든 것을 대체할 수는 없습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">It can help with ideas and summaries. <span class="kor-sub-text">(아이디어를 내고 요약하는 데 도움이 됩니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">It may create mistakes sometimes. <span class="kor-sub-text">(가끔 실수를 만들어낼 수도 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">People still need to think for themselves. <span class="kor-sub-text">(사람들은 여전히 스스로 생각해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 19: AI Tools - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Have you ever used AI tools?<span class="kor-sub-text">(AI 도구를 사용해 본 적이 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I have used them for writing ideas and translations.<span class="kor-sub-text">(네, 글쓰기 아이디어를 얻거나 번역할 때 사용해 봤어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why are they useful?<span class="kor-sub-text">(왜 그것들이 유용한가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because they save time and help with simple tasks.<span class="kor-sub-text">(시간을 절약해 주고 단순 업무에 도움이 되기 때문이에요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Are there any problems?<span class="kor-sub-text">(문제점은 없나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, they can make mistakes sometimes.<span class="kor-sub-text">(네, 가끔은 실수를 할 수도 있어요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>AI tools can help people <strong>___________________________________ .</strong></li>
+            <li>I use / don't use AI for <strong>___________________________________ .</strong></li>
+            <li>It is useful because <strong>___________________________________ .</strong></li>
+            <li>One problem is <strong>___________________________________ .</strong></li>
+            <li>People should use it carefully by <strong>___________________________________ .</strong></li>
+            <li>AI cannot replace <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: AI 기술의 활용과 주의점에 대해 논의합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What can AI help people do?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>It can help us <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one good use of AI?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I think it is good for <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one risk (위험 요소)?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>One risk is that <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 19: AI Tools - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Will AI change work and study a lot?<span class="kor-sub-text">(AI가 업무와 학업을 많이 변화시킬까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Should students use AI for homework?<span class="kor-sub-text">(학생들이 과제에 AI를 사용해도 될까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What tasks should stay human?<span class="kor-sub-text">(어떤 업무는 사람의 영역으로 남아야 할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is one smart way to use AI?<span class="kor-sub-text">(AI를 사용하는 똑똑한 방법 하나는 무엇일까요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Keep the vocabulary simple; don’t let the topic become too abstract or technical.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Relate it back to their daily lives (e.g., ChatGPT, translation apps).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about how AI tools can help people.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(AI 도구가 사람들에게 어떻게 도움이 되는지에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 20: DIGITAL LIFE
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 4 • LESSON 20</span>
+            <h1>Digital Life <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(디지털 라이프)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Describe daily digital habits and compare online and offline life.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 일상적인 디지털 습관을 묘사하고 온라인과 오프라인 생활 비교하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80" alt="Digital Life">
+            <p><i class="fa-solid fa-camera"></i> Photo: A desk with many digital devices like a phone, laptop, and tablet.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How much time do you spend online every day?</p><p class="kor-text">(매일 온라인에서 얼마나 많은 시간을 보내나요?)</p></li>
+            <li><p class="eng-text">What digital device do you use the most?</p><p class="kor-text">(어떤 디지털 기기를 가장 많이 사용하나요?)</p></li>
+            <li><p class="eng-text">Do you like online life or offline life more?</p><p class="kor-text">(온라인 생활과 오프라인 생활 중 무엇을 더 좋아하나요?)</p></li>
+            <li><p class="eng-text">Do you need digital breaks?</p><p class="kor-text">(당신에게 디지털 휴식(디톡스)이 필요한가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I spend a lot of time online</span>.</p><p class="kor-text">(저는 온라인에서 많은 시간을 보냅니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">My digital life includes</span> ___.</p><p class="kor-text">(제 디지털 생활에는 ___이 포함됩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I use devices for both work and fun</span>.</p><p class="kor-text">(저는 일과 오락 모두를 위해 기기를 사용합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Sometimes I need a break from screens</span>.</p><p class="kor-text">(가끔은 화면에서 벗어나 쉴 필요가 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Online life is convenient but tiring</span>.</p><p class="kor-text">(온라인 생활은 편리하지만 피곤합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Balance is important</span>.</p><p class="kor-text">(균형이 중요합니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Too much screen time affects my focus. <span class="kor-sub-text">(화면을 너무 오래 보면 집중력에 영향을 미칩니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I enjoy offline time more than before. <span class="kor-sub-text">(저는 예전보다 오프라인 시간을 더 즐깁니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Digital tools make life faster. <span class="kor-sub-text">(디지털 도구들이 삶을 더 빠르게 만듭니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 20: Digital Life - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is your digital life like?<span class="kor-sub-text">(당신의 디지털 생활은 어떤가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I spend a lot of time online for work, messages, and videos.<span class="kor-sub-text">(업무, 메시지, 영상 시청으로 온라인에서 많은 시간을 보냅니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you ever need a break from screens?<span class="kor-sub-text">(화면에서 벗어나 휴식이 필요할 때가 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes. Sometimes I feel tired after too much screen time.<span class="kor-sub-text">(네. 가끔 화면을 너무 오래 보면 피곤함을 느껴요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why is balance important?<span class="kor-sub-text">(왜 균형이 중요할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because online life is convenient but tiring.<span class="kor-sub-text">(온라인 생활은 편리하지만 피곤하기도 하니까요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>My digital life includes <strong>___________________________________ .</strong></li>
+            <li>I use devices for <strong>___________________________________ .</strong></li>
+            <li>Sometimes I need a break because <strong>___________________________________ .</strong></li>
+            <li>Online life is convenient because <strong>___________________________________ .</strong></li>
+            <li>A problem is <strong>___________________________________ .</strong></li>
+            <li>Balance is important because <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 디지털 기기 사용 시간과 건강한 생활의 균형에 대해 이야기합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How much time do you spend online?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I usually spend <span class="blank" style="min-width: 150px;"></span> online.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you use devices for most?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I use them mostly for <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do people need digital balance?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Because <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 20: Digital Life - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Are people becoming too dependent on technology?<span class="kor-sub-text">(사람들이 기술에 너무 의존하고 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Should people have screen-free time every day?<span class="kor-sub-text">(사람들이 매일 화면을 보지 않는 시간을 가져야 할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is lost when people are always online?<span class="kor-sub-text">(항상 온라인에 연결되어 있을 때 잃어버리는 것은 무엇일까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How can we create a healthier digital life?<span class="kor-sub-text">(어떻게 하면 더 건강한 디지털 생활을 만들 수 있을까요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Invite the student to compare 'before' and 'now' if they can.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Congratulate the student on completing Week 4!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your digital life and screen habits.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 디지털 생활과 스크린 타임 습관에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 4! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

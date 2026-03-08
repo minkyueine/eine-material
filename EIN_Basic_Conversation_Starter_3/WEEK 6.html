@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Week 6 (Basic Conversation Starter 3)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 6</div>
+        <h1>The Future</h1>
+        <h2>Basic Conversation Starter 3</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 26: Future Plans<br>
+            Lesson 27: Learning New Skills<br>
+            Lesson 28: Dream Job<br>
+            Lesson 29: Bucket List<br>
+            Lesson 30: Life Goals
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 26: FUTURE PLANS
+         ========================================== -->
+    <!-- L26 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 6 • LESSON 26</span>
+            <h1>Future Plans <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(미래 계획)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about your short-term and long-term plans.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 단기 및 장기 계획에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80" alt="Future Plans">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person writing in a planner and looking thoughtful.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you like making plans?</p><p class="kor-text">(계획 세우는 것을 좋아하시나요?)</p></li>
+            <li><p class="eng-text">What are your plans for next year?</p><p class="kor-text">(내년 계획은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Where do you see yourself in five years?</p><p class="kor-text">(5년 뒤 당신은 어떤 모습일 것 같나요?)</p></li>
+            <li><p class="eng-text">Do your plans change often?</p><p class="kor-text">(계획이 자주 바뀌는 편인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I plan to</span> ___.</p><p class="kor-text">(저는 ___할 계획입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I hope to</span> ___ <span class="highlight">in the future</span>.</p><p class="kor-text">(미래에 ___하기를 바랍니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I am going to</span> ___ <span class="highlight">next year</span>.</p><p class="kor-text">(내년에 ___할 것입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">My main goal is to</span> ___.</p><p class="kor-text">(제 주요 목표는 ___하는 것입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It will take time, but</span> ___.</p><p class="kor-text">(시간은 걸리겠지만, ___.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I am working hard to</span> ___.</p><p class="kor-text">(저는 ___하기 위해 열심히 노력하고 있습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I haven't decided yet. <span class="kor-sub-text">(아직 결정하지 않았습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I like to keep my options open. <span class="kor-sub-text">(가능성을 열어두는 것을 좋아합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I am looking forward to it. <span class="kor-sub-text">(저는 그것이 몹시 기대됩니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L26 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 26: Future Plans - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What are your plans for next year?<span class="kor-sub-text">(내년 계획이 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I plan to study a new language and travel more.<span class="kor-sub-text">(새로운 언어를 공부하고 여행을 더 많이 할 계획이에요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">That sounds exciting. What language will you study?<span class="kor-sub-text">(멋지네요. 어떤 언어를 공부할 건가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I am going to study Spanish.<span class="kor-sub-text">(스페인어를 공부할 거예요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What about your long-term plans?<span class="kor-sub-text">(장기적인 계획은 어때요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I hope to buy my own house in five years.<span class="kor-sub-text">(5년 안에 제 집을 사고 싶어요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I plan to <strong>___________________________________ .</strong></li>
+            <li>I hope to <strong>___________________________________ .</strong></li>
+            <li>I am going to <strong>___________________________________ .</strong></li>
+            <li>My main goal is to <strong>___________________________________ .</strong></li>
+            <li>It will take time, but <strong>___________________________________ .</strong></li>
+            <li>I am working hard to <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 튜터에게 당신의 단기 계획과 장기 계획을 공유합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is your plan for next month?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Next month, I plan to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you hope to do in the future?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I hope to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How will you achieve that goal?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I am going to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L26 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 26: Future Plans - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why is it good to have a plan?<span class="kor-sub-text">(계획을 세우는 것이 왜 좋은가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you feel stressed when plans change?<span class="kor-sub-text">(계획이 바뀔 때 스트레스를 받나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Are you a planner or a spontaneous person?<span class="kor-sub-text">(당신은 계획적인 사람인가요, 아니면 즉흥적인 사람인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is one thing you are looking forward to?<span class="kor-sub-text">(현재 가장 기대하고 있는 일은 무엇인가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach the difference between 'I plan to' (intention) and 'I will' (prediction/decision).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Help students use time markers like 'next year', 'in five years', 'someday'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your plans for next year.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 내년 계획에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 27: LEARNING NEW SKILLS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 6 • LESSON 27</span>
+            <h1>Learning New Skills <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(새로운 기술 배우기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Discuss skills you want to learn and why they are helpful.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 배우고 싶은 기술과 그 이유에 대해 논의하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Learning New Skills">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person enthusiastically learning something new from a laptop.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you enjoy learning new things?</p><p class="kor-text">(새로운 것을 배우는 것을 즐기시나요?)</p></li>
+            <li><p class="eng-text">What is one skill you want to learn this year?</p><p class="kor-text">(올해 배우고 싶은 기술(능력) 하나는 무엇인가요?)</p></li>
+            <li><p class="eng-text">Is it hard to start something new?</p><p class="kor-text">(새로운 것을 시작하는 게 어려운가요?)</p></li>
+            <li><p class="eng-text">Why are you learning English?</p><p class="kor-text">(왜 영어를 배우고 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I want to learn how to</span> ___.</p><p class="kor-text">(저는 ___하는 방법을 배우고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I am interested in</span> ___.</p><p class="kor-text">(저는 ___에 관심이 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Learning ___ is helpful because</span> ___.</p><p class="kor-text">(___을 배우는 것은 ___하기 때문에 도움이 됩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It takes a lot of practice</span>.</p><p class="kor-text">(많은 연습이 필요합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I plan to take a class for</span> ___.</p><p class="kor-text">(저는 ___을 위해 수업을 들을 계획입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It is never too late to learn</span>.</p><p class="kor-text">(배움에 너무 늦은 때란 없습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">It looks difficult, but I want to try. <span class="kor-sub-text">(어려워 보이지만, 시도해보고 싶습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I am a beginner at this. <span class="kor-sub-text">(저는 이 분야의 초보자입니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I want to improve my skills. <span class="kor-sub-text">(제 실력을 향상시키고 싶습니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L27 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 27: Learning New Skills - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Is there a new skill you want to learn?<span class="kor-sub-text">(배우고 싶은 새로운 기술이 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I want to learn how to edit videos.<span class="kor-sub-text">(네, 영상 편집하는 법을 배우고 싶어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why are you interested in that?<span class="kor-sub-text">(왜 그것에 관심이 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because I want to start a YouTube channel.<span class="kor-sub-text">(제 유튜브 채널을 시작하고 싶기 때문이에요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">How will you learn it?<span class="kor-sub-text">(어떻게 배울 건가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I plan to take an online class next month.<span class="kor-sub-text">(다음 달에 온라인 강의를 들을 계획입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I want to learn how to <strong>___________________________________ .</strong></li>
+            <li>I am interested in <strong>___________________________________ .</strong></li>
+            <li>Learning ___ is helpful because <strong>___________________________________ .</strong></li>
+            <li>It takes a lot of <strong>___________________________________ .</strong></li>
+            <li>I plan to take a class for <strong>___________________________________ .</strong></li>
+            <li>I want to improve my <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신이 관심 있는 취미나 기술에 대해 튜터에게 이야기합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one thing you want to learn?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I want to learn <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you want to learn that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Because <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Will it be difficult to start?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>It might be hard, but <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L27 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 27: Learning New Skills - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why is it important to keep learning?<span class="kor-sub-text">(계속 배우는 것이 왜 중요한가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Are you a fast learner or a slow learner?<span class="kor-sub-text">(당신은 빨리 배우는 편인가요, 천천히 배우는 편인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer to learn alone or in a class?<span class="kor-sub-text">(혼자 배우는 것과 수업을 듣는 것 중 무엇을 더 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is a skill everyone should have?<span class="kor-sub-text">(모든 사람이 갖춰야 할 기술은 무엇이라고 생각하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Watch out for 'learn' vs 'study' (learn a skill/how to do something vs study a subject).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Motivate the student by asking about their English learning progress.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about a new skill you want to learn.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신이 배우고 싶은 새로운 기술에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 28: DREAM JOB
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 6 • LESSON 28</span>
+            <h1>Dream Job <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(꿈의 직업)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about your ideal career or dream job.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 이상적인 커리어나 꿈의 직업에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Dream Job">
+            <p><i class="fa-solid fa-camera"></i> Photo: A professional looking happy and confident in their workplace.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What was your dream job when you were a child?</p><p class="kor-text">(어렸을 때 꿈의 직업은 무엇이었나요?)</p></li>
+            <li><p class="eng-text">What is your dream job now?</p><p class="kor-text">(지금 꿈꾸는 직업은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Do you want to run your own business someday?</p><p class="kor-text">(언젠가 자신의 사업을 해보고 싶나요?)</p></li>
+            <li><p class="eng-text">Is salary or passion more important in a job?</p><p class="kor-text">(직업에서 월급과 열정 중 무엇이 더 중요한가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">My dream job is</span> ___.</p><p class="kor-text">(제 꿈의 직업은 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I want to be a/an</span> ___.</p><p class="kor-text">(저는 ___가 되고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">The best part of this job is</span> ___.</p><p class="kor-text">(이 직업의 가장 좋은 점은 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I need to</span> ___ <span class="highlight">to achieve it</span>.</p><p class="kor-text">(그것을 성취하기 위해서는 ___해야 합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I am passionate about</span> ___.</p><p class="kor-text">(저는 ___에 열정이 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It suits my personality</span>.</p><p class="kor-text">(그것은 제 성격과 잘 맞습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I changed my mind as I grew up. <span class="kor-sub-text">(자라면서 마음이 바뀌었습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I want a job with a good work-life balance. <span class="kor-sub-text">(워라밸이 좋은 직업을 원합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Doing what you love is a blessing. <span class="kor-sub-text">(좋아하는 일을 하는 것은 축복입니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L28 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 28: Dream Job - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What was your dream job when you were a child?<span class="kor-sub-text">(어렸을 때 꿈의 직업은 무엇이었나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I wanted to be a teacher because I liked helping others.<span class="kor-sub-text">(다른 사람을 돕는 걸 좋아해서 선생님이 되고 싶었어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is your dream job now?<span class="kor-sub-text">(지금 꿈의 직업은 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">My dream job is to be a graphic designer.<span class="kor-sub-text">(제 꿈의 직업은 그래픽 디자이너가 되는 것입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you like that job?<span class="kor-sub-text">(왜 그 직업을 좋아하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because I am passionate about art, and it suits my personality.<span class="kor-sub-text">(예술에 열정이 있고 제 성격과 잘 맞기 때문입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>My dream job is <strong>___________________________________ .</strong></li>
+            <li>I want to be a/an <strong>___________________________________ .</strong></li>
+            <li>The best part of this job is <strong>___________________________________ .</strong></li>
+            <li>I need to ___ to achieve it. <strong>___________________________________ .</strong></li>
+            <li>I am passionate about <strong>___________________________________ .</strong></li>
+            <li>It suits my personality because <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신이 원하는 커리어 목표와 열정에 대해 이야기합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What kind of job do you want to have?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I want to have a job that <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What are you passionate about?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I am really passionate about <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you need to do to get that job?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I need to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L28 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 28: Dream Job - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Can a hobby become a job?<span class="kor-sub-text">(취미가 직업이 될 수 있을까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Is it okay to change your dream job later in life?<span class="kor-sub-text">(나중에 꿈의 직업을 바꿔도 괜찮을까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is the most difficult job in the world, in your opinion?<span class="kor-sub-text">(당신이 생각하기에 세상에서 가장 힘든 직업은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">If money didn't matter, what would you do?<span class="kor-sub-text">(돈이 중요하지 않다면 어떤 일을 하고 싶나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Discuss 'passion' vs 'practicality' in a simple way.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Help them express *why* a job fits their personality (e.g., outgoing, detailed, creative).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your dream job.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 꿈의 직업에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 29: BUCKET LIST
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 6 • LESSON 29</span>
+            <h1>Bucket List <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(버킷리스트)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Share experiences or places you want to try before you die.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 죽기 전에 해보고 싶은 경험이나 가고 싶은 장소 공유하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=800&q=80" alt="Bucket List">
+            <p><i class="fa-solid fa-camera"></i> Photo: A notebook with 'Bucket List' written on it next to a world map.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you have a bucket list?</p><p class="kor-text">(버킷리스트가 있나요?)</p></li>
+            <li><p class="eng-text">Where is the first place you want to travel to?</p><p class="kor-text">(가장 먼저 여행 가고 싶은 곳은 어디인가요?)</p></li>
+            <li><p class="eng-text">What is one crazy or fun thing you want to do?</p><p class="kor-text">(꼭 해보고 싶은 미쳤거나(재미있는) 일 한 가지는 무엇인가요?)</p></li>
+            <li><p class="eng-text">Why do people make bucket lists?</p><p class="kor-text">(사람들은 왜 버킷리스트를 만들까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">On my bucket list, I have</span> ___.</p><p class="kor-text">(제 버킷리스트에는 ___이/가 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I really want to visit</span> ___.</p><p class="kor-text">(저는 ___에 정말 가보고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It is my dream to</span> ___.</p><p class="kor-text">(___하는 것이 제 꿈입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">If I have time and money, I will</span> ___.</p><p class="kor-text">(시간과 돈이 있다면, ___할 것입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I hope to experience</span> ___.</p><p class="kor-text">(___을 경험해 보고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It would be unforgettable</span>.</p><p class="kor-text">(그것은 잊을 수 없는 추억이 될 것입니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I want to travel around the world. <span class="kor-sub-text">(저는 세계 일주를 하고 싶습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I want to try extreme sports. <span class="kor-sub-text">(저는 익스트림 스포츠에 도전해보고 싶습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">It gives me motivation. <span class="kor-sub-text">(그것은 저에게 동기부여가 됩니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L29 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 29: Bucket List - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you have a bucket list?<span class="kor-sub-text">(버킷리스트가 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes. On my bucket list, I have seeing the Northern Lights.<span class="kor-sub-text">(네. 제 버킷리스트에는 오로라 보기가 있어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">That sounds amazing. Where do you want to go for that?<span class="kor-sub-text">(멋지네요. 그걸 보러 어디로 가고 싶나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I really want to visit Iceland or Canada.<span class="kor-sub-text">(아이슬란드나 캐나다에 꼭 가보고 싶어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Is there anything else?<span class="kor-sub-text">(다른 것도 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">It is also my dream to try skydiving.<span class="kor-sub-text">(스카이다이빙에 도전해 보는 것도 제 꿈이에요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>On my bucket list, I have <strong>___________________________________ .</strong></li>
+            <li>I really want to visit <strong>___________________________________ .</strong></li>
+            <li>It is my dream to <strong>___________________________________ .</strong></li>
+            <li>If I have time and money, I will <strong>___________________________________ .</strong></li>
+            <li>I hope to experience <strong>___________________________________ .</strong></li>
+            <li>It would be <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신이 꼭 해보고 싶은 한 가지에 대해 튜터와 나눕니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is number one on your bucket list?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Number one is <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you want to do that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Because I hope to experience <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Who do you want to do it with?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I want to do it with <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L29 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 29: Bucket List - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Have you already completed anything on your list?<span class="kor-sub-text">(이미 달성한 버킷리스트 항목이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Is traveling the best way to experience life?<span class="kor-sub-text">(여행이 인생을 경험하는 최고의 방법일까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Are you afraid of trying risky things (like bungee jumping)?<span class="kor-sub-text">(번지점프 같은 위험한 도전을 하는 것이 두려우신가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do bucket lists make life more exciting?<span class="kor-sub-text">(버킷리스트가 삶을 어떻게 더 흥미롭게 만들까요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Introduce "If I have..." (First Conditional) to talk about possible future plans.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Ask follow-up questions to get vivid details of their dreams.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about two things on your bucket list.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 버킷리스트 중 두 가지 항목에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 30: LIFE GOALS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <span class="badge">WEEK 6 • LESSON 30</span>
+            <h1>Life Goals <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(인생의 목표)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about what makes a meaningful life and set life goals.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 의미 있는 삶이란 무엇인지 이야기하고 인생의 목표 세워보기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=800&q=80" alt="Life Goals">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person standing on a mountain peak looking at the sunrise.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is one of your life goals?</p><p class="kor-text">(당신의 인생 목표 중 하나는 무엇인가요?)</p></li>
+            <li><p class="eng-text">What does a good life mean to you?</p><p class="kor-text">(당신에게 좋은 삶이란 어떤 의미인가요?)</p></li>
+            <li><p class="eng-text">Do you think goals change?</p><p class="kor-text">(목표는 변한다고 생각하시나요?)</p></li>
+            <li><p class="eng-text">Are you happy with your life right now?</p><p class="kor-text">(지금 현재의 삶에 행복하신가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">One of my life goals is to</span> ___.</p><p class="kor-text">(제 인생 목표 중 하나는 ___하는 것입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I want a life that is</span> ___.</p><p class="kor-text">(저는 ___한 삶을 원합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Happiness means</span> ___.</p><p class="kor-text">(행복이란 ___을 의미합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I hope to build</span> ___.</p><p class="kor-text">(저는 ___을 구축하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">My values are</span> ___.</p><p class="kor-text">(제 가치관은 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">A meaningful life includes</span> ___.</p><p class="kor-text">(의미 있는 삶에는 ___이 포함됩니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I want to live without regrets. <span class="kor-sub-text">(후회 없이 살고 싶습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Health is my top priority. <span class="kor-sub-text">(건강이 제 최우선 순위입니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Success is different for everyone. <span class="kor-sub-text">(성공은 사람마다 다릅니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L30 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 30: Life Goals - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is one of your life goals?<span class="kor-sub-text">(당신의 인생 목표 중 하나는 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One of my life goals is to have meaningful work and a healthy life.<span class="kor-sub-text">(제 인생 목표 중 하나는 의미 있는 일과 건강한 삶을 가지는 것입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What does a good life mean to you?<span class="kor-sub-text">(당신에게 좋은 삶이란 어떤 의미인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">For me, it means balance, good relationships, and peace of mind.<span class="kor-sub-text">(저에게 그것은 균형, 좋은 관계, 그리고 마음의 평화를 의미합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you think goals change?<span class="kor-sub-text">(목표는 변한다고 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I think life goals can change over time.<span class="kor-sub-text">(네, 인생의 목표는 시간이 지나면서 변할 수 있다고 생각해요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>One of my life goals is to <strong>___________________________________ .</strong></li>
+            <li>I want a life that is <strong>___________________________________ .</strong></li>
+            <li>Happiness means <strong>___________________________________ .</strong></li>
+            <li>I hope to build <strong>___________________________________ .</strong></li>
+            <li>My values are <strong>___________________________________ .</strong></li>
+            <li>A meaningful life includes <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신의 인생 철학과 가치관에 대해 진솔하게 대화합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one life goal you have?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>One goal I have is <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What does a good life mean to you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>To me, it means <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you think life goals change over time?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes/No, because <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L30 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 3</span>
+            <h1>LESSON 30: Life Goals - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Is happiness more important than success?<span class="kor-sub-text">(행복이 성공보다 더 중요한가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do people set too many goals today?<span class="kor-sub-text">(오늘날 사람들은 너무 많은 목표를 세우나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Can a simple life be a successful life?<span class="kor-sub-text">(단순한 삶도 성공적인 삶이 될 수 있을까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What kind of life do you want 10 years from now?<span class="kor-sub-text">(10년 뒤에 당신은 어떤 삶을 원하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• This topic can become abstract; keep the student grounded with concrete examples.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Congratulate the student on completing the entire Basic Conversation Starter 3 course!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about one life goal you have.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신이 가지고 있는 인생 목표 중 하나에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note / Workbook Completion -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: #ecfdf5; border-radius: 12px; border: 2px dashed #059669;">
+            <h3 style="color: #047857; margin: 0 0 5px 0; font-family: 'Poppins', sans-serif; font-size: 22px;">🎓 CONGRATULATIONS! 🎓</h3>
+            <p style="font-size: 16px; color: #065f46; font-weight: 600; margin-bottom: 0;">You have successfully completed the entire Starter 3 workbook!</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>
