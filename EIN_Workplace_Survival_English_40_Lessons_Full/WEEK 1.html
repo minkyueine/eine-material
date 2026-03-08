@@ -3,1630 +3,907 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Workplace Survival English - Week 1</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans KR"', 'sans-serif'],
-                    },
-                    colors: {
-                        'ein-navy': '#1e3a8a',
-                        'ein-emerald': '#059669',
-                        'ein-lightblue': '#eff6ff',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>EIN English - Week 1 (Workplace Survival English)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 20px 0;
-            font-family: 'Noto Sans KR', sans-serif;
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
         }
-        .a4-page {
-            width: 794px;
-            min-height: 1123px;
-            height: auto;
-            margin: 0 auto 30px auto;
-            background-color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
             display: flex;
             flex-direction: column;
-            padding: 50px 60px;
-            box-sizing: border-box;
-            position: relative;
+            page-break-after: always;
         }
-        .footer-copyright {
-            margin-top: auto;
-            padding-top: 30px;
+
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
             text-align: center;
-            font-size: 0.75rem;
-            color: #9ca3af;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
-        .ko-sub {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-top: 2px;
-            font-weight: 400;
-        }
+
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
         @media print {
-            @page { size: A4 portrait; margin: 0; }
-            body { background-color: white; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .a4-page { 
-                width: 100%; 
-                min-height: 100vh; 
-                margin: 0; 
-                box-shadow: none; 
-                page-break-after: always;
-                padding: 15mm 20mm;
-            }
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         PAGE 1: Cover Page
-    =========================================== -->
-    <div class="a4-page justify-center items-center text-center border-t-[16px] border-ein-navy">
-        <div class="w-full flex justify-center mb-12">
-            <div class="w-24 h-24 bg-ein-emerald rounded-full flex items-center justify-center">
-                <span class="text-white text-3xl font-bold">EIN</span>
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 1</div>
+        <h1>Starting a New Job</h1>
+        <h2>Workplace Survival English</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 1: First Day at Work<br>
+            Lesson 2: Introducing Yourself to Coworkers<br>
+            Lesson 3: Understanding Your Role<br>
+            Lesson 4: Asking Questions at Work<br>
+            Lesson 5: Learning Workplace Rules
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 1: FIRST DAY AT WORK
+         ========================================== -->
+    <!-- L1 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 1</span>
+            <h1>First Day at Work <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(첫 출근)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Introduce yourself and start simple conversations on your first day.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 첫 출근 날 자기소개를 하고 간단한 대화 시작하기)</span></span>
             </div>
-        </div>
-        
-        <h2 class="text-ein-emerald font-bold tracking-widest uppercase mb-4 text-lg">아인잉글리쉬 프리미엄 교재</h2>
-        <h1 class="text-5xl font-black text-ein-navy leading-tight mb-8">
-            Workplace Survival<br>English
-        </h1>
-        
-        <div class="bg-ein-lightblue px-8 py-4 rounded-xl mb-12 border border-blue-100">
-            <p class="text-lg font-medium text-ein-navy">Real-Life English for Office, Service, and Frontline Jobs</p>
-            <p class="ko-sub mt-2">사무직, 서비스직 및 현장 실무자를 위한 실전 영어</p>
         </div>
 
-        <div class="flex flex-col gap-3 text-left w-3/4 mx-auto mt-10">
-            <div class="flex items-center gap-4">
-                <div class="w-2 h-2 bg-ein-emerald rounded-full"></div>
-                <p class="text-gray-700 font-medium text-lg">8 Weeks 40 Lessons (A2-B1)</p>
-            </div>
-            <div class="flex items-center gap-4">
-                <div class="w-2 h-2 bg-ein-emerald rounded-full"></div>
-                <p class="text-gray-700 font-medium text-lg">1:1 Screen-Share Ready</p>
-            </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80" alt="First Day at Work">
+            <p><i class="fa-solid fa-camera"></i> Photo: A new employee smiling and greeting a team member.</p>
         </div>
 
-        <div class="mt-20 text-left w-3/4 mx-auto border-l-4 border-ein-emerald pl-6 py-2">
-            <h3 class="font-bold text-ein-navy mb-3">Course Focus:</h3>
-            <ul class="text-gray-600 space-y-2 font-medium">
-                <li>• Talking with coworkers (동료와의 대화)</li>
-                <li>• Talking to managers (매니저와의 대화)</li>
-                <li>• Handling customers and complaints (고객 및 컴플레인 응대)</li>
-                <li>• Fixing mistakes and solving problems (실수 수습 및 문제 해결)</li>
-                <li>• Workplace culture, feedback, and career growth (직장 문화, 피드백 및 커리어 성장)</li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever started a new job before?</p><p class="kor-text">(이전에 새로운 직장을 시작해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">What is the hardest part of a first day?</p><p class="kor-text">(첫 출근 날 가장 힘든 점은 무엇인가요?)</p></li>
+            <li><p class="eng-text">How do you usually introduce yourself to new people?</p><p class="kor-text">(새로운 사람들에게 주로 어떻게 자신을 소개하나요?)</p></li>
+            <li><p class="eng-text">Do first days make you nervous?</p><p class="kor-text">(첫 출근 날은 당신을 긴장하게 만드나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Hi, I'm new here.</span></p><p class="kor-text">(안녕하세요, 저는 새로 온 사람입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Nice to meet you.</span></p><p class="kor-text">(만나서 반가워요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'll be working in the</span> ___ <span class="highlight">team.</span></p><p class="kor-text">(저는 ___ 팀에서 일하게 될 거예요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It's my first day today.</span></p><p class="kor-text">(오늘은 제 첫 출근 날입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'm excited to join the company.</span></p><p class="kor-text">(회사에 입사하게 되어 기쁩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could you show me around?</span></p><p class="kor-text">(주변을 좀 안내해 주실 수 있나요?)</p></li>
             </ul>
         </div>
         
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         PAGE 2: Curriculum Outline
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        <h2 class="text-3xl font-bold text-ein-navy mb-2">Course Outline</h2>
-        <p class="ko-sub mb-10">전체 커리큘럼 개요</p>
-
-        <div class="grid grid-cols-1 gap-6 mb-10">
-            <!-- Week 1 -->
-            <div class="bg-white border-2 border-ein-lightblue rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-ein-navy text-white text-xl font-bold px-4 py-2 rounded-lg">W1</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Starting a New Job</h3>
-                    <p class="ko-sub">새로운 직장 시작하기</p>
-                </div>
-            </div>
-            <!-- Week 2 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W2</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Daily Work Communication</h3>
-                    <p class="ko-sub">일상 업무 커뮤니케이션</p>
-                </div>
-            </div>
-            <!-- Week 3 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W3</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Working with Coworkers</h3>
-                    <p class="ko-sub">동료와 함께 일하기</p>
-                </div>
-            </div>
-            <!-- Week 4 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W4</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Talking to Your Manager</h3>
-                    <p class="ko-sub">매니저와 대화하기</p>
-                </div>
-            </div>
-            <!-- Week 5 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W5</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Customers and Service</h3>
-                    <p class="ko-sub">고객 및 서비스 응대</p>
-                </div>
-            </div>
-            <!-- Week 6 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W6</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Mistakes and Problem Solving</h3>
-                    <p class="ko-sub">실수 대처 및 문제 해결</p>
-                </div>
-            </div>
-            <!-- Week 7 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W7</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Workplace Culture and Growth</h3>
-                    <p class="ko-sub">직장 문화와 성장</p>
-                </div>
-            </div>
-            <!-- Week 8 -->
-            <div class="bg-white border border-gray-100 shadow-sm rounded-xl p-6 flex items-start gap-4">
-                <div class="bg-gray-100 text-gray-500 text-xl font-bold px-4 py-2 rounded-lg">W8</div>
-                <div>
-                    <h3 class="text-xl font-bold text-gray-800">Transitions and Professional Messages</h3>
-                    <p class="ko-sub">업무 전환 및 프로페셔널 메시지</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 1 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 1</span>
-            <span class="text-ein-navy font-bold text-lg">Starting a New Job</span>
-        </div>
-        
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 1: First Day at Work</h1>
-        <p class="ko-sub mb-8 text-base">레슨 1: 출근 첫날</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Introduce yourself and start simple conversations on your first day.</p>
-            <p class="ko-sub">오늘의 목표: 첫 출근 날 자신을 소개하고 간단한 대화를 시작해 보세요.</p>
-        </div>
-
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Have you ever started a new job before?</p>
-                        <p class="ko-sub">새로운 직장을 시작해 본 적이 있나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is the hardest part of a first day?</p>
-                        <p class="ko-sub">첫날 가장 힘든 점은 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you usually introduce yourself to new people?</p>
-                        <p class="ko-sub">새로운 사람들에게 보통 어떻게 자신을 소개하나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do first days make you nervous?</p>
-                        <p class="ko-sub">첫 출근 날 긴장되나요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I'm looking forward to learning from everyone. <span class="kor-sub-text">(모든 분들로부터 배우는 것을 기대하고 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Please let me know if there's anything I should do first. <span class="kor-sub-text">(제가 먼저 해야 할 일이 있다면 알려주세요.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I really appreciate your help. <span class="kor-sub-text">(도와주셔서 정말 감사합니다.)</span></p></li>
             </ul>
         </div>
-
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">Hi, I'm new here.</p>
-                        <p class="ko-sub">안녕하세요, 새로 왔습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Nice to meet you.</p>
-                        <p class="ko-sub">만나서 반갑습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'll be working in the ___ team.</p>
-                        <p class="ko-sub">저는 ___ 팀에서 일하게 될 예정입니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">It's my first day today.</p>
-                        <p class="ko-sub">오늘이 제 첫 출근입니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm excited to join the company.</p>
-                        <p class="ko-sub">이 회사에 합류하게 되어 기쁩니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could you show me around?</p>
-                        <p class="ko-sub">회사 구경을 좀 시켜주시겠어요?</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm looking forward to learning from everyone.</p>
-                        <p class="ko-sub">모두에게서 많이 배우기를 기대하고 있습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Please let me know if there's anything I should do first.</p>
-                        <p class="ko-sub">제가 먼저 해야 할 일이 있다면 알려주세요.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I really appreciate your help.</p>
-                        <p class="ko-sub">도와주셔서 정말 감사합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ==========================================
-         LESSON 1 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">It is your first day. You meet a coworker and need to introduce yourself and ask one basic question.</p>
-                <p class="ko-sub">첫날입니다. 동료를 만나 자신을 소개하고 기본적인 질문을 하나 해야 합니다.</p>
-            </div>
+    <!-- L1 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 1: First Day at Work - Practice & Role-play</h1>
         </div>
 
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Hi! You must be the new employee.</p>
-                        <p class="ko-sub">안녕하세요! 새로 오신 직원이시군요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Yes, I'm new here. Nice to meet you.</p>
-                        <p class="ko-sub">네, 새로 왔습니다. 만나서 반갑습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Welcome to the team. What department will you be working in?</p>
-                        <p class="ko-sub">우리 팀에 오신 것을 환영합니다. 어느 부서에서 일하시게 되나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I'll be working in the operations team.</p>
-                        <p class="ko-sub">저는 운영팀에서 일하게 됩니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Great. Let me show you around.</p>
-                        <p class="ko-sub">좋아요. 제가 회사 구경을 좀 시켜드릴게요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Thank you. I really appreciate it.</p>
-                        <p class="ko-sub">감사합니다. 정말 감사드려요.</p>
-                    </div>
-                </div>
-            </div>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Hi! You must be the new employee.<span class="kor-sub-text">(안녕하세요! 당신이 새로 오신 분이군요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I'm new here. Nice to meet you.<span class="kor-sub-text">(네, 제가 이번에 새로 왔습니다. 만나서 반가워요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Welcome to the team. What department will you be working in?<span class="kor-sub-text">(팀에 오신 걸 환영해요. 어느 부서에서 일하게 되나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I'll be working in the operations team.<span class="kor-sub-text">(저는 운영팀에서 일하게 될 거예요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Great. Let me show you around.<span class="kor-sub-text">(좋아요. 주변을 안내해 드릴게요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Thank you. I really appreciate it.<span class="kor-sub-text">(감사합니다. 정말 고마워요.)</span></div></div>
         </div>
 
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">I'm new here and I'll be working in the <span class="border-b-2 border-gray-400 w-24 inline-block"></span> team.</p>
-                    <p class="ko-sub">새로 왔습니다, 그리고 저는 ___ 팀에서 일하게 됩니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">It's my <span class="border-b-2 border-gray-400 w-20 inline-block"></span> day today.</p>
-                    <p class="ko-sub">오늘이 제 ___ 출근입니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Could you show me <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">___를 좀 시켜주시겠어요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I'm excited to learn about <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">___에 대해 배우게 되어 기대됩니다.</p>
-                </div>
-            </div>
-        </div>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I'm new here and I'll be working in the <strong>_________________ team.</strong></li>
+            <li>It's my <strong>_________________ day today.</strong></li>
+            <li>Could you show me <strong>_________________ ?</strong></li>
+            <li>I'm excited to learn about <strong>_________________ .</strong></li>
+            <li>I'm looking forward to <strong>_________________ .</strong></li>
+        </ol>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 첫 출근 날, 동료를 만나 간단한 질문을 나눕니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is this your first day?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, it's my <span class="blank" style="min-width: 120px;"></span> today.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What team are you joining?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'm joining the <span class="blank" style="min-width: 120px;"></span> team.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How do you feel about starting this job?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'm <span class="blank" style="min-width: 120px;"></span> to be here!</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ==========================================
-         LESSON 1 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Tutor asks</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>Is this your first day? <span class="ko-sub block">오늘이 첫날이신가요?</span></li>
-                                <li>What team are you joining? <span class="ko-sub block">어느 팀에 합류하시나요?</span></li>
-                                <li>How do you feel about starting this job? <span class="ko-sub block">이 일을 시작하는 기분이 어떠신가요?</span></li>
-                                <li>Is there anything you want to ask first? <span class="ko-sub block">먼저 묻고 싶은 것이 있나요?</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- L1 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 1: First Day at Work - Wrap-up & Assignment</h1>
         </div>
 
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What kind of coworkers help you feel comfortable?</p>
-                        <p class="ko-sub">어떤 동료들이 당신을 편안하게 해주나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What do you want to learn in your next job?</p>
-                        <p class="ko-sub">다음 직장에서는 무엇을 배우고 싶나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What makes a first day go well?</p>
-                        <p class="ko-sub">첫 출근 날을 성공적으로 만드는 요소는 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is your dream workplace like?</p>
-                        <p class="ko-sub">당신의 꿈의 직장은 어떤 모습인가요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Model calm and friendly first-day language.</li>
-                    <li>If the learner is shy, let them read once, then answer naturally.</li>
-                    <li>Ask one personal follow-up to make it conversational.</li>
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What kind of coworkers help you feel comfortable?<span class="kor-sub-text">(어떤 동료가 당신을 편안하게 느끼도록 도와주나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you want to learn in your next job?<span class="kor-sub-text">(다음 직장에서 무엇을 배우고 싶나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a first day go well?<span class="kor-sub-text">(무엇이 첫 출근 날을 원활하게 만드나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is your dream workplace like?<span class="kor-sub-text">(당신이 꿈꾸는 직장은 어떤 모습인가요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3-4 sentences introducing yourself at a new job.</p>
-                <p class="ko-sub">새로운 직장에서 자신을 소개하는 문장 3-4개를 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Model calm and friendly first-day language.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage the student to use phrases like "I'm looking forward to..."</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Ask one personal follow-up to make it conversational.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 2 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 1</span>
-            <span class="text-ein-navy font-bold text-lg">Starting a New Job</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences introducing yourself at a new job.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(새로운 직장에서 자신을 소개하는 문장을 3~4개 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 2: Introducing Yourself to Coworkers</h1>
-        <p class="ko-sub mb-8 text-base">레슨 2: 동료에게 자신을 소개하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Introduce yourself naturally and ask coworkers simple questions.</p>
-            <p class="ko-sub">오늘의 목표: 자연스럽게 자신을 소개하고 동료들에게 간단한 질문을 해보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you find it easy to talk to new coworkers?</p>
-                        <p class="ko-sub">새로운 동료와 대화하는 것이 쉽나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is one question you can ask a new teammate?</p>
-                        <p class="ko-sub">새로운 팀원에게 물어볼 수 있는 질문 한 가지는 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What makes a first conversation awkward?</p>
-                        <p class="ko-sub">첫 대화를 어색하게 만드는 것은 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you prefer formal or casual introductions?</p>
-                        <p class="ko-sub">격식을 차린 소개와 편안한 소개 중 어느 것을 선호하나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">Hi, I'm ___</p>
-                        <p class="ko-sub">안녕하세요, 저는 ___입니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What do you usually work on?</p>
-                        <p class="ko-sub">주로 어떤 일을 하시나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">How long have you worked here?</p>
-                        <p class="ko-sub">여기서 일하신 지 얼마나 되셨나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Which team are you on?</p>
-                        <p class="ko-sub">어느 팀 소속이신가요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Nice to meet you.</p>
-                        <p class="ko-sub">만나서 반갑습니다.</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">What should I know about the team culture?</p>
-                        <p class="ko-sub">팀 문화에 대해 알아두어야 할 점이 있나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Do you usually work closely with the ___ team?</p>
-                        <p class="ko-sub">보통 ___ 팀과 긴밀하게 협업하시나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I've heard a lot about this team.</p>
-                        <p class="ko-sub">이 팀에 대해 좋은 이야기를 많이 들었습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Thanks for making me feel welcome.</p>
-                        <p class="ko-sub">환영해주셔서 감사합니다.</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 2: INTRODUCING YOURSELF TO COWORKERS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 2</span>
+            <h1>Introducing Yourself to Coworkers <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(동료에게 인사하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Introduce yourself naturally and ask coworkers simple questions.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 자연스럽게 자신을 소개하고 동료들에게 간단한 질문 하기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=800&q=80" alt="Introducing to Coworkers">
+            <p><i class="fa-solid fa-camera"></i> Photo: Coworkers chatting and getting to know each other during a break.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 2 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you find it easy to talk to new coworkers?</p><p class="kor-text">(새로운 동료와 대화하는 것이 쉽나요?)</p></li>
+            <li><p class="eng-text">What is one question you can ask a new teammate?</p><p class="kor-text">(새 팀원에게 물어볼 수 있는 질문 한 가지는 무엇인가요?)</p></li>
+            <li><p class="eng-text">What makes a first conversation awkward?</p><p class="kor-text">(무엇이 첫 대화를 어색하게 만드나요?)</p></li>
+            <li><p class="eng-text">Do you prefer formal or casual introductions?</p><p class="kor-text">(격식 있는 소개와 격식 없는 소개 중 어느 것을 선호하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Hi, I'm</span> ___.</p><p class="kor-text">(안녕하세요, 저는 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">What do you usually work on?</span></p><p class="kor-text">(주로 어떤 업무를 하시나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How long have you worked here?</span></p><p class="kor-text">(여기서 일하신 지 얼마나 되셨나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Which team are you on?</span></p><p class="kor-text">(어느 팀 소속이신가요?)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You are meeting two coworkers and want to make a good first impression.</p>
-                <p class="ko-sub">당신은 두 명의 동료를 만나 좋은 첫인상을 남기고 싶어 합니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Hi, I'm Daniel from the sales team.</p>
-                        <p class="ko-sub">안녕하세요, 영업팀의 다니엘입니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Nice to meet you. I'm Mina, and I just joined the support team.</p>
-                        <p class="ko-sub">만나서 반갑습니다. 저는 지원팀에 방금 합류한 미나입니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Welcome! How are you settling in so far?</p>
-                        <p class="ko-sub">환영합니다! 지금까지 적응은 잘 하고 계신가요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Pretty well, thanks. Everyone has been very kind.</p>
-                        <p class="ko-sub">아주 잘 하고 있습니다, 감사합니다. 모두들 매우 친절하시네요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Great. How long have you worked in this kind of role?</p>
-                        <p class="ko-sub">다행이네요. 이런 직무에서는 얼마나 오래 일하셨나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I've worked in customer support for about a year.</p>
-                        <p class="ko-sub">고객 지원 분야에서 1년 정도 일했습니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">Hi, I'm <span class="border-b-2 border-gray-400 w-20 inline-block"></span> from the <span class="border-b-2 border-gray-400 w-20 inline-block"></span> team.</p>
-                    <p class="ko-sub">안녕하세요, 저는 ___ 팀의 ___ 입니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">How long have you worked here?</p>
-                    <p class="ko-sub">여기서 일하신 지 얼마나 되셨나요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">What do you usually work on?</p>
-                    <p class="ko-sub">주로 어떤 일을 하시나요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Nice to meet you, and thanks for welcoming me.</p>
-                    <p class="ko-sub">만나서 반갑습니다, 그리고 환영해주셔서 감사합니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 2 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Tutor asks</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>What team are you on? <span class="ko-sub block">어느 팀 소속이신가요?</span></li>
-                                <li>How long have you worked here? <span class="ko-sub block">여기서 일하신 지 얼마나 되셨나요?</span></li>
-                                <li>What do you usually do in your role? <span class="ko-sub block">주로 어떤 업무를 하시나요?</span></li>
-                                <li>What should I know about the team? <span class="ko-sub block">제가 팀에 대해 알아야 할 것이 있을까요?</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What makes a coworker easy to talk to?</p>
-                        <p class="ko-sub">어떤 동료가 대화하기 편한가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you like learning about people quickly or slowly?</p>
-                        <p class="ko-sub">사람들에 대해 빨리 알아가는 것을 선호하나요, 천천히 알아가는 것을 선호하나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is one good question to ask a new coworker?</p>
-                        <p class="ko-sub">새로운 동료에게 하기 좋은 질문 하나는 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you prefer small talk or work talk first?</p>
-                        <p class="ko-sub">스몰토크와 업무 대화 중 어느 것을 먼저 하는 것을 선호하나요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">What should I know about the team culture? <span class="kor-sub-text">(팀 문화에 대해 제가 알아야 할 것이 있을까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Do you usually work closely with the ___ team? <span class="kor-sub-text">(주로 ___ 팀과 긴밀하게 협업하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Thanks for making me feel welcome. <span class="kor-sub-text">(환영해 주셔서 감사합니다.)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Encourage natural follow-up questions after each answer.</li>
-                    <li>Remind the learner to smile and sound interested.</li>
-                    <li>If answers are too short, ask 'Can you add one more detail?'</li>
+    <!-- L2 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 2: Introducing Yourself - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Hi, I'm Daniel from the sales team.<span class="kor-sub-text">(안녕하세요, 영업팀의 다니엘입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Nice to meet you. I'm Mina, and I just joined the support team.<span class="kor-sub-text">(만나서 반가워요. 저는 미나이고, 방금 지원팀에 합류했어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Welcome! How are you settling in so far?<span class="kor-sub-text">(환영해요! 지금까지 적응은 잘 하고 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Pretty well, thanks. Everyone has been very kind.<span class="kor-sub-text">(꽤 잘 하고 있어요, 고마워요. 모두들 정말 친절하시네요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Great. How long have you worked in this kind of role?<span class="kor-sub-text">(좋네요. 이런 업무 분야에서는 얼마나 일하셨나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I've worked in customer support for about a year.<span class="kor-sub-text">(고객 지원 분야에서 약 1년 정도 일했습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Hi, I'm <strong>_________________ from the _________________ team.</strong></li>
+            <li>How long have you <strong>_________________ here?</strong></li>
+            <li>What do you usually <strong>_________________ on?</strong></li>
+            <li>Nice to meet you, and thanks for <strong>_________________ me.</strong></li>
+            <li>I'm settling in <strong>_________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 휴게실에서 처음 보는 동료와 인사를 나눕니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Hi, are you new here?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I am. I'm on the <span class="blank" style="min-width: 120px;"></span> team.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Nice! How long have you worked in this industry?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I've worked in it for <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you usually do in your role?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I usually handle <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L2 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 2: Introducing Yourself - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a coworker easy to talk to?<span class="kor-sub-text">(어떤 점이 동료를 대화하기 편하게 만드나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like learning about people quickly or slowly?<span class="kor-sub-text">(사람들에 대해 빨리 알아가는 것을 좋아하나요, 아니면 천천히 알아가는 것을 좋아하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is one good question to ask a new coworker?<span class="kor-sub-text">(새 동료에게 물어보기 좋은 질문 한 가지는 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer small talk or work talk first?<span class="kor-sub-text">(스몰토크와 업무 이야기 중 무엇을 먼저 하는 것을 선호하나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write a short self-introduction for a new coworker conversation.</p>
-                <p class="ko-sub">새로운 동료와의 대화를 위한 짧은 자기소개를 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage natural follow-up questions after each answer.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Remind the student to smile and sound interested.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• If answers are too short, ask "Can you add one more detail?"</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 3 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 1</span>
-            <span class="text-ein-navy font-bold text-lg">Starting a New Job</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write a short self-introduction for a new coworker conversation.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(새 동료와의 대화를 위한 짧은 자기소개를 작성해 보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 3: Understanding Your Role</h1>
-        <p class="ko-sub mb-8 text-base">레슨 3: 자신의 역할 이해하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Ask about your duties, priorities, and what success looks like in your role.</p>
-            <p class="ko-sub">오늘의 목표: 업무, 우선순위, 역할의 성공 기준에 대해 질문해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Have you ever started a job without fully understanding your role?</p>
-                        <p class="ko-sub">자신의 역할을 완전히 이해하지 못한 채 일을 시작해 본 적이 있나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What do you usually want to know first in a new job?</p>
-                        <p class="ko-sub">새로운 직장에서 보통 제일 먼저 알고 싶은 것은 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why is it important to ask about priorities?</p>
-                        <p class="ko-sub">우선순위에 대해 묻는 것이 왜 중요한가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you like clear instructions?</p>
-                        <p class="ko-sub">명확한 지시사항을 선호하시나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">What are my main responsibilities?</p>
-                        <p class="ko-sub">저의 주요 업무는 무엇인가요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What should I focus on first?</p>
-                        <p class="ko-sub">제가 먼저 집중해야 할 것은 무엇인가요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">How will success be measured?</p>
-                        <p class="ko-sub">성과는 어떻게 평가되나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Who should I report to?</p>
-                        <p class="ko-sub">누구에게 보고해야 하나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What does a typical day look like?</p>
-                        <p class="ko-sub">일반적인 하루 일과는 어떻게 되나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What tasks are the most urgent?</p>
-                        <p class="ko-sub">가장 시급한 업무는 무엇인가요?</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">What would you like me to prioritize this week?</p>
-                        <p class="ko-sub">이번 주에 어떤 일을 우선적으로 처리하길 원하시나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could you explain the process step by step?</p>
-                        <p class="ko-sub">과정을 단계별로 설명해 주시겠어요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Are there any common mistakes I should avoid?</p>
-                        <p class="ko-sub">제가 피해야 할 흔한 실수들이 있나요?</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 3: UNDERSTANDING YOUR ROLE
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 3</span>
+            <h1>Understanding Your Role <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(나의 역할 이해하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Ask about your duties, priorities, and what success looks like in your role.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 업무 내용, 우선순위, 직무에서의 성공 기준 묻기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=800&q=80" alt="Understanding Role">
+            <p><i class="fa-solid fa-camera"></i> Photo: A manager explaining task lists and priorities to a new hire.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 3 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever started a job without fully understanding your role?</p><p class="kor-text">(자신의 역할을 완전히 이해하지 못한 채 일을 시작한 적이 있나요?)</p></li>
+            <li><p class="eng-text">What do you usually want to know first in a new job?</p><p class="kor-text">(새로운 직장에서 보통 무엇을 가장 먼저 알고 싶어 하나요?)</p></li>
+            <li><p class="eng-text">Why is it important to ask about priorities?</p><p class="kor-text">(우선순위에 대해 묻는 것이 왜 중요한가요?)</p></li>
+            <li><p class="eng-text">Do you like clear instructions?</p><p class="kor-text">(명확한 지시를 받는 것을 좋아하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">What are my main responsibilities?</span></p><p class="kor-text">(제 주요 책임(업무)은 무엇인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What should I focus on first?</span></p><p class="kor-text">(제가 무엇에 먼저 집중해야 할까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How will success be measured?</span></p><p class="kor-text">(성과는 어떻게 측정되나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Who should I report to?</span></p><p class="kor-text">(누구에게 보고해야 하나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What does a typical day look like?</span></p><p class="kor-text">(평범한 하루 일과는 어떤가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What tasks are the most urgent?</span></p><p class="kor-text">(어떤 업무가 가장 시급한가요?)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You are talking to your manager on your first day and need clarity about your role.</p>
-                <p class="ko-sub">첫날 매니저와 이야기하며 역할에 대한 명확한 이해가 필요합니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Let's go over your role. Do you have any questions?</p>
-                        <p class="ko-sub">당신의 역할에 대해 살펴보죠. 질문 있나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Yes, what are my main responsibilities?</p>
-                        <p class="ko-sub">네, 저의 주요 업무는 무엇인가요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">You'll handle customer emails, reports, and order updates.</p>
-                        <p class="ko-sub">고객 이메일 처리, 보고서 작성, 그리고 주문 업데이트를 맡게 될 겁니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Okay. What should I focus on first?</p>
-                        <p class="ko-sub">알겠습니다. 제가 먼저 집중해야 할 것은 무엇인가요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Start with the daily order report and inbox.</p>
-                        <p class="ko-sub">일일 주문 보고서와 수신함 확인부터 시작하세요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Got it. Thank you for explaining.</p>
-                        <p class="ko-sub">이해했습니다. 설명해 주셔서 감사합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">What are my main <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">제 주요 ___는 무엇인가요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">What should I focus on <span class="border-b-2 border-gray-400 w-20 inline-block"></span>?</p>
-                    <p class="ko-sub">제가 먼저 ___ 해야 할 것은 무엇인가요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Who should I report <span class="border-b-2 border-gray-400 w-20 inline-block"></span>?</p>
-                    <p class="ko-sub">누구에게 ___ 해야 하나요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">What does a typical <span class="border-b-2 border-gray-400 w-24 inline-block"></span> look like?</p>
-                    <p class="ko-sub">일반적인 ___는 어떻게 되나요?</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 3 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Tutor asks</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>What are your main responsibilities? <span class="ko-sub block">당신의 주요 업무는 무엇인가요?</span></li>
-                                <li>What should you focus on first? <span class="ko-sub block">먼저 집중해야 할 것은 무엇인가요?</span></li>
-                                <li>Who do you report to? <span class="ko-sub block">누구에게 보고하나요?</span></li>
-                                <li>What would you like to clarify about your role? <span class="ko-sub block">역할에 대해 더 명확히 하고 싶은 점이 있나요?</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What helps you do your best work: structure or flexibility?</p>
-                        <p class="ko-sub">최고의 성과를 내기 위해 체계와 유연성 중 어느 것이 더 도움이 되나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you like asking many questions at the beginning? Why?</p>
-                        <p class="ko-sub">초반에 질문을 많이 하는 것을 좋아하시나요? 그 이유는 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What makes a role feel clear to you?</p>
-                        <p class="ko-sub">어떤 점이 역할에 대해 명확하게 느끼도록 만드나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What kind of support do you want from a manager?</p>
-                        <p class="ko-sub">매니저로부터 어떤 지원을 받고 싶으신가요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">What would you like me to prioritize this week? <span class="kor-sub-text">(이번 주에 제가 무엇을 우선순위로 두길 원하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could you explain the process step by step? <span class="kor-sub-text">(그 과정을 단계별로 설명해 주시겠어요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Are there any common mistakes I should avoid? <span class="kor-sub-text">(제가 피해야 할 흔한 실수들이 있을까요?)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Push the learner to ask 3-4 questions in a row.</li>
-                    <li>Teach 'responsibilities', 'prioritize', and 'report to' carefully.</li>
-                    <li>Use this lesson to build confidence asking direct workplace questions.</li>
+    <!-- L3 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 3: Understanding Your Role - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Let's go over your role. Do you have any questions?<span class="kor-sub-text">(당신의 역할에 대해 짚어봅시다. 질문 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, what are my main responsibilities?<span class="kor-sub-text">(네, 제 주요 업무는 무엇인가요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">You'll handle customer emails, reports, and order updates.<span class="kor-sub-text">(고객 이메일, 보고서, 그리고 주문 업데이트를 처리하게 될 거예요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Okay. What should I focus on first?<span class="kor-sub-text">(알겠습니다. 무엇에 가장 먼저 집중해야 할까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Start with the daily order report and inbox.<span class="kor-sub-text">(일일 주문 보고서와 수신함을 확인하는 것부터 시작하세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Got it. Thank you for explaining.<span class="kor-sub-text">(이해했습니다. 설명해 주셔서 감사해요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>What are my main <strong>_________________ ?</strong></li>
+            <li>What should I focus on <strong>_________________ ?</strong></li>
+            <li>Who should I report <strong>_________________ ?</strong></li>
+            <li>What does a typical <strong>_________________ look like?</strong></li>
+            <li>How will success be <strong>_________________ ?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 매니저와 첫 1:1 면담을 하며 업무 범위를 확정합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have any questions about your role?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes. What are my <span class="blank" style="min-width: 120px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Your main goal is to improve customer satisfaction.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Understood. What should I <span class="blank" style="min-width: 120px;"></span> first?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Focus on training for the first two days.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Okay. Who should I <span class="blank" style="min-width: 120px;"></span> to during training?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L3 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 3: Understanding Your Role - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What helps you do your best work: structure or flexibility?<span class="kor-sub-text">(구조적인 환경과 유연한 환경 중 무엇이 당신의 업무에 더 도움이 되나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like asking many questions at the beginning? Why?<span class="kor-sub-text">(처음에 질문을 많이 하는 것을 좋아하나요? 왜죠?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a role feel clear to you?<span class="kor-sub-text">(어떤 점이 당신의 역할을 명확하게 느끼게 만드나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What kind of support do you want from a manager?<span class="kor-sub-text">(매니저로부터 어떤 지원을 받고 싶나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3-4 questions you would ask to understand a new role.</p>
-                <p class="ko-sub">새로운 역할을 이해하기 위해 질문할 3-4문장을 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Push the student to ask 3-4 questions in a row.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach 'responsibilities', 'prioritize', and 'report to' carefully.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Use this lesson to build confidence asking direct workplace questions.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 4 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 1</span>
-            <span class="text-ein-navy font-bold text-lg">Starting a New Job</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 questions you would ask to understand a new role.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(새로운 역할을 이해하기 위해 물어볼 질문을 3~4개 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 4: Asking Questions at Work</h1>
-        <p class="ko-sub mb-8 text-base">레슨 4: 직장에서 질문하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Ask clear questions when you do not understand something.</p>
-            <p class="ko-sub">오늘의 목표: 이해되지 않는 부분이 있을 때 명확하게 질문해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it easy for you to ask questions at work?</p>
-                        <p class="ko-sub">직장에서 질문하는 것이 쉬운 편인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why do some people avoid asking questions?</p>
-                        <p class="ko-sub">왜 어떤 사람들은 질문하는 것을 피할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is a polite way to ask someone to explain again?</p>
-                        <p class="ko-sub">다시 설명해 달라고 정중하게 요청하는 방법은 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you prefer asking right away or later?</p>
-                        <p class="ko-sub">바로 질문하는 것을 선호하나요, 아니면 나중에 질문하는 것을 선호하나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">Could you explain that again, please?</p>
-                        <p class="ko-sub">그 부분 다시 한 번 설명해 주시겠어요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm not sure I understand.</p>
-                        <p class="ko-sub">제가 제대로 이해했는지 모르겠습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Can you show me how to do it?</p>
-                        <p class="ko-sub">어떻게 하는지 보여주시겠어요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What does ___ mean?</p>
-                        <p class="ko-sub">___는 무슨 뜻인가요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could you say that a bit more slowly?</p>
-                        <p class="ko-sub">조금 더 천천히 말씀해 주시겠어요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Am I doing this correctly?</p>
-                        <p class="ko-sub">제가 지금 제대로 하고 있는 건가요?</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">Can I check that I understood correctly?</p>
-                        <p class="ko-sub">제가 정확히 이해했는지 확인해도 될까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could you walk me through it one more time?</p>
-                        <p class="ko-sub">과정을 한 번 더 설명(안내)해 주시겠어요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Just to confirm, you want me to ___, right?</p>
-                        <p class="ko-sub">확인차 말씀드리면, 제가 ___ 하기를 원하시는 거죠?</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 4: ASKING QUESTIONS AT WORK
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 4</span>
+            <h1>Asking Questions at Work <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(직장에서 질문하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Ask clear questions when you do not understand something.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 이해하지 못한 것이 있을 때 명확하게 질문하기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80" alt="Asking Questions">
+            <p><i class="fa-solid fa-camera"></i> Photo: A worker taking notes while asking a coworker for clarification.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 4 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Is it easy for you to ask questions at work?</p><p class="kor-text">(직장에서 질문하는 것이 쉬운가요?)</p></li>
+            <li><p class="eng-text">Why do some people avoid asking questions?</p><p class="kor-text">(왜 어떤 사람들은 질문하는 것을 피할까요?)</p></li>
+            <li><p class="eng-text">What is a good way to ask someone to explain again?</p><p class="kor-text">(다시 설명해 달라고 요청하는 좋은 방법은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Do you prefer asking right away or later?</p><p class="kor-text">(즉시 묻는 것과 나중에 묻는 것 중 무엇을 더 선호하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Could you explain that again, please?</span></p><p class="kor-text">(다시 한번 설명해 주시겠어요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'm not sure I understand.</span></p><p class="kor-text">(제대로 이해했는지 잘 모르겠어요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Can you show me how to do it?</span></p><p class="kor-text">(어떻게 하는지 보여주실 수 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What does ___ mean?</span></p><p class="kor-text">(___이(가) 무슨 뜻인가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could you say that a bit more slowly?</span></p><p class="kor-text">(조금만 더 천천히 말씀해 주시겠어요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Am I doing this correctly?</span></p><p class="kor-text">(제가 이것을 맞게 하고 있나요?)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You are learning a new task and need to ask a coworker for help.</p>
-                <p class="ko-sub">당신은 새로운 업무를 배우는 중이며 동료에게 도움을 요청해야 합니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Did you understand the process?</p>
-                        <p class="ko-sub">과정을 이해하셨나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I'm not sure I understand the second step.</p>
-                        <p class="ko-sub">두 번째 단계를 제대로 이해했는지 모르겠습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">No problem. Which part is unclear?</p>
-                        <p class="ko-sub">괜찮아요. 어느 부분이 불명확한가요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Could you show me how to update the order sheet?</p>
-                        <p class="ko-sub">주문서를 업데이트하는 방법을 보여주시겠어요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Sure. First, open the file and check the latest tab.</p>
-                        <p class="ko-sub">물론이죠. 먼저 파일을 열고 최신 탭을 확인하세요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Okay, that helps. Thank you.</p>
-                        <p class="ko-sub">알겠습니다. 도움이 되네요. 감사합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">Could you explain <span class="border-b-2 border-gray-400 w-24 inline-block"></span> again, please?</p>
-                    <p class="ko-sub">___를 다시 한 번 설명해 주시겠어요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Can you show me how to <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">어떻게 ___ 하는지 보여주시겠어요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">What does <span class="border-b-2 border-gray-400 w-20 inline-block"></span> mean?</p>
-                    <p class="ko-sub">___는 무슨 뜻인가요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Am I doing this <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">제가 이것을 ___ 하고 있나요?</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 4 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Tutor asks</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>What part don't you understand? <span class="ko-sub block">어떤 부분을 이해하지 못하셨나요?</span></li>
-                                <li>Can you show me what you're confused about? <span class="ko-sub block">어떤 부분이 헷갈리는지 보여주시겠어요?</span></li>
-                                <li>How can you ask politely without interrupting too much? <span class="ko-sub block">너무 방해되지 않게 정중히 질문하려면 어떻게 해야 할까요?</span></li>
-                                <li>How can you confirm you understood? <span class="ko-sub block">이해했다는 것을 어떻게 확인할 수 있을까요?</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you usually ask questions easily or hesitate first?</p>
-                        <p class="ko-sub">보통 질문을 쉽게 하는 편인가요, 아니면 머뭇거리시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What makes a coworker good at explaining things?</p>
-                        <p class="ko-sub">어떤 점이 동료를 설명 잘하는 사람으로 만드나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you prefer written instructions or verbal explanations?</p>
-                        <p class="ko-sub">문서화된 지시사항과 구두 설명 중 어느 것을 선호하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What topic is hardest for you to ask about in English?</p>
-                        <p class="ko-sub">영어로 질문하기 가장 어려운 주제는 무엇인가요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Can I check that I understood correctly? <span class="kor-sub-text">(제가 이해한 게 맞는지 확인해도 될까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could you walk me through it one more time? <span class="kor-sub-text">(한 번 더 차근차근 알려주실 수 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Just to confirm, you want me to ___, right? <span class="kor-sub-text">(확인차 여쭤보는데, 제가 ___ 하길 원하시는 거죠?)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Normalize asking questions - it shows responsibility, not weakness.</li>
-                    <li>Have the learner practice confirmation language like 'Just to confirm...'.</li>
-                    <li>If the learner is too indirect, teach a clearer question.</li>
+    <!-- L4 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 4: Asking Questions - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Coworker</div><div class="text">Did you understand the process?<span class="kor-sub-text">(과정을 이해했나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I'm not sure I understand the second step.<span class="kor-sub-text">(두 번째 단계가 잘 이해되지 않아요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Coworker</div><div class="text">No problem. Which part is unclear?<span class="kor-sub-text">(괜찮아요. 어느 부분이 명확하지 않은가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Could you show me how to update the order sheet?<span class="kor-sub-text">(주문서 업데이트하는 법을 보여주실 수 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Coworker</div><div class="text">Sure. First, open the file and check the latest tab.<span class="kor-sub-text">(그럼요. 먼저 파일을 열고 최신 탭을 확인하세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Okay, that helps. Thank you.<span class="kor-sub-text">(네, 도움이 되었어요. 감사합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Could you explain <strong>_________________ again, please?</strong></li>
+            <li>Can you show me how to <strong>_________________ ?</strong></li>
+            <li>What does <strong>_________________ mean?</strong></li>
+            <li>Am I doing this <strong>_________________ ?</strong></li>
+            <li>I'm not sure I <strong>_________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 새로운 업무 지시를 받았지만 헷갈리는 부분이 있어 질문합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What part don't you understand?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'm not sure about <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Can you show me what you're confused about?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Could you explain <span class="blank" style="min-width: 120px;"></span> again?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Just to confirm, you know the deadline?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, it is <span class="blank" style="min-width: 120px;"></span>, right?</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L4 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 4: Asking Questions - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you usually ask questions easily or hesitate first?<span class="kor-sub-text">(보통 질문을 쉽게 하는 편인가요, 아니면 먼저 망설이나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a coworker good at explaining things?<span class="kor-sub-text">(동료가 무엇을 잘해야 설명을 잘한다고 느껴지나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer written instructions or verbal explanations?<span class="kor-sub-text">(문서로 된 지시와 구두 설명을 중 무엇을 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What topic is hardest for you to ask about in English?<span class="kor-sub-text">(영어로 물어보기 가장 어려운 주제는 무엇인가요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3 polite workplace questions you can use when you are confused.</p>
-                <p class="ko-sub">헷갈릴 때 직장에서 정중하게 사용할 수 있는 질문 3가지를 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Normalize asking questions - it shows responsibility, not weakness.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Have the learner practice confirmation language like "Just to confirm..."</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• If the learner is too indirect, teach a clearer question.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 5 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy mb-0">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 1</span>
-            <span class="text-ein-navy font-bold text-lg">Starting a New Job</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 polite workplace questions you can use when you are confused.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(업무 중 혼란스러울 때 사용할 수 있는 정중한 질문 3개를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 5: Learning Workplace Rules</h1>
-        <p class="ko-sub mb-8 text-base">레슨 5: 직장 규칙 배우기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Ask about workplace rules, schedules, and expectations politely.</p>
-            <p class="ko-sub">오늘의 목표: 직장 내 규칙, 일정, 기대 사항에 대해 정중하게 질문해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What workplace rules are most important in a new job?</p>
-                        <p class="ko-sub">새 직장에서 가장 중요한 직장 규칙은 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why is it important to ask about rules early?</p>
-                        <p class="ko-sub">규칙에 대해 일찍 물어보는 것이 왜 중요한가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you prefer strict or flexible workplaces?</p>
-                        <p class="ko-sub">엄격한 직장과 유연한 직장 중 어느 곳을 더 선호하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What kind of rules do you usually notice first?</p>
-                        <p class="ko-sub">주로 어떤 규칙을 가장 먼저 눈치채시나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">What time should I start?</p>
-                        <p class="ko-sub">제가 몇 시에 일을 시작해야 하나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Is there a dress code?</p>
-                        <p class="ko-sub">복장 규정이 있나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">How long is the lunch break?</p>
-                        <p class="ko-sub">점심시간은 얼마나 되나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Are there any rules I should know about?</p>
-                        <p class="ko-sub">제가 알아야 할 규칙이 있나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What is the policy on phones?</p>
-                        <p class="ko-sub">휴대전화 사용 규정은 어떻게 되나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">When should I clock in?</p>
-                        <p class="ko-sub">언제 출근 도장(기록)을 찍어야 하나요?</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">Are there any safety rules I need to follow?</p>
-                        <p class="ko-sub">제가 따라야 할 안전 수칙이 있나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Is there a preferred way to communicate with the team?</p>
-                        <p class="ko-sub">팀원들과 소통할 때 선호하는 방식이 있나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What should I do if I'm running late?</p>
-                        <p class="ko-sub">제가 늦을 것 같으면 어떻게 해야 하나요?</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 5: LEARNING WORKPLACE RULES
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 1 • LESSON 5</span>
+            <h1>Learning Workplace Rules <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(직장 규칙 익히기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Ask about workplace rules, schedules, and expectations politely.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 직장 규칙, 일정, 그리고 기대치에 대해 정중하게 묻기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80" alt="Workplace Rules">
+            <p><i class="fa-solid fa-camera"></i> Photo: A modern office space with a focus on clear schedules and teamwork.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 5 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What workplace rules are most important in a new job?</p><p class="kor-text">(새 직장에서 가장 중요한 직장 규칙은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Why is it important to ask about rules early?</p><p class="kor-text">(규칙에 대해 일찍 물어보는 것이 왜 중요한가요?)</p></li>
+            <li><p class="eng-text">Do you prefer strict or flexible workplaces?</p><p class="kor-text">(엄격한 직장과 유연한 직장 중 어느 것을 선호하나요?)</p></li>
+            <li><p class="eng-text">What kind of rules do you usually notice first?</p><p class="kor-text">(보통 어떤 종류의 규칙을 가장 먼저 파악하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">What time should I start?</span></p><p class="kor-text">(몇 시에 시작해야 하나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Is there a dress code?</span></p><p class="kor-text">(복장 규정이 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">How long is the lunch break?</span></p><p class="kor-text">(점심시간은 얼마나 되나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Are there any rules I should know about?</span></p><p class="kor-text">(제가 알아야 할 규칙이 있나요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">What is the policy on phones?</span></p><p class="kor-text">(휴대폰 사용 정책은 어떤가요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">When should I clock in?</span></p><p class="kor-text">(언제 출근 기록을 해야 하나요?)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You are asking about basic workplace rules on your first day.</p>
-                <p class="ko-sub">첫 출근 날 기본적인 직장 규칙에 대해 묻고 있습니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Before you start, do you have any questions about the rules?</p>
-                        <p class="ko-sub">시작하기 전에, 규칙에 대해 질문할 것이 있나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Yes. What time should I start each day?</p>
-                        <p class="ko-sub">네. 매일 몇 시에 일을 시작해야 하나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Please start at 8:30 and clock in when you arrive.</p>
-                        <p class="ko-sub">8시 30분에 시작해주시고, 도착하면 출근 기록을 남겨주세요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Okay. Is there a dress code?</p>
-                        <p class="ko-sub">알겠습니다. 복장 규정이 있나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Yes, smart casual from Monday to Thursday.</p>
-                        <p class="ko-sub">네, 월요일부터 목요일까지는 단정한 캐주얼 복장입니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Great. Thanks for letting me know.</p>
-                        <p class="ko-sub">좋네요. 알려주셔서 감사합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">What time should I <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">제가 몇 시에 ___ 해야 하나요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Is there a dress <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">___ 복장 규정이 있나요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">How long is the lunch <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">점심 ___ 은 얼마나 되나요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">What should I do if I'm <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">제가 ___ 하면 어떻게 해야 하나요?</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 5 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Tutor asks</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>What time should you start each day? <span class="ko-sub block">매일 몇 시에 일을 시작해야 하나요?</span></li>
-                                <li>Is there a dress code? <span class="ko-sub block">복장 규정이 있나요?</span></li>
-                                <li>How long is the lunch break? <span class="ko-sub block">점심시간은 얼마나 되나요?</span></li>
-                                <li>What rule do you want to ask about first? <span class="ko-sub block">어떤 규칙에 대해 먼저 물어보고 싶나요?</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What workplace rule helps people work better?</p>
-                        <p class="ko-sub">어떤 직장 규칙이 사람들이 더 잘 일하도록 돕나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you like clear rules or flexible rules?</p>
-                        <p class="ko-sub">명확한 규칙을 좋아하시나요, 아니면 유연한 규칙을 좋아하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you feel about dress codes?</p>
-                        <p class="ko-sub">복장 규정에 대해 어떻게 생각하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is one rule every workplace should have?</p>
-                        <p class="ko-sub">모든 직장에 꼭 있어야 할 규칙 하나는 무엇인가요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Are there any safety rules I need to follow? <span class="kor-sub-text">(제가 따라야 할 안전 수칙이 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Is there a preferred way to communicate with the team? <span class="kor-sub-text">(팀과 소통하는 선호되는 방식이 있나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">What should I do if I'm running late? <span class="kor-sub-text">(만약 늦게 되면 어떻게 해야 하나요?)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Encourage the learner to ask specific rule questions, not only 'any rules?'.</li>
-                    <li>Practice time expressions and schedule language.</li>
-                    <li>Use this lesson to build natural workplace curiosity.</li>
+    <!-- L5 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 5: Workplace Rules - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Before you start, do you have any questions about the rules?<span class="kor-sub-text">(시작하기 전에, 규칙에 대해 질문 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes. What time should I start each day?<span class="kor-sub-text">(네. 매일 몇 시에 업무를 시작해야 하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Please start at 8:30 and clock in when you arrive.<span class="kor-sub-text">(8시 30분에 시작해 주시고, 도착하면 출근 체크를 하세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Okay. Is there a dress code?<span class="kor-sub-text">(알겠습니다. 복장 규정이 있나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Yes, smart casual from Monday to Thursday.<span class="kor-sub-text">(네, 월요일부터 목요일까지는 스마트 캐주얼입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Great. Thanks for letting me know.<span class="kor-sub-text">(좋네요. 알려주셔서 감사합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>What time should I <strong>_________________ ?</strong></li>
+            <li>Is there a dress <strong>_________________ ?</strong></li>
+            <li>How long is the lunch <strong>_________________ ?</strong></li>
+            <li>What should I do if I'm <strong>_________________ ?</strong></li>
+            <li>What is the policy <strong>_________________ ?</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 오리엔테이션 중 매니저에게 궁금한 사내 규정을 물어봅니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What time should you start each day?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I should start at <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is there a dress code?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>The dress code is <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What rule do you want to ask about first?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I want to know about <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L5 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 5: Workplace Rules - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What workplace rule helps people work better?<span class="kor-sub-text">(어떤 직장 규칙이 사람들이 일을 더 잘하게 도와주나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like clear rules or flexible rules?<span class="kor-sub-text">(명확한 규칙과 유연한 규칙 중 어느 것을 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you feel about dress codes?<span class="kor-sub-text">(복장 규정에 대해 어떻게 생각하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is one rule every workplace should have?<span class="kor-sub-text">(모든 직장에 꼭 있어야 할 규칙 한 가지는 무엇인가요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3-4 questions about rules and schedule for a new job.</p>
-                <p class="ko-sub">새로운 직장의 규칙과 일정에 대해 물어보는 질문 3-4개를 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage the learner to ask specific rule questions, not only "any rules?".</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice time expressions and schedule language.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Use this lesson to build natural workplace curiosity.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 questions about rules and schedule for a new job.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(새로운 직장의 규칙과 일정에 관한 질문 3~4개를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 1! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
 <script src="../tts.js"></script>

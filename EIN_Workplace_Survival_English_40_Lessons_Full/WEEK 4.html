@@ -3,1488 +3,867 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Workplace Survival English - Week 4</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['"Noto Sans KR"', 'sans-serif'],
-                    },
-                    colors: {
-                        'ein-navy': '#1e3a8a',
-                        'ein-emerald': '#059669',
-                        'ein-lightblue': '#eff6ff',
-                    }
-                }
-            }
-        }
-    </script>
+    <title>EIN English - Week 4 (Talking to Your Manager)</title>
+    <!-- Fonts: Poppins & Inter for English, Noto Sans KR for Korean -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        body {
-            background-color: #f3f4f6;
-            margin: 0;
-            padding: 20px 0;
-            font-family: 'Noto Sans KR', sans-serif;
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
         }
-        .a4-page {
-            width: 794px;
-            min-height: 1123px;
-            height: auto;
-            margin: 0 auto 30px auto;
-            background-color: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
             display: flex;
             flex-direction: column;
-            padding: 50px 60px;
-            box-sizing: border-box;
-            position: relative;
+            page-break-after: always;
         }
-        .footer-copyright {
-            margin-top: auto;
-            padding-top: 30px;
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
             text-align: center;
-            font-size: 0.75rem;
-            color: #9ca3af;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
-        .ko-sub {
-            font-size: 0.85rem;
-            color: #6b7280;
-            margin-top: 2px;
-            font-weight: 400;
-        }
+
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
         @media print {
-            @page { size: A4 portrait; margin: 0; }
-            body { background-color: white; margin: 0; padding: 0; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            .a4-page { 
-                width: 100%; 
-                min-height: 100vh; 
-                margin: 0; 
-                box-shadow: none; 
-                page-break-after: always;
-                padding: 15mm 20mm;
-            }
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
     <!-- ==========================================
-         LESSON 16 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 4</span>
-            <span class="text-ein-navy font-bold text-lg">Talking to Your Manager</span>
-        </div>
-        
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 16: Asking for Feedback</h1>
-        <p class="ko-sub mb-8 text-base">레슨 16: 매니저에게 피드백 요청하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Ask your manager for feedback to improve your work.</p>
-            <p class="ko-sub">오늘의 목표: 업무 개선을 위해 매니저에게 피드백을 요청해 보세요.</p>
-        </div>
-
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you like getting feedback from your manager?</p>
-                        <p class="ko-sub">매니저로부터 피드백을 받는 것을 좋아하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why is feedback important for your career?</p>
-                        <p class="ko-sub">커리어를 위해 피드백이 왜 중요할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you react when you receive negative feedback?</p>
-                        <p class="ko-sub">부정적인 피드백을 받았을 때 어떻게 반응하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Have you ever asked for feedback directly?</p>
-                        <p class="ko-sub">직접 피드백을 요청해 본 적이 있나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">Could I get your feedback on ___?</p>
-                        <p class="ko-sub">___에 대한 피드백을 받을 수 있을까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">How did I do on the project?</p>
-                        <p class="ko-sub">제가 프로젝트를 잘 해냈나요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm always looking to improve.</p>
-                        <p class="ko-sub">저는 항상 발전하려고 노력합니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Is there anything I can do better?</p>
-                        <p class="ko-sub">제가 더 잘할 수 있는 부분이 있을까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Thank you for your advice.</p>
-                        <p class="ko-sub">조언해 주셔서 감사합니다.</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">I'd love to hear your thoughts on my performance.</p>
-                        <p class="ko-sub">제 업무 성과에 대한 매니저님의 생각을 듣고 싶습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">What areas should I focus on for next time?</p>
-                        <p class="ko-sub">다음번에는 어떤 부분에 집중해야 할까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I appreciate your honest feedback.</p>
-                        <p class="ko-sub">솔직한 피드백을 주셔서 감사합니다.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+         COVER SLIDE (WEEK 4)
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 4</div>
+        <h1>Talking to Your Manager</h1>
+        <h2>Workplace Survival English</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 16: Asking for a Meeting<br>
+            Lesson 17: Requesting Time Off<br>
+            Lesson 18: Asking for Schedule Changes<br>
+            Lesson 19: Discussing Workload<br>
+            Lesson 20: Receiving Instructions
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
     <!-- ==========================================
-         LESSON 16 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-        
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You just finished a big presentation. You want to ask your manager how you did and how to improve.</p>
-                <p class="ko-sub">방금 큰 프레젠테이션을 마쳤습니다. 매니저에게 어떻게 했는지, 그리고 어떻게 개선할 수 있을지 묻고 싶습니다.</p>
+         LESSON 16: ASKING FOR A MEETING
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 16</span>
+            <h1>Asking for a Meeting <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(면담/회의 요청하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Ask your manager for a short meeting politely and clearly.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 매니저에게 정중하고 명확하게 짧은 면담 요청하기)</span></span>
             </div>
         </div>
 
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you have a minute? I'd like to talk about the presentation.</p>
-                        <p class="ko-sub">잠깐 시간 되시나요? 프레젠테이션에 대해 이야기하고 싶습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Sure. You did a great job today.</p>
-                        <p class="ko-sub">물론이죠. 오늘 정말 잘하셨어요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Thank you. Could I get your feedback on what I can improve?</p>
-                        <p class="ko-sub">감사합니다. 제가 개선할 부분에 대해 피드백을 좀 받을 수 있을까요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Your slides were clear, but you could speak a bit slower next time.</p>
-                        <p class="ko-sub">슬라이드는 명확했지만, 다음에는 말을 조금 더 천천히 하시면 좋을 것 같습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I see. Is there anything else I should do differently?</p>
-                        <p class="ko-sub">알겠습니다. 그 외에 다르게 해야 할 점이 있을까요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Just try to make more eye contact with the clients. Overall, good work.</p>
-                        <p class="ko-sub">고객들과 눈을 더 맞추려고 노력해 보세요. 전반적으로 아주 좋았습니다.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=800&q=80" alt="Asking for Meeting">
+            <p><i class="fa-solid fa-camera"></i> Photo: An employee politely approaching a manager's desk for a quick conversation.</p>
         </div>
 
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">Could I get your <span class="border-b-2 border-gray-400 w-24 inline-block"></span> on this?</p>
-                    <p class="ko-sub">이것에 대한 <span class="underline">피드백</span>을 받을 수 있을까요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Is there anything I can do <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">제가 <span class="underline">더 잘할 수 있는</span> 부분이 있을까요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I'm always looking to <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">저는 항상 <span class="underline">발전(개선)</span>하려고 노력합니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Thank you for your <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">당신의 <span class="underline">조언</span>에 감사드립니다.</p>
-                </div>
-            </div>
-        </div>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you feel comfortable starting a conversation with your manager?</p><p class="kor-text">(매니저와 대화를 시작하는 것이 편안하신가요?)</p></li>
+            <li><p class="eng-text">What reasons might you need a meeting for?</p><p class="kor-text">(어떤 이유로 면담이 필요할 수 있을까요?)</p></li>
+            <li><p class="eng-text">Do you prefer messaging or speaking directly?</p><p class="kor-text">(메시지와 직접 대화 중 무엇을 선호하시나요?)</p></li>
+        </ul>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 16 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Student starts</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>Ask your manager (tutor) for feedback on a recent project. <span class="ko-sub block">매니저(튜터)에게 최근 프로젝트에 대한 피드백을 요청하세요.</span></li>
-                                <li>Manager will give you one positive and one negative point. <span class="ko-sub block">매니저가 한 가지 긍정적인 점과 한 가지 부정적인 점을 말할 것입니다.</span></li>
-                                <li>Respond positively and ask how to improve the negative point. <span class="ko-sub block">긍정적으로 반응하고 부족한 점을 어떻게 개선할 수 있을지 물어보세요.</span></li>
-                                <li>Thank the manager for their time. <span class="ko-sub block">시간을 내준 매니저에게 감사를 표하세요.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why is it hard for some people to accept negative feedback?</p>
-                        <p class="ko-sub">왜 어떤 사람들은 부정적인 피드백을 받아들이는 것을 어려워할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is the best piece of feedback you have ever received?</p>
-                        <p class="ko-sub">지금까지 받았던 가장 좋은 피드백은 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How often should a manager give feedback to their team?</p>
-                        <p class="ko-sub">매니저는 팀원들에게 얼마나 자주 피드백을 주어야 할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you think peer feedback (from coworkers) is helpful?</p>
-                        <p class="ko-sub">동료들로부터 받는 피드백이 도움이 된다고 생각하시나요?</p>
-                    </div>
-                </li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Do you have a minute?</span></p><p class="kor-text">(잠깐 시간 괜찮으세요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could we have a quick chat?</span></p><p class="kor-text">(잠깐 이야기 좀 나눌 수 있을까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I wanted to ask about ___.</span></p><p class="kor-text">(___에 대해 여쭤보고 싶은 게 있어요.)</p></li>
+                <li><p class="eng-text"><span class="highlight">When would be a good time to talk?</span></p><p class="kor-text">(언제쯤 대화하기 좋을까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">It shouldn't take long.</span></p><p class="kor-text">(오래 걸리지 않을 거예요.)</p></li>
             </ul>
         </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Could we schedule 10 minutes sometime today? <span class="kor-sub-text">(오늘 중으로 10분 정도 시간을 낼 수 있을까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I have a quick question about my work. <span class="kor-sub-text">(제 업무에 대해 짧은 질문이 하나 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Please let me know when you're free. <span class="kor-sub-text">(한가하실 때 알려주세요.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Teach learners not to take "constructive criticism" personally.</li>
-                    <li>Help them practice a neutral, appreciative tone when receiving criticism.</li>
-                    <li>Encourage using "How can I..." to ask for actionable steps.</li>
+    <!-- L16 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 16: Asking for a Meeting - Practice</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Hi, what's up?<span class="kor-sub-text">(안녕, 무슨 일인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Do you have a minute? I wanted to ask about tomorrow's schedule.<span class="kor-sub-text">(잠깐 시간 괜찮으세요? 내일 일정에 대해 여쭤보고 싶어서요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Sure. What do you need?<span class="kor-sub-text">(그럼요. 무엇이 필요한가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Could we have a quick chat later this afternoon?<span class="kor-sub-text">(오늘 오후 늦게 잠깐 이야기 나눌 수 있을까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Yes, I'm free at 3.<span class="kor-sub-text">(네, 3시에 시간이 나요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Great. Thank you.<span class="kor-sub-text">(좋습니다. 감사합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Do you have a <strong>_________________ ?</strong></li>
+            <li>Could we have a quick <strong>_________________ ?</strong></li>
+            <li>When would be a good time to <strong>_________________ ?</strong></li>
+            <li>I wanted to ask about <strong>_________________ .</strong></li>
+            <li>It shouldn't take <strong>_________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 매니저에게 바쁜 프로젝트에 대해 논의할 시간을 요청합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>How's your work going?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Fine, but could we have a <span class="blank" style="min-width: 120px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Is it urgent?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Not really, but I wanted to <span class="blank" style="min-width: 120px;"></span> my tasks.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Let's talk in 10 minutes.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Sounds good. <span class="blank" style="min-width: 120px;"></span>!</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 16: Asking for a Meeting - Wrap-up</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a manager easy to talk to?<span class="kor-sub-text">(어떤 점이 매니저를 대화하기 편하게 만드나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prepare before important conversations?<span class="kor-sub-text">(중요한 대화 전에 미리 준비하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you ask serious questions politely?<span class="kor-sub-text">(진지한 질문을 어떻게 정중하게 하나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3 polite sentences asking your manager for feedback on a recent task.</p>
-                <p class="ko-sub">최근 업무에 대해 매니저에게 피드백을 요청하는 정중한 3문장을 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Keep meeting requests short and respectful.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach 'Do you have a minute?' as a natural opener.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Encourage the student to state the topic clearly.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 17 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy mb-0">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 4</span>
-            <span class="text-ein-navy font-bold text-lg">Talking to Your Manager</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences asking your manager for a short meeting.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(매니저에게 짧은 면담을 요청하는 문장 3개를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example: "Do you have a minute later today? I have a quick question about the new report."</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 17: Reporting a Mistake</h1>
-        <p class="ko-sub mb-8 text-base">레슨 17: 실수 보고하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Admit a mistake to your manager professionally and propose a solution.</p>
-            <p class="ko-sub">오늘의 목표: 매니저에게 실수를 프로페셔널하게 인정하고 해결책을 제안해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Have you ever made a big mistake at work?</p>
-                        <p class="ko-sub">직장에서 큰 실수를 해본 적이 있나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why is it important to tell your manager right away?</p>
-                        <p class="ko-sub">왜 매니저에게 즉시 말하는 것이 중요한가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it better to make excuses or admit the mistake directly?</p>
-                        <p class="ko-sub">변명을 하는 것이 낫나요, 아니면 실수를 바로 인정하는 것이 낫나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How can a mistake actually help you grow?</p>
-                        <p class="ko-sub">실수가 어떻게 당신이 성장하는 데 도움이 될 수 있을까요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">I made a mistake with ___.</p>
-                        <p class="ko-sub">제가 ___와 관련해 실수를 했습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I wanted to let you know right away.</p>
-                        <p class="ko-sub">즉시 알려드리고 싶었습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm sorry for the oversight.</p>
-                        <p class="ko-sub">저의 불찰에 대해 사과드립니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Here is how I plan to fix it.</p>
-                        <p class="ko-sub">이렇게 해결할 계획입니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">It won't happen again.</p>
-                        <p class="ko-sub">다시는 이런 일이 발생하지 않을 것입니다.</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">I take full responsibility for this error.</p>
-                        <p class="ko-sub">이 오류에 대해 제가 전적으로 책임을 지겠습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I've already started working on a solution.</p>
-                        <p class="ko-sub">이미 해결책을 마련하기 시작했습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I completely misunderstood the instructions.</p>
-                        <p class="ko-sub">제가 지시사항을 완전히 오해했습니다.</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 17: REQUESTING TIME OFF
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 17</span>
+            <h1>Requesting Time Off <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(휴가 요청하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Ask for time off politely and offer flexibility.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 정중하게 휴가를 요청하고 유연한 태도 보이기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80" alt="Requesting Time Off">
+            <p><i class="fa-solid fa-camera"></i> Photo: A calendar with vacation dates marked, discussed during a manager meeting.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 17 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How early should you ask for time off?</p><p class="kor-text">(휴가 신청은 얼마나 일찍 해야 할까요?)</p></li>
+            <li><p class="eng-text">What makes a request sound polite?</p><p class="kor-text">(어떤 점이 요청을 정중하게 들리게 만드나요?)</p></li>
+            <li><p class="eng-text">Do you usually plan your time off in advance?</p><p class="kor-text">(보통 휴가를 미리 계획하시나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'd like to request some time off on ___.</span></p><p class="kor-text">(___에 휴가를 좀 내고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Would it be possible to take the day off?</span></p><p class="kor-text">(그날 하루 쉬는 게 가능할까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I can adjust the date if needed.</span></p><p class="kor-text">(필요하다면 날짜를 조정할 수 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'll make sure my work is covered.</span></p><p class="kor-text">(제 업무에 차질이 없도록 조치하겠습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Please let me know if that works.</span></p><p class="kor-text">(그날이 괜찮은지 알려주세요.)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You sent an important email to a client but attached the wrong file. You need to tell your manager.</p>
-                <p class="ko-sub">고객에게 중요한 이메일을 보냈는데 잘못된 파일을 첨부했습니다. 매니저에게 말해야 합니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you have a second? I need to tell you something.</p>
-                        <p class="ko-sub">잠시 시간 되시나요? 말씀드릴 게 있습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Sure, what's going on?</p>
-                        <p class="ko-sub">네, 무슨 일이죠?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I made a mistake with the client email. I attached the old contract instead of the new one.</p>
-                        <p class="ko-sub">고객 이메일과 관련해 실수를 했습니다. 새 계약서 대신 예전 계약서를 첨부했습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Oh, I see. Have you contacted the client yet?</p>
-                        <p class="ko-sub">아, 알겠습니다. 고객에게 연락은 취했나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Not yet. I wanted to let you know first. I will send an apology email with the correct file right now.</p>
-                        <p class="ko-sub">아직요. 먼저 알려드리고 싶었습니다. 지금 당장 올바른 파일과 함께 사과 이메일을 보내겠습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Okay, please do that immediately. Just be more careful next time.</p>
-                        <p class="ko-sub">좋아요, 즉시 그렇게 해주세요. 다음번엔 좀 더 주의해 주세요.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">I made a <span class="border-b-2 border-gray-400 w-24 inline-block"></span> with the report.</p>
-                    <p class="ko-sub">보고서와 관련해 <span class="underline">실수</span>를 했습니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I wanted to let you know <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub"><span class="underline">즉시</span> 알려드리고 싶었습니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I'm sorry for the <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">저의 <span class="underline">불찰(실수)</span>에 대해 사과드립니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Here is how I plan to <span class="border-b-2 border-gray-400 w-24 inline-block"></span> it.</p>
-                    <p class="ko-sub">이렇게 그것을 <span class="underline">해결(수정)</span>할 계획입니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 17 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Student starts</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>Tell your manager (tutor) that you missed a deadline. <span class="ko-sub block">매니저(튜터)에게 마감일을 놓쳤다고 말하세요.</span></li>
-                                <li>Apologize and say "I take full responsibility." <span class="ko-sub block">사과하고 "제가 전적으로 책임지겠습니다"라고 말하세요.</span></li>
-                                <li>Tell them your plan: You will stay late today to finish it. <span class="ko-sub block">당신의 계획을 말하세요: 오늘 야근을 해서라도 끝내겠다고 하세요.</span></li>
-                                <li>Assure them it won't happen again. <span class="ko-sub block">다시는 이런 일이 없을 것이라고 확신시켜 주세요.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why do some people hide their mistakes at work?</p>
-                        <p class="ko-sub">왜 직장에서 어떤 사람들은 자신의 실수를 숨길까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is the worst mistake a person can make in your job?</p>
-                        <p class="ko-sub">당신의 직무에서 사람이 할 수 있는 최악의 실수는 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How should a manager react when an employee makes a mistake?</p>
-                        <p class="ko-sub">직원이 실수를 했을 때 매니저는 어떻게 반응해야 할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you think saying "I'm sorry" is enough?</p>
-                        <p class="ko-sub">"죄송합니다"라고 말하는 것만으로 충분하다고 생각하시나요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I'm happy to discuss other dates if needed. <span class="kor-sub-text">(필요하다면 다른 날짜로 논의할 용의가 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I'll finish my tasks before I leave. <span class="kor-sub-text">(떠나기 전에 제 업무를 모두 마치겠습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Thank you for considering my request. <span class="kor-sub-text">(제 요청을 고려해 주셔서 감사합니다.)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Emphasize that proposing a solution is just as important as apologizing.</li>
-                    <li>Teach the word "oversight" as a professional way to say "careless mistake."</li>
-                    <li>Make sure they avoid overly emotional apologies; keep it professional.</li>
+    <!-- L17 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 17: Requesting Time Off - Practice</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Do you need something?<span class="kor-sub-text">(뭐 필요한 거 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes. I'd like to request some time off next Friday.<span class="kor-sub-text">(네. 다음 주 금요일에 휴가를 좀 내고 싶어서요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Okay. Is it urgent?<span class="kor-sub-text">(알겠어요. 급한 일인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">It's not urgent, and I can adjust the date if needed.<span class="kor-sub-text">(급한 건 아니에요. 필요하다면 날짜를 조정할 수도 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Thanks for asking early. I'll check the schedule.<span class="kor-sub-text">(일찍 물어봐 줘서 고마워요. 일정을 확인해 볼게요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Thank you. I appreciate it.<span class="kor-sub-text">(감사합니다. 정말 고마워요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I'd like to request <strong>_________________ on _________________ .</strong></li>
+            <li>Would it be possible to <strong>_________________ ?</strong></li>
+            <li>I can adjust the <strong>_________________ if needed.</strong></li>
+            <li>I'll make sure my <strong>_________________ is covered.</strong></li>
+            <li>Thank you for <strong>_________________ my request.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 가족 행사 때문에 이틀간의 휴가를 요청합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>How can I help you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I'd like to request <span class="blank" style="min-width: 120px;"></span> off.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Which days do you need?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Next Monday and Tuesday. I'll <span class="blank" style="min-width: 120px;"></span> my work early.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>That should be fine.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Great. <span class="blank" style="min-width: 120px;"></span> it!</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L17 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 17: Requesting Time Off - Wrap-up</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">How do you decide when to take a break?<span class="kor-sub-text">(언제 쉴지 어떻게 결정하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer long breaks or short ones?<span class="kor-sub-text">(긴 휴가와 짧은 휴가 중 무엇을 선호하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a workplace flexible and fair?<span class="kor-sub-text">(무엇이 직장을 유연하고 공정하게 만드나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3 sentences explaining a small mistake and how you will fix it.</p>
-                <p class="ko-sub">작은 실수를 설명하고 어떻게 해결할 것인지 3문장으로 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Push the student to mention Date + Flexibility.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach a respectful tone, not an apologetic one.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Practice giving a brief reason (family event, appointment).</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 18 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy mb-0">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 4</span>
-            <span class="text-ein-navy font-bold text-lg">Talking to Your Manager</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write a short time-off request in 3-4 sentences.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(3~4개 문장으로 된 짧은 휴가 요청서를 작성해 보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example: "I'd like to take next Wednesday off for a personal appointment. I'll finish my tasks by Tuesday."</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 18: Asking for Time Off</h1>
-        <p class="ko-sub mb-8 text-base">레슨 18: 휴가/반차 요청하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Request vacation days or personal time off politely from your manager.</p>
-            <p class="ko-sub">오늘의 목표: 매니저에게 정중하게 연차나 개인 휴가를 요청해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it easy to ask for time off in your company?</p>
-                        <p class="ko-sub">당신의 회사에서는 휴가를 요청하는 것이 쉬운 편인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How far in advance should you ask for vacation?</p>
-                        <p class="ko-sub">얼마나 일찍 휴가를 요청해야 할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What happens to your work when you go on vacation?</p>
-                        <p class="ko-sub">당신이 휴가를 가면 업무는 어떻게 되나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you check your emails when you are on vacation?</p>
-                        <p class="ko-sub">휴가 중에도 이메일을 확인하시나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">I'd like to request some time off.</p>
-                        <p class="ko-sub">휴가를 요청하고 싶습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could I take next Friday off?</p>
-                        <p class="ko-sub">다음 주 금요일에 쉬어도 될까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I have some personal matters to attend to.</p>
-                        <p class="ko-sub">처리해야 할 개인적인 일이 있습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I will make sure all my work is covered.</p>
-                        <p class="ko-sub">제 업무는 확실히 인수인계(처리) 해두겠습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm taking a half-day tomorrow.</p>
-                        <p class="ko-sub">내일 반차를 쓸 예정입니다.</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">Would it be possible to use my annual leave from the 10th to the 12th?</p>
-                        <p class="ko-sub">10일부터 12일까지 연차를 사용하는 것이 가능할까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I've asked John to cover for me while I'm away.</p>
-                        <p class="ko-sub">제가 없는 동안 존에게 업무를 대신 부탁해 두었습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I will be completely off the grid.</p>
-                        <p class="ko-sub">연락이 완전히 끊길 예정입니다(업무 연락 불가).</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 18: ASKING FOR SCHEDULE CHANGES
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 18</span>
+            <h1>Asking for Schedule Changes <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(일정/근무 시간 변경하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Discuss shift swaps or schedule changes politely.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 근무 교대나 일정 변경에 대해 정중하게 논의하기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=800&q=80" alt="Schedule Changes">
+            <p><i class="fa-solid fa-camera"></i> Photo: A team member reviewing a duty roster and asking for an adjustment.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 18 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever needed to change a shift or schedule?</p><p class="kor-text">(근무 시간이나 일정을 변경해야 했던 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you feel bad when asking for changes?</p><p class="kor-text">(일정 변경을 요청할 때 미안한 마음이 드나요?)</p></li>
+            <li><p class="eng-text">How important is flexibility at work?</p><p class="kor-text">(직장에서 유연성은 얼마나 중요한가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Would it be possible to change my shift?</span></p><p class="kor-text">(제 근무 시간을 변경하는 게 가능할까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could I swap shifts with ___?</span></p><p class="kor-text">(___와 근무를 바꿀 수 있을까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'm available after ___.</span></p><p class="kor-text">(___ 이후에 시간이 됩니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I have an appointment that day.</span></p><p class="kor-text">(그날 약속(예약)이 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Please let me know what works best.</span></p><p class="kor-text">(어떤 방법이 가장 좋을지 알려주세요.)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You want to take a 3-day vacation next month. You approach your manager to ask for permission.</p>
-                <p class="ko-sub">다음 달에 3일 휴가를 가고 싶습니다. 매니저에게 다가가 허락을 구합니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Hi, do you have a minute? I'd like to request some time off.</p>
-                        <p class="ko-sub">안녕하세요, 잠시 시간 되시나요? 휴가를 좀 요청하고 싶습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Sure, when were you thinking of taking leave?</p>
-                        <p class="ko-sub">네, 언제 휴가를 쓸 생각인가요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Would it be possible to take off from the 10th to the 12th next month?</p>
-                        <p class="ko-sub">다음 달 10일부터 12일까지 쉴 수 있을까요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Let me check the schedule. Yes, that should be fine. Who is covering your work?</p>
-                        <p class="ko-sub">일정을 좀 확인해 볼게요. 네, 괜찮을 것 같습니다. 업무는 누가 대신 맡나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I will make sure all my work is covered by Sarah before I leave.</p>
-                        <p class="ko-sub">제가 떠나기 전에 모든 업무를 사라가 맡을 수 있도록 확실히 해두겠습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Great. Please submit the form in the system.</p>
-                        <p class="ko-sub">좋아요. 시스템에 신청서를 제출해 주세요.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">I'd like to <span class="border-b-2 border-gray-400 w-24 inline-block"></span> some time off.</p>
-                    <p class="ko-sub">휴가를 <span class="underline">요청</span>하고 싶습니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Could I <span class="border-b-2 border-gray-400 w-24 inline-block"></span> next Friday off?</p>
-                    <p class="ko-sub">다음 주 금요일에 <span class="underline">쉬어도</span> 될까요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I have some personal <span class="border-b-2 border-gray-400 w-24 inline-block"></span> to attend to.</p>
-                    <p class="ko-sub">처리해야 할 개인적인 <span class="underline">문제(일)</span>이 있습니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I will make sure my work is <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">제 업무는 확실히 <span class="underline">커버(인수인계)</span> 되도록 하겠습니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 18 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Student starts</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>Tell your manager (tutor) you need to take a half-day tomorrow. <span class="ko-sub block">매니저(튜터)에게 내일 반차를 내야 한다고 말하세요.</span></li>
-                                <li>Explain briefly (e.g., doctor's appointment, family matter). <span class="ko-sub block">간단히 이유를 설명하세요 (예: 병원 진료, 가족 일).</span></li>
-                                <li>Manager says: "What about the afternoon meeting?" <span class="ko-sub block">매니저: "오후 회의는 어떡하고요?"</span></li>
-                                <li>Assure them that a coworker will cover for you. <span class="ko-sub block">동료가 당신을 대신할 것이라고 안심시키세요.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you think employees should have to give a reason for taking a vacation?</p>
-                        <p class="ko-sub">직원들이 휴가를 갈 때 이유를 말해야 한다고 생각하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is the perfect length for a vacation?</p>
-                        <p class="ko-sub">완벽한 휴가 기간은 며칠일까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it rude to call a coworker while they are on vacation?</p>
-                        <p class="ko-sub">휴가 중인 동료에게 전화를 거는 것은 무례한 일일까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you prepare before you leave for a long trip?</p>
-                        <p class="ko-sub">긴 여행을 떠나기 전 어떻게 준비를 하시나요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I can cover another shift if needed. <span class="kor-sub-text">(필요하다면 다른 타임을 대신 뛸 수 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I'm happy to help balance the schedule. <span class="kor-sub-text">(일정을 조율하는 데 기꺼이 돕겠습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Would another day be easier for the team? <span class="kor-sub-text">(다른 날이 팀에게 더 수월할까요?)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Teach the difference between "vacation" (longer trip) and "time off/leave" (general absence).</li>
-                    <li>Emphasize that providing a plan for their work ("My work is covered") is crucial for managers.</li>
-                    <li>Practice "take [day] off" and "half-day" terminology.</li>
+    <!-- L18 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 18: Schedule Changes - Practice</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Is there a problem with next week's schedule?<span class="kor-sub-text">(다음 주 일정에 무슨 문제 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I wanted to ask if it would be possible to change my shift on Thursday.<span class="kor-sub-text">(목요일 근무 시간을 변경할 수 있을지 여쭤보고 싶어서요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">What kind of change do you need?<span class="kor-sub-text">(어떤 식의 변경이 필요한가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I'm available after 2 p.m. that day because I have an appointment in the morning.<span class="kor-sub-text">(오전에 약속이 있어서 그날 오후 2시 이후부터 가능합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Okay, let me see what we can do.<span class="kor-sub-text">(알겠어요, 어떻게 할 수 있을지 한번 볼게요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Thank you. I appreciate it.<span class="kor-sub-text">(감사합니다. 정말 고마워요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Would it be possible to change my <strong>_________________ ?</strong></li>
+            <li>I'm available after <strong>_________________ .</strong></li>
+            <li>I wanted to let you know as <strong>_________________ as possible.</strong></li>
+            <li>Could I swap shifts with <strong>_________________ ?</strong></li>
+            <li>Please let me know what works <strong>_________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 병원 예약 때문에 다음 주 수요일 근무 시간을 1시간 미루고 싶어 합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Any issues with the schedule?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, could I <span class="blank" style="min-width: 120px;"></span> my start time?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>What time can you start?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I can start at <span class="blank" style="min-width: 120px;"></span> because of an appointment.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>No problem. I'll update it.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Thank you. <span class="blank" style="min-width: 120px;"></span>!</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L18 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 18: Schedule Changes - Wrap-up</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like fixed schedules or flexible schedules?<span class="kor-sub-text">(고정된 일정과 유연한 일정 중 무엇을 선호하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What time of day do you work best?<span class="kor-sub-text">(하루 중 언제 가장 일을 잘하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a manager good at scheduling?<span class="kor-sub-text">(어떤 점이 매니저를 스케줄 관리에 능숙하게 만드나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write a short email (3-4 sentences) requesting two days off next month.</p>
-                <p class="ko-sub">다음 달 이틀의 휴가를 요청하는 짧은 이메일(3-4문장)을 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Request structure: Request -> Reason -> Alternative -> Flexibility.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage the student to offer a solution, not just ask for a change.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Keep the tone practical and cooperative.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 19 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy mb-0">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 4</span>
-            <span class="text-ein-navy font-bold text-lg">Talking to Your Manager</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences asking for a schedule change.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(일정 변경을 요청하는 문장 3~4개를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example: "Would it be possible to start an hour later on Tuesday? I can stay later to cover my shift."</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 19: Discussing Workload</h1>
-        <p class="ko-sub mb-8 text-base">레슨 19: 업무량 조율하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Politely inform your manager that you have too much work and need help prioritizing.</p>
-            <p class="ko-sub">오늘의 목표: 매니저에게 정중하게 업무가 너무 많음을 알리고 우선순위 조율을 요청해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What do you do when you have too much work?</p>
-                        <p class="ko-sub">업무가 너무 많을 때 어떻게 하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it okay to say "no" to a manager?</p>
-                        <p class="ko-sub">매니저에게 "아니오(못합니다)"라고 말해도 괜찮은가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you decide which task is the most important?</p>
-                        <p class="ko-sub">어떤 업무가 가장 중요한지 어떻게 결정하나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you feel stressed when you have tight deadlines?</p>
-                        <p class="ko-sub">마감일이 촉박할 때 스트레스를 받으시나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">I have a lot on my plate right now.</p>
-                        <p class="ko-sub">지금 제게 일이 너무 많습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I'm feeling a bit overwhelmed.</p>
-                        <p class="ko-sub">업무가 조금 벅찹니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could we review my priorities?</p>
-                        <p class="ko-sub">제 업무 우선순위를 다시 검토할 수 있을까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Which task is the most urgent?</p>
-                        <p class="ko-sub">어떤 업무가 가장 시급한가요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I might not be able to finish all of this today.</p>
-                        <p class="ko-sub">오늘 이걸 다 끝내지 못할 수도 있습니다.</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">If I focus on this, I'll have to delay the other project.</p>
-                        <p class="ko-sub">이것에 집중하면 다른 프로젝트는 미뤄야 할 것 같습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Can we shift this deadline to next week?</p>
-                        <p class="ko-sub">이 마감일을 다음 주로 미룰 수 있을까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I want to ensure the quality doesn't drop.</p>
-                        <p class="ko-sub">품질이 떨어지지 않도록 확실히 하고 싶습니다.</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 19: DISCUSSING WORKLOAD
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 19</span>
+            <h1>Discussing Workload <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(업무량 및 우선순위 논의하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk to your manager about too much work or priorities.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 과도한 업무나 우선순위에 대해 매니저와 논의하기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80" alt="Discussing Workload">
+            <p><i class="fa-solid fa-camera"></i> Photo: A worker with many papers on the desk discussing priorities with a manager.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 19 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Is it easy to tell someone you are overloaded?</p><p class="kor-text">(업무가 너무 많다고 말하는 것이 쉬운가요?)</p></li>
+            <li><p class="eng-text">How do you know when your workload is too much?</p><p class="kor-text">(업무량이 너무 많다는 것을 어떻게 아나요?)</p></li>
+            <li><p class="eng-text">Why is prioritizing important?</p><p class="kor-text">(우선순위를 정하는 것이 왜 중요한가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I'm currently handling several tasks.</span></p><p class="kor-text">(현재 여러 가지 업무를 처리하고 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Which task should I prioritize?</span></p><p class="kor-text">(어떤 업무를 우선적으로 처리해야 할까요?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I may need more time for this.</span></p><p class="kor-text">(이 업무에는 시간이 더 필요할 것 같습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I want to focus on the right thing.</span></p><p class="kor-text">(중요한 일에 집중하고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Could we review the priorities?</span></p><p class="kor-text">(우선순위를 다시 검토해 볼 수 있을까요?)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">Your manager just gave you a new project, but you are already very busy. You need to discuss your priorities.</p>
-                <p class="ko-sub">매니저가 방금 새 프로젝트를 주었지만 당신은 이미 너무 바쁩니다. 우선순위에 대해 논의해야 합니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Hey, can you also take care of the monthly sales report by Friday?</p>
-                        <p class="ko-sub">이번 주 금요일까지 월간 영업 보고서도 좀 맡아주실 수 있나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I'd love to help, but I have a lot on my plate right now with the new system launch.</p>
-                        <p class="ko-sub">돕고 싶지만, 지금 새로운 시스템 런칭 때문에 제게 일이 너무 많습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I see. Both are very important.</p>
-                        <p class="ko-sub">그렇군요. 둘 다 매우 중요한 일인데요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Could we review my priorities? Which task is the most urgent?</p>
-                        <p class="ko-sub">제 우선순위를 다시 검토할 수 있을까요? 어떤 업무가 가장 시급한가요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Focus on the system launch first. The report can wait until Monday.</p>
-                        <p class="ko-sub">시스템 런칭에 먼저 집중하세요. 보고서는 월요일까지 기다릴 수 있습니다.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Thank you for understanding. That takes the pressure off.</p>
-                        <p class="ko-sub">이해해 주셔서 감사합니다. 덕분에 부담이 줄었네요.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">I have a lot on my <span class="border-b-2 border-gray-400 w-24 inline-block"></span> right now.</p>
-                    <p class="ko-sub">지금 제게 <span class="underline">일(접시)</span>이 너무 많습니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I'm feeling a bit <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">업무가 조금 <span class="underline">벅찹니다</span>.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Could we review my <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">제 <span class="underline">우선순위</span>를 다시 검토할 수 있을까요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">Which task is the most <span class="border-b-2 border-gray-400 w-24 inline-block"></span>?</p>
-                    <p class="ko-sub">어떤 업무가 가장 <span class="underline">시급한가요</span>?</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 19 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Tutor starts</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>Manager: "Can you design three new banners by tomorrow?" <span class="ko-sub block">매니저: "내일까지 새 배너 3개를 디자인해 줄 수 있나요?"</span></li>
-                                <li>Say you are feeling overwhelmed with current projects. <span class="ko-sub block">현재 진행 중인 프로젝트들 때문에 너무 벅차다고 말하세요.</span></li>
-                                <li>Ask your manager to review your priorities. <span class="ko-sub block">매니저에게 우선순위를 재검토해 달라고 요청하세요.</span></li>
-                                <li>Agree to do one banner tomorrow and the rest next week. <span class="ko-sub block">내일 배너 1개를 하고 나머지는 다음 주에 하는 것으로 합의하세요.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why are people afraid to tell their boss they have too much work?</p>
-                        <p class="ko-sub">왜 사람들은 보스에게 일이 너무 많다고 말하는 것을 두려워할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What is a sign of burnout?</p>
-                        <p class="ko-sub">번아웃의 징후는 무엇인가요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you stay organized when you are busy?</p>
-                        <p class="ko-sub">바쁠 때 일정을 어떻게 정리하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it better to do many tasks poorly, or few tasks perfectly?</p>
-                        <p class="ko-sub">많은 일을 대충 하는 것과 적은 일을 완벽하게 하는 것 중 어느 것이 낫나요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">The workload is heavier than expected. <span class="kor-sub-text">(업무량이 예상보다 많습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">What would you like me to focus on first? <span class="kor-sub-text">(제가 무엇에 먼저 집중하길 원하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I want to manage this properly. <span class="kor-sub-text">(이 일을 제대로 관리(수행)하고 싶습니다.)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Teach learners that negotiating workload is a professional skill, not complaining.</li>
-                    <li>Emphasize the phrase "review my priorities" – it shifts the burden of deciding to the manager.</li>
-                    <li>Practice confident but respectful tone.</li>
+    <!-- L19 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 19: Discussing Workload - Practice</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">How are things going today?<span class="kor-sub-text">(오늘 일은 어떻게 되어가나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I'm currently handling several tasks, and I want to make sure I'm focusing on the right thing.<span class="kor-sub-text">(현재 여러 업무를 처리 중인데, 중요한 일에 집중하고 있는지 확인하고 싶습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Okay. What's on your list?<span class="kor-sub-text">(알겠어요. 리스트에 뭐가 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I need to finish the report, reply to emails, and update the system.<span class="kor-sub-text">(보고서 작성, 이메일 답장, 시스템 업데이트를 해야 합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">The report is the top priority.<span class="kor-sub-text">(보고서 작성이 최우선 순위입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Got it. I'll focus on that first.<span class="kor-sub-text">(알겠습니다. 그것부터 먼저 집중할게요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I'm currently handling several <strong>_________________ .</strong></li>
+            <li>Which task should I <strong>_________________ first?</strong></li>
+            <li>I may need more <strong>_________________ for this task.</strong></li>
+            <li>Could we review the <strong>_________________ ?</strong></li>
+            <li>I want to focus on the <strong>_________________ thing.</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 세 가지 다른 프로젝트를 동시에 진행 중이며, 무엇을 먼저 끝낼지 묻습니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Are you making progress?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, but the workload is <span class="blank" style="min-width: 120px;"></span> than expected.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Which part is taking the most time?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>The data entry. Which task should I <span class="blank" style="min-width: 120px;"></span>?</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Finish the entry first.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Understood. I'll <span class="blank" style="min-width: 120px;"></span> on that.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 19: Discussing Workload - Wrap-up</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">What kind of workload helps you stay motivated?<span class="kor-sub-text">(어떤 정도의 업무량이 당신의 동기부여에 도움이 되나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you manage stress when work piles up?<span class="kor-sub-text">(일이 쌓일 때 스트레스를 어떻게 관리하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What tools help you stay organized?<span class="kor-sub-text">(업무를 체계적으로 관리하는 데 어떤 도구가 도움이 되나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write 3 polite sentences telling a manager that your plate is full.</p>
-                <p class="ko-sub">매니저에게 지금 일이 너무 많다고 정중하게 알리는 3문장을 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• This lesson is about prioritization, not complaining.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage neutral language: 'heavier than expected' works well.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• If the learner is too vague, ask for 2-3 concrete tasks.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-
-    <!-- ==========================================
-         LESSON 20 - Page 1
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy mb-0">
-        <!-- Header -->
-        <div class="flex items-center gap-3 mb-6">
-            <span class="bg-ein-emerald text-white px-3 py-1 text-sm font-bold rounded-full">Week 4</span>
-            <span class="text-ein-navy font-bold text-lg">Talking to Your Manager</span>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write a short message asking your manager to review your priorities.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(우선순위 검토를 요청하는 짧은 메시지를 작성해 보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example: "I'm currently working on three projects. Could we review the priorities for this week?"</p>
+            </div>
         </div>
         
-        <h1 class="text-4xl font-black text-gray-900 mb-2">Lesson 20: Asking for a Deadline Extension</h1>
-        <p class="ko-sub mb-8 text-base">레슨 20: 마감일 연장 요청하기</p>
-
-        <!-- Goal -->
-        <div class="bg-ein-lightblue border-l-4 border-ein-navy p-5 mb-8 rounded-r-lg">
-            <h3 class="font-bold text-ein-navy text-lg mb-1">Today's Goal</h3>
-            <p class="text-gray-800 text-lg font-medium">Politely ask your manager for more time to finish a task.</p>
-            <p class="ko-sub">오늘의 목표: 업무를 끝내기 위해 매니저에게 정중하게 마감일 연장을 요청해 보세요.</p>
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Warm-up -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Warm-up</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Have you ever missed a deadline?</p>
-                        <p class="ko-sub">마감일을 놓쳐본 적이 있나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why do projects usually get delayed?</p>
-                        <p class="ko-sub">프로젝트는 보통 왜 지연될까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Is it better to ask for an extension early or right before the deadline?</p>
-                        <p class="ko-sub">연장 요청은 일찍 하는 것이 좋나요, 아니면 마감일 직전에 하는 것이 좋나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">Q.</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you feel when you ask for more time?</p>
-                        <p class="ko-sub">시간을 더 달라고 요청할 때 어떤 기분이 드나요?</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
 
-        <!-- Key Expressions -->
-        <div>
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Key Expressions</h3>
-            <div class="grid grid-cols-2 gap-0 border-2 border-ein-navy rounded-xl overflow-hidden">
-                <div class="bg-ein-navy text-white text-center py-3 font-bold text-lg">Core (Must-use)<br><span class="text-xs font-normal text-blue-200">필수 표현</span></div>
-                <div class="bg-blue-100 text-ein-navy text-center py-3 font-bold text-lg">Upgrade (Optional)<br><span class="text-xs font-normal text-blue-600">고급 표현</span></div>
-                
-                <div class="p-5 border-r border-gray-200 space-y-4">
-                    <div>
-                        <p class="text-gray-800 font-medium">Could we push back the deadline?</p>
-                        <p class="ko-sub">마감일을 미룰 수 있을까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I need a bit more time to finish.</p>
-                        <p class="ko-sub">마무리할 시간이 조금 더 필요합니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I ran into an unexpected issue.</p>
-                        <p class="ko-sub">예상치 못한 문제에 부딪혔습니다.</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Could I have until Friday?</p>
-                        <p class="ko-sub">금요일까지 기한을 주실 수 있을까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">It's taking longer than I thought.</p>
-                        <p class="ko-sub">생각보다 시간이 더 걸리고 있습니다.</p>
-                    </div>
-                </div>
-                
-                <div class="p-5 space-y-4 bg-gray-50">
-                    <div>
-                        <p class="text-gray-800 font-medium">Would it be possible to get an extension?</p>
-                        <p class="ko-sub">기한 연장이 가능할까요?</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">I don't want to compromise on quality.</p>
-                        <p class="ko-sub">품질과 타협하고 싶지 않습니다(대충 하고 싶지 않습니다).</p>
-                    </div>
-                    <div>
-                        <p class="text-gray-800 font-medium">Thank you for being flexible.</p>
-                        <p class="ko-sub">유연하게 대처해주셔서 감사합니다.</p>
-                    </div>
-                </div>
+    <!-- ==========================================
+         LESSON 20: RECEIVING INSTRUCTIONS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 20</span>
+            <h1>Receiving Instructions <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(지시 및 업무 전달 받기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Respond professionally when your manager gives directions.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 매니저가 지시를 내릴 때 전문적으로 대응하기)</span></span>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80" alt="Receiving Instructions">
+            <p><i class="fa-solid fa-camera"></i> Photo: A manager explaining a new project to an attentive employee taking notes.</p>
+        </div>
 
-    <!-- ==========================================
-         LESSON 20 - Page 2
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How do you react when priorities suddenly change?</p><p class="kor-text">(우선순위가 갑자기 바뀔 때 어떻게 반응하시나요?)</p></li>
+            <li><p class="eng-text">Do you confirm instructions right away?</p><p class="kor-text">(지시 사항을 즉시 확인하시나요?)</p></li>
+            <li><p class="eng-text">What makes instructions easy to follow?</p><p class="kor-text">(어떤 점이 지시 사항을 따르기 쉽게 만드나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">Understood. / Got it.</span></p><p class="kor-text">(이해했습니다. / 확인했습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'll take care of that.</span></p><p class="kor-text">(제가 처리하겠습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Just to confirm, you'd like me to ___.</span></p><p class="kor-text">(확인차 여쭤보는데, 제가 ___ 하길 원하시는 거죠?)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'll get started right away.</span></p><p class="kor-text">(지금 바로 시작하겠습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'll let you know when it's done.</span></p><p class="kor-text">(완료되면 알려드릴게요.)</p></li>
+            </ul>
+        </div>
         
-        <!-- Workplace Scenario -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Workplace Scenario</h3>
-            <div class="bg-gray-100 p-5 rounded-lg border-l-4 border-gray-400">
-                <p class="text-gray-800 text-lg">You are writing a complex report due tomorrow, but you need more time. You approach your manager.</p>
-                <p class="ko-sub">내일이 마감인 복잡한 보고서를 작성 중인데 시간이 더 필요합니다. 매니저에게 다가갑니다.</p>
-            </div>
-        </div>
-
-        <!-- Model Dialogue -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Model Dialogue</h3>
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm space-y-5">
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Hi, could we talk about the marketing report for a second?</p>
-                        <p class="ko-sub">안녕하세요, 마케팅 보고서에 대해 잠시 이야기할 수 있을까요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Sure. Is it ready for tomorrow?</p>
-                        <p class="ko-sub">네. 내일 제출 준비 다 됐나요?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Well, I ran into an unexpected issue with the data. It's taking longer than I thought.</p>
-                        <p class="ko-sub">그게요, 데이터와 관련해 예상치 못한 문제가 발생했습니다. 생각보다 시간이 더 걸리네요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">I see. How much more time do you need?</p>
-                        <p class="ko-sub">그렇군요. 시간이 얼마나 더 필요하죠?</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-emerald w-20 shrink-0">Student</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Could we push back the deadline to Friday? I want to make sure it's accurate.</p>
-                        <p class="ko-sub">마감일을 금요일로 미룰 수 있을까요? 정확하게 작성하고 싶어서요.</p>
-                    </div>
-                </div>
-                <div class="flex gap-4">
-                    <div class="font-bold text-ein-navy w-20 shrink-0">Tutor</div>
-                    <div>
-                        <p class="text-gray-800 text-lg">Alright, Friday morning is fine. Let me know if you need help.</p>
-                        <p class="ko-sub">알겠습니다, 금요일 아침이면 좋습니다. 도움이 필요하면 말하세요.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Guided Practice -->
-        <div class="mb-6">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Guided Practice</h3>
-            <p class="text-gray-600 mb-4">Fill in the blanks. <span class="ko-sub inline-block ml-1">(빈칸을 채워보세요.)</span></p>
-            <div class="bg-gray-50 border border-gray-200 rounded-xl p-6 space-y-5">
-                <div>
-                    <p class="text-gray-800 text-lg">Could we <span class="border-b-2 border-gray-400 w-24 inline-block"></span> the deadline?</p>
-                    <p class="ko-sub">마감일을 <span class="underline">미룰</span> 수 있을까요?</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I need a bit more <span class="border-b-2 border-gray-400 w-24 inline-block"></span> to finish.</p>
-                    <p class="ko-sub">끝내려면 약간의 <span class="underline">시간</span>이 더 필요합니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">I ran into an unexpected <span class="border-b-2 border-gray-400 w-24 inline-block"></span>.</p>
-                    <p class="ko-sub">예상치 못한 <span class="underline">문제(이슈)</span>에 부딪혔습니다.</p>
-                </div>
-                <div>
-                    <p class="text-gray-800 text-lg">It's taking <span class="border-b-2 border-gray-400 w-24 inline-block"></span> than I thought.</p>
-                    <p class="ko-sub">생각했던 것보다 <span class="underline">오래</span> 걸리고 있습니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
-    </div>
-
-    <!-- ==========================================
-         LESSON 20 - Page 3
-    =========================================== -->
-    <div class="a4-page border-t-[16px] border-ein-navy">
-
-        <!-- Role-play -->
-        <div class="mb-10 mt-4">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Role-play</h3>
-            <div class="bg-ein-lightblue border border-blue-200 rounded-xl p-6">
-                <div class="flex flex-col gap-4">
-                    <div class="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm">
-                        <div class="font-bold text-ein-navy w-24 shrink-0 text-center">Student starts</div>
-                        <div class="text-gray-800">
-                            <ul class="list-disc pl-5 space-y-2 font-medium">
-                                <li>Tell your manager (tutor) that the client presentation is taking longer than expected. <span class="ko-sub block">매니저(튜터)에게 고객 프레젠테이션 준비가 예상보다 오래 걸린다고 말하세요.</span></li>
-                                <li>Explain briefly (e.g., waiting for photos from design team). <span class="ko-sub block">이유를 간단히 설명하세요 (예: 디자인 팀의 사진을 기다리고 있음).</span></li>
-                                <li>Ask politely to push back the deadline to Wednesday. <span class="ko-sub block">수요일로 마감일을 미뤄줄 수 있는지 정중하게 요청하세요.</span></li>
-                                <li>Thank your manager when they agree. <span class="ko-sub block">매니저가 동의하면 감사를 표하세요.</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Talk More -->
-        <div class="mb-10">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Talk More (Free Talking Bridge)</h3>
-            <ul class="space-y-4">
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Why is it important to ask for an extension *before* the deadline passes?</p>
-                        <p class="ko-sub">마감일이 지나기 전에 연장 요청을 하는 것이 왜 중요할까요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">How do you handle a situation if the manager says "No, you can't have an extension"?</p>
-                        <p class="ko-sub">매니저가 "안 돼, 기한 연장은 불가해"라고 말한다면 상황을 어떻게 대처하시겠습니까?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">What tricks do you use to meet tight deadlines?</p>
-                        <p class="ko-sub">촉박한 마감일을 맞추기 위해 어떤 요령을 사용하시나요?</p>
-                    </div>
-                </li>
-                <li class="flex gap-3">
-                    <span class="text-ein-emerald font-bold">•</span>
-                    <div>
-                        <p class="text-gray-800 text-lg">Do you think working late every day is a sign of hard work or bad time management?</p>
-                        <p class="ko-sub">매일 야근하는 것이 열심히 일하는 증거라고 생각하시나요, 아니면 시간 관리를 못하는 것이라고 생각하시나요?</p>
-                    </div>
-                </li>
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade (Professional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I can have that ready by ___. <span class="kor-sub-text">(___까지 준비해 놓을 수 있습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Would you like this by email or in person? <span class="kor-sub-text">(이메일로 드릴까요, 직접 드릴까요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Is there anything else you'd like me to do? <span class="kor-sub-text">(그 밖에 제가 해야 할 다른 일이 있을까요?)</span></p></li>
             </ul>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
 
-        <!-- Tutor Tip -->
-        <div class="mb-8">
-            <h3 class="font-bold text-xl text-orange-500 mb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                Tutor Tip
-            </h3>
-            <div class="bg-orange-50 p-5 rounded-lg border-l-4 border-orange-400 text-gray-700">
-                <ul class="list-disc pl-5 space-y-1">
-                    <li>Teach the phrasal verb "push back" (delay) vs. "bring forward" (make earlier).</li>
-                    <li>Guide the learner to state the reason *before* asking for the extension to soften the request.</li>
-                    <li>Make sure they propose a new specific date/time instead of just asking for "more time."</li>
+    <!-- L20 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 20: Receiving Instructions - Practice</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">I need you to update the weekly report before lunch.<span class="kor-sub-text">(점심 전까지 주간 보고서를 업데이트해 주세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Understood. Just to confirm, you'd like me to update the report and send it before lunch, right?<span class="kor-sub-text">(이해했습니다. 확인차 여쭤보는데, 보고서를 업데이트해서 점심 전까지 보내라는 말씀이시죠?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Yes, exactly.<span class="kor-sub-text">(네, 정확합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Great. I'll get started right away.<span class="kor-sub-text">(좋습니다. 지금 바로 시작하겠습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Manager</div><div class="text">Thanks. Let me know when it's done.<span class="kor-sub-text">(고마워요. 다 되면 알려주세요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Sure, I will.<span class="kor-sub-text">(네, 그럴게요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>Understood. I'll take care of <strong>_________________ .</strong></li>
+            <li>Just to confirm, you'd like me to <strong>_________________ .</strong></li>
+            <li>I'll get started <strong>_________________ away.</strong></li>
+            <li>I'll let you know when it's <strong>_________________ .</strong></li>
+            <li>I can have that ready by <strong>_________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 매니저가 내일 회의를 위한 자료 준비를 요청합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Can you prepare the presentation for tomorrow?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 120px;"></span>. I'll take care of it.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>I need it by 4 PM today.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I can have that <span class="blank" style="min-width: 120px;"></span> by 4.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Manager</span><br>Send it via email when you're done.</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Sure. I'll let you <span class="blank" style="min-width: 120px;"></span>!</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN WORKPLACE SURVIVAL ENGLISH</span>
+            <h1>LESSON 20: Receiving Instructions - Wrap-up</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you like clear deadlines?<span class="kor-sub-text">(명확한 마감 기한이 있는 것을 좋아하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you stay organized when priorities change?<span class="kor-sub-text">(우선순위가 바뀔 때 어떻게 체계적으로 대응하시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer verbal or written directions?<span class="kor-sub-text">(구두 지시와 서면 지시 중 무엇을 선호하시나요?)</span></p></li>
                 </ul>
             </div>
-        </div>
-
-        <!-- Homework -->
-        <div class="mt-auto">
-            <h3 class="font-bold text-2xl text-ein-navy mb-4 border-b-2 border-gray-100 pb-2">Homework</h3>
-            <div class="bg-gray-100 p-5 rounded-lg">
-                <p class="text-gray-800 text-lg font-medium">Write a short message to your boss asking to push back a deadline.</p>
-                <p class="ko-sub">보스에게 마감일을 연장해 달라고 요청하는 짧은 메시지를 작성해 보세요.</p>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Build clean response habits: Understood / Got it.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Push the student to repeat back the instruction (Confirmation).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Teach confident short responses.</p>
+                </div>
             </div>
         </div>
 
-        <div class="footer-copyright">&copy; 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences responding to a manager's new instruction.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(매니저의 새로운 지시에 대응하는 문장 3~4개를 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">Example: "Understood. I'll update the client file and send it to you by 3 PM. I'll get started right away."</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 4! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
 <script src="../tts.js"></script>
