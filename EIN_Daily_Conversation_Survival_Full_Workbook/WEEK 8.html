@@ -3,1096 +3,770 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EIN Daily Conversation Survival - Week 8</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>EIN English - Survival Week 8</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        /* Base Color Palette */
         :root {
-            --ein-navy: #1e3a8a;
-            --ein-emerald: #059669;
-            --ein-lightblue: #eff6ff;
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+            --alert: #ef4444; /* Red */
+            --alert-light: #fef2f2;
         }
-        body {
-            background-color: #e5e7eb;
-            font-family: 'Noto Sans KR', sans-serif;
-            color: #1f2937;
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
         }
-        /* A4 Page Styling */
-        .a4-page {
-            width: 210mm;
-            min-height: 297mm;
-            height: auto;
-            margin: 20px auto;
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
             background: white;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            padding: 20mm;
-            box-sizing: border-box;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
             display: flex;
             flex-direction: column;
-            position: relative;
-            break-after: page;
             page-break-after: always;
         }
-        @media print {
-            body { background-color: white; margin: 0; }
-            .a4-page {
-                margin: 0;
-                box-shadow: none;
-                width: 210mm;
-                min-height: 297mm;
-                padding: 15mm 20mm;
-            }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
         }
-        
-        /* Typography & Colors */
-        .text-navy { color: var(--ein-navy); }
-        .text-emerald { color: var(--ein-emerald); }
-        .bg-navy { background-color: var(--ein-navy); }
-        .bg-emerald { background-color: var(--ein-emerald); }
-        .bg-lightblue { background-color: var(--ein-lightblue); }
-        .border-emerald { border-color: var(--ein-emerald); }
-        .border-navy { border-color: var(--ein-navy); }
-        
-        /* Bilingual Translation Style */
-        .kr-trans {
-            color: #6b7280;
-            font-size: 0.85rem;
-            font-weight: 400;
-            margin-top: 2px;
-            margin-bottom: 12px;
-            display: block;
-            line-height: 1.4;
-        }
-        
-        /* Content Blocks */
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: bold;
-            color: var(--ein-navy);
-            margin-bottom: 0.5rem;
-            margin-top: 1.5rem;
-            border-left: 4px solid var(--ein-emerald);
-            padding-left: 10px;
-        }
-        .question-list {
-            list-style-type: decimal;
-            padding-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        .question-list li {
-            margin-bottom: 0.5rem;
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
             font-weight: 500;
         }
+
+        /* Headers */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
         
-        /* Footer */
-        .page-footer {
-            margin-top: auto;
-            text-align: center;
-            color: #9ca3af;
-            font-size: 0.75rem;
-            padding-top: 20px;
-            border-top: 1px solid #e5e7eb;
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Conflict Scenario Alert */
+        .alert-box { background: var(--alert-light); border-left: 4px solid var(--alert); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #991b1b; font-weight: 700; font-size: 17px; margin-bottom: 25px; margin-top: 15px;}
+        .alert-box i { font-size: 24px; color: var(--alert); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        h2 { font-size: 19px; color: var(--text-title); margin: 30px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 34px; height: 34px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 15px; flex-shrink: 0;}
+        
+        .eng-text { font-size: 16.5px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Cards */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif;}
+        
+        .review-card { border: 1px solid var(--border); border-top: 4px solid var(--secondary); background: #f8fafc; border-radius: 12px; padding: 20px 25px; margin-top: 25px;}
+        .review-card h3 { font-size: 17px; color: var(--text-title); font-family: 'Poppins', sans-serif; margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px;}
+        .review-list { list-style: none; padding: 0; margin: 0; }
+        .review-list li { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center;}
+        .review-list li span { flex-shrink: 0; }
+        .review-line { flex-grow: 1; border-bottom: 1.5px solid #cbd5e1; margin-left: 10px; height: 20px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 58px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 26px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ================= LESSON 36 : PAGE 1 ================= -->
-    <div class="a4-page">
-        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
-            Week 8 - Life Choices and Reflection
-        </div>
-        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 36 - Living Abroad
-            <span class="kr-trans text-lg mt-1">레슨 36 - 해외 거주</span>
-        </h1>
-
-        <!-- Goal & Photo Prompt -->
-        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
-            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
-            <p class="font-medium text-gray-800">Discuss living in foreign countries, cultural differences, and adapting to new environments.</p>
-            <span class="kr-trans">외국에서의 거주, 문화적 차이, 그리고 새로운 환경에 적응하는 것에 대해 토론합니다.</span>
-            
-            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
-            <p class="text-gray-800 italic">"A person standing with a suitcase, looking at a map in a busy foreign city street."</p>
-            <span class="kr-trans">"외국의 바쁜 거리에서 여행 가방을 들고 서서 지도를 보고 있는 사람의 모습입니다."</span>
-        </div>
-
-        <!-- Warm-up -->
-        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
-        <ol class="question-list">
-            <li>Have you ever lived in another country?
-                <span class="kr-trans">다른 나라에 살아본 적이 있나요?</span>
-            </li>
-            <li>Would you like to live abroad in the future?
-                <span class="kr-trans">미래에 해외에서 살고 싶나요?</span>
-            </li>
-            <li>What country do you want to experience living in?
-                <span class="kr-trans">어느 나라에서 사는 것을 경험해 보고 싶나요?</span>
-            </li>
-            <li>What is the hardest part of moving to a new place?
-                <span class="kr-trans">새로운 곳으로 이사할 때 가장 힘든 점은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <!-- Observation Questions -->
-        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
-        <ol class="question-list">
-            <li>What do you notice first in the picture?
-                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
-            </li>
-            <li>How many people can you see, and what are they doing?
-                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
-            </li>
-            <li>What objects or details stand out to you?
-                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
-            </li>
-            <li>What looks most important in this scene?
-                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 8</div>
+        <h1>Future & Reflection</h1>
+        <h2>Daily Conversation Survival (A2-B1)</h2>
+        <p style="font-size: 18px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 36: Setting Daily Goals<br>
+            Lesson 37: Learning a New Skill<br>
+            Lesson 38: Making a Big Decision<br>
+            Lesson 39: Overcoming Challenges<br>
+            Lesson 40: What Matters Most
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ================= LESSON 36 : PAGE 2 ================= -->
-    <div class="a4-page">
-        <!-- Description Questions -->
-        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
-        <ol class="question-list">
-            <li>Where do you think this scene is taking place?
-                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
-            </li>
-            <li>What kind of atmosphere does this place have?
-                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
-            </li>
-            <li>What time of day do you think it is?
-                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
-            </li>
-            <li>How would you describe the mood of the people in the picture?
-                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
-            </li>
-        </ol>
-
-        <!-- Personal Questions -->
-        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
-        <ol class="question-list">
-            <li>What would you miss most about your home country?
-                <span class="kr-trans">고국에서 가장 그리울 것 같은 것은 무엇인가요?</span>
-            </li>
-            <li>Do you like learning new languages?
-                <span class="kr-trans">새로운 언어를 배우는 것을 좋아하나요?</span>
-            </li>
-            <li>Have you ever experienced culture shock?
-                <span class="kr-trans">문화 충격을 경험해 본 적이 있나요?</span>
-            </li>
-            <li>What Korean food would you crave the most?
-                <span class="kr-trans">어떤 한국 음식이 가장 먹고 싶을까요?</span>
-            </li>
-            <li>How would you make new friends in a foreign country?
-                <span class="kr-trans">외국에서 어떻게 새로운 친구를 사귈 건가요?</span>
-            </li>
-        </ol>
-
-        <!-- Opinion Questions -->
-        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
-        <ol class="question-list">
-            <li>Why do people choose to leave their home country?
-                <span class="kr-trans">사람들은 왜 고국을 떠나기로 결정할까요?</span>
-            </li>
-            <li>Does living abroad change a person's personality?
-                <span class="kr-trans">해외 거주가 사람의 성격을 바꿀까요?</span>
-            </li>
-            <li>What are the biggest benefits of experiencing a different culture?
-                <span class="kr-trans">다른 문화를 경험할 때의 가장 큰 이점은 무엇인가요?</span>
-            </li>
-            <li>Is it better to stay in one place or move around the world?
-                <span class="kr-trans">한 곳에 머무는 것과 전 세계를 돌아다니는 것 중 어느 것이 더 좋을까요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 36 : PAGE 3 ================= -->
-    <div class="a4-page">
-        <!-- Hypothesis & Conflict -->
-        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
-        
-        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
-            <p class="font-medium text-gray-800">You moved abroad for a job, but after three months, you feel very homesick and want to go back.</p>
-            <span class="kr-trans">직장 때문에 해외로 이사했지만, 3개월 후 향수병이 너무 심해져서 돌아가고 싶어집니다.</span>
-            
-            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
-            <ol class="list-decimal pl-5 text-gray-800 font-medium">
-                <li>What would you do to overcome the homesickness?
-                    <span class="kr-trans">향수병을 극복하기 위해 무엇을 하겠습니까?</span>
-                </li>
-                <li>Would you quit the job and return, or try to stay longer?
-                    <span class="kr-trans">일을 그만두고 돌아가시겠습니까, 아니면 더 머물려고 노력하시겠습니까?</span>
-                </li>
-                <li>Who would you call for advice?
-                    <span class="kr-trans">조언을 구하기 위해 누구에게 전화하겠습니까?</span>
-                </li>
-            </ol>
+    <!-- ==========================================
+         LESSON 36: SETTING DAILY GOALS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <span class="badge">WEEK 8 • LESSON 36</span>
+            <h1>Setting Daily Goals <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(일일 목표 세우기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Discuss daily planning, goal setting, and dealing with minor setbacks.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(일일 계획, 목표 설정, 그리고 작은 실패에 대처하는 법 논의하기)</span></span>
+            </div>
         </div>
 
-        <!-- Role-play -->
-        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
-            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
-            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                <tbody>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Do you want to live abroad someday?<br><span class="kr-trans mb-0">언젠가 해외에 살고 싶나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Yes, I want to live in Canada for a year.<br><span class="kr-trans mb-0">네, 1년 정도 캐나다에서 살아보고 싶어요.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">What would you do there?<br><span class="kr-trans mb-0">그곳에서 무엇을 할 건가요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I would study English, work part-time, and travel.<br><span class="kr-trans mb-0">영어를 공부하고, 아르바이트를 하며, 여행을 할 거예요.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Wouldn't you miss your family and friends?<br><span class="kr-trans mb-0">가족과 친구들이 그립지 않을까요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I would, but I can video call them often.<br><span class="kr-trans mb-0">그렇겠지만, 자주 영상 통화를 할 수 있으니까요.</span></td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1506784365847-bbad939e9335?auto=format&fit=crop&w=800&q=80" alt="Setting Goals">
+            <p><i class="fa-solid fa-camera"></i> Photo: A close-up of someone writing in a daily planner with a pen, coffee, and a neat desk.</p>
         </div>
 
-        <!-- Talk More & Homework -->
-        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
-        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
-            <li>What makes a country an ideal place to live?<br><span class="kr-trans">어떤 국가를 살기 이상적인 곳으로 만드는 요소는 무엇인가요?</span></li>
-            <li>How can expats(foreigners) blend into the local community?<br><span class="kr-trans">외국인들이 지역 사회에 어떻게 융화될 수 있을까요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-bullseye"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you plan your day in the morning?</p><p class="kor-text">(아침에 하루 계획을 세우는 편인가요?)</p></li>
+            <li><p class="eng-text">Do you use a paper planner or a smartphone app?</p><p class="kor-text">(종이 플래너를 쓰나요, 아니면 스마트폰 앱을 쓰나요?)</p></li>
+            <li><p class="eng-text">What is one small goal you have for today?</p><p class="kor-text">(오늘의 작은 목표 한 가지는 무엇인가요?)</p></li>
+            <li><p class="eng-text">Are you good at finishing your to-do lists?</p><p class="kor-text">(할 일 목록을 잘 끝내는 편인가요?)</p></li>
         </ul>
 
-        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
-            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
-            <p class="font-medium text-gray-800">Write 4-5 sentences about the pros and cons of living abroad.</p>
-            <span class="kr-trans mb-0">해외 거주의 장단점에 대해 4-5문장으로 써보세요.</span>
-        </div>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-eye"></i></div> 2. Observation Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(사진 관찰)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is the person in the picture writing?</p><p class="kor-text">(사진 속 인물은 무엇을 적고 있나요?)</p></li>
+            <li><p class="eng-text">Does the desk look organized or messy?</p><p class="kor-text">(책상이 잘 정돈되어 보이나요, 지저분해 보이나요?)</p></li>
+            <li><p class="eng-text">How does writing things down help people?</p><p class="kor-text">(글로 적는 것이 사람들에게 어떻게 도움이 될까요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ================= LESSON 37 : PAGE 1 ================= -->
-    <div class="a4-page">
-        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
-            Week 8 - Life Choices and Reflection
-        </div>
-        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 37 - Big Decisions
-            <span class="kr-trans text-lg mt-1">레슨 37 - 중대한 결정</span>
-        </h1>
-
-        <!-- Goal & Photo Prompt -->
-        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
-            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
-            <p class="font-medium text-gray-800">Talk about making life choices, weighing options, and dealing with uncertainty.</p>
-            <span class="kr-trans">인생의 선택, 옵션의 저울질, 그리고 불확실성에 대처하는 방법에 대해 이야기합니다.</span>
-            
-            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
-            <p class="text-gray-800 italic">"A person sitting at a desk, looking thoughtfully at two different paths or lists of options on a paper."</p>
-            <span class="kr-trans">"책상에 앉아 종이에 적힌 두 가지 다른 진로나 선택지 목록을 생각에 잠겨 바라보는 사람의 모습입니다."</span>
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 36: Setting Daily Goals - Personal & Opinion</h1>
         </div>
 
-        <!-- Warm-up -->
-        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
-        <ol class="question-list">
-            <li>Are you good at making decisions?
-                <span class="kr-trans">당신은 결정을 잘 내리는 편인가요?</span>
-            </li>
-            <li>What was the last big decision you made?
-                <span class="kr-trans">가장 최근에 내린 큰 결정은 무엇이었나요?</span>
-            </li>
-            <li>Do you ask others for advice before deciding?
-                <span class="kr-trans">결정하기 전에 다른 사람들에게 조언을 구하나요?</span>
-            </li>
-            <li>Do you trust your intuition(gut feeling)?
-                <span class="kr-trans">당신의 직감을 믿는 편인가요?</span>
-            </li>
-        </ol>
-
-        <!-- Observation Questions -->
-        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
-        <ol class="question-list">
-            <li>What do you notice first in the picture?
-                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
-            </li>
-            <li>How many people can you see, and what are they doing?
-                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
-            </li>
-            <li>What objects or details stand out to you?
-                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
-            </li>
-            <li>What looks most important in this scene?
-                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 37 : PAGE 2 ================= -->
-    <div class="a4-page">
-        <!-- Description Questions -->
-        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
-        <ol class="question-list">
-            <li>Where do you think this scene is taking place?
-                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
-            </li>
-            <li>What kind of atmosphere does this place have?
-                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
-            </li>
-            <li>What time of day do you think it is?
-                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
-            </li>
-            <li>How would you describe the mood of the people in the picture?
-                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
-            </li>
-        </ol>
-
-        <!-- Personal Questions -->
-        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
-        <ol class="question-list">
-            <li>How long does it usually take you to decide?
-                <span class="kr-trans">결정을 내리는 데 보통 얼마나 걸리나요?</span>
-            </li>
-            <li>Do you ever regret past choices?
-                <span class="kr-trans">과거의 선택을 후회한 적이 있나요?</span>
-            </li>
-            <li>Who is the most helpful person when you need to make a choice?
-                <span class="kr-trans">선택을 해야 할 때 가장 도움이 되는 사람은 누구인가요?</span>
-            </li>
-            <li>Are you a logical thinker or an emotional thinker?
-                <span class="kr-trans">당신은 논리적인 사색가인가요, 아니면 감정적인 사색가인가요?</span>
-            </li>
-            <li>How do you handle the fear of making a mistake?
-                <span class="kr-trans">실수할지도 모른다는 두려움을 어떻게 다루나요?</span>
-            </li>
-        </ol>
-
-        <!-- Opinion Questions -->
-        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
-        <ol class="question-list">
-            <li>Why are big choices so scary for many people?
-                <span class="kr-trans">왜 큰 선택이 많은 사람들에게 그렇게 두렵게 느껴질까요?</span>
-            </li>
-            <li>Does fate exist, or do we make our own destiny?
-                <span class="kr-trans">운명은 존재할까요, 아니면 우리 스스로 운명을 개척하는 걸까요?</span>
-            </li>
-            <li>Is it better to make a wrong decision or make no decision at all?
-                <span class="kr-trans">잘못된 결정을 내리는 것과 아무 결정도 내리지 않는 것 중 무엇이 더 나을까요?</span>
-            </li>
-            <li>How does age affect the way we make choices?
-                <span class="kr-trans">나이가 선택을 내리는 방식에 어떤 영향을 미치나요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 37 : PAGE 3 ================= -->
-    <div class="a4-page">
-        <!-- Hypothesis & Conflict -->
-        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
-        
-        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
-            <p class="font-medium text-gray-800">You have to choose between a job you love with low pay, or a boring job with very high pay.</p>
-            <span class="kr-trans">당신은 급여는 낮지만 좋아하는 일과, 급여는 매우 높지만 지루한 일 사이에서 선택해야 합니다.</span>
-            
-            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
-            <ol class="list-decimal pl-5 text-gray-800 font-medium">
-                <li>Which one would you choose and why?
-                    <span class="kr-trans">어느 것을 선택하겠으며, 그 이유는 무엇인가요?</span>
-                </li>
-                <li>How long do you think you could endure the boring job?
-                    <span class="kr-trans">지루한 직업을 얼마나 오래 견딜 수 있을 것 같나요?</span>
-                </li>
-                <li>Can money buy happiness in a career?
-                    <span class="kr-trans">돈으로 커리어에서의 행복을 살 수 있을까요?</span>
-                </li>
-            </ol>
-        </div>
-
-        <!-- Role-play -->
-        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
-            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
-            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                <tbody>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Are you good at making decisions?<br><span class="kr-trans mb-0">당신은 결정을 잘 내리나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Not really. I usually take a long time to think about it.<br><span class="kr-trans mb-0">딱히 그렇진 않아요. 보통은 그것에 대해 생각하는 데 오랜 시간이 걸립니다.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">What do you do when you are stuck?<br><span class="kr-trans mb-0">막막할 때는 어떻게 하나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I write down the pros and cons on a piece of paper.<br><span class="kr-trans mb-0">종이에 장단점을 적어 봅니다.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Do you usually follow your brain or your heart?<br><span class="kr-trans mb-0">보통 머리(이성)를 따르나요, 가슴(감성)을 따르나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I try to use logic, but my heart always decides in the end.<br><span class="kr-trans mb-0">논리를 사용하려 노력하지만, 결국 마지막엔 항상 가슴이 결정해요.</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Talk More & Homework -->
-        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
-        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
-            <li>What decision changed your life the most?<br><span class="kr-trans">당신의 삶을 가장 많이 바꾼 결정은 무엇이었나요?</span></li>
-            <li>Do you believe there is a "right" time for everything?<br><span class="kr-trans">모든 일에는 "적절한" 시기가 있다고 믿나요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-user"></i></div> 3. Personal Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(개인 경험)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever achieved a really big goal?</p><p class="kor-text">(정말 큰 목표를 달성해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you easily forget your plans if you don't write them down?</p><p class="kor-text">(적어두지 않으면 계획을 쉽게 잊어버리는 편인가요?)</p></li>
+            <li><p class="eng-text">What distracts you the most when you try to focus?</p><p class="kor-text">(집중하려고 할 때 가장 방해가 되는 것은 무엇인가요?)</p></li>
+            <li><p class="eng-text">How do you feel when you cross something off your list?</p><p class="kor-text">(목록에서 완료한 일을 지울 때 어떤 기분이 드나요?)</p></li>
         </ul>
 
-        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
-            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
-            <p class="font-medium text-gray-800">Write 4-5 sentences about a difficult choice you had to make and how you handled it.</p>
-            <span class="kr-trans mb-0">당신이 해야 했던 어려운 선택과 그것을 어떻게 대처했는지에 대해 4-5문장으로 써보세요.</span>
-        </div>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 38 : PAGE 1 ================= -->
-    <div class="a4-page">
-        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
-            Week 8 - Life Choices and Reflection
-        </div>
-        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 38 - Personal Growth
-            <span class="kr-trans text-lg mt-1">레슨 38 - 개인적 성장</span>
-        </h1>
-
-        <!-- Goal & Photo Prompt -->
-        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
-            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
-            <p class="font-medium text-gray-800">Discuss self-improvement, learning new things, and overcoming personal challenges.</p>
-            <span class="kr-trans">자기 계발, 새로운 것 배우기, 개인적인 어려움 극복에 대해 토론합니다.</span>
-            
-            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
-            <p class="text-gray-800 italic">"A person reading a book and taking notes in a quiet room with plants and natural light."</p>
-            <span class="kr-trans">"식물과 자연 채광이 있는 조용한 방에서 책을 읽고 노트를 적고 있는 사람의 모습입니다."</span>
-        </div>
-
-        <!-- Warm-up -->
-        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
-        <ol class="question-list">
-            <li>Do you like learning new things?
-                <span class="kr-trans">새로운 것을 배우는 것을 좋아하나요?</span>
-            </li>
-            <li>What is a skill you want to improve right now?
-                <span class="kr-trans">지금 당장 향상시키고 싶은 기술은 무엇인가요?</span>
-            </li>
-            <li>How do you stay motivated to study or practice?
-                <span class="kr-trans">공부하거나 연습하기 위한 동기를 어떻게 유지하나요?</span>
-            </li>
-            <li>Do you prefer reading books or watching videos to learn?
-                <span class="kr-trans">무언가를 배우기 위해 책을 읽는 것과 비디오를 보는 것 중 어느 것을 더 선호하나요?</span>
-            </li>
-        </ol>
-
-        <!-- Observation Questions -->
-        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
-        <ol class="question-list">
-            <li>What do you notice first in the picture?
-                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
-            </li>
-            <li>How many people can you see, and what are they doing?
-                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
-            </li>
-            <li>What objects or details stand out to you?
-                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
-            </li>
-            <li>What looks most important in this scene?
-                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 38 : PAGE 2 ================= -->
-    <div class="a4-page">
-        <!-- Description Questions -->
-        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
-        <ol class="question-list">
-            <li>Where do you think this scene is taking place?
-                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
-            </li>
-            <li>What kind of atmosphere does this place have?
-                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
-            </li>
-            <li>What time of day do you think it is?
-                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
-            </li>
-            <li>How would you describe the mood of the people in the picture?
-                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
-            </li>
-        </ol>
-
-        <!-- Personal Questions -->
-        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
-        <ol class="question-list">
-            <li>How have you grown or changed in the last 5 years?
-                <span class="kr-trans">지난 5년 동안 당신은 어떻게 성장하거나 변했나요?</span>
-            </li>
-            <li>What is the biggest challenge you have overcome?
-                <span class="kr-trans">당신이 극복한 가장 큰 도전(어려움)은 무엇인가요?</span>
-            </li>
-            <li>Do you think making mistakes is necessary for growth?
-                <span class="kr-trans">실수를 하는 것이 성장에 필수적이라고 생각하나요?</span>
-            </li>
-            <li>Who inspires you to be a better person?
-                <span class="kr-trans">누가 당신을 더 나은 사람이 되도록 영감을 주나요?</span>
-            </li>
-            <li>What habit do you want to break?
-                <span class="kr-trans">버리고 싶은 습관은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <!-- Opinion Questions -->
-        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
-        <ol class="question-list">
-            <li>Why is lifelong learning important?
-                <span class="kr-trans">평생 학습이 왜 중요한가요?</span>
-            </li>
-            <li>Is it harder to change your mind or change your habits?
-                <span class="kr-trans">마음을 바꾸는 것과 습관을 바꾸는 것 중 어느 것이 더 어렵나요?</span>
-            </li>
-            <li>Does adversity(hardship) make people stronger or weaker?
-                <span class="kr-trans">역경(어려움)이 사람을 더 강하게 만드나요, 아니면 더 약하게 만드나요?</span>
-            </li>
-            <li>Can true change happen overnight?
-                <span class="kr-trans">진정한 변화가 하룻밤 사이에 일어날 수 있을까요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 38 : PAGE 3 ================= -->
-    <div class="a4-page">
-        <!-- Hypothesis & Conflict -->
-        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
-        
-        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
-            <p class="font-medium text-gray-800">You started learning a new language, but after three weeks you feel completely stuck and want to quit.</p>
-            <span class="kr-trans">새로운 언어를 배우기 시작했지만, 3주 후 완전히 막막함을 느끼고 그만두고 싶어집니다.</span>
-            
-            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
-            <ol class="list-decimal pl-5 text-gray-800 font-medium">
-                <li>What would you tell yourself in this moment?
-                    <span class="kr-trans">이 순간 자신에게 뭐라고 말하겠습니까?</span>
-                </li>
-                <li>How could you change your study method to make it fun again?
-                    <span class="kr-trans">다시 재미있어지도록 공부 방법을 어떻게 바꿀 수 있을까요?</span>
-                </li>
-                <li>Would taking a break help, or would it make you stop completely?
-                    <span class="kr-trans">휴식을 취하는 것이 도움이 될까요, 아니면 아예 그만두게 만들까요?</span>
-                </li>
-            </ol>
-        </div>
-
-        <!-- Role-play -->
-        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
-            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
-            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                <tbody>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">What is something you really want to learn?<br><span class="kr-trans mb-0">당신이 정말로 배우고 싶은 것은 무엇인가요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I really want to learn how to speak Spanish fluently.<br><span class="kr-trans mb-0">스페인어를 유창하게 말하는 법을 정말 배우고 싶어요.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">How do you stay motivated when it gets hard?<br><span class="kr-trans mb-0">어려워질 때 어떻게 동기를 유지하나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I remind myself why I started in the first place.<br><span class="kr-trans mb-0">제가 애초에 왜 시작했는지를 스스로에게 상기시킵니다.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Do you celebrate small victories?<br><span class="kr-trans mb-0">작은 성공들을 기념(축하)하나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Yes, I treat myself to something nice when I make progress.<br><span class="kr-trans mb-0">네, 진전이 있을 때 스스로에게 좋은 것을 선물해요.</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Talk More & Homework -->
-        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
-        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
-            <li>What is the best piece of advice you have ever received?<br><span class="kr-trans">지금까지 받은 가장 좋은 조언은 무엇인가요?</span></li>
-            <li>How do you measure success in your life?<br><span class="kr-trans">당신의 삶에서 성공을 어떻게 측정하나요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div> 4. Opinion & Hypothesis <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 및 추측)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Why do people give up their New Year's resolutions so fast?</p><p class="kor-text">(사람들은 왜 새해 결심을 그렇게 빨리 포기할까요?)</p></li>
+            <li><p class="eng-text">Is writing things down on paper better than typing on a phone?</p><p class="kor-text">(종이에 적는 것이 휴대폰에 타이핑하는 것보다 낫다고 생각하나요?)</p></li>
+            <li><p class="eng-text">Do strict routines make people stressed or successful?</p><p class="kor-text">(엄격한 루틴이 사람들을 스트레스받게 할까요, 아니면 성공하게 만들까요?)</p></li>
         </ul>
 
-        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
-            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
-            <p class="font-medium text-gray-800">Write 4-5 sentences about a personal challenge you overcame and what you learned.</p>
-            <span class="kr-trans mb-0">당신이 극복한 개인적인 어려움과 그것을 통해 배운 점에 대해 4-5문장으로 써보세요.</span>
+        <div class="alert-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">CONFLICT SCENARIO</span>
+                You promised to exercise every day, but you skipped the first three days.
+                <span style="display: block; font-size: 14px; font-weight: 500; color: #991b1b; margin-top: 2px;">(매일 운동하기로 다짐했지만, 첫 3일 연속으로 빼먹었습니다.)</span>
+            </div>
         </div>
 
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 5. Conflict Discussion <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황 토론)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Would you start again today, or just give up entirely?</p><p class="kor-text">(오늘 다시 시작할 건가요, 아니면 아예 포기할 건가요?)</p></li>
+            <li><p class="eng-text">How do you forgive yourself when you fail a goal?</p><p class="kor-text">(목표에 실패했을 때 스스로를 어떻게 용서하나요?)</p></li>
+            <li><p class="eng-text">Should you change the goal to make it easier?</p><p class="kor-text">(목표를 더 쉽게 수정해야 할까요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ================= LESSON 39 : PAGE 1 ================= -->
-    <div class="a4-page">
-        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
-            Week 8 - Life Choices and Reflection
-        </div>
-        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 39 - Future Plans
-            <span class="kr-trans text-lg mt-1">레슨 39 - 미래 계획</span>
-        </h1>
-
-        <!-- Goal & Photo Prompt -->
-        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
-            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
-            <p class="font-medium text-gray-800">Talk about future goals, planning for the next stages of life, and staying optimistic.</p>
-            <span class="kr-trans">미래의 목표, 삶의 다음 단계를 위한 계획, 낙관적인 태도 유지에 대해 이야기합니다.</span>
-            
-            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
-            <p class="text-gray-800 italic">"A person looking out of a high window at a city skyline, holding a cup of coffee and thinking."</p>
-            <span class="kr-trans">"커피 한 잔을 들고 높은 창밖으로 도시의 스카이라인을 내다보며 생각에 잠긴 사람의 모습입니다."</span>
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 36: Setting Daily Goals - Role-play & Wrap-up</h1>
         </div>
 
-        <!-- Warm-up -->
-        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
-        <ol class="question-list">
-            <li>Do you like to make detailed plans for the future?
-                <span class="kr-trans">미래에 대한 구체적인 계획 세우는 것을 좋아하나요?</span>
-            </li>
-            <li>What is one thing you want to achieve next year?
-                <span class="kr-trans">내년에 이루고 싶은 한 가지는 무엇인가요?</span>
-            </li>
-            <li>Where do you see yourself in 10 years?
-                <span class="kr-trans">10년 후 당신의 모습은 어떨까요?</span>
-            </li>
-            <li>Do you worry about the future?
-                <span class="kr-trans">미래에 대해 걱정하나요?</span>
-            </li>
-        </ol>
-
-        <!-- Observation Questions -->
-        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
-        <ol class="question-list">
-            <li>What do you notice first in the picture?
-                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
-            </li>
-            <li>How many people can you see, and what are they doing?
-                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
-            </li>
-            <li>What objects or details stand out to you?
-                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
-            </li>
-            <li>What looks most important in this scene?
-                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 39 : PAGE 2 ================= -->
-    <div class="a4-page">
-        <!-- Description Questions -->
-        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
-        <ol class="question-list">
-            <li>Where do you think this scene is taking place?
-                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
-            </li>
-            <li>What kind of atmosphere does this place have?
-                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
-            </li>
-            <li>What time of day do you think it is?
-                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
-            </li>
-            <li>How would you describe the mood of the people in the picture?
-                <span class="kr-trans">사진 속 사람들의 기분을 어떻게 묘사하시겠어요?</span>
-            </li>
-        </ol>
-
-        <!-- Personal Questions -->
-        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
-        <ol class="question-list">
-            <li>What is your biggest personal goal right now?
-                <span class="kr-trans">현재 가장 큰 개인적인 목표는 무엇인가요?</span>
-            </li>
-            <li>How do you deal with things that don't go as planned?
-                <span class="kr-trans">계획대로 일이 풀리지 않을 때 어떻게 대처하나요?</span>
-            </li>
-            <li>Are you more excited or afraid of getting older?
-                <span class="kr-trans">나이가 드는 것이 더 기대되나요, 아니면 두려운가요?</span>
-            </li>
-            <li>What kind of lifestyle do you want to have when you retire?
-                <span class="kr-trans">은퇴 후에 어떤 라이프스타일을 원하나요?</span>
-            </li>
-            <li>Do you believe everything happens for a reason?
-                <span class="kr-trans">모든 일에는 이유가 있다고 믿나요?</span>
-            </li>
-        </ol>
-
-        <!-- Opinion Questions -->
-        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
-        <ol class="question-list">
-            <li>Is it better to live in the present or plan for the future?
-                <span class="kr-trans">현재에 충실하게 사는 것과 미래를 계획하는 것 중 어느 것이 더 좋을까요?</span>
-            </li>
-            <li>Why do people's dreams change as they grow older?
-                <span class="kr-trans">나이가 들면서 사람들의 꿈이 변하는 이유는 무엇일까요?</span>
-            </li>
-            <li>Does having too many plans cause unnecessary stress?
-                <span class="kr-trans">계획이 너무 많은 것이 불필요한 스트레스를 유발할까요?</span>
-            </li>
-            <li>How can society prepare for the unknown future?
-                <span class="kr-trans">사회는 알 수 없는 미래를 어떻게 준비할 수 있을까요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 39 : PAGE 3 ================= -->
-    <div class="a4-page">
-        <!-- Hypothesis & Conflict -->
-        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
-        
-        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
-            <p class="font-medium text-gray-800">You are offered an amazing opportunity in another city, but it means leaving all your friends behind.</p>
-            <span class="kr-trans">다른 도시에서 놀라운 기회를 제안받았지만, 그것은 모든 친구를 뒤로하고 떠나야 한다는 것을 의미합니다.</span>
-            
-            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
-            <ol class="list-decimal pl-5 text-gray-800 font-medium">
-                <li>Would you take the opportunity?
-                    <span class="kr-trans">그 기회를 잡으시겠습니까?</span>
-                </li>
-                <li>How would you explain your choice to your closest friend?
-                    <span class="kr-trans">가장 친한 친구에게 당신의 선택을 어떻게 설명하겠습니까?</span>
-                </li>
-                <li>What would make you stay instead of leaving?
-                    <span class="kr-trans">떠나지 않고 머물게 만드는 요소는 무엇일까요?</span>
-                </li>
-            </ol>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 6. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Friend</div><div class="text">Hey, how is your daily workout plan going?<span class="kor-sub-text">(야, 매일 운동하기로 한 계획은 어떻게 돼가?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">To be honest, I completely failed. I skipped the first three days.<span class="kor-sub-text">(솔직히 말하면, 완전히 실패했어. 처음 3일을 다 빼먹었거든.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Friend</div><div class="text">That's okay! It happens to everyone. Are you going to give up?<span class="kor-sub-text">(괜찮아! 누구에게나 있는 일이야. 포기할 거야?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">No, I want to try again. But maybe doing it every day was too hard.<span class="kor-sub-text">(아니, 다시 해보고 싶어. 하지만 매일 하는 건 너무 힘들었던 것 같아.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Friend</div><div class="text">Right. Why don't you start with just two times a week?<span class="kor-sub-text">(맞아. 일주일에 딱 두 번만 하는 걸로 시작해 보는 건 어때?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That is a much better idea. I will start tonight!<span class="kor-sub-text">(훨씬 좋은 생각이네. 오늘 밤부터 시작할게!)</span></div></div>
         </div>
 
-        <!-- Role-play -->
-        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
-            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
-            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                <tbody>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Where do you see yourself in five years?<br><span class="kr-trans mb-0">5년 후 당신은 어떤 모습일까요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">I hope to be settled in my career and traveling a lot.<br><span class="kr-trans mb-0">커리어에서 자리를 잡고 여행을 많이 다니고 있기를 바라요.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Do you worry about the future?<br><span class="kr-trans mb-0">미래에 대해 걱정하나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Sometimes, but I try to focus on what I can control right now.<br><span class="kr-trans mb-0">가끔요, 하지만 지금 제가 통제할 수 있는 일에 집중하려고 노력해요.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">What is the most important part of your plan?<br><span class="kr-trans mb-0">당신 계획에서 가장 중요한 부분은 무엇인가요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Staying healthy and maintaining good relationships.<br><span class="kr-trans mb-0">건강을 유지하고 좋은 인간관계를 지속하는 것입니다.</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Talk More & Homework -->
-        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
-        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
-            <li>If you could know one thing about your future, what would you ask?<br><span class="kr-trans">미래에 대해 한 가지를 알 수 있다면, 무엇을 묻고 싶나요?</span></li>
-            <li>How can we stay positive when the future seems scary?<br><span class="kr-trans">미래가 두려워 보일 때 어떻게 긍정적인 태도를 유지할 수 있을까요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 7. Talk More <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(심화 대화)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you believe in writing your goals down to make them come true?</p><p class="kor-text">(목표를 글로 적으면 이루어진다는 것을 믿나요?)</p></li>
+            <li><p class="eng-text">What is a goal you achieved recently that you are proud of?</p><p class="kor-text">(최근에 이룬 목표 중 가장 자랑스러운 것은 무엇인가요?)</p></li>
+            <li><p class="eng-text">How can friends or family help you keep your promises?</p><p class="kor-text">(친구나 가족이 당신이 결심을 지키도록 어떻게 도울 수 있을까요?)</p></li>
         </ul>
 
-        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
-            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
-            <p class="font-medium text-gray-800">Write 4-5 sentences describing one of your biggest goals for the future.</p>
-            <span class="kr-trans mb-0">미래에 대한 가장 큰 목표 중 하나에 대해 4-5문장으로 써보세요.</span>
-        </div>
+        <div class="col-2">
+            <div class="review-card">
+                <h3><i class="fa-solid fa-clipboard-check" style="color: var(--secondary);"></i> Lesson Review</h3>
+                <ul class="review-list">
+                    <li><span>Today I talked about...</span><div class="review-line"></div></li>
+                    <li><span>One idea I agreed with...</span><div class="review-line"></div></li>
+                    <li><span>I want to talk more about...</span><div class="review-line"></div></li>
+                </ul>
+            </div>
 
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
+            <div class="hw-card">
+                <div class="hw-badge">HOMEWORK</div>
+                <h3 style="font-size: 17px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Writing Practice</h3>
+                <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">Write 3-4 sentences about one goal you want to achieve this month.</p>
+                <p class="kor-text" style="margin-bottom: 0;">(이번 달에 달성하고 싶은 목표 한 가지에 대해 3~4문장으로 적어보세요.)</p>
+            </div>
         </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
-    <!-- ================= LESSON 40 : PAGE 1 ================= -->
-    <div class="a4-page">
-        <div class="inline-block bg-emerald text-white font-bold px-4 py-1 rounded-full text-sm mb-4 w-max">
-            Week 8 - Life Choices and Reflection
-        </div>
-        <h1 class="text-4xl font-bold text-navy border-b-2 border-emerald pb-2">Lesson 40 - Life Reflection
-            <span class="kr-trans text-lg mt-1">레슨 40 - 삶에 대한 성찰</span>
-        </h1>
 
-        <!-- Goal & Photo Prompt -->
-        <div class="bg-lightblue p-4 rounded-lg my-6 border border-blue-100">
-            <h3 class="font-bold text-navy text-lg mb-1">Today's Goal <span class="kr-trans inline mt-0 text-sm">오늘의 목표</span></h3>
-            <p class="font-medium text-gray-800">Reflect on past experiences, life lessons, and what brings true meaning to life.</p>
-            <span class="kr-trans">과거의 경험, 인생의 교훈, 그리고 삶에 진정한 의미를 가져다주는 것에 대해 성찰합니다.</span>
-            
-            <h3 class="font-bold text-navy text-lg mt-4 mb-1">Photo Prompt <span class="kr-trans inline mt-0 text-sm">사진 묘사 상황</span></h3>
-            <p class="text-gray-800 italic">"A peaceful scene of someone sitting near a lake at sunset, writing in a journal and reflecting."</p>
-            <span class="kr-trans">"해질녘 호숫가 근처에 앉아 일기장에 글을 쓰며 사색에 잠긴 평화로운 장면입니다."</span>
+    <!-- ==========================================
+         LESSON 37: LEARNING A NEW SKILL
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <span class="badge">WEEK 8 • LESSON 37</span>
+            <h1>Learning a New Skill <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(새로운 기술 배우기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about adult learning, trying new hobbies, and overcoming the fear of starting.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(어른이 되어 배우는 것, 새로운 취미 시도하기, 시작에 대한 두려움 극복 논의하기)</span></span>
+            </div>
         </div>
 
-        <!-- Warm-up -->
-        <h2 class="section-title">Warm-up <span class="kr-trans inline text-base font-normal">워밍업</span></h2>
-        <ol class="question-list">
-            <li>Do you keep a diary or journal?
-                <span class="kr-trans">일기나 저널을 쓰나요?</span>
-            </li>
-            <li>Do you think about the past often?
-                <span class="kr-trans">과거에 대해 자주 생각하나요?</span>
-            </li>
-            <li>What was the best moment of this past year?
-                <span class="kr-trans">작년 한 해 중 최고의 순간은 언제였나요?</span>
-            </li>
-            <li>Do you like to reflect on your life choices?
-                <span class="kr-trans">당신의 인생 선택들에 대해 성찰하는 것을 좋아하나요?</span>
-            </li>
-        </ol>
-
-        <!-- Observation Questions -->
-        <h2 class="section-title">Observation Questions <span class="kr-trans inline text-base font-normal">관찰 질문</span></h2>
-        <ol class="question-list">
-            <li>What do you notice first in the picture?
-                <span class="kr-trans">사진에서 가장 먼저 눈에 띄는 것은 무엇인가요?</span>
-            </li>
-            <li>How many people can you see, and what are they doing?
-                <span class="kr-trans">몇 명의 사람이 보이며, 그들은 무엇을 하고 있나요?</span>
-            </li>
-            <li>What objects or details stand out to you?
-                <span class="kr-trans">어떤 물건이나 세부 사항이 눈에 띄나요?</span>
-            </li>
-            <li>What looks most important in this scene?
-                <span class="kr-trans">이 장면에서 가장 중요해 보이는 것은 무엇인가요?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 40 : PAGE 2 ================= -->
-    <div class="a4-page">
-        <!-- Description Questions -->
-        <h2 class="section-title mt-0">Description Questions <span class="kr-trans inline text-base font-normal">묘사 질문</span></h2>
-        <ol class="question-list">
-            <li>Where do you think this scene is taking place?
-                <span class="kr-trans">이 장면은 어디에서 일어나고 있다고 생각하나요?</span>
-            </li>
-            <li>What kind of atmosphere does this place have?
-                <span class="kr-trans">이 장소는 어떤 분위기를 가지고 있나요?</span>
-            </li>
-            <li>What time of day do you think it is?
-                <span class="kr-trans">지금은 하루 중 언제쯤이라고 생각하나요?</span>
-            </li>
-            <li>How would you describe the mood of the person in the picture?
-                <span class="kr-trans">사진 속 사람의 기분을 어떻게 묘사하시겠어요?</span>
-            </li>
-        </ol>
-
-        <!-- Personal Questions -->
-        <h2 class="section-title">Personal Questions <span class="kr-trans inline text-base font-normal">개인화 질문</span></h2>
-        <ol class="question-list">
-            <li>What is the most valuable lesson you have learned in life?
-                <span class="kr-trans">살면서 배운 가장 가치 있는 교훈은 무엇인가요?</span>
-            </li>
-            <li>If you could go back in time, what advice would you give your younger self?
-                <span class="kr-trans">과거로 돌아갈 수 있다면, 어린 시절의 자신에게 어떤 조언을 해주고 싶나요?</span>
-            </li>
-            <li>What are you most grateful for right now?
-                <span class="kr-trans">지금 당장 가장 감사하게 생각하는 것은 무엇인가요?</span>
-            </li>
-            <li>What do you think happened just before this moment?
-                <span class="kr-trans">이 순간 직전에 무슨 일이 일어났다고 생각하나요?</span>
-            </li>
-            <li>What do you think will happen next?
-                <span class="kr-trans">다음에는 무슨 일이 일어날 것 같나요?</span>
-            </li>
-        </ol>
-
-        <!-- Opinion Questions -->
-        <h2 class="section-title">Opinion Questions <span class="kr-trans inline text-base font-normal">의견 질문</span></h2>
-        <ol class="question-list">
-            <li>Why is it important to reflect on our lives?
-                <span class="kr-trans">자신의 삶을 성찰하는 것이 왜 중요한가요?</span>
-            </li>
-            <li>Does looking at the past prevent us from moving forward?
-                <span class="kr-trans">과거를 돌아보는 것이 우리가 앞으로 나아가는 것을 방해할까요?</span>
-            </li>
-            <li>What might the main person be thinking right now?
-                <span class="kr-trans">주인공은 지금 어떤 생각을 하고 있을까요?</span>
-            </li>
-            <li>If you were in this situation, what would you do first?
-                <span class="kr-trans">당신이 이 상황에 처해 있다면, 가장 먼저 무엇을 하겠습니까?</span>
-            </li>
-        </ol>
-
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
-    </div>
-
-    <!-- ================= LESSON 40 : PAGE 3 ================= -->
-    <div class="a4-page">
-        <!-- Hypothesis & Conflict -->
-        <h2 class="section-title mt-0">Hypothesis & Conflict <span class="kr-trans inline text-base font-normal">가설 및 갈등 상황</span></h2>
-        
-        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
-            <h3 class="font-bold text-emerald mb-1">Conflict Scenario <span class="kr-trans inline mt-0 text-sm">갈등 시나리오</span></h3>
-            <p class="font-medium text-gray-800">You feel busy every day, but you also feel like you are not spending time on what matters most.</p>
-            <span class="kr-trans">매일 바쁘다고 느끼지만, 정작 가장 중요한 일에는 시간을 쓰지 못하고 있다는 느낌이 듭니다.</span>
-            
-            <h4 class="font-bold text-navy mt-4 mb-2">Discussion <span class="kr-trans inline mt-0 text-sm">토론</span></h4>
-            <ol class="list-decimal pl-5 text-gray-800 font-medium">
-                <li>How would you recognize that problem?
-                    <span class="kr-trans">그 문제를 어떻게 인식하겠습니까?</span>
-                </li>
-                <li>What would you change first?
-                    <span class="kr-trans">가장 먼저 무엇을 바꾸겠습니까?</span>
-                </li>
-                <li>How could you make more time for meaningful things?
-                    <span class="kr-trans">의미 있는 일들을 위해 어떻게 더 많은 시간을 낼 수 있을까요?</span>
-                </li>
-                <li>What question would you ask yourself before making changes?
-                    <span class="kr-trans">변화를 주기 전에 스스로에게 어떤 질문을 던지겠습니까?</span>
-                </li>
-            </ol>
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Learning a Skill">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person deeply focused while learning something new on a laptop at a cafe.</p>
         </div>
 
-        <!-- Role-play -->
-        <div class="bg-lightblue p-5 rounded-lg mb-6 border-t-4 border-navy shadow-sm">
-            <h3 class="text-xl font-bold text-navy mb-3">Mini Role-play <span class="kr-trans block font-normal text-sm">미니 롤플레이</span></h3>
-            <table class="w-full text-left border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
-                <tbody>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">What matters most to you in life right now?<br><span class="kr-trans mb-0">지금 인생에서 당신에게 가장 중요한 것은 무엇인가요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Peace of mind, good relationships, and meaningful work matter most to me.<br><span class="kr-trans mb-0">마음의 평화, 좋은 인간관계, 그리고 의미 있는 일이 저에게 가장 중요합니다.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">Do you think people reflect enough?<br><span class="kr-trans mb-0">사람들이 충분히 성찰한다고 생각하나요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Not always. Many people are too busy to stop and think.<br><span class="kr-trans mb-0">항상 그렇지는 않아요. 많은 사람들이 멈춰서 생각하기엔 너무 바쁩니다.</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-navy w-1/4 bg-blue-50">Tutor</td>
-                        <td class="py-3 px-4">What helps you reflect?<br><span class="kr-trans mb-0">당신이 성찰하는 데 도움이 되는 것은 무엇인가요?</span></td>
-                    </tr>
-                    <tr class="border-b border-gray-100">
-                        <td class="py-3 px-4 font-bold text-emerald w-1/4">Student</td>
-                        <td class="py-3 px-4">Quiet time, writing, and honest conversations help me reflect.<br><span class="kr-trans mb-0">조용한 시간, 글쓰기, 그리고 솔직한 대화가 성찰에 도움이 됩니다.</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Talk More & Homework -->
-        <h2 class="section-title">Talk More <span class="kr-trans inline text-base font-normal">심층 대화</span></h2>
-        <ul class="list-disc pl-5 mb-6 font-medium text-gray-800">
-            <li>What does a meaningful life look like to you?<br><span class="kr-trans">당신에게 의미 있는 삶이란 어떤 모습인가요?</span></li>
-            <li>Do people need goals, values, or both?<br><span class="kr-trans">사람들에게는 목표, 가치관, 혹은 둘 다 필요할까요?</span></li>
-            <li>What would you like to remember about this stage of your life?<br><span class="kr-trans">인생의 이 시기에 대해 무엇을 기억하고 싶나요?</span></li>
-            <li>What lesson do you hope to keep for a long time?<br><span class="kr-trans">오랫동안 간직하고 싶은 교훈은 무엇인가요?</span></li>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-book-open"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is something new you want to learn?</p><p class="kor-text">(새롭게 배워보고 싶은 것이 있나요?)</p></li>
+            <li><p class="eng-text">Do you think it is fun to learn as an adult?</p><p class="kor-text">(어른이 되어서 무언가를 배우는 것이 재밌다고 생각하나요?)</p></li>
+            <li><p class="eng-text">Do you prefer taking classes online or in person?</p><p class="kor-text">(온라인 강의와 대면 수업 중 어느 것을 더 선호하나요?)</p></li>
+            <li><p class="eng-text">How long have you been studying English?</p><p class="kor-text">(영어를 공부한 지 얼마나 되었나요?)</p></li>
         </ul>
 
-        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mb-4">
-            <h3 class="font-bold text-emerald text-lg mb-1">Lesson Review <span class="kr-trans inline mt-0 text-sm">레슨 복습</span></h3>
-            <ul class="list-disc pl-5 text-gray-800 font-medium space-y-1">
-                <li>Today I talked about... <span class="kr-trans inline mt-0">오늘 나는 ~에 대해 이야기했다...</span></li>
-                <li>One idea I agreed with... <span class="kr-trans inline mt-0">내가 동의한 하나의 생각은...</span></li>
-                <li>One idea I want to talk about again... <span class="kr-trans inline mt-0">다시 이야기해보고 싶은 하나의 생각은...</span></li>
-            </ul>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-eye"></i></div> 2. Observation Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(사진 관찰)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is the person in the photo doing?</p><p class="kor-text">(사진 속 사람은 무엇을 하고 있나요?)</p></li>
+            <li><p class="eng-text">How focused do they look?</p><p class="kor-text">(얼마나 집중한 것처럼 보이나요?)</p></li>
+            <li><p class="eng-text">Do you think they are studying for fun or for work?</p><p class="kor-text">(재미로 공부하는 것 같나요, 아니면 일을 위해 하는 것 같나요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 37: Learning a New Skill - Personal & Opinion</h1>
         </div>
 
-        <div class="border-2 border-dashed border-emerald p-4 rounded-lg bg-green-50 mt-auto mb-6">
-            <h3 class="font-bold text-emerald text-lg mb-1">Homework <span class="kr-trans inline mt-0 text-sm">숙제</span></h3>
-            <p class="font-medium text-gray-800">Write 5-6 sentences reflecting on what matters most to you right now.</p>
-            <span class="kr-trans mb-0">지금 당신에게 가장 중요한 것이 무엇인지 성찰하며 5-6문장으로 써보세요.</span>
+        <h2><div class="icon-wrap"><i class="fa-solid fa-user"></i></div> 3. Personal Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(개인 경험)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is the hardest thing you have ever learned?</p><p class="kor-text">(지금껏 배운 것 중 가장 어려웠던 것은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Have you ever learned how to play a musical instrument?</p><p class="kor-text">(악기 연주하는 법을 배운 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you watch YouTube tutorials to learn new skills?</p><p class="kor-text">(새로운 기술을 배우기 위해 유튜브 튜토리얼을 자주 보나요?)</p></li>
+            <li><p class="eng-text">Are you a fast learner or a slow learner?</p><p class="kor-text">(당신은 무언가를 빨리 배우는 편인가요, 천천히 배우는 편인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div> 4. Opinion & Hypothesis <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 및 추측)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Is it harder for adults to learn new things than children?</p><p class="kor-text">(어른들이 새로운 것을 배우는 것이 아이들보다 더 어려울까요?)</p></li>
+            <li><p class="eng-text">Why is lifelong learning important?</p><p class="kor-text">(평생 학습이 왜 중요한가요?)</p></li>
+            <li><p class="eng-text">Does technology make learning easier or lazier?</p><p class="kor-text">(기술이 학습을 더 쉽게 만드나요, 아니면 사람들을 더 게으르게 만드나요?)</p></li>
+        </ul>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">CONFLICT SCENARIO</span>
+                You paid for an expensive 6-month language course, but after one week, you realize you hate it.
+                <span style="display: block; font-size: 14px; font-weight: 500; color: #991b1b; margin-top: 2px;">(비싼 6개월짜리 어학 강의를 결제했는데, 일주일 만에 수업이 너무 싫어졌습니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 5. Conflict Discussion <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황 토론)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Will you quit or force yourself to finish it?</p><p class="kor-text">(그만둘 건가요, 아니면 억지로라도 끝낼 건가요?)</p></li>
+            <li><p class="eng-text">Would you complain to the academy and ask for a refund?</p><p class="kor-text">(학원에 불만을 말하고 환불을 요청하시겠어요?)</p></li>
+            <li><p class="eng-text">What is a polite way to tell the teacher you are quitting?</p><p class="kor-text">(선생님께 그만둔다고 정중하게 말하는 방법은 무엇일까요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 37: Learning a New Skill - Role-play & Wrap-up</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 6. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Hello, I'm calling about the 6-month Spanish course I registered for.<span class="kor-sub-text">(안녕하세요, 제가 등록한 6개월짜리 스페인어 과정 때문에 전화드렸습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Academy</div><div class="text">Yes, of course. How can I help you?<span class="kor-sub-text">(네, 물론입니다. 무엇을 도와드릴까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I attended the first week, but I think the level is too difficult for me. Is it possible to get a refund?<span class="kor-sub-text">(첫 주 수업을 들었는데, 제게는 난이도가 너무 높은 것 같아요. 혹시 환불이 가능할까요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Academy</div><div class="text">I see. We can refund the remaining 5 months, or you can switch to a beginner class.<span class="kor-sub-text">(그렇군요. 남은 5개월에 대해 환불해 드리거나, 아니면 초급반으로 변경해 드릴 수도 있습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Oh, really? I didn't know I could switch classes. Let me try the beginner class instead.<span class="kor-sub-text">(아, 정말요? 반을 바꿀 수 있는지 몰랐네요. 그럼 초급반으로 해볼게요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Academy</div><div class="text">Great choice! I will change your schedule right now.<span class="kor-sub-text">(탁월한 선택입니다! 지금 바로 스케줄을 변경해 드릴게요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 7. Talk More <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(심화 대화)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What skill do you think everyone should learn?</p><p class="kor-text">(모든 사람이 배워야 한다고 생각하는 기술은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Is it better to master one skill or be okay at many skills?</p><p class="kor-text">(한 가지 기술을 마스터하는 것과 여러 기술을 적당히 할 줄 아는 것 중 무엇이 낫나요?)</p></li>
+            <li><p class="eng-text">How does learning English change your life?</p><p class="kor-text">(영어를 배우는 것이 당신의 삶을 어떻게 변화시키나요?)</p></li>
+        </ul>
+
+        <div class="col-2">
+            <div class="review-card">
+                <h3><i class="fa-solid fa-clipboard-check" style="color: var(--secondary);"></i> Lesson Review</h3>
+                <ul class="review-list">
+                    <li><span>Today I talked about...</span><div class="review-line"></div></li>
+                    <li><span>One idea I agreed with...</span><div class="review-line"></div></li>
+                    <li><span>I want to talk more about...</span><div class="review-line"></div></li>
+                </ul>
+            </div>
+
+            <div class="hw-card">
+                <div class="hw-badge">HOMEWORK</div>
+                <h3 style="font-size: 17px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Writing Practice</h3>
+                <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">Write 3-4 sentences about a new skill you want to learn this year.</p>
+                <p class="kor-text" style="margin-bottom: 0;">(올해 새롭게 배워보고 싶은 기술에 대해 3~4문장으로 적어보세요.)</p>
+            </div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 38: MAKING A BIG DECISION
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <span class="badge">WEEK 8 • LESSON 38</span>
+            <h1>Making a Big Decision <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(큰 결정 내리기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Discuss decision-making processes, career choices, and asking for advice.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(의사결정 과정, 진로 선택, 그리고 조언을 구하는 법 논의하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1476820865390-c52aeebb9891?auto=format&fit=crop&w=800&q=80" alt="Making a Decision">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person standing alone at a beautiful crossroads, looking thoughtful and deciding which path to take.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-code-branch"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Are you good at making decisions?</p><p class="kor-text">(당신은 결정을 잘 내리는 편인가요?)</p></li>
+            <li><p class="eng-text">Who do you talk to when you have a big problem?</p><p class="kor-text">(큰 고민이 있을 때 누구와 이야기하나요?)</p></li>
+            <li><p class="eng-text">Do you usually overthink or decide quickly?</p><p class="kor-text">(보통 생각을 너무 많이 하나요, 아니면 빨리 결정하나요?)</p></li>
+            <li><p class="eng-text">Have you ever changed your major or your career?</p><p class="kor-text">(전공이나 직업을 바꿔본 적이 있나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-eye"></i></div> 2. Observation Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(사진 관찰)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Where is the person standing?</p><p class="kor-text">(사진 속 인물은 어디에 서 있나요?)</p></li>
+            <li><p class="eng-text">What do you think they are thinking about?</p><p class="kor-text">(그가 무슨 생각을 하고 있을 것 같나요?)</p></li>
+            <li><p class="eng-text">Does the landscape look peaceful or scary?</p><p class="kor-text">(풍경이 평화로워 보이나요, 아니면 무서워 보이나요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 38: Making a Big Decision - Personal & Opinion</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-user"></i></div> 3. Personal Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(개인 경험)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What was the biggest decision of your life so far?</p><p class="kor-text">(지금까지 당신 인생에서 가장 컸던 결정은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Have you ever regretted a choice you made?</p><p class="kor-text">(자신의 선택을 후회해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you make pros and cons lists before deciding?</p><p class="kor-text">(결정하기 전에 장단점 목록을 작성해 보나요?)</p></li>
+            <li><p class="eng-text">How do you handle the stress of choosing?</p><p class="kor-text">(선택할 때의 스트레스를 어떻게 다루나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div> 4. Opinion & Hypothesis <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 및 추측)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Should we follow our head (logic) or our heart (emotion)?</p><p class="kor-text">(우리는 머리(논리)와 가슴(감정) 중 무엇을 따라야 할까요?)</p></li>
+            <li><p class="eng-text">Is it better to have many choices or fewer choices?</p><p class="kor-text">(선택지가 많은 것과 적은 것 중 무엇이 더 나을까요?)</p></li>
+            <li><p class="eng-text">Why is it so hard to take a risk and try something new?</p><p class="kor-text">(위험을 감수하고 새로운 것을 시도하는 것이 왜 그렇게 어려울까요?)</p></li>
+        </ul>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">CONFLICT SCENARIO</span>
+                You must choose between a job with a high salary but a lot of stress, and a job with a low salary but great work-life balance.
+                <span style="display: block; font-size: 14px; font-weight: 500; color: #991b1b; margin-top: 2px;">(연봉은 높지만 스트레스가 심한 직장과, 연봉은 낮지만 워라밸이 훌륭한 직장 중 하나를 선택해야 합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 5. Conflict Discussion <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황 토론)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Which one would you choose and why?</p><p class="kor-text">(어느 쪽을 선택할 것이며, 그 이유는 무엇인가요?)</p></li>
+            <li><p class="eng-text">How would you explain your choice to your parents?</p><p class="kor-text">(당신의 선택을 부모님께 어떻게 설명하시겠어요?)</p></li>
+            <li><p class="eng-text">If you hate your choice after 1 year, what will you do?</p><p class="kor-text">(1년 뒤에 자신의 선택이 싫어진다면 어떻게 할 건가요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 38: Making a Big Decision - Role-play & Wrap-up</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 6. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Hi, I really need some advice. I have to make a big decision today.<span class="kor-sub-text">(안녕하세요, 조언이 정말 필요해요. 오늘 큰 결정을 내려야 하거든요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Mentor</div><div class="text">Sure, I'm here to listen. What is the problem?<span class="kor-sub-text">(물론이죠, 들어줄게요. 무슨 문제인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I have two job offers. One pays very well, but the hours are terrible. The other pays less, but I can leave at 5 PM.<span class="kor-sub-text">(두 군데서 채용 제안을 받았어요. 한 곳은 돈을 아주 많이 주지만 근무 시간이 최악이에요. 다른 곳은 돈은 적지만 5시에 퇴근할 수 있죠.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Mentor</div><div class="text">That is a tough choice. Which one makes you feel more excited?<span class="kor-sub-text">(힘든 결정이네요. 둘 중 어느 쪽이 당신을 더 설레게 하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Honestly, I value my free time more than money right now.<span class="kor-sub-text">(솔직히 말하면, 지금은 돈보다 제 개인 시간이 더 소중해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Mentor</div><div class="text">Then I think you already know your answer. Trust your gut.<span class="kor-sub-text">(그렇다면 이미 답을 알고 있는 것 같네요. 본인의 직감을 믿으세요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 7. Talk More <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(심화 대화)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is the best piece of advice you have ever received?</p><p class="kor-text">(지금껏 받은 최고의 조언은 무엇이었나요?)</p></li>
+            <li><p class="eng-text">Do you think there is a "perfect choice" in life?</p><p class="kor-text">(인생에 "완벽한 선택"이라는 게 있다고 생각하나요?)</p></li>
+            <li><p class="eng-text">How do you deal with the fear of making the wrong choice?</p><p class="kor-text">(잘못된 선택을 할까 봐 두려울 때 어떻게 대처하나요?)</p></li>
+        </ul>
+
+        <div class="col-2">
+            <div class="review-card">
+                <h3><i class="fa-solid fa-clipboard-check" style="color: var(--secondary);"></i> Lesson Review</h3>
+                <ul class="review-list">
+                    <li><span>Today I talked about...</span><div class="review-line"></div></li>
+                    <li><span>One idea I agreed with...</span><div class="review-line"></div></li>
+                    <li><span>I want to talk more about...</span><div class="review-line"></div></li>
+                </ul>
+            </div>
+
+            <div class="hw-card">
+                <div class="hw-badge">HOMEWORK</div>
+                <h3 style="font-size: 17px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Writing Practice</h3>
+                <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">Write 4-5 sentences about a difficult choice you made in the past and how it turned out.</p>
+                <p class="kor-text" style="margin-bottom: 0;">(과거에 내렸던 어려운 결정과 그 결과가 어땠는지 4~5문장으로 적어보세요.)</p>
+            </div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 39: OVERCOMING CHALLENGES
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <span class="badge">WEEK 8 • LESSON 39</span>
+            <h1>Overcoming Challenges <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(어려움 극복하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about dealing with failure, building resilience, and supporting others.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(실패에 대처하기, 회복력 기르기, 그리고 타인을 응원하는 법 논의하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Overcoming Challenges">
+            <p><i class="fa-solid fa-camera"></i> Photo: A team supporting each other, or a person looking exhausted but determined while hiking up a steep hill.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-mountain"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How do you react when things go wrong?</p><p class="kor-text">(일이 잘못될 때 어떻게 반응하시나요?)</p></li>
+            <li><p class="eng-text">Do you usually complain or try to fix it immediately?</p><p class="kor-text">(주로 불평을 하나요, 아니면 바로 해결하려고 노력하나요?)</p></li>
+            <li><p class="eng-text">Who encourages you when you feel down?</p><p class="kor-text">(우울할 때 누가 당신을 격려해 주나요?)</p></li>
+            <li><p class="eng-text">Do you think making mistakes is okay?</p><p class="kor-text">(실수해도 괜찮다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-eye"></i></div> 2. Observation Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(사진 관찰)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Describe the emotion shown in the picture.</p><p class="kor-text">(사진 속에 나타난 감정을 묘사해 보세요.)</p></li>
+            <li><p class="eng-text">What is the hardest part of what they are doing?</p><p class="kor-text">(그들이 하고 있는 일 중 가장 힘든 부분은 무엇일까요?)</p></li>
+            <li><p class="eng-text">Do they look like they will give up?</p><p class="kor-text">(그들이 포기할 것처럼 보이나요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 39: Overcoming Challenges - Personal & Opinion</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-user"></i></div> 3. Personal Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(개인 경험)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Tell me about a time you made a big mistake.</p><p class="kor-text">(당신이 큰 실수를 했던 때에 대해 말해 주세요.)</p></li>
+            <li><p class="eng-text">How did you fix that mistake?</p><p class="kor-text">(그 실수를 어떻게 수습했나요?)</p></li>
+            <li><p class="eng-text">Have you ever failed a test or an interview?</p><p class="kor-text">(시험이나 면접에서 떨어져 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">What do you say to yourself to keep going?</p><p class="kor-text">(계속 나아가기 위해 스스로에게 어떤 말을 해주나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div> 4. Opinion & Hypothesis <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 및 추측)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Does failure really make us stronger?</p><p class="kor-text">(실패가 정말로 우리를 더 강하게 만들까요?)</p></li>
+            <li><p class="eng-text">Why are people in modern society so afraid of making mistakes?</p><p class="kor-text">(현대 사회의 사람들은 왜 실수를 그렇게 두려워할까요?)</p></li>
+            <li><p class="eng-text">What is the difference between stubbornness and persistence?</p><p class="kor-text">(고집과 끈기의 차이는 무엇일까요?)</p></li>
+        </ul>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">CONFLICT SCENARIO</span>
+                A close friend failed an important exam they studied very hard for, and they are crying.
+                <span style="display: block; font-size: 14px; font-weight: 500; color: #991b1b; margin-top: 2px;">(친한 친구가 열심히 공부했던 중요한 시험에 떨어져서 울고 있습니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 5. Conflict Discussion <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황 토론)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What is the best way to comfort them?</p><p class="kor-text">(그들을 위로하는 가장 좋은 방법은 무엇일까요?)</p></li>
+            <li><p class="eng-text">Should you give them advice right now, or just listen?</p><p class="kor-text">(지금 당장 조언을 해줘야 할까요, 아니면 그냥 들어줘야 할까요?)</p></li>
+            <li><p class="eng-text">What words should you completely avoid saying?</p><p class="kor-text">(절대 하지 말아야 할 말은 무엇일까요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 39: Overcoming Challenges - Role-play & Wrap-up</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 6. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Friend</div><div class="text">I can't believe it... I failed the test again. I studied so hard for months.<span class="kor-sub-text">(믿을 수가 없어... 시험에 또 떨어졌어. 몇 달 동안 정말 열심히 공부했는데.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Oh, I am so sorry to hear that. Are you okay?<span class="kor-sub-text">(오, 그런 말을 듣게 되어 정말 유감이야. 괜찮아?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Friend</div><div class="text">Not really. I feel like giving up. Maybe I'm just not good enough.<span class="kor-sub-text">(별로 안 괜찮아. 그냥 포기하고 싶어. 내가 능력이 부족한가 봐.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Don't say that. I know how hard you worked. This test doesn't define you.<span class="kor-sub-text">(그런 말 하지 마. 네가 얼마나 열심히 했는지 내가 알잖아. 이 시험이 널 정의하는 건 아니야.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Friend</div><div class="text">I just feel so tired. I don't want to think about anything right now.<span class="kor-sub-text">(그냥 너무 지쳤어. 지금은 아무것도 생각하고 싶지 않아.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That's totally fine. Let's just go eat something delicious and rest today. I'm here for you.<span class="kor-sub-text">(전혀 문제없어. 오늘은 그냥 맛있는 거 먹고 푹 쉬자. 내가 곁에 있을게.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 7. Talk More <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(심화 대화)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How has overcoming a difficult time changed you?</p><p class="kor-text">(힘든 시간을 극복한 경험이 당신을 어떻게 변화시켰나요?)</p></li>
+            <li><p class="eng-text">What is the most difficult English skill for you to master, and how will you overcome it?</p><p class="kor-text">(영어를 배울 때 마스터하기 가장 어려운 부분은 무엇이고, 어떻게 극복할 건가요?)</p></li>
+            <li><p class="eng-text">Is a supportive friend more important than personal strength?</p><p class="kor-text">(개인의 강인함보다 지지해 주는 친구가 더 중요할까요?)</p></li>
+        </ul>
+
+        <div class="col-2">
+            <div class="review-card">
+                <h3><i class="fa-solid fa-clipboard-check" style="color: var(--secondary);"></i> Lesson Review</h3>
+                <ul class="review-list">
+                    <li><span>Today I talked about...</span><div class="review-line"></div></li>
+                    <li><span>One idea I agreed with...</span><div class="review-line"></div></li>
+                    <li><span>I want to talk more about...</span><div class="review-line"></div></li>
+                </ul>
+            </div>
+
+            <div class="hw-card">
+                <div class="hw-badge">HOMEWORK</div>
+                <h3 style="font-size: 17px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Writing Practice</h3>
+                <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4;">Write 4-5 sentences about a time you overcame a difficult challenge.</p>
+                <p class="kor-text" style="margin-bottom: 0;">(어려운 난관을 극복했던 경험에 대해 4~5문장으로 적어보세요.)</p>
+            </div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 40: WHAT MATTERS MOST
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <span class="badge">WEEK 8 • LESSON 40</span>
+            <h1>What Matters Most <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(가장 중요한 것 / 최종 반추)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Reflect on the course, discuss life values, and share future directions.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(과정을 되돌아보고, 삶의 가치관을 논의하며, 미래의 방향성을 공유하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80" alt="What Matters Most">
+            <p><i class="fa-solid fa-camera"></i> Photo: A peaceful sunset or someone reflecting quietly while looking out at a beautiful view.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-heart"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What makes you truly happy?</p><p class="kor-text">(무엇이 당신을 진정으로 행복하게 만드나요?)</p></li>
+            <li><p class="eng-text">Do you feel like you have enough free time in your life?</p><p class="kor-text">(삶에서 자유 시간이 충분하다고 느끼시나요?)</p></li>
+            <li><p class="eng-text">Are you proud of completing this 40-lesson course?</p><p class="kor-text">(이 40번의 레슨 코스를 마친 자신이 자랑스러우신가요?)</p></li>
+            <li><p class="eng-text">How has your English improved over the past 8 weeks?</p><p class="kor-text">(지난 8주 동안 당신의 영어 실력은 어떻게 향상되었나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-eye"></i></div> 2. Observation Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(사진 관찰)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How does the scenery in the photo look?</p><p class="kor-text">(사진 속 풍경이 어때 보이나요?)</p></li>
+            <li><p class="eng-text">Does the person look busy or relaxed?</p><p class="kor-text">(사람이 바빠 보이나요, 아니면 여유로워 보이나요?)</p></li>
+            <li><p class="eng-text">What kind of thoughts do you think they are having?</p><p class="kor-text">(그들이 어떤 생각을 하고 있을 것 같나요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 40: What Matters Most - Personal & Opinion</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-user"></i></div> 3. Personal Questions <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(개인 경험)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What are your top 3 priorities in life right now?</p><p class="kor-text">(현재 인생에서 가장 우선순위에 두는 3가지는 무엇인가요?)</p></li>
+            <li><p class="eng-text">Have your priorities changed since you were younger?</p><p class="kor-text">(어렸을 때와 비교해서 우선순위가 바뀌었나요?)</p></li>
+            <li><p class="eng-text">Do you usually spend more time on work or with your family?</p><p class="kor-text">(보통 일에 시간을 더 많이 쓰나요, 아니면 가족과 더 많이 보내나요?)</p></li>
+            <li><p class="eng-text">What is one thing you want to change in your daily life?</p><p class="kor-text">(일상에서 바꾸고 싶은 한 가지가 있다면 무엇인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-lightbulb"></i></div> 4. Opinion & Hypothesis <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 및 추측)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Why are modern people always so busy?</p><p class="kor-text">(왜 현대인들은 항상 이렇게 바쁠까요?)</p></li>
+            <li><p class="eng-text">What does a "successful life" mean to you?</p><p class="kor-text">(당신에게 '성공한 삶'이란 어떤 의미인가요?)</p></li>
+            <li><p class="eng-text">Is money the most important factor in happiness?</p><p class="kor-text">(돈이 행복의 가장 중요한 요소일까요?)</p></li>
+        </ul>
+
+        <div class="alert-box" style="border-left-color: #3b82f6; background: #eff6ff; color: #1e3a8a;">
+            <i class="fa-solid fa-magnifying-glass-chart" style="color: #3b82f6;"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #1d4ed8; margin-bottom: 2px;">CONFLICT SCENARIO</span>
+                You feel busy every day, but you also feel like you are not spending time on what matters most.
+                <span style="display: block; font-size: 14px; font-weight: 500; color: #1e3a8a; margin-top: 2px;">(매일 바쁘게 살고 있지만, 정작 가장 중요한 일에는 시간을 쓰지 못하고 있다고 느낍니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 5. Conflict Discussion <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황 토론)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How would you recognize that problem?</p><p class="kor-text">(이 문제를 어떻게 스스로 인지할 수 있을까요?)</p></li>
+            <li><p class="eng-text">What would you change first?</p><p class="kor-text">(가장 먼저 무엇을 바꿀 건가요?)</p></li>
+            <li><p class="eng-text">How could you make more time for meaningful things?</p><p class="kor-text">(의미 있는 일에 시간을 더 쓰기 위해 어떻게 할 수 있을까요?)</p></li>
+            <li><p class="eng-text">What question would you ask yourself before making changes?</p><p class="kor-text">(변화를 만들기 전에 스스로에게 어떤 질문을 던져보겠어요?)</p></li>
+        </ul>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DAILY CONVERSATION SURVIVAL</span>
+            <h1>LESSON 40: What Matters Most - Role-play & Wrap-up</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 6. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What matters most to you in life right now?<span class="kor-sub-text">(지금 인생에서 당신에게 가장 중요한 것은 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Peace of mind, good relationships, and meaningful work matter most to me.<span class="kor-sub-text">(마음의 평화, 좋은 인간관계, 그리고 의미 있는 일이 저에게 가장 중요합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you think people reflect enough on their lives?<span class="kor-sub-text">(사람들이 자신의 삶을 충분히 되돌아본다고 생각하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Not always. Many people are too busy to stop and think.<span class="kor-sub-text">(항상 그렇진 않은 것 같아요. 많은 사람들이 잠시 멈춰 서서 생각하기엔 너무 바쁘죠.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">That's very true. What helps you reflect?<span class="kor-sub-text">(정말 맞는 말이에요. 성찰하는 데 도움이 되는 것은 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Quiet time, writing, and honest conversations help me reflect.<span class="kor-sub-text">(조용한 시간, 글쓰기, 그리고 솔직한 대화가 제가 성찰하는 데 큰 도움이 됩니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 7. Talk More <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(심화 대화)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What does a meaningful life look like to you?</p><p class="kor-text">(당신이 생각하는 의미 있는 삶이란 어떤 모습인가요?)</p></li>
+            <li><p class="eng-text">Do people need goals, values, or both?</p><p class="kor-text">(사람들에게는 목표가 필요할까요, 가치관이 필요할까요, 아니면 둘 다일까요?)</p></li>
+            <li><p class="eng-text">What would you like to remember about this stage of your life?</p><p class="kor-text">(당신의 인생에서 지금 이 시기에 대해 무엇을 기억하고 싶나요?)</p></li>
+            <li><p class="eng-text">What lesson do you hope to keep for a long time?</p><p class="kor-text">(당신이 오랫동안 간직하고 싶은 교훈은 무엇인가요?)</p></li>
+        </ul>
+
+        <div class="col-2">
+            <div class="review-card">
+                <h3><i class="fa-solid fa-clipboard-check" style="color: var(--secondary);"></i> Lesson Review</h3>
+                <ul class="review-list">
+                    <li><span>Today I talked about...</span><div class="review-line"></div></li>
+                    <li><span>One idea I agreed with...</span><div class="review-line"></div></li>
+                    <li><span>One idea I want to talk about again...</span><div class="review-line"></div></li>
+                </ul>
+            </div>
+
+            <div class="hw-card" style="background: linear-gradient(to right bottom, #f0fdf4, #d1fae5); border-color: #34d399;">
+                <div class="hw-badge" style="background: #059669;">FINAL HOMEWORK</div>
+                <h3 style="font-size: 17px; color: #065f46; margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Writing Practice</h3>
+                <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: #064e3b;">Write 5-6 sentences reflecting on what matters most to you right now.</p>
+                <p class="kor-text" style="margin-bottom: 0; color: #047857;">(지금 당신에게 가장 중요한 것이 무엇인지 되돌아보는 글을 5~6문장으로 적어보세요.)</p>
+            </div>
         </div>
 
         <!-- End of Course Message -->
-        <div class="text-center p-4 bg-navy text-white rounded-lg mt-4 shadow-md">
-            <h3 class="text-xl font-bold mb-2 text-emerald">End of Course <span class="kr-trans inline text-gray-300 mt-0 text-sm">코스 종료</span></h3>
-            <p class="font-medium text-sm mb-1">Congratulations on completing EIN Daily Conversation Survival.</p>
-            <span class="kr-trans text-gray-300 mb-2">EIN 일상 대화 서바이벌 과정을 수료하신 것을 축하합니다.</span>
-            <p class="font-medium text-sm">Keep speaking, keep asking questions, and keep connecting everyday situations to real conversation.</p>
-            <span class="kr-trans text-gray-300 mb-0">계속해서 말하고, 질문하고, 일상적인 상황들을 실제 대화로 연결해 보세요.</span>
+        <div style="text-align: center; margin-top: 35px; padding: 30px; background: white; border-radius: 12px; border: 2px dashed #3b82f6; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <h2 style="color: #1e3a8a; font-size: 26px; margin-bottom: 10px; font-family: 'Poppins', sans-serif; display: block; border-bottom: none; padding-bottom: 0;">🎓 End of Course 🎓</h2>
+            <p style="font-size: 18px; color: #334155; font-weight: 700; margin-bottom: 10px;">Congratulations on completing EIN Daily Conversation Survival.</p>
+            <p style="font-size: 15px; color: #64748b; margin-bottom: 0; font-weight: 500; line-height: 1.5;">Keep speaking, keep asking questions, and keep connecting everyday situations to real conversation.</p>
         </div>
 
-        <div class="page-footer">
-            ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.
-        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
     </div>
 
 <script src="../tts.js"></script>
