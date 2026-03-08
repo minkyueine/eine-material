@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Debate Week 5</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+            --alert: #ef4444; /* Red */
+            --alert-light: #fef2f2;
+            --dilemma: #f59e0b; /* Orange/Yellow */
+            --dilemma-light: #fffbeb;
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Headers */
+        .header { margin-bottom: 25px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Debate Motion & Goal Banners */
+        .motion-banner { background: var(--primary); color: white; padding: 16px 25px; border-radius: 8px; margin-bottom: 12px; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2); }
+        .motion-banner i { font-size: 24px; color: #93c5fd; flex-shrink: 0;}
+        
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 15px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 16px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 20px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Alert & Dilemma Boxes */
+        .alert-box { background: var(--alert-light); border-left: 4px solid var(--alert); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #991b1b; font-weight: 700; font-size: 16px; margin-bottom: 20px; margin-top: 10px;}
+        .alert-box i { font-size: 24px; color: var(--alert); flex-shrink: 0;}
+
+        .dilemma-box { background: var(--dilemma-light); border-left: 4px solid var(--dilemma); padding: 18px 25px; border-radius: 8px; margin-bottom: 20px;}
+        .dilemma-box h4 { margin: 0 0 10px 0; color: #b45309; font-size: 16px; display: flex; align-items: center; gap: 8px;}
+        .dilemma-box ul { list-style: none; padding: 0; margin: 0; }
+        .dilemma-box li { font-size: 15px; color: #78350f; margin-bottom: 8px; font-weight: 600;}
+        .dilemma-box li strong { color: #d97706; display: inline-block; width: 25px;}
+
+        /* Opinion Builder Box */
+        .opinion-builder { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; }
+        .opinion-builder p { font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 15px; display: flex; align-items: center; gap: 8px;}
+        .opinion-builder ol { margin: 0; padding-left: 20px; font-size: 14.5px; color: var(--text-main); font-weight: 500; line-height: 1.6;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        h2 { font-size: 19px; color: var(--text-title); margin: 30px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 34px; height: 34px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 15px; flex-shrink: 0;}
+        
+        .eng-text { font-size: 16.5px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 20px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif;}
+        
+        .review-card { border: 1px solid var(--border); border-top: 4px solid var(--secondary); background: #f8fafc; border-radius: 12px; padding: 20px 25px; margin-top: 25px;}
+        .review-card h3 { font-size: 17px; color: var(--text-title); font-family: 'Poppins', sans-serif; margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px;}
+        .review-list { list-style: none; padding: 0; margin: 0; }
+        .review-list li { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center;}
+        .review-list li span { flex-shrink: 0; }
+        .review-line { flex-grow: 1; border-bottom: 1.5px solid #cbd5e1; margin-left: 10px; height: 20px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 58px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 26px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 5</div>
+        <h1>Technology & The Future</h1>
+        <h2>EIN Debate English (B1-B2)</h2>
+        <p style="font-size: 18px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 21: AI and Jobs<br>
+            Lesson 22: Public Surveillance<br>
+            Lesson 23: Autonomous Vehicles<br>
+            Lesson 24: Internet Censorship<br>
+            Lesson 25: Cryptocurrency
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 21: AI AND JOBS
+         ========================================== -->
+    <!-- L21 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 21</span>
+            <h1>AI and Jobs <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(AI와 일자리)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: AI development should be restricted to protect human jobs.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 인간의 일자리를 보호하기 위해 AI 개발을 제한해야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80" alt="AI and Jobs">
+            <p><i class="fa-solid fa-camera"></i> Photo: A robotic arm working side by side with a human in a futuristic setting.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever used an AI tool like ChatGPT?</p><p class="kor-text">(ChatGPT 같은 AI 도구를 사용해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you think AI can do your job better than you?</p><p class="kor-text">(AI가 당신보다 당신의 일을 더 잘할 수 있다고 생각하나요?)</p></li>
+            <li><p class="eng-text">What is a job that AI can never replace?</p><p class="kor-text">(AI가 절대 대체할 수 없는 직업은 무엇일까요?)</p></li>
+            <li><p class="eng-text">Are you excited or afraid of AI technology?</p><p class="kor-text">(AI 기술에 대해 기대가 되나요, 아니면 두려우신가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 21: AI and Jobs - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A large tech company fires 50% of its customer service workers and replaces them with an AI chatbot. The company saves millions, but hundreds of people lose their jobs overnight.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 대형 기술 기업이 고객 서비스 직원의 50%를 해고하고 AI 챗봇으로 교체합니다. 회사는 수백만 달러를 아끼지만, 수백 명의 사람들이 하루아침에 직장을 잃습니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should AI development be restricted to protect human jobs?<span class="kor-sub-text">(인간의 일자리를 보호하기 위해 AI 개발을 제한해야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I support the idea. Mass unemployment will cause huge social problems.<span class="kor-sub-text">(찬성합니다. 대량 실업은 거대한 사회적 문제를 일으킬 것입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But AI makes businesses more efficient and creates new types of jobs.<span class="kor-sub-text">(하지만 AI는 기업을 더 효율적으로 만들고 새로운 유형의 일자리를 창출합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but the new jobs require high skills that normal workers don't have.<span class="kor-sub-text">(그 점은 이해하지만, 새로운 일자리들은 일반 노동자들이 가지지 못한 고도의 기술을 요구합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What if we offer free training for those workers instead of banning AI?<span class="kor-sub-text">(AI를 금지하는 대신 그 노동자들에게 무료 교육을 제공하면 어떨까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That is a good compromise, but the government must step in to help.<span class="kor-sub-text">(그건 좋은 타협안이지만, 정부가 나서서 도와야만 합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that AI development should be restricted. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 21: AI and Jobs - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Slow down AI progress to give human workers time to adjust. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(인간 노동자들이 적응할 시간을 주기 위해 AI 발전을 늦춘다.)</span></li>
+                <li><strong>B.</strong> Develop AI as fast as possible to improve human society globally. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(인류 사회 전반을 개선하기 위해 AI를 가능한 한 빨리 발전시킨다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that AI development should be restricted to protect jobs?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Can AI create art or music as well as humans?</p><p class="kor-text" style="font-size: 13.5px;">(AI가 인간만큼 예술이나 음악을 잘 창작할 수 있을까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Would you trust an AI doctor to perform surgery on you?</p><p class="kor-text" style="font-size: 13.5px;">(당신은 AI 의사가 당신을 수술하도록 믿고 맡길 수 있나요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What happens to human purpose if AI does all the work?</p><p class="kor-text" style="font-size: 13.5px;">(AI가 모든 일을 다 한다면 인간의 삶의 목적은 어떻게 될까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 22: PUBLIC SURVEILLANCE
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 22</span>
+            <h1>Public Surveillance <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(공공 CCTV와 사생활)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: More CCTV cameras should be installed in public spaces to prevent crime.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 범죄 예방을 위해 공공장소에 더 많은 CCTV를 설치해야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=800&q=80" alt="Public Surveillance">
+            <p><i class="fa-solid fa-camera"></i> Photo: Multiple surveillance cameras mounted on a pole monitoring a city street.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you feel safer when you see CCTV cameras on the street?</p><p class="kor-text">(길거리에 CCTV가 보이면 더 안전하다고 느끼나요?)</p></li>
+            <li><p class="eng-text">Have you ever felt uncomfortable because a camera was watching you?</p><p class="kor-text">(카메라가 당신을 지켜보고 있어서 불편했던 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do cameras actually stop crimes from happening?</p><p class="kor-text">(카메라가 실제로 범죄가 일어나는 것을 막을 수 있을까요?)</p></li>
+            <li><p class="eng-text">How important is privacy in public spaces?</p><p class="kor-text">(공공장소에서 사생활은 얼마나 중요할까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 22: Public Surveillance - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A city government decides to install facial recognition CCTV on every corner to track criminals instantly. While crime drops by 30%, human rights groups claim it is an invasion of extreme privacy.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(시 정부가 범죄자를 즉각 추적하기 위해 모든 길모퉁이에 안면 인식 CCTV를 설치하기로 결정합니다. 범죄율은 30% 감소하지만, 인권 단체들은 이것이 심각한 사생활 침해라고 주장합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should more CCTV cameras be installed in public spaces?<span class="kor-sub-text">(공공장소에 더 많은 CCTV가 설치되어야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I support the idea because safety is the most important thing for citizens.<span class="kor-sub-text">(시민들에게 가장 중요한 것은 안전이기 때문에 찬성합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But what about the right to privacy? People feel like they are constantly watched.<span class="kor-sub-text">(하지만 사생활 보호 권리는 어쩌고요? 사람들은 끊임없이 감시받는다고 느낄 텐데요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but if you do nothing illegal, you have nothing to hide.<span class="kor-sub-text">(그 점은 이해하지만, 불법적인 일을 하지 않는다면 숨길 것도 없습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Could the government misuse the video footage?<span class="kor-sub-text">(정부가 비디오 영상을 악용할 수도 있지 않을까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, so we need strict laws to control who can watch the footage.<span class="kor-sub-text">(네, 그래서 누가 그 영상을 볼 수 있는지 통제하는 엄격한 법이 필요합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that more CCTV cameras should be installed. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 22: Public Surveillance - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Install CCTV everywhere to completely wipe out street crime. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(거리 범죄를 완전히 소탕하기 위해 모든 곳에 CCTV를 설치한다.)</span></li>
+                <li><strong>B.</strong> Limit CCTV strictly to protect individual privacy and freedom. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(개인의 사생활과 자유를 보호하기 위해 CCTV를 엄격히 제한한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that more CCTV cameras should be installed in public spaces?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Should police wear body cameras while on duty?</p><p class="kor-text" style="font-size: 13.5px;">(경찰이 근무 중에 바디캠을 착용해야 할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is security more important than absolute freedom?</p><p class="kor-text" style="font-size: 13.5px;">(보안이 절대적인 자유보다 더 중요할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">How do you feel about websites tracking your online data?</p><p class="kor-text" style="font-size: 13.5px;">(웹사이트가 당신의 온라인 데이터를 추적하는 것에 대해 어떻게 느끼나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 23: AUTONOMOUS VEHICLES
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 23</span>
+            <h1>Autonomous Vehicles <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(자율주행 자동차)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: Human-driven cars should be banned once self-driving cars are perfected.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 자율주행 기술이 완벽해지면 인간이 운전하는 차는 금지되어야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80" alt="Autonomous Vehicles">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person sitting back comfortably inside a modern car while it drives itself.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you enjoy driving a car?</p><p class="kor-text">(자동차 운전하는 것을 즐기시나요?)</p></li>
+            <li><p class="eng-text">Would you trust a computer to drive you on the highway?</p><p class="kor-text">(고속도로에서 컴퓨터가 당신을 운전해서 데려다주도록 믿을 수 있나요?)</p></li>
+            <li><p class="eng-text">What are the main causes of car accidents today?</p><p class="kor-text">(오늘날 자동차 사고의 주된 원인은 무엇일까요?)</p></li>
+            <li><p class="eng-text">If a self-driving car gets into an accident, whose fault is it?</p><p class="kor-text">(자율주행차가 사고를 내면 누구의 잘못일까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 23: Autonomous Vehicles - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A tech company promises that self-driving cars will reduce traffic accidents by 90%. However, many people who love driving argue that taking away the steering wheel removes human freedom.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 기술 회사가 자율주행차가 교통사고를 90% 줄일 것이라고 약속합니다. 하지만 운전을 사랑하는 많은 사람들은 운전대를 빼앗는 것이 인간의 자유를 뺏는 일이라고 주장합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should human-driven cars be banned once self-driving cars are perfected?<span class="kor-sub-text">(자율주행 기술이 완벽해지면 인간이 운전하는 차를 금지해야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I support the idea. Most accidents are caused by human error, like texting or drinking.<span class="kor-sub-text">(찬성합니다. 대부분의 사고는 문자 보내기나 음주 등 인간의 실수로 발생하니까요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But many people enjoy driving. It is a hobby and a freedom.<span class="kor-sub-text">(하지만 많은 사람들이 운전을 즐깁니다. 그것은 취미이자 자유입니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but public safety is much more important than a hobby.<span class="kor-sub-text">(그 점은 이해하지만, 공공의 안전이 취미보다 훨씬 더 중요합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What if the self-driving computer gets hacked or breaks down?<span class="kor-sub-text">(자율주행 컴퓨터가 해킹당하거나 고장 나면 어쩌죠?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That is a concern, so there should always be a manual override for emergencies.<span class="kor-sub-text">(그건 걱정되는 부분입니다. 그래서 비상시를 위해 수동 조작 기능이 항상 있어야 합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that human-driven cars should be banned. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 23: Autonomous Vehicles - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Ban human driving entirely to guarantee zero traffic accidents. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(교통사고 제로를 보장하기 위해 인간의 운전을 전면 금지한다.)</span></li>
+                <li><strong>B.</strong> Allow human driving as a right, keeping self-driving as an option. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(자율주행을 하나의 옵션으로 두고 인간의 운전을 권리로서 허용한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that human-driven cars should be banned eventually?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Who should pay if an autonomous car hits a pedestrian?</p><p class="kor-text" style="font-size: 13.5px;">(자율주행차가 보행자를 친다면 누가 배상해야 할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Will professional drivers (taxi, delivery) lose their jobs completely?</p><p class="kor-text" style="font-size: 13.5px;">(전문 운전사(택시, 배달)들이 직업을 완전히 잃게 될까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What will people do inside the car if they don't have to drive?</p><p class="kor-text" style="font-size: 13.5px;">(운전할 필요가 없다면 사람들은 차 안에서 무엇을 할까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 24: INTERNET CENSORSHIP
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 24</span>
+            <h1>Internet Censorship <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(인터넷 검열과 규제)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: The government should have the right to censor harmful content on the internet.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 정부는 인터넷상의 유해한 콘텐츠를 검열할 권리를 가져야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80" alt="Internet Censorship">
+            <p><i class="fa-solid fa-camera"></i> Photo: A glowing computer screen with matrix-like code and a "Access Denied" or lock symbol.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever seen "fake news" online?</p><p class="kor-text">(온라인에서 "가짜 뉴스"를 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you think there is too much hate speech on the internet?</p><p class="kor-text">(인터넷에 혐오 발언이 너무 많다고 생각하나요?)</p></li>
+            <li><p class="eng-text">Who should be responsible for deleting bad content?</p><p class="kor-text">(나쁜 콘텐츠를 삭제할 책임은 누구에게 있어야 할까요?)</p></li>
+            <li><p class="eng-text">Should everyone be allowed to say whatever they want online?</p><p class="kor-text">(온라인에서 모든 사람이 원하는 것을 마음대로 말하도록 허용해야 할까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 24: Internet Censorship - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A government passes a law to block websites that spread "fake news." Citizens worry that the government will use this law to block political criticism and hide the truth.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(정부가 "가짜 뉴스"를 퍼뜨리는 웹사이트를 차단하는 법안을 통과시킵니다. 시민들은 정부가 이 법을 이용해 정치적 비판을 차단하고 진실을 숨길 것이라고 우려합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should the government have the right to censor the internet?<span class="kor-sub-text">(정부가 인터넷을 검열할 권리를 가져야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I disagree because freedom of speech is a basic human right.<span class="kor-sub-text">(반대합니다. 표현의 자유는 인간의 기본 권리이기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But what if people spread dangerous fake news or hate speech?<span class="kor-sub-text">(하지만 사람들이 위험한 가짜 뉴스나 혐오 발언을 퍼뜨리면 어떡하죠?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but who decides what is "fake" or "dangerous"?<span class="kor-sub-text">(그 점은 이해하지만, 무엇이 "가짜"이고 "위험한지"는 누가 결정하나요?)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So you think leaving the internet completely open is better?<span class="kor-sub-text">(그래서 인터넷을 완전히 개방해두는 것이 더 낫다고 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, instead of censoring, we should educate people to think critically.<span class="kor-sub-text">(네, 검열하는 대신 사람들이 비판적으로 생각하도록 교육해야 합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that the government should censor the internet. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 24: Internet Censorship - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Allow government censorship to protect citizens from scams and hate speech. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(사기와 혐오 발언으로부터 시민을 보호하기 위해 정부의 검열을 허용한다.)</span></li>
+                <li><strong>B.</strong> Prohibit censorship entirely to guarantee absolute freedom of speech. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(절대적인 표현의 자유를 보장하기 위해 검열을 전면 금지한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that the government should have the right to censor the internet?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Should platforms like YouTube delete comments that they think are inappropriate?</p><p class="kor-text" style="font-size: 13.5px;">(유튜브 같은 플랫폼이 부적절하다고 생각되는 댓글을 삭제해도 될까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is it possible to completely stop bad content online?</p><p class="kor-text" style="font-size: 13.5px;">(온라인상의 나쁜 콘텐츠를 완벽하게 막는 것이 가능할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What is the most dangerous thing about the internet today?</p><p class="kor-text" style="font-size: 13.5px;">(오늘날 인터넷에서 가장 위험한 것은 무엇인가요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 25: CRYPTOCURRENCY
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 25</span>
+            <h1>Cryptocurrency <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(암호화폐 도입)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: Cryptocurrencies should replace traditional banking systems.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 암호화폐가 전통적인 은행 시스템을 대체해야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=800&q=80" alt="Cryptocurrency">
+            <p><i class="fa-solid fa-camera"></i> Photo: A glowing Bitcoin graphic over a digital stock market chart.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Have you ever bought or invested in cryptocurrency?</p><p class="kor-text">(암호화폐를 사거나 투자해 본 적이 있나요?)</p></li>
+            <li><p class="eng-text">Do you think Bitcoin is real money?</p><p class="kor-text">(비트코인이 진짜 돈이라고 생각하나요?)</p></li>
+            <li><p class="eng-text">Why do people invest in digital coins?</p><p class="kor-text">(사람들은 왜 디지털 코인에 투자할까요?)</p></li>
+            <li><p class="eng-text">Do you trust regular banks more than digital currency?</p><p class="kor-text">(일반 은행을 디지털 화폐보다 더 신뢰하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 25: Cryptocurrency - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A country makes Bitcoin its official currency to avoid inflation. Tech experts cheer for the innovation, but citizens complain that the value changes too much to buy daily food.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(어떤 국가가 인플레이션을 피하기 위해 비트코인을 공식 화폐로 지정합니다. 기술 전문가들은 혁신이라며 환호하지만, 시민들은 가치가 너무 크게 변해서 매일 먹을 음식을 사기 힘들다고 불평합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should cryptocurrencies replace traditional banking systems?<span class="kor-sub-text">(암호화폐가 전통적인 은행 시스템을 대체해야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I support the idea. It is global, fast, and does not require a bank fee.<span class="kor-sub-text">(찬성합니다. 글로벌하고 빠르며 은행 수수료가 필요 없기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But the value of Bitcoin goes up and down crazily. How can we trust it?<span class="kor-sub-text">(하지만 비트코인의 가치는 미친 듯이 오르락내리락합니다. 어떻게 신뢰할 수 있죠?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but the system will stabilize in the future.<span class="kor-sub-text">(그 점은 이해하지만, 미래에는 시스템이 안정될 것입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What if hackers steal your digital wallet?<span class="kor-sub-text">(해커가 당신의 디지털 지갑을 훔쳐가면 어떡하죠?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That is a risk, but traditional banks also get hacked sometimes.<span class="kor-sub-text">(그것은 위험 요소지만, 전통적인 은행들도 가끔 해킹을 당합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that cryptocurrencies should replace banks. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 25: Cryptocurrency - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Adopt cryptocurrency to create a free, global financial system. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(자유롭고 전 세계적인 금융 시스템을 만들기 위해 암호화폐를 채택한다.)</span></li>
+                <li><strong>B.</strong> Stick to traditional money because it is safe and controlled by the government. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(안전하고 정부가 통제할 수 있는 전통 화폐를 고수한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that cryptocurrencies should replace traditional banking systems?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is investing in cryptocurrency a good idea or just gambling?</p><p class="kor-text" style="font-size: 13.5px;">(암호화폐에 투자하는 것은 좋은 아이디어인가요, 아니면 도박에 불과할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Should governments track how people spend digital money?</p><p class="kor-text" style="font-size: 13.5px;">(정부가 사람들이 디지털 화폐를 어떻게 쓰는지 추적해야 할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">How will we pay for things 100 years from now?</p><p class="kor-text" style="font-size: 13.5px;">(100년 뒤 우리는 어떻게 물건값을 지불하게 될까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

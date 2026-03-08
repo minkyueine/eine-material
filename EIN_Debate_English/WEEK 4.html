@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Debate Week 4</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+            --alert: #ef4444; /* Red */
+            --alert-light: #fef2f2;
+            --dilemma: #f59e0b; /* Orange/Yellow */
+            --dilemma-light: #fffbeb;
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Headers */
+        .header { margin-bottom: 25px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Debate Motion & Goal Banners */
+        .motion-banner { background: var(--primary); color: white; padding: 16px 25px; border-radius: 8px; margin-bottom: 12px; font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 15px; box-shadow: 0 4px 6px rgba(30, 58, 138, 0.2); }
+        .motion-banner i { font-size: 24px; color: #93c5fd; flex-shrink: 0;}
+        
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 15px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 16px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 20px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Alert & Dilemma Boxes */
+        .alert-box { background: var(--alert-light); border-left: 4px solid var(--alert); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #991b1b; font-weight: 700; font-size: 16px; margin-bottom: 20px; margin-top: 10px;}
+        .alert-box i { font-size: 24px; color: var(--alert); flex-shrink: 0;}
+
+        .dilemma-box { background: var(--dilemma-light); border-left: 4px solid var(--dilemma); padding: 18px 25px; border-radius: 8px; margin-bottom: 20px;}
+        .dilemma-box h4 { margin: 0 0 10px 0; color: #b45309; font-size: 16px; display: flex; align-items: center; gap: 8px;}
+        .dilemma-box ul { list-style: none; padding: 0; margin: 0; }
+        .dilemma-box li { font-size: 15px; color: #78350f; margin-bottom: 8px; font-weight: 600;}
+        .dilemma-box li strong { color: #d97706; display: inline-block; width: 25px;}
+
+        /* Opinion Builder Box */
+        .opinion-builder { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; }
+        .opinion-builder p { font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 15px; display: flex; align-items: center; gap: 8px;}
+        .opinion-builder ol { margin: 0; padding-left: 20px; font-size: 14.5px; color: var(--text-main); font-weight: 500; line-height: 1.6;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        h2 { font-size: 19px; color: var(--text-title); margin: 30px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 34px; height: 34px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 15px; flex-shrink: 0;}
+        
+        .eng-text { font-size: 16.5px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 20px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif;}
+        
+        .review-card { border: 1px solid var(--border); border-top: 4px solid var(--secondary); background: #f8fafc; border-radius: 12px; padding: 20px 25px; margin-top: 25px;}
+        .review-card h3 { font-size: 17px; color: var(--text-title); font-family: 'Poppins', sans-serif; margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px;}
+        .review-list { list-style: none; padding: 0; margin: 0; }
+        .review-list li { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center;}
+        .review-list li span { flex-shrink: 0; }
+        .review-line { flex-grow: 1; border-bottom: 1.5px solid #cbd5e1; margin-left: 10px; height: 20px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 58px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 26px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 4</div>
+        <h1>Culture & Lifestyle</h1>
+        <h2>EIN Debate English (B1-B2)</h2>
+        <p style="font-size: 18px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 16: Fast Fashion<br>
+            Lesson 17: E-Sports in Olympics<br>
+            Lesson 18: Tipping Culture<br>
+            Lesson 19: Celebrity Privacy<br>
+            Lesson 20: Marriage in Modern Society
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 16: FAST FASHION
+         ========================================== -->
+    <!-- L16 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 16</span>
+            <h1>Fast Fashion <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(패스트 패션 규제)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: People should stop buying fast fashion to protect the environment.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 환경을 보호하기 위해 사람들은 패스트 패션 소비를 멈춰야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=800&q=80" alt="Fast Fashion">
+            <p><i class="fa-solid fa-camera"></i> Photo: A busy clothing store with racks of cheap, trendy clothes.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">How often do you buy new clothes?</p><p class="kor-text">(새 옷을 얼마나 자주 사나요?)</p></li>
+            <li><p class="eng-text">Do you prefer buying cheap, trendy clothes or expensive, long-lasting clothes?</p><p class="kor-text">(저렴하고 유행하는 옷과 비싸고 오래 입는 옷 중 어느 것을 선호하나요?)</p></li>
+            <li><p class="eng-text">What do you usually do with clothes you no longer wear?</p><p class="kor-text">(더 이상 입지 않는 옷은 주로 어떻게 처리하나요?)</p></li>
+            <li><p class="eng-text">Are you aware of the environmental impact of the fashion industry?</p><p class="kor-text">(패션 산업이 환경에 미치는 영향에 대해 알고 계신가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 16: Fast Fashion - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A popular fast fashion brand releases thousands of new styles daily. Environmentalists urge a boycott due to mass waste and pollution, while students argue it's the only fashion they can afford.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(유명 패스트 패션 브랜드가 매일 수천 개의 새로운 스타일을 출시합니다. 환경 운동가들은 대량 쓰레기와 오염을 이유로 불매 운동을 촉구하지만, 학생들은 이것이 그들이 감당할 수 있는 유일한 패션이라고 주장합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should people stop buying fast fashion?<span class="kor-sub-text">(사람들이 패스트 패션 소비를 멈춰야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I think so. It creates too much waste and harms the earth.<span class="kor-sub-text">(네, 그렇게 생각합니다. 너무 많은 쓰레기를 만들고 지구를 훼손하니까요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But fast fashion is affordable, especially for young people and students.<span class="kor-sub-text">(하지만 패스트 패션은 저렴해서 특히 젊은이나 학생들에게 인기가 있습니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but we can buy second-hand clothes instead.<span class="kor-sub-text">(그 점은 이해하지만, 대신 중고 의류를 구매할 수 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you think second-hand shopping can satisfy everyone's fashion needs?<span class="kor-sub-text">(중고 쇼핑이 모든 사람의 패션 니즈를 충족시킬 수 있다고 생각하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Maybe not completely, but we must change our habits to save the planet.<span class="kor-sub-text">(완벽히는 아닐지 몰라도, 지구를 구하기 위해 우리는 습관을 바꿔야 합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that people should stop buying fast fashion. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 16: Fast Fashion - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Boycott fast fashion to force brands to change their environmental policies. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(브랜드가 환경 정책을 바꾸도록 패스트 패션을 불매한다.)</span></li>
+                <li><strong>B.</strong> Continue buying it but focus on recycling and donating old clothes. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(계속 구매하되 낡은 옷을 재활용하고 기부하는 데 집중한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that people should stop buying fast fashion?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is it possible to be fashionable without spending a lot of money?</p><p class="kor-text" style="font-size: 13.5px;">(돈을 많이 쓰지 않고도 패셔너블해지는 것이 가능할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Who is more responsible for fashion waste: consumers or brands?</p><p class="kor-text" style="font-size: 13.5px;">(패션 쓰레기에 대한 책임은 소비자에게 더 클까요, 아니면 브랜드에 더 클까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Would you pay double for a t-shirt if it was eco-friendly?</p><p class="kor-text" style="font-size: 13.5px;">(친환경 티셔츠라면 가격을 두 배로 지불할 의향이 있나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 17: E-SPORTS IN OLYMPICS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 17</span>
+            <h1>E-Sports in Olympics <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(e스포츠 올림픽 채택)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: E-sports should be recognized as official Olympic sports.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: e스포츠는 올림픽 공식 종목으로 채택되어야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80" alt="E-Sports in Olympics">
+            <p><i class="fa-solid fa-camera"></i> Photo: A massive e-sports stadium with pro gamers on stage and a cheering crowd.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you watch professional video game tournaments?</p><p class="kor-text">(프로 비디오 게임 토너먼트를 시청하시나요?)</p></li>
+            <li><p class="eng-text">Do you think playing video games can be considered a "sport"?</p><p class="kor-text">(비디오 게임을 하는 것이 "스포츠"로 간주될 수 있다고 생각하나요?)</p></li>
+            <li><p class="eng-text">What skills do professional gamers need?</p><p class="kor-text">(프로 게이머에게는 어떤 능력이 필요할까요?)</p></li>
+            <li><p class="eng-text">Is physical movement essential for something to be a sport?</p><p class="kor-text">(스포츠가 되기 위해 신체적인 움직임이 필수적일까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 17: E-Sports in Olympics - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                The Olympic committee is debating whether to include games like League of Legends to attract young viewers. Traditional sports fans argue that sitting and clicking cannot be compared to running and jumping.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(올림픽 위원회가 젊은 시청자들을 끌어들이기 위해 리그 오브 레전드(LoL) 같은 게임을 올림픽 종목에 포함시킬지 논의 중입니다. 전통 스포츠 팬들은 앉아서 클릭하는 것이 뛰고 점프하는 것과 비교될 수 없다고 주장합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should e-sports be recognized as official Olympic sports?<span class="kor-sub-text">(e스포츠가 올림픽 공식 종목으로 인정받아야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I disagree because the Olympics should be about physical strength and endurance.<span class="kor-sub-text">(반대합니다. 올림픽은 신체적 근력과 인내력에 관한 것이어야 하기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But e-sports require intense mental focus, teamwork, and fast reflexes.<span class="kor-sub-text">(하지만 e스포츠는 엄청난 정신적 집중력, 팀워크, 그리고 빠른 반사 신경을 필요로 합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That's true, but it's still different from traditional sports like swimming or running.<span class="kor-sub-text">(그건 사실이지만, 여전히 수영이나 달리기 같은 전통적인 스포츠와는 다릅니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What if adding e-sports brings millions of younger viewers to the Olympics?<span class="kor-sub-text">(e스포츠를 추가해서 수백만 명의 젊은 시청자들을 올림픽으로 끌어들인다면 어떨까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but maybe they should create a separate "Digital Olympics" instead.<span class="kor-sub-text">(그 부분은 이해합니다만, 차라리 별도의 "디지털 올림픽"을 만드는 편이 나을 것 같습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that e-sports should be official Olympic sports. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 17: E-Sports in Olympics - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Include e-sports in the Olympics to modernize the games. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(대회를 현대화하기 위해 올림픽에 e스포츠를 포함시킨다.)</span></li>
+                <li><strong>B.</strong> Keep e-sports out of the Olympics and host a separate World Gaming Championship. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(올림픽에서 e스포츠를 제외하고 별도의 세계 게임 선수권 대회를 개최한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that e-sports should be recognized as Olympic sports?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does playing video games professionally count as a "real job"?</p><p class="kor-text" style="font-size: 13.5px;">(프로 비디오 게임을 하는 것이 "진짜 직업"으로 인정받을 수 있을까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Why are e-sports so much more popular now than 10 years ago?</p><p class="kor-text" style="font-size: 13.5px;">(e스포츠가 10년 전보다 지금 훨씬 더 인기가 많은 이유는 무엇일까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">If chess can be considered a sport, why not video games?</p><p class="kor-text" style="font-size: 13.5px;">(만약 체스가 스포츠로 간주될 수 있다면, 비디오 게임은 왜 안 될까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 18: TIPPING CULTURE
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 18</span>
+            <h1>Tipping Culture <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(팁 문화 폐지)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: Tipping culture in restaurants should be abolished completely.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 레스토랑의 팁 문화는 전면 폐지되어야 한다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1580828343064-fde4cad20225?auto=format&fit=crop&w=800&q=80" alt="Tipping Culture">
+            <p><i class="fa-solid fa-camera"></i> Photo: A restaurant bill on a table with a pen and cash left as a tip.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Is there a tipping culture in your country?</p><p class="kor-text">(당신의 나라에는 팁 문화가 있나요?)</p></li>
+            <li><p class="eng-text">How do you feel when you are forced to leave a tip?</p><p class="kor-text">(강제로 팁을 남겨야 할 때 어떤 기분이 드나요?)</p></li>
+            <li><p class="eng-text">Do you think servers in restaurants get paid enough?</p><p class="kor-text">(식당 종업원들이 충분한 급여를 받고 있다고 생각하나요?)</p></li>
+            <li><p class="eng-text">What is the best way to reward a waiter for good service?</p><p class="kor-text">(좋은 서비스에 대해 웨이터에게 보상하는 가장 좋은 방법은 무엇일까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 18: Tipping Culture - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A restaurant removes tipping and increases food prices by 20% to pay servers a fair wage. Customers complain that the menu is now too expensive and servers say they make less money.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 식당이 팁을 없애고 종업원에게 정당한 임금을 주기 위해 음식 가격을 20% 올렸습니다. 고객들은 메뉴가 너무 비싸졌다고 불평하고, 종업원들은 예전보다 돈을 덜 번다고 말합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should tipping culture be abolished completely?<span class="kor-sub-text">(팁 문화가 완전히 폐지되어야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I support the idea. Employers should pay their workers a fair wage, not the customers.<span class="kor-sub-text">(네, 저는 찬성합니다. 고객이 아니라 고용주가 직원들에게 정당한 임금을 지불해야 합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But some say tipping makes customer service better.<span class="kor-sub-text">(하지만 어떤 이들은 팁이 고객 서비스를 더 좋게 만든다고 말합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I can see why people think that, but good service should be a basic standard, not an extra cost.<span class="kor-sub-text">(사람들이 왜 그렇게 생각하는지 알겠지만, 좋은 서비스는 기본 기준이어야지 추가 비용이 되어서는 안 됩니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What if food prices go up without tips?<span class="kor-sub-text">(팁이 없는 대신 음식 가격이 오르면 어떨까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That is fair. At least the prices will be transparent for everyone.<span class="kor-sub-text">(그게 공정합니다. 적어도 가격이 모두에게 투명해질 테니까요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that tipping culture should be abolished. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 18: Tipping Culture - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Remove tipping and force restaurants to increase employee wages. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(팁을 없애고 식당이 직원들의 임금을 인상하도록 강제한다.)</span></li>
+                <li><strong>B.</strong> Keep tipping so excellent service is rewarded directly by customers. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(훌륭한 서비스가 고객으로부터 직접 보상받을 수 있도록 팁 문화를 유지한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that tipping culture should be abolished?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Should service fees be included in the food price by law?</p><p class="kor-text" style="font-size: 13.5px;">(서비스 요금이 법적으로 음식 가격에 포함되어야 할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Why is tipping only common in some industries but not others?</p><p class="kor-text" style="font-size: 13.5px;">(왜 팁은 일부 업계에서만 흔하고 다른 곳에서는 그렇지 않을까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Do you ever feel pressured to tip when the service is bad?</p><p class="kor-text" style="font-size: 13.5px;">(서비스가 안 좋은데도 팁을 줘야 한다는 압박감을 느낀 적이 있나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 19: CELEBRITY PRIVACY
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 19</span>
+            <h1>Celebrity Privacy <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(연예인의 사생활 권리)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: Celebrities do not have the right to full privacy.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 연예인에게는 완전한 사생활을 누릴 권리가 없다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80" alt="Celebrity Privacy">
+            <p><i class="fa-solid fa-camera"></i> Photo: Bright camera flashes and microphones crowded together at a media event.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you follow celebrity gossip or news?</p><p class="kor-text">(연예계 가십이나 뉴스를 자주 챙겨보나요?)</p></li>
+            <li><p class="eng-text">Should K-pop idols or actors be allowed to date freely?</p><p class="kor-text">(K팝 아이돌이나 배우들이 자유롭게 연애하도록 허용되어야 할까요?)</p></li>
+            <li><p class="eng-text">Is the public too harsh on famous people?</p><p class="kor-text">(대중들이 유명인들에게 너무 가혹하다고 생각하나요?)</p></li>
+            <li><p class="eng-text">Why do people care so much about the private lives of stars?</p><p class="kor-text">(사람들은 왜 스타들의 사생활에 그렇게 큰 관심을 가질까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 19: Celebrity Privacy - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A famous singer's secret relationship is exposed by paparazzi. Fans are angry that the singer "lied" to them, while others say the media invaded the singer's basic human rights.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(유명 가수의 비밀 연애가 파파라치에 의해 폭로되었습니다. 팬들은 가수가 자신들에게 "거짓말을 했다"며 분노하는 반면, 다른 이들은 언론이 가수의 기본적 인권을 침해했다고 말합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do celebrities have the right to full privacy?<span class="kor-sub-text">(연예인들에게 완전한 사생활을 누릴 권리가 있을까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I think so. They are human beings too. They deserve a private life.<span class="kor-sub-text">(네, 그렇게 생각합니다. 그들도 사람이잖아요. 사생활을 존중받을 자격이 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But they make a lot of money because of public attention.<span class="kor-sub-text">(하지만 그들은 대중의 관심 덕분에 많은 돈을 벌잖아요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but their private relationships have nothing to do with their work.<span class="kor-sub-text">(그 점은 이해하지만, 그들의 사적인 관계는 직업(일)과는 아무런 관련이 없습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Should the paparazzi be banned from taking secret photos?<span class="kor-sub-text">(파파라치가 몰래 사진 찍는 것을 금지해야 할까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Absolutely. Taking photos without permission is a crime.<span class="kor-sub-text">(물론입니다. 허락 없이 사진을 찍는 것은 범죄입니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that celebrities do not have the right to full privacy. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 19: Celebrity Privacy - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Protect celebrity privacy completely by banning invasive journalism. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(사생활 침해 보도를 금지하여 연예인의 프라이버시를 완벽히 보호한다.)</span></li>
+                <li><strong>B.</strong> Accept that losing some privacy is the price of being famous. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(일부 사생활을 잃는 것은 유명해지기 위한 대가임을 인정한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that celebrities do not have the right to full privacy?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does the public have the "right to know" about celebrity scandals?</p><p class="kor-text" style="font-size: 13.5px;">(대중에게 연예인의 스캔들을 "알 권리"가 있을까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Should celebrities be role models for young people?</p><p class="kor-text" style="font-size: 13.5px;">(연예인들이 젊은이들의 롤모델이 되어야 할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Would you want to be famous if it meant losing your privacy?</p><p class="kor-text" style="font-size: 13.5px;">(사생활을 잃어야 한다면 유명해지고 싶으신가요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 20: MARRIAGE IN MODERN SOCIETY
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <span class="badge">WEEK 4 • LESSON 20</span>
+            <h1>Marriage in Modern Society <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(현대 사회의 결혼)</span></h1>
+            
+            <div class="motion-banner">
+                <i class="fa-solid fa-gavel"></i>
+                <span>Debate Motion: Marriage is an outdated institution in modern society.<br>
+                <span style="font-size: 14px; font-weight: 500; color: #bfdbfe; margin-top: 4px; display: block;">(토론 주제: 현대 사회에서 결혼은 구식의(시대에 뒤떨어진) 제도이다.)</span></span>
+            </div>
+
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: State a position, support it with reasons and examples, and respond to the other side clearly.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 입장을 밝히고, 이유와 사례로 뒷받침하며, 상대방의 의견에 명확히 반박하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=800&q=80" alt="Marriage in Modern Society">
+            <p><i class="fa-solid fa-camera"></i> Photo: A bride and groom holding hands, representing traditional marriage.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Is marriage necessary for a happy life?</p><p class="kor-text">(행복한 삶을 위해 결혼이 필수적일까요?)</p></li>
+            <li><p class="eng-text">Why are fewer young people getting married today?</p><p class="kor-text">(오늘날 젊은 사람들이 결혼을 덜 하는 이유는 무엇일까요?)</p></li>
+            <li><p class="eng-text">What is the biggest advantage of being single?</p><p class="kor-text">(싱글(미혼)로 지내는 것의 가장 큰 장점은 무엇인가요?)</p></li>
+            <li><p class="eng-text">What is the biggest advantage of being married?</p><p class="kor-text">(결혼하는 것의 가장 큰 장점은 무엇인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Debate Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(토론 핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I support the idea that</span>...</p><p class="kor-text">(저는 ~라는 생각에 찬성합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I disagree because</span>...</p><p class="kor-text">(저는 ~이기 때문에 반대합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">One reason is that</span>...</p><p class="kor-text">(한 가지 이유는 ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">For example,</span>...</p><p class="kor-text">(예를 들어, ~)</p></li>
+                <li><p class="eng-text"><span class="highlight">I understand that point, but</span>...</p><p class="kor-text">(그 점은 이해하지만, ~)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">On the other hand... <span class="kor-sub-text">(반면에...)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">There is no doubt that... <span class="kor-sub-text">(~라는 것은 의심의 여지가 없습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">We need to consider... <span class="kor-sub-text">(우리는 ~을 고려해야 합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 20: Marriage in Modern Society - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A successful 30-year-old professional decides to stay single forever to focus on their career and personal freedom. Their parents are highly disappointed and pressuring them to settle down.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(성공한 30대 직장인이 커리어와 개인의 자유에 집중하기 위해 평생 비혼으로 살기로 결심했습니다. 부모님은 크게 실망하며 정착(결혼)하라고 압박하고 있습니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Is marriage an outdated institution in modern society?<span class="kor-sub-text">(현대 사회에서 결혼은 시대에 뒤떨어진 제도일까요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I support the idea. People can be happy and committed without a legal document.<span class="kor-sub-text">(그 생각에 찬성합니다. 사람들은 법적인 서류 없이도 행복하고 헌신적일 수 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">But marriage provides legal and financial protections for couples.<span class="kor-sub-text">(하지만 결혼은 커플에게 법적, 재정적 보호를 제공합니다.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that point, but the cost of weddings and housing is too high right now.<span class="kor-sub-text">(그 점은 이해하지만, 현재 결혼식과 주거 비용이 너무 높습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What about raising children? Isn't marriage a good foundation?<span class="kor-sub-text">(아이를 키우는 것은 어떨까요? 결혼이 좋은 기반이 되지 않나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">That depends on the situation. Loving parents are more important than a marriage certificate.<span class="kor-sub-text">(상황에 따라 다릅니다. 결혼 증명서보다는 사랑이 넘치는 부모가 더 중요합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>State your position in one sentence. (입장을 한 문장으로 밝히기)</li>
+                <li>Give one clear reason. (명확한 이유 하나 대기)</li>
+                <li>Add one real example from school, work, or daily life. (실제 사례 추가하기)</li>
+                <li>Mention the other side briefly. (반대 의견 짧게 언급하기)</li>
+                <li>Give a short rebuttal. (짧게 반박하기)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>My position: I support / oppose the idea that marriage is an outdated institution. </li>
+            <li>One reason is that <strong>___________________________________________________ .</strong></li>
+            <li>For example, <strong>___________________________________________________ .</strong></li>
+            <li>Some people say <strong>___________________________________________________ .</strong></li>
+            <li>However, I think <strong>___________________________________________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN DEBATE ENGLISH</span>
+            <h1>LESSON 20: Marriage in Modern Society - Debate & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one and defend it. (둘 중 하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Support remaining single for personal freedom and career growth. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(개인의 자유와 커리어 성장을 위해 싱글(비혼)로 남는 것을 지지한다.)</span></li>
+                <li><strong>B.</strong> Encourage marriage for emotional stability and building a family. <span style="font-size:13.5px; font-weight:400; color:#92400e;">(정서적 안정과 가족 구성을 위해 결혼을 장려한다.)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Debate Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(미니 토론 롤플레이)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you agree that marriage is an outdated institution?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think so?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What would the other side say?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How would you respond to that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does society put too much pressure on people to get married?</p><p class="kor-text" style="font-size: 13.5px;">(사회가 사람들에게 결혼하라는 압박을 너무 많이 준다고 생각하나요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Are expensive weddings a waste of money?</p><p class="kor-text" style="font-size: 13.5px;">(비싼 결혼식은 돈 낭비일까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What is the secret to a long, happy marriage?</p><p class="kor-text" style="font-size: 13.5px;">(오래되고 행복한 결혼 생활의 비결은 무엇일까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Ask the student to answer in 2-3 full sentences before correcting.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Push for one example and one counterargument in every debate round.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• If the student struggles, let them choose A or B in the Dilemma first.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 4-5 sentences: your position, one reason, one example, and one counterargument.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(자신의 입장, 이유 한 가지, 사례 하나, 그리고 반박을 포함하여 4~5문장으로 적어보세요.)</p>
+        </div>
+        
+        <!-- Weekly completion or course midpoint note if needed -->
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: white; border-radius: 12px; border: 2px dashed #3b82f6;">
+            <p style="font-size: 16px; color: #1e3a8a; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have reached the halfway point of the Debate Course! 🎉</p>
+        </div>
+
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>
