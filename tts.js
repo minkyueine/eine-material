@@ -323,19 +323,56 @@
     }
 
     /* ── 레슨 앵커 ID 삽입 ───────────────────────────────────── */
+    // index.html 링크: WEEK X.html#lesson-1 ~ #lesson-5 (주 내 번호, 1~5)
     function addLessonAnchors() {
-        // "Week X / Lesson Y" 또는 "Lesson XX" 배지를 찾아 가장 가까운 .a4-page에 id 부여
-        // 두 형식 모두 전역 레슨 번호(1~40) 사용
-        document.querySelectorAll('.navy-bg').forEach(el => {
-            const text = el.textContent.trim();
-            const m = text.match(/^(?:Week\s*\d+\s*\/\s*)?Lesson\s*0*(\d+)$/i);
+        const PER_WEEK = 5;
+        let assigned = 0;
+
+        // ── 신규 교재: <span class="badge">WEEK 1 • LESSON 2</span>
+        document.querySelectorAll('.badge').forEach(el => {
+            const m = el.textContent.trim().match(/LESSON\s*(\d+)/i);
             if (!m) return;
-            const lessonNum = parseInt(m[1], 10);
-            const page = el.closest('.a4-page') || el.closest('.page');
+            const lessonInWeek = parseInt(m[1], 10); // 이미 주 내 번호
+            const page = el.closest('.page') || el.closest('.a4-page');
             if (page && !page.id) {
-                page.id = `lesson-${lessonNum}`;
+                page.id = `lesson-${lessonInWeek}`;
+                assigned++;
             }
         });
+
+        // ── 구형 교재: <div class="navy-bg">Week 1 / Lesson 1</div>
+        //               <div class="navy-bg">Lesson 06</div>  (전역 번호)
+        document.querySelectorAll('.navy-bg').forEach(el => {
+            const text = el.textContent.trim();
+            const m = text.match(/Lesson\s*0*(\d+)/i);
+            if (!m) return;
+            const globalNum = parseInt(m[1], 10);
+            // 전역 번호 → 주 내 번호 (1~5)
+            const lessonInWeek = ((globalNum - 1) % PER_WEEK) + 1;
+            const page = el.closest('.a4-page') || el.closest('.page');
+            if (page && !page.id) {
+                page.id = `lesson-${lessonInWeek}`;
+                assigned++;
+            }
+        });
+
+        // ID 삽입 후 해시 앵커로 스크롤 (브라우저 자동 스크롤은 이미 지나갔으므로 수동 처리)
+        if (assigned > 0) scrollToHash();
+    }
+
+    /* ── 해시 위치로 스크롤 ─────────────────────────────────── */
+    function scrollToHash() {
+        const hash = window.location.hash;
+        if (!hash) return;
+        function doScroll() {
+            const target = document.getElementById(hash.slice(1));
+            if (!target) return;
+            const bar = document.getElementById('tts-back-bar');
+            const offset = bar ? bar.offsetHeight + 6 : 0;
+            window.scrollTo({ top: target.offsetTop - offset, behavior: 'auto' });
+        }
+        // 두 프레임 기다려 렌더링 완료 후 스크롤
+        requestAnimationFrame(() => requestAnimationFrame(doScroll));
     }
 
     /* ── 메인: TTS 버튼 자동 삽입 ───────────────────────────── */
