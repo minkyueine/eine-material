@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Week 4 (Basic Conversation Starter 1)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container - height is auto to prevent text clipping */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; /* Minimum A4 Height */
+            height: auto; /* Automatically expands if content is long */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; /* Extra bottom padding for footer */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        .card.tip { border: none; background: #fffbeb; border-left: 4px solid #f59e0b; border-radius: 0 12px 12px 0; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.tip-list li::before { background: #f59e0b; top: 10px;}
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 4</div>
+        <h1>People</h1>
+        <h2>Basic Conversation Starter 1</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 16: My Best Friend<br>
+            Lesson 17: My Coworker or Classmate<br>
+            Lesson 18: My Teacher or Boss<br>
+            Lesson 19: My Neighbor<br>
+            Lesson 20: Someone I Admire
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 16: MY BEST FRIEND
+         ========================================== -->
+    <!-- L16 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <span class="badge">WEEK 4 • LESSON 16</span>
+            <h1>My Best Friend <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(나의 베스트 프렌드 소개하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Introduce your best friend and talk about what you do together.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 베스트 프렌드를 소개하고 함께 무엇을 하는지 말하기)</span></span>
+            </div>
+        </div>
+
+        <!-- 사진 삽입 영역 -->
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Photo Prompt">
+            <p><i class="fa-solid fa-camera"></i> Photo: Two friends laughing or taking a selfie together.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Who is your best friend?</p><p class="kor-text">(당신의 베스트 프렌드는 누구인가요?)</p></li>
+            <li><p class="eng-text">How long have you known them?</p><p class="kor-text">(알고 지낸 지 얼마나 되었나요?)</p></li>
+            <li><p class="eng-text">What does your friend look like?</p><p class="kor-text">(친구의 외모나 첫인상은 어떤가요?)</p></li>
+            <li><p class="eng-text">What do you usually do together?</p><p class="kor-text">(주로 함께 무엇을 하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">My best friend is</span> ___.</p><p class="kor-text">(제 베스트 프렌드는 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">We met in</span> ___.</p><p class="kor-text">(우리는 ___에서 만났습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">He/She is very</span> ___.</p><p class="kor-text">(그/그녀는 매우 ___합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">We usually</span> ___.</p><p class="kor-text">(우리는 주로 ___합니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">We have a lot in common. <span class="kor-sub-text">(우리는 공통점이 많습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">We talk every day. <span class="kor-sub-text">(우리는 매일 대화합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">He/She is a good listener. <span class="kor-sub-text">(제 친구는 이야기를 잘 들어줍니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 2: Output -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 16: My Best Friend - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Who is your best friend?<span class="kor-sub-text">(당신의 베스트 프렌드는 누구인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">My best friend is Minho.<span class="kor-sub-text">(제 베스트 프렌드는 민호입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">How did you meet?<span class="kor-sub-text">(어떻게 만났나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">We met in high school.<span class="kor-sub-text">(우리는 고등학교에서 만났어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is he like?<span class="kor-sub-text">(그 친구는 어떤 성격인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">He is very funny and kind.<span class="kor-sub-text">(매우 재미있고 친절합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you do together?<span class="kor-sub-text">(함께 무엇을 하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">We usually play games on weekends.<span class="kor-sub-text">(주말에 주로 게임을 같이 합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>My best friend is <strong>___________________________________ .</strong></li>
+            <li>We met in / at <strong>___________________________________ .</strong></li>
+            <li>He/She is very <strong>___________________________________ .</strong></li>
+            <li>We usually <strong>___________________________________ .</strong></li>
+            <li>We have a lot in <strong>___________________________________ .</strong></li>
+            <li>He/She is a good <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 새로운 사람과 친한 친구에 대해 이야기를 나눕니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Who is your best friend?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How did you meet?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is he/she like?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you do when you meet?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L16 Page 3: Talk More & Assignment -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 16: My Best Friend - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Can men and women be best friends?<span class="kor-sub-text">(남자와 여자가 베스트 프렌드가 될 수 있을까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a good friend?<span class="kor-sub-text">(좋은 친구의 조건은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer having many friends or a few close friends?<span class="kor-sub-text">(많은 친구를 두는 것과 소수의 친한 친구를 두는 것 중 어느 것을 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever fought with your best friend?<span class="kor-sub-text">(베스트 프렌드와 싸워본 적이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you keep in touch with old friends?<span class="kor-sub-text">(오래된 친구들과 어떻게 연락을 유지하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Help students use basic personality adjectives (funny, kind, smart, quiet).</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Make sure they use "He/She is" instead of "He/She have".</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• "We met in..." can be followed by a place (high school) or time (2015).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences describing your best friend.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 베스트 프렌드를 묘사하는 3~4문장을 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 17: MY COWORKER OR CLASSMATE
+         ========================================== -->
+    <!-- L17 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <span class="badge">WEEK 4 • LESSON 17</span>
+            <h1>My Coworker / Classmate <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(직장 동료 또는 반 친구 소개하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about a coworker or classmate and describe work/school life.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 직장 동료나 반 친구를 묘사하고 생활에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <!-- 사진 삽입 영역 -->
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Photo Prompt">
+            <p><i class="fa-solid fa-camera"></i> Photo: Coworkers or students discussing a project at a desk.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you like your coworkers or classmates?</p><p class="kor-text">(직장 동료나 반 친구들을 좋아하나요?)</p></li>
+            <li><p class="eng-text">Who do you talk to the most?</p><p class="kor-text">(누구와 가장 많이 대화하나요?)</p></li>
+            <li><p class="eng-text">Do you eat lunch together?</p><p class="kor-text">(함께 점심을 먹나요?)</p></li>
+            <li><p class="eng-text">Do you sometimes meet them after work/school?</p><p class="kor-text">(일과나 수업이 끝난 후에도 가끔 만나나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I work/study with</span> ___.</p><p class="kor-text">(저는 ___와 함께 일합니다/공부합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">He/She is very</span> ___.</p><p class="kor-text">(그/그녀는 매우 ___합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">We often</span> ___.</p><p class="kor-text">(우리는 종종 ___합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">He/She helps me with</span> ___.</p><p class="kor-text">(그/그녀는 제가 ___하는 것을 도와줍니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">We have lunch together. <span class="kor-sub-text">(우리는 함께 점심을 먹습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">We talk about work/study. <span class="kor-sub-text">(우리는 일/공부에 대해 이야기합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I enjoy working with him/her. <span class="kor-sub-text">(그/그녀와 함께 일하는 것이 즐겁습니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L17 Page 2: Output -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 17: My Coworker or Classmate - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you have a favorite coworker?<span class="kor-sub-text">(가장 좋아하는 직장 동료가 있나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, my favorite coworker is Sarah.<span class="kor-sub-text">(네, 가장 좋아하는 동료는 사라입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is she like?<span class="kor-sub-text">(그녀는 어떤 사람인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">She is very smart and kind.<span class="kor-sub-text">(매우 똑똑하고 친절합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you often work together?<span class="kor-sub-text">(자주 함께 일하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, we often work on projects together.<span class="kor-sub-text">(네, 프로젝트를 종종 같이 합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">That's great!<span class="kor-sub-text">(멋지네요!)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, she always helps me with my work.<span class="kor-sub-text">(네, 그녀는 항상 제 일을 도와줘요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I work / study with <strong>___________________________________ .</strong></li>
+            <li>He/She is very <strong>___________________________________ .</strong></li>
+            <li>We often <strong>___________________________________ .</strong></li>
+            <li>He/She helps me with <strong>___________________________________ .</strong></li>
+            <li>We talk about <strong>___________________________________ .</strong></li>
+            <li>I enjoy working with <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 튜터에게 친하게 지내는 회사 동료(혹은 반 친구)를 소개합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Who do you talk to most at work/school?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is he/she like?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have lunch together?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is he/she helpful?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L17 Page 3: Talk More & Assignment -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 17: My Coworker or Classmate - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Is it good to be friends with coworkers?<span class="kor-sub-text">(직장 동료와 친구가 되는 것이 좋다고 생각하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What kind of coworker is the worst?<span class="kor-sub-text">(어떤 유형의 동료가 최악인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer working alone or in a team?<span class="kor-sub-text">(혼자 일하는 것과 팀으로 일하는 것 중 어느 것을 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you welcome a new person at work/school?<span class="kor-sub-text">(직장이나 학교에 새로 온 사람을 어떻게 환영하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Ask the student whether they want to practice the 'coworker' or 'classmate' scenario.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach vocabulary like 'helpful', 'lazy', 'hard-working'.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Correct any pronoun gender mix-ups (he vs she).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences about a person you work or study with.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(함께 일하거나 공부하는 사람에 대해 3~4문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 18: MY TEACHER OR BOSS
+         ========================================== -->
+    <!-- L18 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <span class="badge">WEEK 4 • LESSON 18</span>
+            <h1>My Teacher / Boss <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(나의 선생님 또는 상사 이야기하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Describe your teacher or boss politely.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 선생님이나 상사에 대해 예의 바르게 묘사하기)</span></span>
+            </div>
+        </div>
+
+        <!-- 사진 삽입 영역 -->
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Photo Prompt">
+            <p><i class="fa-solid fa-camera"></i> Photo: A professional leading a meeting or a teacher with students.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Who is your favorite teacher?</p><p class="kor-text">(가장 좋아하는 선생님은 누구인가요?)</p></li>
+            <li><p class="eng-text">Do you have a good boss?</p><p class="kor-text">(좋은 상사와 일하고 있나요?)</p></li>
+            <li><p class="eng-text">What makes a good leader?</p><p class="kor-text">(좋은 리더의 자질은 무엇일까요?)</p></li>
+            <li><p class="eng-text">Is your boss or teacher strict?</p><p class="kor-text">(당신의 상사나 선생님은 엄격한 편인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">My boss/teacher is</span> ___.</p><p class="kor-text">(제 상사/선생님은 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">He/She is strict but</span> ___.</p><p class="kor-text">(그/그녀는 엄격하지만 ___합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I learn a lot from</span> ___.</p><p class="kor-text">(저는 ___에게서 많은 것을 배웁니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">He/She is a good</span> leader.</p><p class="kor-text">(그/그녀는 훌륭한 리더입니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">He/She always helps me. <span class="kor-sub-text">(그/그녀는 항상 저를 도와줍니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I respect him/her. <span class="kor-sub-text">(저는 그/그녀를 존경합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">He/She gives good advice. <span class="kor-sub-text">(그/그녀는 좋은 조언을 해줍니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L18 Page 2: Output -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 18: My Teacher or Boss - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Who is your favorite teacher?<span class="kor-sub-text">(가장 좋아하는 선생님은 누구인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">My favorite teacher is Mr. Kim.<span class="kor-sub-text">(제가 가장 좋아하는 선생님은 미스터 김입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What does he teach?<span class="kor-sub-text">(어떤 과목을 가르치시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">He teaches English.<span class="kor-sub-text">(영어를 가르치십니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you like him?<span class="kor-sub-text">(왜 그분을 좋아하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because he is kind and explains things well.<span class="kor-sub-text">(친절하시고 설명을 잘해주시기 때문이에요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">That sounds like a good teacher.<span class="kor-sub-text">(좋은 선생님이시네요.)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I learn a lot from him.<span class="kor-sub-text">(네, 그분께 많은 것을 배웁니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>My boss/teacher is <strong>___________________________________ .</strong></li>
+            <li>He/She teaches me <strong>___________________________________ .</strong></li>
+            <li>He/She is strict but <strong>___________________________________ .</strong></li>
+            <li>I learn a lot from <strong>___________________________________ .</strong></li>
+            <li>He/She is a good <strong>___________________________________ .</strong></li>
+            <li>I respect him/her because <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신의 보스나 과거의 선생님에 대해 이야기합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Tell me about your boss (or teacher).</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is he/she strict?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you like (or dislike) him/her?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you learn a lot from them?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L18 Page 3: Talk More & Assignment -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 18: My Teacher or Boss - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer a strict boss or a friendly boss?<span class="kor-sub-text">(엄격한 상사와 친근한 상사 중 어느 쪽을 더 선호하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes someone a good teacher?<span class="kor-sub-text">(좋은 선생님의 자질은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you want to be a boss/leader one day?<span class="kor-sub-text">(언젠가 상사나 리더가 되고 싶나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How do you handle a bad boss/teacher?<span class="kor-sub-text">(나쁜 상사나 선생님을 어떻게 대처하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Choose either 'boss' or 'teacher' depending on the student's background.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach the phrase "strict but kind" or "strict but fair".</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Help them politely express negative traits if they want to.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences describing your boss or your favorite teacher.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 상사나 가장 좋아하는 선생님에 대해 3~4문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 19: MY NEIGHBOR
+         ========================================== -->
+    <!-- L19 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <span class="badge">WEEK 4 • LESSON 19</span>
+            <h1>My Neighbor <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(나의 이웃 이야기하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about the people living near you and your neighborhood.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 주변에 사는 이웃과 동네 생활에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <!-- 사진 삽입 영역 -->
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1556910103-1c02745a872e?auto=format&fit=crop&w=800&q=80" alt="Photo Prompt">
+            <p><i class="fa-solid fa-camera"></i> Photo: Neighbors talking outside or a view of a quiet street.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you know your neighbors?</p><p class="kor-text">(이웃들을 알고 지내나요?)</p></li>
+            <li><p class="eng-text">Are they friendly?</p><p class="kor-text">(그들은 친절한 편인가요?)</p></li>
+            <li><p class="eng-text">Is your neighborhood quiet or noisy?</p><p class="kor-text">(당신의 동네는 조용한가요, 아니면 시끄러운가요?)</p></li>
+            <li><p class="eng-text">Do you like where you live?</p><p class="kor-text">(현재 살고 있는 곳이 마음에 드나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I live next to</span> ___.</p><p class="kor-text">(저는 ___의 옆에 삽니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">My neighbor is</span> ___.</p><p class="kor-text">(제 이웃은 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">They are very</span> friendly/quiet.</p><p class="kor-text">(그들은 매우 친절합니다/조용합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">We say hello when</span> we meet.</p><p class="kor-text">(우리는 마주칠 때 인사를 나눕니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I don't know them well. <span class="kor-sub-text">(저는 그들을 잘 모릅니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">My neighborhood is safe. <span class="kor-sub-text">(제 동네는 안전합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">They sometimes make noise. <span class="kor-sub-text">(그들은 가끔 소음을 냅니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 2: Output -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 19: My Neighbor - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you know your neighbors?<span class="kor-sub-text">(이웃들을 알고 계신가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I know the family next door.<span class="kor-sub-text">(네, 옆집 가족을 알고 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Are they friendly?<span class="kor-sub-text">(친절한가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, they are very friendly.<span class="kor-sub-text">(네, 아주 친절해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you talk to them often?<span class="kor-sub-text">(자주 대화를 나누나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">No, we just say hello when we meet.<span class="kor-sub-text">(아니요, 마주칠 때 인사만 나눕니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Is your neighborhood quiet?<span class="kor-sub-text">(동네는 조용한 편인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, it is very quiet and safe.<span class="kor-sub-text">(네, 매우 조용하고 안전합니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I live next to <strong>___________________________________ .</strong></li>
+            <li>My neighbor is <strong>___________________________________ .</strong></li>
+            <li>They are very <strong>___________________________________ .</strong></li>
+            <li>We say hello when <strong>___________________________________ .</strong></li>
+            <li>I don't know them <strong>___________________________________ .</strong></li>
+            <li>My neighborhood is <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신이 사는 동네와 이웃에 대해 친구에게 설명합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you like your neighborhood?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Who lives next to you?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Are they nice people?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Is it noisy at night?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L19 Page 3: Talk More & Assignment -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 19: My Neighbor - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Is it important to know your neighbors?<span class="kor-sub-text">(이웃을 알고 지내는 것이 중요할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">How are neighbors today different from the past?<span class="kor-sub-text">(오늘날의 이웃은 과거와 어떻게 다른가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Have you ever had a problem with a neighbor?<span class="kor-sub-text">(이웃과 문제가 있었던 적이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What makes a good neighbor?<span class="kor-sub-text">(좋은 이웃의 조건은 무엇인가요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• It's common in cities for people to answer "I don't know my neighbors." Accept this naturally.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Practice words for living spaces: apartment, house, next door, upstairs.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Teach "make noise" vs "noisy".</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3 sentences about your neighbor or neighborhood.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(자신의 이웃이나 동네에 대해 3문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 20: SOMEONE I ADMIRE
+         ========================================== -->
+    <!-- L20 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <span class="badge">WEEK 4 • LESSON 20</span>
+            <h1>Someone I Admire <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(내가 존경하는 사람 말하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Introduce someone you admire and explain why you respect them.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 존경하는 인물을 소개하고 그 이유 설명하기)</span></span>
+            </div>
+        </div>
+
+        <!-- 사진 삽입 영역 -->
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1513258496099-48166f4453b3?auto=format&fit=crop&w=800&q=80" alt="Photo Prompt">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person looking up at an inspiring figure or a mentor.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Who is someone you admire?</p><p class="kor-text">(당신이 존경하는 사람은 누구인가요?)</p></li>
+            <li><p class="eng-text">Are they famous or someone you know?</p><p class="kor-text">(그들은 유명인인가요, 아니면 아는 사람인가요?)</p></li>
+            <li><p class="eng-text">Why do you respect them?</p><p class="kor-text">(왜 그분을 존경하시나요?)</p></li>
+            <li><p class="eng-text">Do you want to be like them?</p><p class="kor-text">(그분처럼 되고 싶나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I admire</span> ___.</p><p class="kor-text">(저는 ___를 존경합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">He/She is a famous</span> ___.</p><p class="kor-text">(그/그녀는 유명한 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I respect him/her because</span> ___.</p><p class="kor-text">(저는 ___하기 때문에 그/그녀를 존경합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I want to be like</span> him/her.</p><p class="kor-text">(저는 그/그녀처럼 되고 싶습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">His/Her story is inspiring. <span class="kor-sub-text">(그/그녀의 이야기는 감동적입니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">He/She works very hard. <span class="kor-sub-text">(그/그녀는 매우 열심히 일합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I read a book about him/her. <span class="kor-sub-text">(저는 그/그녀에 관한 책을 읽었습니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 2: Output -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 20: Someone I Admire - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Who do you admire?<span class="kor-sub-text">(누구를 존경하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I admire my father.<span class="kor-sub-text">(저는 저희 아버지를 존경합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you admire him?<span class="kor-sub-text">(왜 아버지를 존경하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because he works very hard for our family.<span class="kor-sub-text">(가족을 위해 매우 열심히 일하시기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">That's wonderful. Do you want to be like him?<span class="kor-sub-text">(정말 멋지네요. 아버지처럼 되고 싶나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I want to be a responsible person like him.<span class="kor-sub-text">(네, 아버지처럼 책임감 있는 사람이 되고 싶어요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I admire <strong>___________________________________ .</strong></li>
+            <li>He/She is a famous <strong>___________________________________ .</strong></li>
+            <li>I respect him/her because <strong>___________________________________ .</strong></li>
+            <li>I want to be like <strong>___________________________________ .</strong></li>
+            <li>He/She works very <strong>___________________________________ .</strong></li>
+            <li>His/Her story is <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신의 롤모델(가족, 위인, 연예인 등)에 대해 이야기합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you have a role model?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, I admire <span class="blank" style="min-width: 120px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you respect them?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What can you learn from them?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you want to be like them?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L20 Page 3: Talk More & Assignment -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 1</span>
+            <h1>LESSON 20: Someone I Admire - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why do people need role models?<span class="kor-sub-text">(사람들에게 왜 롤모델이 필요할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Who is the most famous person in your country?<span class="kor-sub-text">(당신의 나라에서 가장 유명한 위인은 누구인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you admire someone in your family?<span class="kor-sub-text">(가족 중에 존경하는 사람이 있나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Can a celebrity be a good role model?<span class="kor-sub-text">(연예인도 좋은 롤모델이 될 수 있을까요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• It is completely okay to choose a family member instead of a famous person.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Teach 'respect' and 'admire' as similar meaning words.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• This is an opportunity for longer, more meaningful speaking.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 3-4 sentences about your role model and why you admire them.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 롤모델과 그를 존경하는 이유를 3~4문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>
