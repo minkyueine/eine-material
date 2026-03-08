@@ -271,6 +271,12 @@
     function init() {
         addBackNav();
         addLessonAnchors();
+        // ── 신규 커스텀 CSS 교재 (Starter / Daily / Opinion / Debate) ──
+        attachToEngText();
+        attachToDialogueNew();
+        attachToModernTableTd();
+        attachToGuidedListStrong();
+        // ── 구형 Tailwind 교재 (Travel / Working / Job / Workplace 등) ──
         attachToDialogue();
         attachToKeyExpressions();
         attachToGuidedPractice();
@@ -278,7 +284,53 @@
     }
 
     /**
-     * 대화문 — <p class="font-semibold"> 안의 영어 텍스트
+     * [신규] 영어 문장 — .eng-text 요소
+     * 내부에 .kor-sub-text 가 있을 수 있으므로 텍스트 노드만 추출
+     */
+    function attachToEngText() {
+        document.querySelectorAll('.eng-text').forEach(el => {
+            const text = getTextNodesOnly(el);
+            if (!text || !isEnglish(text)) return;
+            wrapWithTTS(el, text);
+        });
+    }
+
+    /**
+     * [신규] 대화문 — .d-row .text
+     * <span class="kor-sub-text"> 제외하고 영어 텍스트만 추출
+     */
+    function attachToDialogueNew() {
+        document.querySelectorAll('.d-row .text').forEach(el => {
+            const text = getTextNodesOnly(el);
+            if (!text || !isEnglish(text)) return;
+            wrapWithTTS(el, text);
+        });
+    }
+
+    /**
+     * [신규] 롤플레이 테이블 — .modern-table td
+     */
+    function attachToModernTableTd() {
+        document.querySelectorAll('.modern-table td').forEach(el => {
+            const text = getTextNodesOnly(el);
+            if (!text || !isEnglish(text)) return;
+            wrapWithTTS(el, text, 'append');
+        });
+    }
+
+    /**
+     * [신규] 유도 연습 — ol.guided-list li strong
+     */
+    function attachToGuidedListStrong() {
+        document.querySelectorAll('ol.guided-list li strong').forEach(el => {
+            const text = el.textContent.trim();
+            if (!text || !isEnglish(text)) return;
+            wrapWithTTS(el, text, 'append');
+        });
+    }
+
+    /**
+     * [구형] 대화문 — <p class="font-semibold"> 안의 영어 텍스트
      */
     function attachToDialogue() {
         document.querySelectorAll('p.font-semibold').forEach(p => {
@@ -289,7 +341,7 @@
     }
 
     /**
-     * 핵심 표현 — Key Expressions 섹션의 <li> 항목
+     * [구형] 핵심 표현 — Key Expressions 섹션의 <li> 항목
      */
     function attachToKeyExpressions() {
         document.querySelectorAll('li').forEach(li => {
@@ -303,7 +355,7 @@
     }
 
     /**
-     * 연습 문장 — Guided Practice의 파란색 텍스트
+     * [구형] 연습 문장 — Guided Practice의 파란색 텍스트
      */
     function attachToGuidedPractice() {
         document.querySelectorAll('p.text-blue-700, p.text-lg.font-bold').forEach(p => {
@@ -315,7 +367,7 @@
     }
 
     /**
-     * Warm-up 질문
+     * [구형] Warm-up 질문
      */
     function attachToWarmup() {
         document.querySelectorAll('.space-y-4 li > div, .space-y-4 li').forEach(el => {
@@ -323,6 +375,26 @@
             if (!firstNode || !isEnglish(firstNode)) return;
             wrapWithTTS(el, firstNode, 'append');
         });
+    }
+
+    /**
+     * 유틸: 한국어 자식 요소(.kor-sub-text, .kor-text, .role-tag)를 제외한
+     * 텍스트 노드만 합쳐서 반환
+     */
+    function getTextNodesOnly(el) {
+        let text = '';
+        el.childNodes.forEach(node => {
+            if (node.nodeType === 3) {
+                text += node.textContent;
+            } else if (node.nodeType === 1) {
+                const cls = node.className || '';
+                // 한국어 서브텍스트·태그 제외
+                if (/kor-sub-text|kor-text|role-tag/.test(cls)) return;
+                // highlight 등 인라인 강조 태그는 포함
+                text += node.textContent;
+            }
+        });
+        return text.trim();
     }
 
     /* ── 유틸: 영어 텍스트인지 판별 ──────────────────────────── */
