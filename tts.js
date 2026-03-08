@@ -121,6 +121,12 @@
         #tts-rate-wrap label { font-size: 0.75rem; color: #64748b; }
         #tts-rate-input { width: 80px; accent-color: #059669; }
         #tts-rate-val { min-width: 2.2rem; color: #059669; font-weight: 700; }
+        #tts-voice-sep { width: 1px; height: 1.1rem; background: #e2e8f0; }
+        #tts-voice-select {
+            border: none; background: transparent; font-size: 0.75rem;
+            color: #475569; font-weight: 600; cursor: pointer; max-width: 130px;
+            outline: none; padding: 0;
+        }
 
         /* 뒤로가기 바 */
         #tts-back-bar {
@@ -180,6 +186,7 @@
             th, td { padding: 0.5rem 0.625rem !important; }
             #tts-rate-wrap { bottom: 0.5rem; left: 0.5rem; padding: 0.3rem 0.5rem; font-size: 0.7rem; border-radius: 0.5rem; }
             #tts-rate-input { width: 55px; }
+            #tts-voice-select { max-width: 80px; font-size: 0.68rem; }
             #tts-control-bar { bottom: 0.5rem; right: 0.5rem; padding: 0.35rem 0.625rem; font-size: 0.72rem; }
             #tts-back-bar { font-size: 0.75rem; padding: 0.5rem 0.875rem; gap: 0.5rem; }
         }
@@ -205,6 +212,64 @@
     let currentBtn = null;
     let synth = window.speechSynthesis;
     let rate = CONFIG.rate;
+    let cachedVoices = [];
+    let selectedVoiceName = null; // null = 자동 선택
+
+    /* ── 고품질 원어민 음성 우선순위 목록 ─────────────────────
+     * 자연스러운 음성을 우선 선택하고 없으면 다음으로 fallback
+     * Windows : Microsoft Aria/Jenny/Guy Online (Natural) - 매우 자연스러움
+     * macOS   : Samantha, Alex - Apple 기본 고품질
+     * Chrome  : Google US English - 무난한 품질
+    ────────────────────────────────────────────────────────── */
+    const PREFERRED_VOICES = [
+        'Microsoft Aria Online (Natural)',
+        'Microsoft Jenny Online (Natural)',
+        'Microsoft Guy Online (Natural)',
+        'Microsoft Ana Online (Natural)',
+        'Samantha',
+        'Alex',
+        'Google US English',
+        'Google UK English Female',
+        'Karen',
+        'Moira',
+    ];
+
+    function getBestVoice() {
+        const voices = cachedVoices.length ? cachedVoices : synth.getVoices();
+        const enVoices = voices.filter(v => v.lang.startsWith('en'));
+        if (!enVoices.length) return null;
+        // 사용자가 직접 선택한 경우
+        if (selectedVoiceName) {
+            const picked = enVoices.find(v => v.name === selectedVoiceName);
+            if (picked) return picked;
+        }
+        // 우선순위 목록 순서대로 탐색
+        for (const name of PREFERRED_VOICES) {
+            const found = enVoices.find(v => v.name.includes(name));
+            if (found) return found;
+        }
+        // Fallback: en-US > en 순
+        return enVoices.find(v => v.lang === 'en-US') || enVoices[0];
+    }
+
+    function populateVoiceSelect() {
+        const sel = document.getElementById('tts-voice-select');
+        if (!sel) return;
+        const voices = cachedVoices.length ? cachedVoices : synth.getVoices();
+        const enVoices = voices.filter(v => v.lang.startsWith('en'));
+        sel.innerHTML = '<option value="">🎙 자동</option>';
+        enVoices.forEach(v => {
+            const opt = document.createElement('option');
+            opt.value = v.name;
+            // 긴 이름 줄이기
+            opt.textContent = v.name.replace(' Online (Natural)', '★').replace('Microsoft ', '').replace('Google ', '');
+            sel.appendChild(opt);
+        });
+        // 자동 선택된 음성을 기본값으로 표시
+        const best = getBestVoice();
+        if (best) sel.value = best.name;
+        selectedVoiceName = best ? best.name : null;
+    }
 
     /* ── 컨트롤 바 ─────────────────────────────────────────── */
     const bar = document.createElement('div');
@@ -218,19 +283,25 @@
 
     document.getElementById('tts-stop-btn').onclick = stopTTS;
 
-    /* ── 속도 조절 바 ──────────────────────────────────────── */
+    /* ── 속도 조절 + 음성 선택 바 ─────────────────────────── */
     const rateWrap = document.createElement('div');
     rateWrap.id = 'tts-rate-wrap';
     rateWrap.innerHTML = `
         <label>속도</label>
         <input id="tts-rate-input" type="range" min="0.5" max="1.5" step="0.1" value="${rate}">
         <span id="tts-rate-val">${rate}x</span>
+        <span id="tts-voice-sep"></span>
+        <select id="tts-voice-select" title="음성 선택"><option value="">🎙 로딩중...</option></select>
     `;
     document.body.appendChild(rateWrap);
 
     document.getElementById('tts-rate-input').oninput = function () {
         rate = parseFloat(this.value);
         document.getElementById('tts-rate-val').textContent = rate.toFixed(1) + 'x';
+    };
+
+    document.getElementById('tts-voice-select').onchange = function () {
+        selectedVoiceName = this.value || null;
     };
 
     /* ── 뒤로가기 바 ────────────────────────────────────────── */
@@ -454,11 +525,9 @@
         utter.pitch = CONFIG.pitch;
         utter.volume = CONFIG.volume;
 
-        // 영어 음성 선택 (가능하면)
-        const voices = synth.getVoices();
-        const enVoice = voices.find(v => v.lang === 'en-US' && v.name.includes('Google'))
-            || voices.find(v => v.lang.startsWith('en'));
-        if (enVoice) utter.voice = enVoice;
+        // 고품질 원어민 음성 선택
+        const bestVoice = getBestVoice();
+        if (bestVoice) utter.voice = bestVoice;
 
         utter.onstart = () => {
             currentBtn = btn;
@@ -499,10 +568,19 @@
         bar.classList.remove('visible');
     }
 
-    /* ── 음성 로드 후 실행 ────────────────────────────────────── */
-    if (synth.onvoiceschanged !== undefined) {
-        synth.onvoiceschanged = () => {};
+    /* ── 음성 목록 로드 + DOM 준비 후 실행 ───────────────────── */
+    function onVoicesReady() {
+        cachedVoices = synth.getVoices();
+        if (!cachedVoices.length) return; // 아직 안 로드됨
+        populateVoiceSelect();
     }
+
+    // Chrome/Edge: onvoiceschanged 이벤트로 로드
+    if (synth.onvoiceschanged !== undefined) {
+        synth.onvoiceschanged = onVoicesReady;
+    }
+    // Safari/Firefox: 즉시 사용 가능한 경우가 많음 → 바로 시도
+    setTimeout(onVoicesReady, 100);
 
     // DOM 준비 후 버튼 삽입
     if (document.readyState === 'loading') {
