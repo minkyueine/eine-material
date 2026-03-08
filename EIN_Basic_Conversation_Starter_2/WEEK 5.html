@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Week 5 (Basic Conversation Starter 2)</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        /* Top Accent Line */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        /* Copyright Footer */
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Header Section */
+        .header { margin-bottom: 30px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        /* Mini Header (Page 2 & 3) */
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 18px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 24px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        /* Section Titles (H2) */
+        h2 { font-size: 20px; color: var(--text-title); margin: 35px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 16px; flex-shrink: 0;}
+        
+        /* Text Styles */
+        .eng-text { font-size: 17px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 22px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 30px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif; letter-spacing: 1px;}
+        
+        /* Notes Area */
+        .notes-area { flex-grow: 1; margin-top: 30px; border: 2px dashed #cbd5e1; border-radius: 12px; padding: 20px; background-color: #f8fafc; }
+        .notes-area-title { font-size: 14px; color: var(--text-sub); font-family: 'Poppins', sans-serif; font-weight: 600; display: flex; align-items: center; gap: 8px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 64px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 28px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 5</div>
+        <h1>Places & Travel</h1>
+        <h2>Basic Conversation Starter 2</h2>
+        <p style="font-size: 20px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 21: Visiting a Park<br>
+            Lesson 22: Shopping<br>
+            Lesson 23: Traveling<br>
+            Lesson 24: Hotels<br>
+            Lesson 25: Airports
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 21: VISITING A PARK
+         ========================================== -->
+    <!-- L21 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <span class="badge">WEEK 5 • LESSON 21</span>
+            <h1>Visiting a Park <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(공원 방문하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about parks, outdoor time, and relaxing places.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 공원, 야외 시간, 휴식 장소에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1541339905195-2601267425e4?auto=format&fit=crop&w=800&q=80" alt="Visiting a Park">
+            <p><i class="fa-solid fa-camera"></i> Photo: People walking and relaxing in a beautiful green park.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you go to parks often?</p><p class="kor-text">(공원에 자주 가시나요?)</p></li>
+            <li><p class="eng-text">What do you do in parks?</p><p class="kor-text">(공원에서 주로 무엇을 하나요?)</p></li>
+            <li><p class="eng-text">Do you prefer parks or cafes?</p><p class="kor-text">(공원과 카페 중 어느 곳을 더 선호하나요?)</p></li>
+            <li><p class="eng-text">What is your favorite outdoor place?</p><p class="kor-text">(가장 좋아하는 야외 장소는 어디인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I like going to the park to</span> ___.</p><p class="kor-text">(저는 ___하기 위해 공원에 가는 것을 좋아합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">It is a good place for</span> ___.</p><p class="kor-text">(그곳은 ___하기에 좋은 장소입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I usually go with</span> ___.</p><p class="kor-text">(저는 주로 ___와(과) 함께 갑니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I go there when I want to relax</span>.</p><p class="kor-text">(저는 편하게 쉬고 싶을 때 그곳에 갑니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">It feels peaceful. <span class="kor-sub-text">(평화로운 기분이 듭니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I like walking and sitting there. <span class="kor-sub-text">(저는 그곳을 걷고 앉아 있는 것을 좋아합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">It is good for families and pets. <span class="kor-sub-text">(가족과 반려동물에게 좋습니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 21: Visiting a Park - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you go to parks often?<span class="kor-sub-text">(공원에 자주 가시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I go to the park on weekends.<span class="kor-sub-text">(네, 주말마다 공원에 갑니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you do there?<span class="kor-sub-text">(그곳에서 무엇을 하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I walk, listen to music, and relax.<span class="kor-sub-text">(걷기도 하고, 음악을 듣거나 휴식을 취해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you like parks?<span class="kor-sub-text">(왜 공원을 좋아하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because they are quiet and peaceful.<span class="kor-sub-text">(조용하고 평화롭기 때문이에요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I like going to the park to <strong>___________________________________ .</strong></li>
+            <li>I usually go with <strong>___________________________________ .</strong></li>
+            <li>The park is <strong>___________________________________ .</strong></li>
+            <li>It is a good place for <strong>___________________________________ .</strong></li>
+            <li>I go there when I want to <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 공원에서의 시간에 대해 묻고 답합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you do in parks?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I usually <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Who do you go with?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I go with <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you like parks?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Because it is <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 21: Visiting a Park - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why do people need green spaces?<span class="kor-sub-text">(사람들은 왜 녹지 공간이 필요할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do parks help people feel better?<span class="kor-sub-text">(공원이 사람들의 기분을 좋게 만드는 데 도움이 될까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is the best season for going to a park?<span class="kor-sub-text">(공원에 가기 가장 좋은 계절은 언제인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Would you rather go to a park alone or with others?<span class="kor-sub-text">(공원에 혼자 가는 것과 다른 사람들과 함께 가는 것 중 어느 것을 더 선호하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Encourage sensory adjectives: quiet, peaceful, fresh, green.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Ask about specific activities: walking a dog, having a picnic, riding a bike.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about a park you like.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신이 좋아하는 공원에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 22: SHOPPING
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <span class="badge">WEEK 5 • LESSON 22</span>
+            <h1>Shopping <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(쇼핑하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about shopping habits and favorite things to buy.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 쇼핑 습관과 즐겨 사는 물건에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80" alt="Shopping">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person looking at items in a stylish clothing store or mall.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you like shopping?</p><p class="kor-text">(쇼핑을 좋아하시나요?)</p></li>
+            <li><p class="eng-text">What do you usually buy?</p><p class="kor-text">(보통 무엇을 사나요?)</p></li>
+            <li><p class="eng-text">Do you prefer online shopping or in-store shopping?</p><p class="kor-text">(온라인 쇼핑과 매장 방문 쇼핑 중 어느 것을 선호하나요?)</p></li>
+            <li><p class="eng-text">Do you shop quickly or slowly?</p><p class="kor-text">(쇼핑을 빨리 하는 편인가요, 천천히 하는 편인가요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I usually buy</span> ___.</p><p class="kor-text">(저는 주로 ___을(를) 삽니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I prefer shopping</span> ___.</p><p class="kor-text">(저는 ___ 쇼핑을 더 선호합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I'm looking for</span> ___.</p><p class="kor-text">(저는 ___을(를) 찾고 있습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I compare prices</span>.</p><p class="kor-text">(저는 가격을 비교합니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I shop when I need something. <span class="kor-sub-text">(저는 무언가 필요할 때만 쇼핑합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">Online shopping is convenient. <span class="kor-sub-text">(온라인 쇼핑은 편리합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I like trying things before buying. <span class="kor-sub-text">(저는 사기 전에 입어보는/시도해보는 것을 좋아합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L22 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 22: Shopping - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you like shopping?<span class="kor-sub-text">(쇼핑을 좋아하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Sometimes, but I don't like crowded places.<span class="kor-sub-text">(가끔요, 하지만 붐비는 곳은 좋아하지 않아요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you usually buy?<span class="kor-sub-text">(주로 무엇을 사나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I usually buy clothes and daily items.<span class="kor-sub-text">(저는 주로 옷이나 생필품을 삽니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you prefer online shopping?<span class="kor-sub-text">(온라인 쇼핑을 더 선호하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, because it is convenient.<span class="kor-sub-text">(네, 왜냐하면 편리하거든요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I usually buy <strong>___________________________________ .</strong></li>
+            <li>I prefer shopping <strong>___________________________________ .</strong></li>
+            <li>I look for ___ first. <strong>___________________________________ .</strong></li>
+            <li>It is important that <strong>___________________________________ .</strong></li>
+            <li>I don't like <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 당신의 쇼핑 선호도에 대해 튜터와 대화합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you usually buy when you shop?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I usually buy <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you prefer online shopping or in-store shopping?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I prefer <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you prefer that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Because it is <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L22 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 22: Shopping - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why do people enjoy shopping?<span class="kor-sub-text">(사람들은 왜 쇼핑을 즐길까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Does shopping help people feel better?<span class="kor-sub-text">(쇼핑이 기분을 나아지게 하는 데 도움이 되나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is the downside of online shopping?<span class="kor-sub-text">(온라인 쇼핑의 단점은 무엇일까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you spend too much money sometimes?<span class="kor-sub-text">(가끔 돈을 너무 많이 쓸 때가 있나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Use compare/contrast language: online vs. in-store.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Help students express common shopping terms like 'window shopping', 'on sale', or 'delivery fee'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your shopping habits.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 쇼핑 습관에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 23: TRAVELING
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <span class="badge">WEEK 5 • LESSON 23</span>
+            <h1>Traveling <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(여행하기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about travel preferences and simple travel plans.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 여행 취향과 간단한 여행 계획에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Traveling">
+            <p><i class="fa-solid fa-camera"></i> Photo: A traveler's view of an airplane wing from the window.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you like traveling?</p><p class="kor-text">(여행을 좋아하시나요?)</p></li>
+            <li><p class="eng-text">Do you prefer short trips or long trips?</p><p class="kor-text">(짧은 여행과 긴 여행 중 어느 것을 선호하나요?)</p></li>
+            <li><p class="eng-text">Who do you like to travel with?</p><p class="kor-text">(누구와 여행하는 것을 좋아하나요?)</p></li>
+            <li><p class="eng-text">What place do you want to visit next?</p><p class="kor-text">(다음엔 어느 곳을 방문하고 싶나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I want to travel to</span> ___.</p><p class="kor-text">(저는 ___으로 여행 가고 싶습니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I prefer traveling with</span> ___.</p><p class="kor-text">(저는 ___와(과) 함께 여행하는 것을 선호합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">My dream destination is</span> ___.</p><p class="kor-text">(제 꿈의 여행지는 ___입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Traveling helps me</span> ___.</p><p class="kor-text">(여행은 제가 ___하는 데 도움을 줍니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I want to try local food. <span class="kor-sub-text">(저는 현지 음식을 맛보고 싶습니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I like learning about new cultures. <span class="kor-sub-text">(저는 새로운 문화에 대해 배우는 것을 좋아합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">Travel can be tiring but exciting. <span class="kor-sub-text">(여행은 피곤할 수 있지만 흥미진진합니다.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L23 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 23: Traveling - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you enjoy traveling?<span class="kor-sub-text">(여행하는 것을 즐기시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I love visiting new places.<span class="kor-sub-text">(네, 새로운 장소를 방문하는 것을 무척 좋아해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Where do you want to travel next?<span class="kor-sub-text">(다음엔 어디로 여행 가고 싶나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I want to go to Japan.<span class="kor-sub-text">(일본에 가고 싶어요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you want to go there?<span class="kor-sub-text">(왜 그곳에 가고 싶은가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Because I want to enjoy the food and culture.<span class="kor-sub-text">(왜냐하면 그곳의 음식과 문화를 즐기고 싶기 때문이에요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I want to travel to <strong>___________________________________ .</strong></li>
+            <li>I prefer traveling with <strong>___________________________________ .</strong></li>
+            <li>My dream destination is <strong>___________________________________ .</strong></li>
+            <li>Traveling helps me <strong>___________________________________ .</strong></li>
+            <li>I want to try ___ there. <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 다음 여행 계획에 대해 묻고 답합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Where do you want to travel next?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I want to go to <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Who do you want to go with?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I want to go with <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you want to go there?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Because <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L23 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 23: Traveling - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why do people travel?<span class="kor-sub-text">(사람들은 왜 여행을 할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Is traveling a luxury or a necessity?<span class="kor-sub-text">(여행은 사치일까요, 필수일까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is the best part of traveling?<span class="kor-sub-text">(여행의 가장 좋은 점은 무엇인가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What travel style do you prefer?<span class="kor-sub-text">(당신은 어떤 여행 스타일을 선호하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• This lesson bridges naturally into Travel Survival English later.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Prompt students to describe past trips using past tense if they struggle with hypothetical futures.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about a place you want to travel to.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신이 여행 가고 싶은 장소에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 24: HOTELS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <span class="badge">WEEK 5 • LESSON 24</span>
+            <h1>Hotels <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(호텔 머물기)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about hotels and what you need when staying away from home.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 호텔과 집 밖에서 머물 때 필요한 것들에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=800&q=80" alt="Hotels">
+            <p><i class="fa-solid fa-camera"></i> Photo: A clean, comfortable hotel room bed.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you prefer hotels or Airbnb?</p><p class="kor-text">(호텔과 에어비앤비 중 어느 것을 선호하나요?)</p></li>
+            <li><p class="eng-text">What is important in a hotel?</p><p class="kor-text">(호텔에서 중요한 점은 무엇인가요?)</p></li>
+            <li><p class="eng-text">Do you care about location?</p><p class="kor-text">(위치를 중요하게 생각하나요?)</p></li>
+            <li><p class="eng-text">Do you like hotel breakfast?</p><p class="kor-text">(호텔 조식을 좋아하시나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I like hotels that are</span> ___.</p><p class="kor-text">(저는 ___한 호텔을 좋아합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">The room should be</span> ___.</p><p class="kor-text">(방은 ___해야 합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I need</span> ___.</p><p class="kor-text">(저는 ___이(가) 필요합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">The location is important</span>.</p><p class="kor-text">(위치가 중요합니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I care about cleanliness. <span class="kor-sub-text">(저는 청결을 중요하게 생각합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I want free Wi-Fi / breakfast. <span class="kor-sub-text">(무료 와이파이 / 조식을 원합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I don't need luxury. <span class="kor-sub-text">(저는 호화로움은 필요하지 않아요.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L24 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 24: Hotels - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What is important when you choose a hotel?<span class="kor-sub-text">(호텔을 고를 때 중요한 점이 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I want a clean and comfortable room.<span class="kor-sub-text">(저는 깨끗하고 편안한 방을 원해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you care about location?<span class="kor-sub-text">(위치도 신경 쓰시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, I like hotels near the city center.<span class="kor-sub-text">(네, 시내 중심가에 가까운 호텔을 좋아합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you need in a hotel?<span class="kor-sub-text">(호텔에서 필요한 것이 무엇인가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I need Wi-Fi and a quiet room.<span class="kor-sub-text">(와이파이와 조용한 방이 필요해요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I like hotels that are <strong>___________________________________ .</strong></li>
+            <li>The room should be <strong>___________________________________ .</strong></li>
+            <li>I need <strong>___________________________________ .</strong></li>
+            <li>The location should be <strong>___________________________________ .</strong></li>
+            <li>A good hotel feels <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 선호하는 호텔 조건에 대해 설명합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is important when you choose a hotel?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>For me, <span class="blank" style="min-width: 150px;"></span> is important.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you need in a room?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I really need <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Do you prefer city center hotels?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>Yes, because <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L24 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 24: Hotels - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why do some people love hotels?<span class="kor-sub-text">(사람들은 왜 호텔을 사랑할까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you think breakfast is important in a hotel?<span class="kor-sub-text">(호텔에서 조식이 중요하다고 생각하나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What is more important: comfort or price?<span class="kor-sub-text">(편안함과 가격 중 어느 것이 더 중요한가요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Would you rather stay in one hotel or move around?<span class="kor-sub-text">(한 호텔에 계속 머무는 것과 여러 호텔을 이동하는 것 중 어느 것을 선호하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Keep vocabulary practical and simple for A1+ learners.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Teach common terms like 'check-in/check-out time', 'view', and 'front desk'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your ideal hotel.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 이상적인 호텔에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 25: AIRPORTS
+         ========================================== -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <span class="badge">WEEK 5 • LESSON 25</span>
+            <h1>Airports <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(공항에서)</span></h1>
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Talk about airports and travel experiences.<br><span style="font-size: 15px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 공항과 여행 경험에 대해 이야기하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1544015759-247ce0749caa?auto=format&fit=crop&w=800&q=80" alt="Airports">
+            <p><i class="fa-solid fa-camera"></i> Photo: Travelers waiting at an airport terminal with luggage.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업 질문)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">Do you like airports?</p><p class="kor-text">(공항을 좋아하시나요?)</p></li>
+            <li><p class="eng-text">How early do you arrive at the airport?</p><p class="kor-text">(공항에 얼마나 일찍 도착하나요?)</p></li>
+            <li><p class="eng-text">Do airports make you excited or tired?</p><p class="kor-text">(공항은 당신을 설레게 하나요, 피곤하게 하나요?)</p></li>
+            <li><p class="eng-text">What do you do while waiting?</p><p class="kor-text">(기다리는 동안 무엇을 하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Speaking Patterns <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I arrive at the airport</span> ___.</p><p class="kor-text">(저는 공항에 ___ 도착합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I usually wait at</span> ___.</p><p class="kor-text">(저는 주로 ___에서 기다립니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I feel</span> ___ <span class="highlight">before a flight</span>.</p><p class="kor-text">(비행 전 저는 ___ 기분을 느낍니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">Airports are</span> busy/exciting.</p><p class="kor-text">(공항은 붐비고/설렙니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I like window seats. <span class="kor-sub-text">(저는 창가 자리를 좋아합니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500;">I often walk around before boarding. <span class="kor-sub-text">(저는 탑승 전에 종종 돌아다닙니다.)</span></p></li>
+                <li><p class="eng-text" style="font-size: 16px; font-weight: 500; margin-bottom: 0;">I don't like long lines. <span class="kor-sub-text">(저는 긴 줄을 서는 것을 좋아하지 않아요.)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L25 Page 2: Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 25: Airports - Practice & Role-play</h1>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 대화 모델)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">How do you feel at airports?<span class="kor-sub-text">(공항에 오면 기분이 어떤가요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I feel excited but a little tired.<span class="kor-sub-text">(설레기도 하지만 조금 피곤하기도 해요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you usually do while waiting?<span class="kor-sub-text">(기다리는 동안 주로 뭘 하나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I check my gate, buy coffee, and walk around.<span class="kor-sub-text">(게이트를 확인하고, 커피를 사고, 돌아다녀요.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Do you like flying?<span class="kor-sub-text">(비행기 타는 걸 좋아하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">Yes, but long flights are hard.<span class="kor-sub-text">(네, 하지만 긴 비행은 힘들어요.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(핵심 문장 연습)</span></h2>
+        <ol class="guided-list">
+            <li>I arrive at the airport <strong>___________________________________ .</strong></li>
+            <li>I usually ___ while waiting. <strong>___________________________________ .</strong></li>
+            <li>Airports feel <strong>___________________________________ .</strong></li>
+            <li>I feel ___ before flights. <strong>___________________________________ .</strong></li>
+            <li>I don't like <strong>___________________________________ .</strong></li>
+        </ol>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(실전 롤플레이)</span></h2>
+        <p class="kor-text" style="margin-bottom: 10px; background: #f1f5f9; padding: 10px 15px; border-radius: 6px; display: inline-block;">💡 Situation: 공항에서의 루틴에 대해 튜터와 대화합니다.</p>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you do at airports?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I usually <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>How do you feel before a flight?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I feel <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you dislike about airports?</th>
+                    <td><span class="role-tag tag-student">Student</span><br>I don't like <span class="blank" style="min-width: 150px;"></span>.</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L25 Page 3: Wrap-up -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN BASIC CONVERSATION STARTER 2</span>
+            <h1>LESSON 25: Airports - Wrap-up & Assignment</h1>
+        </div>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 15px;">Why do airports feel special to some people?<span class="kor-sub-text">(왜 어떤 사람들에게 공항은 특별하게 느껴질까요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you enjoy the start of a trip?<span class="kor-sub-text">(여행의 시작을 즐기시나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">What do you buy at airports?<span class="kor-sub-text">(공항에서 주로 무엇을 사나요?)</span></p></li>
+                    <li><p class="eng-text" style="font-size: 15px;">Do you prefer early morning flights or late flights?<span class="kor-sub-text">(이른 아침 비행기와 늦은 밤 비행기 중 어느 것을 선호하나요?)</span></p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 8px;">• Good bridge lesson before Travel Survival English.</p>
+                    <p style="font-size: 14px; font-weight: 500; margin-bottom: 0;">• Explain words like 'duty-free shop', 'boarding pass', and 'gate'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card">
+            <div class="hw-badge">ASSIGNMENT</div>
+            <h3 style="font-size: 18px; color: var(--primary); margin: 0 0 8px 0; font-family: 'Poppins', sans-serif;">Homework</h3>
+            <p style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Write 4-5 sentences about your airport habits.</p>
+            <p class="kor-text" style="margin-bottom: 15px;">(당신의 공항에서의 습관에 대해 4~5문장으로 적어보세요.)</p>
+            <div style="background: white; padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+                <p style="font-size: 14px; margin-bottom: 5px; font-weight: 600;">1. Korean intention</p>
+                <p style="font-size: 14px; color: var(--secondary); margin-bottom: 0; font-weight: 600;">2. English draft</p>
+            </div>
+        </div>
+
+        <!-- Weekly completion note -->
+        <div style="text-align: center; margin-top: 25px; padding: 15px; background: white; border-radius: 12px; border: 2px dashed #059669;">
+            <p style="font-size: 16px; color: #059669; font-weight: 700; margin-bottom: 0;">🎉 Great job! You have completed Week 5! 🎉</p>
+        </div>
+        
+        <div class="notes-area">
+            <div class="notes-area-title"><i class="fa-solid fa-pencil"></i> Class Notes</div>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>
