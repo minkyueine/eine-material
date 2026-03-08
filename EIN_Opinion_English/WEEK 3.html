@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Opinion Week 3</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+            --alert: #ef4444; /* Red */
+            --alert-light: #fef2f2;
+            --dilemma: #f59e0b; /* Orange/Yellow */
+            --dilemma-light: #fffbeb;
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Headers */
+        .header { margin-bottom: 25px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 15px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 16px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 20px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Alert & Dilemma Boxes */
+        .alert-box { background: var(--alert-light); border-left: 4px solid var(--alert); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #991b1b; font-weight: 700; font-size: 16px; margin-bottom: 20px; margin-top: 10px;}
+        .alert-box i { font-size: 24px; color: var(--alert); flex-shrink: 0;}
+
+        .dilemma-box { background: var(--dilemma-light); border-left: 4px solid var(--dilemma); padding: 18px 25px; border-radius: 8px; margin-bottom: 20px;}
+        .dilemma-box h4 { margin: 0 0 10px 0; color: #b45309; font-size: 16px; display: flex; align-items: center; gap: 8px;}
+        .dilemma-box ul { list-style: none; padding: 0; margin: 0; }
+        .dilemma-box li { font-size: 15px; color: #78350f; margin-bottom: 8px; font-weight: 600;}
+        .dilemma-box li strong { color: #d97706; display: inline-block; width: 25px;}
+
+        /* Opinion Builder Box */
+        .opinion-builder { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; }
+        .opinion-builder p { font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 15px; display: flex; align-items: center; gap: 8px;}
+        .opinion-builder ol { margin: 0; padding-left: 20px; font-size: 14.5px; color: var(--text-main); font-weight: 500; line-height: 1.6;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        h2 { font-size: 19px; color: var(--text-title); margin: 30px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 34px; height: 34px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 15px; flex-shrink: 0;}
+        
+        .eng-text { font-size: 16.5px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 20px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif;}
+        
+        .review-card { border: 1px solid var(--border); border-top: 4px solid var(--secondary); background: #f8fafc; border-radius: 12px; padding: 20px 25px; margin-top: 25px;}
+        .review-card h3 { font-size: 17px; color: var(--text-title); font-family: 'Poppins', sans-serif; margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px;}
+        .review-list { list-style: none; padding: 0; margin: 0; }
+        .review-list li { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center;}
+        .review-list li span { flex-shrink: 0; }
+        .review-line { flex-grow: 1; border-bottom: 1.5px solid #cbd5e1; margin-left: 10px; height: 20px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 54px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 24px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 3</div>
+        <h1>Health & Wellness</h1>
+        <h2>EIN Opinion English (B1-B2)</h2>
+        <p style="font-size: 18px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 11: Work-Life Balance<br>
+            Lesson 12: Healthy Lifestyle<br>
+            Lesson 13: Fitness Culture<br>
+            Lesson 14: Sleep Habits<br>
+            Lesson 15: Stress Management
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 11: WORK-LIFE BALANCE
+         ========================================== -->
+    <!-- L11 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 11</span>
+            <h1>Work-Life Balance <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(워라밸)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about work-life balance, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 워라밸에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80" alt="Work-Life Balance">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person relaxing at home after turning off their work laptop.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'work-life balance'?</p><p class="kor-text">('워라밸'이라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you think about your work-life balance?</p><p class="kor-text">(자신의 워라밸에 대해 얼마나 자주 생각하시나요?)</p></li>
+            <li><p class="eng-text">Do people around you have strong opinions about working overtime?</p><p class="kor-text">(주변 사람들은 야근에 대해 확고한 의견을 가지고 있나요?)</p></li>
+            <li><p class="eng-text">Why do you think work-life balance matters today?</p><p class="kor-text">(오늘날 워라밸이 왜 중요하다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L11 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 11: Work-Life Balance - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A company offers a high salary but requires long hours and weekend work.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 회사가 높은 연봉을 제안하지만, 긴 근무 시간과 주말 근무를 요구합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about jobs with high salaries but poor work-life balance?<span class="kor-sub-text">(연봉은 높지만 워라밸이 나쁜 직업에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think work-life balance is more important than money.<span class="kor-sub-text">(저는 돈보다 워라밸이 더 중요하다고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that people easily get burned out if they don't rest.<span class="kor-sub-text">(한 가지 이유는 쉬지 않으면 사람들이 쉽게 번아웃되기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say working hard while you are young is necessary. What do you think?<span class="kor-sub-text">(어떤 사람들은 젊을 때 열심히 일하는 것이 필요하다고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see their point, but you also need time for family and health.<span class="kor-sub-text">(그들의 관점도 이해하지만, 가족과 건강을 위한 시간도 필요합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would choose a job with a good work-life balance.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 워라밸이 좋은 직업을 선택하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about work-life balance? (워라밸에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, work-life balance is <strong>___________________________________ .</strong></li>
+            <li>One advantage of having free time is <strong>___________________________________ .</strong></li>
+            <li>One drawback of working too much is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'High salary' and 'More free time', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L11 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 11: Work-Life Balance - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Take the high salary and work long hours <span style="font-size:13.5px; font-weight:400; color:#92400e;">(높은 연봉을 받고 길게 일한다)</span></li>
+                <li><strong>B.</strong> Take a lower salary and have more free time <span style="font-size:13.5px; font-weight:400; color:#92400e;">(적은 연봉을 받고 개인 시간을 더 갖는다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about work-life balance?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does your current job/study give you good balance?</p><p class="kor-text" style="font-size: 13.5px;">(현재의 직장이나 학업은 워라밸이 좋은 편인가요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is it possible to be very successful without working overtime?</p><p class="kor-text" style="font-size: 13.5px;">(야근 없이 매우 성공하는 것이 가능할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What is your favorite way to relax after work?</p><p class="kor-text" style="font-size: 13.5px;">(퇴근 후 가장 좋아하는 휴식 방법은 무엇인가요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student articulate the balance between career and personal life.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on work-life balance. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(워라밸에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 12: HEALTHY LIFESTYLE
+         ========================================== -->
+    <!-- L12 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 12</span>
+            <h1>Healthy Lifestyle <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(건강한 라이프스타일)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about healthy eating and habits, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 건강한 식습관에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Healthy Lifestyle">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person preparing a healthy salad with fresh vegetables.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'healthy lifestyle'?</p><p class="kor-text">('건강한 라이프스타일'이라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you eat fast food?</p><p class="kor-text">(패스트푸드를 얼마나 자주 드시나요?)</p></li>
+            <li><p class="eng-text">Do people around you care about their diets?</p><p class="kor-text">(주변 사람들은 식단에 신경을 많이 쓰나요?)</p></li>
+            <li><p class="eng-text">Why do you think eating healthy is difficult for some people?</p><p class="kor-text">(어떤 사람들에게는 왜 건강하게 먹는 것이 어려울까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L12 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 12: Healthy Lifestyle - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A friend decides to only eat healthy, organic food, but complains that it is too expensive and time-consuming.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 친구가 건강한 유기농 음식만 먹기로 결심했지만, 너무 비싸고 시간이 많이 든다고 불평합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about strict healthy diets?<span class="kor-sub-text">(엄격한 건강 식단에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think eating healthy is important, but it shouldn't be stressful.<span class="kor-sub-text">(건강하게 먹는 것은 중요하지만, 스트레스를 받아서는 안 된다고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that healthy food is often expensive and takes time to prepare.<span class="kor-sub-text">(한 가지 이유는 건강한 음식이 주로 비싸고 준비하는 데 시간이 걸리기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say it is worth the cost to prevent future illnesses. What do you think?<span class="kor-sub-text">(어떤 사람들은 미래의 질병을 예방하기 위해 그 비용을 지불할 가치가 있다고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that view, but people need affordable and convenient options too.<span class="kor-sub-text">(그 관점은 이해하지만, 사람들에게는 저렴하고 편리한 선택지도 필요합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would choose a balanced diet over a strict one.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 엄격한 식단보다는 균형 잡힌 식단을 선택하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about strict healthy diets? (엄격한 건강 식단에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, eating healthy is <strong>___________________________________ .</strong></li>
+            <li>One advantage of healthy food is <strong>___________________________________ .</strong></li>
+            <li>One drawback of strict diets is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Eat only healthy food' and 'Eat what you want but in moderation', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L12 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 12: Healthy Lifestyle - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Eat only healthy, organic food <span style="font-size:13.5px; font-weight:400; color:#92400e;">(건강한 유기농 음식만 먹는다)</span></li>
+                <li><strong>B.</strong> Eat what you want, but in moderation <span style="font-size:13.5px; font-weight:400; color:#92400e;">(원하는 것을 먹되 적당히 먹는다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about healthy diets?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is fast food too cheap and easy to get?</p><p class="kor-text" style="font-size: 13.5px;">(패스트푸드가 너무 저렴하고 구하기 쉬운 편인가요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Do you think sugar is the biggest health problem today?</p><p class="kor-text" style="font-size: 13.5px;">(오늘날 설탕이 가장 큰 건강 문제라고 생각하나요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">How do you balance enjoying food and staying healthy?</p><p class="kor-text" style="font-size: 13.5px;">(음식을 즐기는 것과 건강을 유지하는 것의 균형을 어떻게 맞추나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Teach words like 'in moderation', 'organic', and 'balanced diet'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on healthy diets. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(건강 식단에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 13: FITNESS CULTURE
+         ========================================== -->
+    <!-- L13 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 13</span>
+            <h1>Fitness Culture <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(피트니스 문화)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about fitness trends, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 피트니스 트렌드에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" alt="Fitness Culture">
+            <p><i class="fa-solid fa-camera"></i> Photo: People running on treadmills in a modern, busy gym.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'fitness culture'?</p><p class="kor-text">('피트니스 문화'라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you exercise or go to the gym?</p><p class="kor-text">(얼마나 자주 운동을 하거나 헬스장에 가나요?)</p></li>
+            <li><p class="eng-text">Do people around you care a lot about building muscle?</p><p class="kor-text">(주변 사람들은 근육을 키우는 데 관심이 많은가요?)</p></li>
+            <li><p class="eng-text">Why do you think working out has become so popular recently?</p><p class="kor-text">(최근 운동이 왜 이렇게 인기가 많아졌다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L13 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 13: Fitness Culture - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A friend spends all their free time at the gym and feels stressed if they miss a day.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 친구가 모든 여가 시간을 헬스장에서 보내며, 하루라도 운동을 빠지면 스트레스를 받습니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about people who are obsessed with the gym?<span class="kor-sub-text">(헬스장에 집착하는 사람들에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think exercising is good, but obsession is unhealthy.<span class="kor-sub-text">(운동하는 것은 좋지만, 집착은 건강하지 못하다고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that it can cause stress and physical injuries.<span class="kor-sub-text">(한 가지 이유는 스트레스와 신체적 부상을 유발할 수 있기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say strict discipline builds a strong mindset. What do you think?<span class="kor-sub-text">(어떤 사람들은 엄격한 자기 규율이 강한 정신력을 만든다고 합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand that view, but your body also needs time to rest.<span class="kor-sub-text">(그 관점은 이해하지만, 우리 몸에는 쉴 시간도 필요합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would exercise moderately and enjoy life.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 적당히 운동하고 삶을 즐기겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about strict fitness culture? (엄격한 피트니스 문화에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, going to the gym every day is <strong>___________________________________ .</strong></li>
+            <li>One advantage of working out is <strong>___________________________________ .</strong></li>
+            <li>One drawback of extreme fitness is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'A strict workout routine' and 'Light, enjoyable exercise', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L13 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 13: Fitness Culture - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> A strict workout routine <span style="font-size:13.5px; font-weight:400; color:#92400e;">(엄격한 운동 루틴 유지)</span></li>
+                <li><strong>B.</strong> Light, enjoyable exercise <span style="font-size:13.5px; font-weight:400; color:#92400e;">(가볍고 즐거운 운동)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about modern fitness culture?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does social media make people feel bad about their bodies?</p><p class="kor-text" style="font-size: 13.5px;">(소셜 미디어가 사람들이 자신의 몸에 대해 안 좋게 느끼도록 만드나요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is mental health as important as physical health?</p><p class="kor-text" style="font-size: 13.5px;">(정신 건강이 신체 건강만큼 중요할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What is a simple way to stay active without a gym?</p><p class="kor-text" style="font-size: 13.5px;">(헬스장 없이도 활동적으로 지낼 수 있는 간단한 방법은 무엇인가요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Teach words like 'obsession', 'moderate', and 'mental health'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on fitness culture. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(피트니스 문화에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 14: SLEEP HABITS
+         ========================================== -->
+    <!-- L14 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 14</span>
+            <h1>Sleep Habits <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(수면 습관)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about sleep and productivity, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 수면과 생산성에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Sleep Habits">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person waking up looking tired after ignoring their alarm clock.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'sleep habits'?</p><p class="kor-text">('수면 습관'이라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you get more than 7 hours of sleep?</p><p class="kor-text">(7시간 이상 수면을 취하는 일이 얼마나 자주 있나요?)</p></li>
+            <li><p class="eng-text">Do people around you often complain about being tired?</p><p class="kor-text">(주변 사람들은 피곤하다고 자주 불평하나요?)</p></li>
+            <li><p class="eng-text">Why do you think good sleep matters today?</p><p class="kor-text">(오늘날 좋은 수면이 왜 중요하다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L14 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 14: Sleep Habits - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A friend sacrifices sleep every night to study more and get ahead.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 친구가 더 많이 공부하고 앞서 나가기 위해 매일 밤 잠을 줄입니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about sacrificing sleep for success?<span class="kor-sub-text">(성공을 위해 수면을 희생하는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I don't think it is a good idea in the long run.<span class="kor-sub-text">(장기적으로는 좋은 생각이 아니라고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that your brain cannot focus well without enough sleep.<span class="kor-sub-text">(한 가지 이유는 충분한 수면 없이는 뇌가 집중을 잘할 수 없기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say hard work requires less sleep. What do you think?<span class="kor-sub-text">(어떤 사람들은 열심히 일하려면 잠을 줄여야 한다고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see your point, but sleep actually improves your productivity the next day.<span class="kor-sub-text">(그 말씀은 알겠지만, 수면은 오히려 다음 날의 생산성을 높여줍니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would prioritize getting 8 hours of sleep.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 8시간의 수면을 우선순위에 두겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about sleep habits? (수면 습관에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, getting enough sleep is <strong>___________________________________ .</strong></li>
+            <li>One advantage of a good sleep habit is <strong>___________________________________ .</strong></li>
+            <li>One drawback of studying late at night is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Study more and sleep less' and 'Sleep more and study efficiently', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L14 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 14: Sleep Habits - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Study more and sleep less <span style="font-size:13.5px; font-weight:400; color:#92400e;">(수면을 줄이고 더 많이 공부한다)</span></li>
+                <li><strong>B.</strong> Sleep more and study efficiently <span style="font-size:13.5px; font-weight:400; color:#92400e;">(충분히 자고 효율적으로 공부한다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about sleep habits?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Why do many modern people suffer from insomnia?</p><p class="kor-text" style="font-size: 13.5px;">(현대인들이 불면증으로 고통받는 이유는 무엇일까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Should naps be allowed at work or school?</p><p class="kor-text" style="font-size: 13.5px;">(직장이나 학교에서 낮잠을 허용해야 할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does using your phone before bed ruin your sleep?</p><p class="kor-text" style="font-size: 13.5px;">(잠들기 전 스마트폰 사용이 수면을 망칠까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Teach words like 'insomnia', 'productivity', and 'quality of sleep'.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on sleep habits. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(수면 습관에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 15: STRESS MANAGEMENT
+         ========================================== -->
+    <!-- L15 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 3 • LESSON 15</span>
+            <h1>Stress Management <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(스트레스 관리)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about handling stress, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 스트레스 관리에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=800&q=80" alt="Stress Management">
+            <p><i class="fa-solid fa-camera"></i> Photo: A person meditating or taking a deep breath in nature to clear their mind.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'stress management'?</p><p class="kor-text">('스트레스 관리'라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you feel stressed during the week?</p><p class="kor-text">(일주일 동안 얼마나 자주 스트레스를 느끼나요?)</p></li>
+            <li><p class="eng-text">Do people around you handle stress well?</p><p class="kor-text">(주변 사람들은 스트레스를 잘 대처하는 편인가요?)</p></li>
+            <li><p class="eng-text">Why do you think stress management matters today?</p><p class="kor-text">(오늘날 스트레스 관리가 왜 중요하다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L15 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 15: Stress Management - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A friend handles stress by ignoring problems, which only makes things worse later.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 친구가 문제를 무시하는 방식으로 스트레스에 대처하다가 나중에 상황을 더 악화시킵니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about ignoring problems when stressed?<span class="kor-sub-text">(스트레스를 받을 때 문제를 무시하는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I don't think it's a good way to handle stress.<span class="kor-sub-text">(스트레스를 대처하는 좋은 방법이 아니라고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that the problem will grow bigger if you ignore it.<span class="kor-sub-text">(한 가지 이유는 문제를 무시하면 상황이 더 커지기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say they need time away from the problem to feel better. What do you think?<span class="kor-sub-text">(어떤 사람들은 기분이 나아지려면 문제와 거리를 둘 시간이 필요하다고 합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see your point, but you still have to face it eventually.<span class="kor-sub-text">(그 말씀은 알겠지만, 결국에는 그 문제와 마주해야 합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 어떻게 대처하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would try to solve the problem step by step.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 문제를 단계별로 해결하려고 노력하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about handling stress? (스트레스 대처에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, the best way to handle stress is <strong>___________________________________ .</strong></li>
+            <li>One advantage of this method is <strong>___________________________________ .</strong></li>
+            <li>One drawback of ignoring stress is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Face the problem immediately' and 'Take time to rest first', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L15 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 15: Stress Management - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Face the problem immediately <span style="font-size:13.5px; font-weight:400; color:#92400e;">(문제를 즉시 직면하고 해결한다)</span></li>
+                <li><strong>B.</strong> Take time to rest first <span style="font-size:13.5px; font-weight:400; color:#92400e;">(우선 쉬면서 마음을 가라앉힌다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about stress management?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is stress always a bad thing?</p><p class="kor-text" style="font-size: 13.5px;">(스트레스가 항상 나쁜 것일까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">How do sports or hobbies help relieve stress?</p><p class="kor-text" style="font-size: 13.5px;">(스포츠나 취미가 스트레스 해소에 어떻게 도움이 되나요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Who do you talk to when you are extremely stressed?</p><p class="kor-text" style="font-size: 13.5px;">(극심한 스트레스를 받을 때 누구와 이야기하나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student articulate their own stress management methods.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on stress management. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(스트레스 관리에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>

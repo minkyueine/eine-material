@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIN English - Opinion Week 5</title>
+    <!-- 폰트: 영문 Poppins & Inter, 한글 Noto Sans KR -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&family=Noto+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Base Color Palette */
+        :root {
+            --primary: #1e3a8a; /* Deep Navy */
+            --primary-light: #eff6ff;
+            --secondary: #059669; /* Emerald Green */
+            --secondary-light: #ecfdf5;
+            --bg-page: #f8fafc;
+            --border: #e2e8f0;
+            --text-title: #0f172a;
+            --text-main: #334155;
+            --text-sub: #64748b;
+            --accent: #3b82f6; /* Bright Blue */
+            --alert: #ef4444; /* Red */
+            --alert-light: #fef2f2;
+            --dilemma: #f59e0b; /* Orange/Yellow */
+            --dilemma-light: #fffbeb;
+        }
+        
+        * { box-sizing: border-box; }
+        body { 
+            background-color: #cbd5e1; 
+            font-family: 'Inter', 'Noto Sans KR', sans-serif; 
+            margin: 0; 
+            padding: 40px 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: var(--text-main);
+            gap: 40px;
+        }
+
+        p { margin: 0 0 10px 0; line-height: 1.5; }
+        
+        /* Flexible A4 Container */
+        .page {
+            background: white;
+            width: 100%;
+            max-width: 850px; 
+            min-height: 1123px; 
+            height: auto; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-radius: 12px; 
+            padding: 60px 65px 100px 65px; 
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            page-break-after: always;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 10px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #94a3b8;
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 500;
+        }
+
+        /* Headers */
+        .header { margin-bottom: 25px; flex-shrink: 0; }
+        .brand-logo { font-family: 'Poppins', sans-serif; font-weight: 800; font-size: 14px; color: var(--text-sub); letter-spacing: 2px; margin-bottom: 12px; display: block; }
+        .header .badge { background: var(--primary-light); color: var(--primary); padding: 6px 14px; border-radius: 20px; font-weight: 700; font-size: 13px; font-family: 'Poppins', sans-serif; letter-spacing: 1px; display: inline-block; margin-bottom: 15px; border: 1px solid #bfdbfe;}
+        .header h1 { font-size: 34px; color: var(--text-title); margin: 0 0 15px 0; font-family: 'Poppins', sans-serif; line-height: 1.3; letter-spacing: -0.5px;}
+        
+        .mini-header { margin-bottom: 25px; border-bottom: 2px solid var(--border); padding-bottom: 15px; flex-shrink: 0;}
+        .mini-header .brand-logo { margin-bottom: 5px; }
+        .mini-header h1 { font-size: 20px; color: var(--text-sub); margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600;}
+
+        /* Goal Banner */
+        .goal-banner { background: var(--secondary-light); border-left: 4px solid var(--secondary); padding: 15px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #065f46; font-weight: 700; font-size: 16px; margin-bottom: 25px;}
+        .goal-banner i { font-size: 20px; color: var(--secondary); flex-shrink: 0;}
+
+        /* Alert & Dilemma Boxes */
+        .alert-box { background: var(--alert-light); border-left: 4px solid var(--alert); padding: 18px 25px; border-radius: 8px; display: flex; align-items: center; gap: 15px; color: #991b1b; font-weight: 700; font-size: 16px; margin-bottom: 20px; margin-top: 10px;}
+        .alert-box i { font-size: 24px; color: var(--alert); flex-shrink: 0;}
+
+        .dilemma-box { background: var(--dilemma-light); border-left: 4px solid var(--dilemma); padding: 18px 25px; border-radius: 8px; margin-bottom: 20px;}
+        .dilemma-box h4 { margin: 0 0 10px 0; color: #b45309; font-size: 16px; display: flex; align-items: center; gap: 8px;}
+        .dilemma-box ul { list-style: none; padding: 0; margin: 0; }
+        .dilemma-box li { font-size: 15px; color: #78350f; margin-bottom: 8px; font-weight: 600;}
+        .dilemma-box li strong { color: #d97706; display: inline-block; width: 25px;}
+
+        /* Opinion Builder Box */
+        .opinion-builder { background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 15px 20px; margin-bottom: 20px; }
+        .opinion-builder p { font-weight: 700; color: var(--primary); margin-bottom: 8px; font-size: 15px; display: flex; align-items: center; gap: 8px;}
+        .opinion-builder ol { margin: 0; padding-left: 20px; font-size: 14.5px; color: var(--text-main); font-weight: 500; line-height: 1.6;}
+
+        /* Photo Prompt */
+        .photo-prompt { margin-bottom: 25px; text-align: center; }
+        .photo-prompt img { width: 100%; height: 240px; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .photo-prompt p { font-size: 13px; color: var(--text-sub); margin-top: 10px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 6px;}
+
+        h2 { font-size: 19px; color: var(--text-title); margin: 30px 0 15px 0; font-family: 'Poppins', sans-serif; display: flex; align-items: center; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;}
+        h2 .icon-wrap { background: var(--primary-light); color: var(--accent); width: 34px; height: 34px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 15px; flex-shrink: 0;}
+        
+        .eng-text { font-size: 16.5px; color: var(--text-title); font-weight: 600; margin-bottom: 4px; line-height: 1.4;}
+        .eng-text .highlight { color: var(--primary); font-weight: 700; background: linear-gradient(120deg, transparent 0%, #e0f2fe 10%, #e0f2fe 90%, transparent 100%); padding: 0 4px;}
+        .kor-text { font-size: 14.5px; color: var(--text-sub); margin-bottom: 15px; font-weight: 400;}
+        .kor-sub-text { display: block; font-size: 14px; color: var(--text-sub); font-weight: 400; margin-top: 3px; letter-spacing: -0.3px; }
+
+        /* Modern Cards (Info Boxes) */
+        .card { background: white; border: 1px solid var(--border); padding: 20px 25px; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); }
+        .card-header { font-weight: 700; font-family: 'Poppins', sans-serif; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; font-size: 16px;}
+        .card.core { border-top: 4px solid var(--primary); }
+        .card.upgrade { border-top: 4px solid #94a3b8; background: #f8fafc; padding: 18px 25px;}
+        
+        /* Lists */
+        ul { list-style: none; padding: 0; margin: 0; }
+        ul.bullet-list li { position: relative; padding-left: 22px; margin-bottom: 12px; }
+        ul.bullet-list li::before { content: ''; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+        ul.upgrade-list li::before { background: #94a3b8; top: 10px;}
+        
+        /* Dialogue Chat Style */
+        .dialogue-box { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); margin-bottom: 20px;}
+        .d-row { display: flex; margin-bottom: 12px; align-items: flex-start; gap: 15px; padding: 12px 15px; border-radius: 8px; }
+        .d-row:last-child { margin-bottom: 0; }
+        .d-row.tutor { background: var(--bg-page); }
+        .d-row.student { background: white; border: 1px solid #f1f5f9; }
+        .d-row .speaker { font-weight: 700; width: 85px; flex-shrink: 0; font-family: 'Poppins', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;}
+        .d-row.tutor .speaker { color: var(--primary); }
+        .d-row.student .speaker { color: var(--secondary); }
+        .d-row .text { font-size: 16px; color: var(--text-title); line-height: 1.5; font-weight: 500;}
+
+        /* Roleplay Table */
+        .modern-table { width: 100%; border-collapse: separate; border-spacing: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 25px;}
+        .modern-table th, .modern-table td { padding: 18px 20px; text-align: left; border-bottom: 1px solid var(--border); }
+        .modern-table tr:last-child th, .modern-table tr:last-child td { border-bottom: none; }
+        .modern-table th { background: var(--bg-page); color: var(--text-title); width: 45%; font-weight: 500; font-size: 15px; border-right: 1px solid var(--border);}
+        .modern-table td { background: white; font-weight: 600; font-size: 16px; color: var(--primary); vertical-align: middle;}
+        .role-tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 3px 8px; border-radius: 4px; margin-bottom: 6px; font-family: 'Poppins', sans-serif;}
+        .tag-tutor { background: var(--primary); color: white; }
+        .tag-student { background: var(--secondary); color: white; }
+        .blank { display: inline-block; border-bottom: 2px solid #94a3b8; min-width: 120px; margin: 0 4px; }
+
+        /* Guided Practice List */
+        ol.guided-list { padding-left: 20px; margin: 0 0 30px 0; }
+        ol.guided-list li { font-size: 15px; margin-bottom: 18px; color: var(--text-main); font-weight: 500;}
+        ol.guided-list li strong { color: var(--primary); font-size: 17px; display: block; margin-top: 6px;}
+
+        /* Columns Layout */
+        .col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 10px;}
+
+        /* Homework Card */
+        .hw-card { background: linear-gradient(to right bottom, #f8fafc, #eff6ff); border: 2px solid #bfdbfe; border-radius: 12px; padding: 25px 30px; position: relative; margin-top: 25px;}
+        .hw-card .hw-badge { position: absolute; top: -12px; left: 25px; background: var(--accent); color: white; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; font-family: 'Poppins', sans-serif;}
+        
+        .review-card { border: 1px solid var(--border); border-top: 4px solid var(--secondary); background: #f8fafc; border-radius: 12px; padding: 20px 25px; margin-top: 25px;}
+        .review-card h3 { font-size: 17px; color: var(--text-title); font-family: 'Poppins', sans-serif; margin: 0 0 15px 0; display: flex; align-items: center; gap: 8px;}
+        .review-list { list-style: none; padding: 0; margin: 0; }
+        .review-list li { font-size: 15px; font-weight: 600; color: var(--text-main); margin-bottom: 15px; display: flex; align-items: center;}
+        .review-list li span { flex-shrink: 0; }
+        .review-line { flex-grow: 1; border-bottom: 1.5px solid #cbd5e1; margin-left: 10px; height: 20px;}
+
+        /* Title Slide */
+        .title-slide { justify-content: center; align-items: center; text-align: center; }
+        .title-slide h1 { font-size: 54px; color: var(--primary); font-family: 'Poppins', sans-serif; margin: 0; letter-spacing: -1px;}
+        .title-slide h2 { font-size: 24px; color: var(--secondary); font-family: 'Poppins', sans-serif; margin: 15px 0 30px 0;}
+        .title-slide .badge { background: var(--text-title); color: white; padding: 8px 24px; border-radius: 20px; font-size: 18px; font-weight: 700; letter-spacing: 2px; margin-bottom: 20px; font-family: 'Poppins', sans-serif;}
+
+        @media print {
+            body { background: white; padding: 0; gap: 0; }
+            .page { box-shadow: none; margin: 0; border: none; border-radius: 0; padding: 15mm 15mm 20mm 15mm;}
+            .page::before { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==========================================
+         COVER SLIDE
+         ========================================== -->
+    <div class="page title-slide" id="slide0">
+        <div class="badge">WEEK 5</div>
+        <h1>Society & Environment</h1>
+        <h2>EIN Opinion English (B1-B2)</h2>
+        <p style="font-size: 18px; color: var(--text-sub); margin-top: 40px; line-height: 1.8; font-weight: 500;">
+            Lesson 21: Education Systems<br>
+            Lesson 22: Public Transportation<br>
+            Lesson 23: City Life<br>
+            Lesson 24: Housing Problems<br>
+            Lesson 25: Climate Change
+        </p>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- ==========================================
+         LESSON 21: EDUCATION SYSTEMS
+         ========================================== -->
+    <!-- L21 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 21</span>
+            <h1>Education Systems <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(교육 제도와 평가 방식)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about standard exams vs. creativity, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(오늘의 목표: 표준화된 시험과 창의성에 대한 의견을 세우고 설명하며, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=800&q=80" alt="Education Systems">
+            <p><i class="fa-solid fa-camera"></i> Photo: Students sitting in rows taking a formal written exam in a large hall.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'education systems'?</p><p class="kor-text">('교육 제도'라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">Do you think your country's education system is effective?</p><p class="kor-text">(당신 나라의 교육 제도가 효과적이라고 생각하나요?)</p></li>
+            <li><p class="eng-text">Do people around you focus more on grades or practical skills?</p><p class="kor-text">(주변 사람들은 성적과 실용적인 기술 중 어느 것을 더 중요하게 생각하나요?)</p></li>
+            <li><p class="eng-text">Why does the way we test students matter today?</p><p class="kor-text">(오늘날 학생들을 평가하는 방식이 왜 중요할까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 21: Education Systems - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                A school wants to completely abolish standard exams to reduce stress, but parents worry about dropping academic standards.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(한 학교가 스트레스를 줄이기 위해 표준화된 시험을 완전히 폐지하려 하지만, 학부모들은 학업 수준이 떨어질까 봐 우려합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about abolishing standard exams?<span class="kor-sub-text">(표준화된 시험을 폐지하는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think it's a good idea to reduce student stress.<span class="kor-sub-text">(학생들의 스트레스를 줄이기 위해 좋은 생각이라고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that memorizing for tests doesn't build real-world skills.<span class="kor-sub-text">(한 가지 이유는 시험을 위해 암기하는 것이 실생활에 필요한 능력을 키워주지 못하기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some parents say exams are the only fair way to evaluate students. What do you think?<span class="kor-sub-text">(어떤 부모들은 시험만이 학생을 평가하는 유일하게 공정한 방법이라고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see their point, but we can evaluate students through projects and presentations.<span class="kor-sub-text">(그들의 의견도 이해하지만, 우리는 프로젝트나 발표를 통해 학생들을 평가할 수 있습니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would choose focusing on creativity and project-based grading.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 창의성과 프로젝트 기반 평가에 집중하는 것을 선택하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about standard exams? (표준 시험에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, abolishing exams is <strong>___________________________________ .</strong></li>
+            <li>One advantage of standard tests is <strong>___________________________________ .</strong></li>
+            <li>One drawback of studying only for exams is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Keep standard tests' and 'Focus on creativity', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L21 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 21: Education Systems - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Keep standard tests for fairness <span style="font-size:13.5px; font-weight:400; color:#92400e;">(공정성을 위해 표준 시험을 유지한다)</span></li>
+                <li><strong>B.</strong> Focus on creativity and project-based grading <span style="font-size:13.5px; font-weight:400; color:#92400e;">(창의성과 프로젝트 기반 평가에 집중한다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about how schools evaluate students today?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Does a university degree guarantee success in life?</p><p class="kor-text" style="font-size: 13.5px;">(대학 학위가 인생의 성공을 보장할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">What is the most important skill students should learn in school?</p><p class="kor-text" style="font-size: 13.5px;">(학생들이 학교에서 배워야 할 가장 중요한 기술은 무엇인가요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Do you think private tutoring is necessary?</p><p class="kor-text" style="font-size: 13.5px;">(사교육(과외/학원)이 필요하다고 생각하나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student articulate the balance between fairness and creativity.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on education systems. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(교육 제도에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 22: PUBLIC TRANSPORTATION
+         ========================================== -->
+    <!-- L22 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 22</span>
+            <h1>Public Transportation <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(대중교통 정책)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about public transportation policies, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(대중교통 정책에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80" alt="Public Transportation">
+            <p><i class="fa-solid fa-camera"></i> Photo: A crowded subway or bus with many commuters going to work.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'public transportation'?</p><p class="kor-text">('대중교통'이라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you use buses or subways in daily life?</p><p class="kor-text">(일상에서 버스나 지하철을 얼마나 자주 이용하시나요?)</p></li>
+            <li><p class="eng-text">Do people around you prefer driving or taking public transit?</p><p class="kor-text">(주변 사람들은 운전과 대중교통 중 어느 것을 선호하나요?)</p></li>
+            <li><p class="eng-text">Why does the quality of public transport matter today?</p><p class="kor-text">(오늘날 대중교통의 질이 왜 중요할까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L22 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 22: Public Transportation - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                The government wants to make public transportation free for everyone, but they must increase taxes to pay for it.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(정부가 모든 사람을 위해 대중교통을 무료로 만들려 하지만, 그 비용을 충당하기 위해 세금을 인상해야 합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about making public transport completely free?<span class="kor-sub-text">(대중교통을 완전히 무료로 만드는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think it's a great idea for the environment.<span class="kor-sub-text">(저는 환경을 위해 훌륭한 아이디어라고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that more people will stop driving cars, reducing pollution.<span class="kor-sub-text">(한 가지 이유는 더 많은 사람들이 운전을 멈추어 오염이 줄어들 것이기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some car owners complain because they have to pay higher taxes for buses they never use. What do you think?<span class="kor-sub-text">(일부 자동차 소유자들은 타지도 않는 버스를 위해 더 높은 세금을 내야 한다고 불평합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I understand their view, but everyone benefits from clean air and less traffic.<span class="kor-sub-text">(그들의 관점은 이해하지만, 맑은 공기와 교통 체증 감소는 모두에게 혜택을 줍니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would choose free public transport with higher taxes.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 세금이 오르더라도 무상 대중교통을 선택하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about free public transport? (무상 대중교통에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, making public transport free is <strong>___________________________________ .</strong></li>
+            <li>One advantage of free transport is <strong>___________________________________ .</strong></li>
+            <li>One drawback of raising taxes is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Free transport with higher taxes' and 'Paid transport with lower taxes', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L22 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 22: Public Transportation - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Free public transport with higher taxes <span style="font-size:13.5px; font-weight:400; color:#92400e;">(세금을 올리고 대중교통을 무료로 이용)</span></li>
+                <li><strong>B.</strong> Paid transport with lower taxes <span style="font-size:13.5px; font-weight:400; color:#92400e;">(세금을 낮추고 대중교통 요금을 지불)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about the city's new transport policy?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">If buses were free, would they become too dirty and crowded?</p><p class="kor-text" style="font-size: 13.5px;">(버스가 무료라면 너무 더럽고 혼잡해질까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is traveling a basic human right like education?</p><p class="kor-text" style="font-size: 13.5px;">(이동권도 교육처럼 인간의 기본 권리일까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">How can we solve the traffic problem in big cities?</p><p class="kor-text" style="font-size: 13.5px;">(대도시의 교통 문제를 어떻게 해결할 수 있을까요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student articulate the balance between personal cost and public good.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on free public transport. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(무상 대중교통에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 23: CITY LIFE
+         ========================================== -->
+    <!-- L23 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 23</span>
+            <h1>City Life <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(도시 생활과 인구 집중)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about city life versus rural life, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(도시 생활과 시골 생활에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=800&q=80" alt="City Life">
+            <p><i class="fa-solid fa-camera"></i> Photo: A view of a bustling city skyline vs a quiet countryside landscape.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'city life'?</p><p class="kor-text">('도시 생활'이라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you think about moving away from your current city/town?</p><p class="kor-text">(현재 살고 있는 도시/마을에서 떠나는 것에 대해 얼마나 자주 생각하시나요?)</p></li>
+            <li><p class="eng-text">Do people around you prefer big cities or quiet countryside areas?</p><p class="kor-text">(주변 사람들은 대도시와 조용한 시골 중 어느 곳을 선호하나요?)</p></li>
+            <li><p class="eng-text">Why do you think where we live matters today?</p><p class="kor-text">(오늘날 우리가 어디에 사는지가 왜 중요할까요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L23 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 23: City Life - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                Young people are moving to big cities for jobs, leaving rural towns empty. The government wants to force some companies to move to rural areas.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(젊은 층이 일자리를 찾아 대도시로 떠나면서 시골 마을이 텅 비어가고 있습니다. 정부는 수도권 과밀화를 막기 위해 일부 기업들이 지방으로 이전하도록 강제하려 합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about forcing companies to move to rural areas?<span class="kor-sub-text">(기업들이 시골/지방으로 이전하도록 강제하는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think it's necessary to balance the country's population.<span class="kor-sub-text">(국가 인구의 균형을 맞추기 위해 필요하다고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that big cities are too crowded and expensive right now.<span class="kor-sub-text">(한 가지 이유는 현재 대도시가 너무 혼잡하고 집값이 비싸기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say the government shouldn't control where companies go. What do you think?<span class="kor-sub-text">(어떤 사람들은 정부가 기업의 위치를 통제해서는 안 된다고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see their point, but if we don't do this, rural towns will disappear.<span class="kor-sub-text">(그들의 의견도 이해하지만, 이렇게 하지 않으면 지방 도시들은 사라질 것입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would support the government moving companies.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 정부의 기업 이전 정책을 지지하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about moving companies out of big cities? (대도시에서 기업을 이전시키는 것에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, forcing companies to move to rural areas is <strong>___________________________________ .</strong></li>
+            <li>One advantage of living in a big city is <strong>___________________________________ .</strong></li>
+            <li>One drawback of too many people in one city is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Support government forcing companies to move' and 'Let companies choose freely', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L23 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 23: City Life - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Support government forcing companies to move <span style="font-size:13.5px; font-weight:400; color:#92400e;">(정부가 기업 이전을 강제하는 것을 지지한다)</span></li>
+                <li><strong>B.</strong> Let companies and people choose freely <span style="font-size:13.5px; font-weight:400; color:#92400e;">(기업과 사람들이 자유롭게 선택하도록 둔다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about moving companies to rural areas?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Why are young people mostly attracted to big cities?</p><p class="kor-text" style="font-size: 13.5px;">(젊은 층은 왜 대도시에 주로 매력을 느낄까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is city life more stressful than country life?</p><p class="kor-text" style="font-size: 13.5px;">(도시 생활이 시골 생활보다 더 스트레스가 많을까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Where do you want to live when you retire?</p><p class="kor-text" style="font-size: 13.5px;">(은퇴 후에는 어디에서 살고 싶나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student articulate the balance between freedom and social balance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on city life vs rural life. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(도시 생활과 시골 생활에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 24: HOUSING PROBLEMS
+         ========================================== -->
+    <!-- L24 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 24</span>
+            <h1>Housing Problems <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(주거 문제와 부동산)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about housing problems, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(주거 문제에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Housing Problems">
+            <p><i class="fa-solid fa-camera"></i> Photo: A young couple looking stressed while holding a house key and financial documents.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'housing problems'?</p><p class="kor-text">('주거 문제'라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you hear people worrying about house prices?</p><p class="kor-text">(사람들이 집값에 대해 걱정하는 것을 얼마나 자주 듣나요?)</p></li>
+            <li><p class="eng-text">Do people around you prefer renting or buying a house?</p><p class="kor-text">(주변 사람들은 집을 빌리는 것(월세/전세)과 사는 것(매매) 중 어느 것을 더 선호하나요?)</p></li>
+            <li><p class="eng-text">Why do you think housing prices matter today?</p><p class="kor-text">(오늘날 집값이 왜 그렇게 중요하다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L24 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 24: Housing Problems - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                Housing prices in the city are too high. The government plans to heavily tax people who own more than two houses to lower prices.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(도시의 집값이 너무 높습니다. 정부는 가격을 낮추기 위해 집을 두 채 이상 보유한 사람들에게 무거운 세금을 부과할 계획입니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about taxing multiple-home owners?<span class="kor-sub-text">(다주택자에게 세금을 매기는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think the government should strictly control housing prices.<span class="kor-sub-text">(저는 정부가 집값을 엄격하게 통제해야 한다고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that young people cannot afford to buy a home without government help.<span class="kor-sub-text">(한 가지 이유는 젊은 사람들이 정부의 도움 없이는 집을 살 여유가 없기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say the free market should decide the prices. What do you think?<span class="kor-sub-text">(어떤 사람들은 자유 시장이 가격을 결정해야 한다고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see their point, but housing is a basic human need, not just an investment.<span class="kor-sub-text">(그들의 관점도 이해하지만, 주거는 단순한 투자가 아니라 인간의 기본적인 필요입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would choose government control over the free market.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 자유 시장보다 정부의 통제를 선택하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about housing problems? (주거 문제에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, taxing multiple-home owners is <strong>___________________________________ .</strong></li>
+            <li>One advantage of government control is <strong>___________________________________ .</strong></li>
+            <li>One drawback of high housing prices is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Government should strictly control housing prices' and 'Let the free market decide', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L24 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 24: Housing Problems - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Government should strictly control housing prices <span style="font-size:13.5px; font-weight:400; color:#92400e;">(정부가 집값을 엄격하게 통제해야 한다)</span></li>
+                <li><strong>B.</strong> Let the free market decide the prices <span style="font-size:13.5px; font-weight:400; color:#92400e;">(자유 시장이 가격을 결정하도록 두어야 한다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about the high housing prices today?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Is owning a house a measure of success?</p><p class="kor-text" style="font-size: 13.5px;">(집을 소유하는 것이 성공의 척도일까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Why are people so obsessed with buying real estate?</p><p class="kor-text" style="font-size: 13.5px;">(사람들은 왜 부동산 구매에 그렇게 집착할까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Do you think the government can ever truly fix the housing problem?</p><p class="kor-text" style="font-size: 13.5px;">(정부가 과연 진정으로 주거 문제를 해결할 수 있을 것이라 생각하나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student express the difference between human needs and investment.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on housing problems. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(주거 문제에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+
+    <!-- ==========================================
+         LESSON 25: CLIMATE CHANGE
+         ========================================== -->
+    <!-- L25 Page 1: Input -->
+    <div class="page">
+        <div class="header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <span class="badge">WEEK 5 • LESSON 25</span>
+            <h1>Climate Change <span style="display: block; font-size: 22px; color: var(--text-sub); font-weight: 600; margin-top: 8px;">(기후 변화와 환경 규제)</span></h1>
+            
+            <div class="goal-banner">
+                <i class="fa-solid fa-flag-checkered"></i> 
+                <span>Today's Goal: Build an opinion about fighting climate change, give reasons, and respond to a different viewpoint.<br><span style="font-size: 14px; font-weight: 500; color: #047857; margin-top: 4px; display: block;">(기후 변화 대처 방안에 대한 의견을 세우고 설명하며, 이유를 제시하고, 다른 관점에 대응하기)</span></span>
+            </div>
+        </div>
+
+        <div class="photo-prompt">
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Climate Change">
+            <p><i class="fa-solid fa-camera"></i> Photo: A dramatic view of beautiful nature contrasted with heavy factory pollution.</p>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-comments"></i></div> 1. Warm-up <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(워밍업)</span></h2>
+        <ul class="bullet-list">
+            <li><p class="eng-text">What comes to mind when you hear 'climate change'?</p><p class="kor-text">('기후 변화'라는 말을 들으면 무엇이 떠오르나요?)</p></li>
+            <li><p class="eng-text">How often do you worry about the environment in daily life?</p><p class="kor-text">(일상에서 환경 문제에 대해 얼마나 자주 걱정하시나요?)</p></li>
+            <li><p class="eng-text">Do people around you try to reduce plastic use or save energy?</p><p class="kor-text">(주변 사람들은 플라스틱 사용을 줄이거나 에너지를 절약하려 노력하나요?)</p></li>
+            <li><p class="eng-text">Why do you think protecting the environment matters today?</p><p class="kor-text">(오늘날 환경 보호가 왜 중요하다고 생각하나요?)</p></li>
+        </ul>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-key"></i></div> 2. Opinion Frames <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 표현 패턴)</span></h2>
+        <div class="card core">
+            <div class="card-header" style="color: var(--primary);"><i class="fa-solid fa-star"></i> Core (Must-use)</div>
+            <ul class="bullet-list">
+                <li><p class="eng-text"><span class="highlight">I think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">In my opinion,</span> ___ .</p><p class="kor-text">(제 생각에는, ~입니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I agree that</span> ___ .</p><p class="kor-text">(저는 ~라는 것에 동의합니다.)</p></li>
+                <li><p class="eng-text"><span class="highlight">I don't think</span> ___ .</p><p class="kor-text">(저는 ~라고 생각하지 않습니다.)</p></li>
+            </ul>
+        </div>
+        
+        <div class="card upgrade">
+            <div class="card-header" style="color: var(--text-sub);"><i class="fa-solid fa-arrow-up-right-dots"></i> Extra (Optional)</div>
+            <ul class="bullet-list upgrade-list">
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500;">What do you think about ___ ? <span class="kor-sub-text">(~에 대해 어떻게 생각하시나요?)</span></p></li>
+                <li><p class="eng-text" style="font-size: 15px; font-weight: 500; margin-bottom: 0;">I see your point, but ___ . <span class="kor-sub-text">(무슨 말씀인지 알겠지만, ~)</span></p></li>
+            </ul>
+        </div>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L25 Page 2: Scenario & Practice -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 25: Climate Change - Case & Practice</h1>
+        </div>
+
+        <div class="alert-box">
+            <i class="fa-solid fa-scale-unbalanced"></i>
+            <div>
+                <span style="display: block; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: #dc2626; margin-bottom: 2px;">REAL CASE PROMPT</span>
+                To fight climate change, a city proposes banning all gas-powered cars within 5 years.
+                <span style="display: block; font-size: 14.5px; font-weight: 500; color: #991b1b; margin-top: 4px;">(기후 변화에 대처하기 위해 어느 도시가 5년 내에 모든 내연기관(가솔린/디젤) 자동차 사용을 금지하려 합니다.)</span>
+            </div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-users"></i></div> 3. Model Dialogue <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(모범 대화)</span></h2>
+        <div class="dialogue-box">
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">What do you think about banning gas cars so quickly?<span class="kor-sub-text">(가스 자동차를 그렇게 빨리 금지하는 것에 대해 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I think we need to enforce strict laws immediately to save the Earth.<span class="kor-sub-text">(저는 지구를 구하기 위해 당장 엄격한 법을 시행해야 한다고 생각합니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Why do you think that?<span class="kor-sub-text">(왜 그렇게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">One reason is that climate change is getting worse every year.<span class="kor-sub-text">(한 가지 이유는 기후 변화가 매년 악화되고 있기 때문입니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">Some people say it is too fast and will hurt ordinary people. What do you think?<span class="kor-sub-text">(어떤 사람들은 그 방식이 너무 빠르고 평범한 사람들에게 피해를 줄 것이라고 말합니다. 어떻게 생각하시나요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">I see their point, but if we wait, it might be too late.<span class="kor-sub-text">(그들의 관점도 이해하지만, 기다린다면 너무 늦을지도 모릅니다.)</span></div></div>
+            <div class="d-row tutor"><div class="speaker">Tutor</div><div class="text">So what would you choose personally?<span class="kor-sub-text">(그럼 개인적으로는 무엇을 선택하시겠어요?)</span></div></div>
+            <div class="d-row student"><div class="speaker">Student</div><div class="text">If I had to choose, I would choose enforcing strict laws immediately.<span class="kor-sub-text">(만약 선택해야 한다면, 저는 즉각적이고 엄격한 법 집행을 선택하겠습니다.)</span></div></div>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-pen"></i></div> 4. Guided Practice <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(의견 만들기 연습)</span></h2>
+        
+        <div class="opinion-builder">
+            <p><i class="fa-solid fa-hammer"></i> Opinion Builder (의견 구성하기)</p>
+            <ol>
+                <li>What is your opinion about climate change regulations? (기후 변화 규제에 대한 당신의 의견은 무엇인가요?)</li>
+                <li>What is the main reason for your opinion? (그 의견의 주된 이유는 무엇인가요?)</li>
+                <li>What would someone with the opposite opinion say? (반대 의견을 가진 사람은 뭐라고 말할까요?)</li>
+            </ol>
+        </div>
+
+        <ol class="guided-list">
+            <li>In my opinion, banning gas cars quickly is <strong>___________________________________ .</strong></li>
+            <li>One advantage of strict environmental laws is <strong>___________________________________ .</strong></li>
+            <li>One drawback of fast changes is <strong>___________________________________ .</strong></li>
+            <li>Some people think <strong>___________________</strong>, but I think <strong>___________________ .</strong></li>
+            <li>If I had to choose between 'Enforce strict laws immediately' and 'Give people more time', I would choose <strong>___________________</strong> because <strong>___________________ .</strong></li>
+        </ol>
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+    <!-- L25 Page 3: Role-play & Talk More -->
+    <div class="page">
+        <div class="mini-header">
+            <span class="brand-logo">EIN OPINION ENGLISH</span>
+            <h1>LESSON 25: Climate Change - Role-play & Wrap-up</h1>
+        </div>
+
+        <div class="dilemma-box">
+            <h4><i class="fa-solid fa-code-branch"></i> Dilemma Prompt (딜레마 선택)</h4>
+            <p style="font-size: 14px; font-weight: 500; color: #92400e; margin-bottom: 12px;">Choose one option and defend it: (하나를 선택하고 방어하세요.)</p>
+            <ul>
+                <li><strong>A.</strong> Enforce strict laws immediately to save the Earth <span style="font-size:13.5px; font-weight:400; color:#92400e;">(지구를 구하기 위해 즉각 엄격한 법을 강제한다)</span></li>
+                <li><strong>B.</strong> Give people more time and make gradual changes <span style="font-size:13.5px; font-weight:400; color:#92400e;">(사람들에게 더 많은 시간을 주고 점진적으로 변화한다)</span></li>
+            </ul>
+        </div>
+
+        <h2><div class="icon-wrap"><i class="fa-solid fa-masks-theater"></i></div> 5. Mini Role-play <span style="font-size: 15px; color: var(--text-sub); font-weight: 500; margin-left: 5px;">(상황극 연습)</span></h2>
+        <table class="modern-table">
+            <tbody>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What do you think about fast climate change regulations?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>Why do you think that?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+                <tr>
+                    <th><span class="role-tag tag-tutor">Tutor</span><br>What is one advantage or one drawback?</th>
+                    <td><span class="role-tag tag-student">Student</span><br><span class="blank" style="min-width: 150px;"></span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-2">
+            <div>
+                <h2><div class="icon-wrap"><i class="fa-solid fa-microphone"></i></div> 6. Talk More</h2>
+                <ul class="bullet-list">
+                    <li><p class="eng-text" style="font-size: 14.5px;">Who is more responsible for climate change: big companies or normal citizens?</p><p class="kor-text" style="font-size: 13.5px;">(기후 변화의 책임은 대기업과 일반 시민 중 누구에게 더 있을까요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Are you willing to pay more for eco-friendly products?</p><p class="kor-text" style="font-size: 13.5px;">(친환경 제품에 돈을 더 지불할 의향이 있나요?)</p></li>
+                    <li><p class="eng-text" style="font-size: 14.5px;">Do you believe technology can save the planet?</p><p class="kor-text" style="font-size: 13.5px;">(기술이 지구를 구할 수 있다고 믿나요?)</p></li>
+                </ul>
+            </div>
+            <div>
+                <h2><div class="icon-wrap" style="background: #f1f5f9; color: #64748b;"><i class="fa-solid fa-chalkboard-user"></i></div> Tutor Tip</h2>
+                <div class="card" style="background: #f8fafc; padding: 15px;">
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Use the frames first, then encourage a more natural answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 8px;">• Always ask one follow-up question after each opinion answer.</p>
+                    <p style="font-size: 13.5px; font-weight: 500; margin-bottom: 0;">• Help the student articulate the balance between economy and environment.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hw-card" style="margin-top: 10px;">
+            <div class="hw-badge">HOMEWORK</div>
+            <p style="font-size: 14.5px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; color: var(--primary);">Write 5-6 sentences about your opinion on climate change regulations. Include your opinion, one reason, a counter-opinion, and your final choice.</p>
+            <p class="kor-text" style="margin-bottom: 0;">(기후 변화 규제에 대한 당신의 의견을 5~6문장으로 적어보세요. 본인의 의견, 이유 하나, 반대 의견, 그리고 최종 선택을 포함하세요.)</p>
+        </div>
+        
+        <div class="footer">ⓒ 아인잉글리쉬 교재 - 무단 복제 및 배포를 금지합니다.</div>
+    </div>
+
+<script src="../tts.js"></script>
+</body>
+</html>
