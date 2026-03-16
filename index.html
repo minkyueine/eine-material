@@ -83,6 +83,10 @@
         .book-card--coming:hover { transform: none; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.05); }
         .book-card__cover { height: 120px; display: flex; align-items: center; justify-content: center; font-size: 3rem; position: relative; overflow: hidden; }
         .book-card__cover::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.1) 100%); pointer-events: none; }
+        .book-cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.45s ease; }
+        .book-card:hover .book-cover-img { transform: scale(1.07); }
+        .cover-tint { position: absolute; inset: 0; z-index: 1; }
+        .cover-label { position: relative; z-index: 2; color: #fff; font-size: 0.78rem; font-weight: 800; text-align: center; padding: 0 0.75rem; text-shadow: 0 1px 6px rgba(0,0,0,0.8), 0 0 20px rgba(0,0,0,0.4); line-height: 1.4; letter-spacing: -0.01em; }
         .coming-badge { position: absolute; top: 0.75rem; right: 0.75rem; background: rgba(0,0,0,0.22); backdrop-filter: blur(4px); color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.6rem; border-radius: 100px; letter-spacing: 0.04em; }
         .book-card__body { padding: 1rem 1.125rem 1.25rem; }
         .book-card__title { font-size: 0.925rem; font-weight: 700; color: var(--s800); margin-bottom: 0.2rem; line-height: 1.35; letter-spacing: -0.01em; }
@@ -491,28 +495,28 @@
             name: 'Starter Series',
             color: '#22c55e',
             books: [
-                { title: 'Basic Conversation Starter 1', emoji: '📘', weeks: 6, folder: 'EIN_Basic_Conversation_Starter_1', ready: true },
-                { title: 'Basic Conversation Starter 2', emoji: '📗', weeks: 6, folder: 'EIN_Basic_Conversation_Starter_2', ready: true },
-                { title: 'Basic Conversation Starter 3', emoji: '📙', weeks: 6, folder: 'EIN_Basic_Conversation_Starter_3', ready: true },
+                { title: 'Basic Conversation Starter 1', emoji: '📘', cover: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=240&fit=crop&q=80', weeks: 6, folder: 'EIN_Basic_Conversation_Starter_1', ready: true },
+                { title: 'Basic Conversation Starter 2', emoji: '📗', cover: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&h=240&fit=crop&q=80', weeks: 6, folder: 'EIN_Basic_Conversation_Starter_2', ready: true },
+                { title: 'Basic Conversation Starter 3', emoji: '📙', cover: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&h=240&fit=crop&q=80', weeks: 6, folder: 'EIN_Basic_Conversation_Starter_3', ready: true },
             ]
         },
         {
             name: 'Survival Series',
             color: '#3b82f6',
             books: [
-                { title: 'Travel Survival English',     emoji: '✈️', weeks: 8, folder: 'EIN_Travel_Survival_English_Final',              ready: true },
-                { title: 'Working Holiday Survival',    emoji: '💼', weeks: 8, folder: 'EIN_Working_Holiday_Survival_Final',              ready: true },
-                { title: 'Job Interview Survival',      emoji: '🎯', weeks: 8, folder: 'EIN_Job_Interview_Survival_40_Lessons_v2',        ready: true },
-                { title: 'Workplace Survival English',  emoji: '🏢', weeks: 8, folder: 'EIN_Workplace_Survival_English_40_Lessons_Full',  ready: true },
-                { title: 'Daily Conversation Survival', emoji: '💬', weeks: 8, folder: 'EIN_Daily_Conversation_Survival_Full_Workbook',   ready: true },
+                { title: 'Travel Survival English',     emoji: '✈️', cover: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Travel_Survival_English_Final',              ready: true },
+                { title: 'Working Holiday Survival',    emoji: '💼', cover: 'https://images.unsplash.com/photo-1503220317375-aaad61436b1b?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Working_Holiday_Survival_Final',              ready: true },
+                { title: 'Job Interview Survival',      emoji: '🎯', cover: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Job_Interview_Survival_40_Lessons_v2',        ready: true },
+                { title: 'Workplace Survival English',  emoji: '🏢', cover: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Workplace_Survival_English_40_Lessons_Full',  ready: true },
+                { title: 'Daily Conversation Survival', emoji: '💬', cover: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Daily_Conversation_Survival_Full_Workbook',   ready: true },
             ]
         },
         {
             name: 'Conversation Series',
             color: '#8b5cf6',
             books: [
-                { title: 'Opinion English', emoji: '💭', weeks: 8, folder: 'EIN_Opinion_English', ready: true },
-                { title: 'Debate English',  emoji: '🗣️', weeks: 8, folder: 'EIN_Debate_English', ready: true },
+                { title: 'Opinion English', emoji: '💭', cover: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Opinion_English', ready: true },
+                { title: 'Debate English',  emoji: '🗣️', cover: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=600&h=240&fit=crop&q=80', weeks: 8, folder: 'EIN_Debate_English', ready: true },
             ]
         },
     ];
@@ -566,10 +570,15 @@
 
     function bookCard(b, color) {
         if (!b.ready) {
+            const comingCover = b.cover
+                ? `<img class="book-cover-img" src="${b.cover}" alt="${b.title}" loading="lazy" onerror="this.style.display='none'">
+                   <div class="cover-tint" style="background:linear-gradient(160deg,${color}88 0%,rgba(0,0,0,0.65) 100%);"></div>
+                   <span class="cover-label">${b.title}</span>`
+                : `<span>${b.emoji}</span>`;
             return `
             <div class="book-card book-card--coming" data-title="${b.title.toLowerCase()}">
-                <div class="book-card__cover" style="background:linear-gradient(145deg,${color}15,${color}28);">
-                    <span>${b.emoji}</span>
+                <div class="book-card__cover" style="${b.cover ? '' : `background:linear-gradient(145deg,${color}15,${color}28);`}">
+                    ${comingCover}
                     <span class="coming-badge">준비중</span>
                 </div>
                 <div class="book-card__body">
@@ -593,10 +602,16 @@
             return `<tr><td>W${w}</td><td><div class="lesson-btns">${lessonBtns}</div></td></tr>`;
         }).join('');
 
+        const coverHTML = b.cover
+            ? `<img class="book-cover-img" src="${b.cover}" alt="${b.title}" loading="lazy" onerror="this.style.display='none'">
+               <div class="cover-tint" style="background:linear-gradient(160deg,${color}77 0%,rgba(0,0,0,0.6) 100%);"></div>
+               <span class="cover-label">${b.title}</span>`
+            : `<span>${b.emoji}</span>`;
+
         return `
         <div class="book-card" data-title="${b.title.toLowerCase()}">
-            <div class="book-card__cover" style="background:linear-gradient(145deg,${color}20,${color}40);">
-                <span>${b.emoji}</span>
+            <div class="book-card__cover" style="${b.cover ? '' : `background:linear-gradient(145deg,${color}20,${color}40);`}">
+                ${coverHTML}
             </div>
             <div class="book-card__body">
                 <p class="book-card__title">${b.title}</p>
